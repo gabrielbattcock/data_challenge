@@ -1,0 +1,12 @@
+---
+title: "Sample quarto document"
+format: html
+editor: visual
+bibliography: sample.bib
+---
+
+## Testing reference
+
+Here is how it should work
+[@ID]
+This is an example of reference calling from sample.bib. Edit sample.bib from text editor, but make sure it isnt saved as sample.bib.txt
