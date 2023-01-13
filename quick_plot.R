@@ -20,6 +20,6 @@ flu_A <- select(data, flu_A, year, week) %>%  pivot_wider(names_from = year,
                       data_21 = "2021"
                      )
 ggplot(data = flu_A, aes(week, data_15)) +
-  geom_point() +geom_line()
+  geom_point() + geom_line()
 
 
