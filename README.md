@@ -23,8 +23,9 @@ When someone's done something please add / tick things on the list below:
   - using [what]
   - @[who]
 - [ ] Excess Mortality
-  - using [what]
-  - @[who]
+  - using [EuroMomo](https://www.euromomo.eu/graphs-and-maps#excess-mortality) - z score only, stratified by country
+  - or we can use [ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard)
+  - @jack
 - [ ] (not sure if we do this) Vaccine coverage
 
 ### Cleaning
