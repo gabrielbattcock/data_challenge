@@ -48,7 +48,7 @@ ggplot(flu_A) +
   geom_line(aes(week, data_21, color = '2021')) + 
   guides(color = guide_legend("Year")) +
   ylab("Influenza cases UK (cases)") +
-  ggtitle("UK influenza A cases by year")
+  ggtitle("UK influenza A cases by year (swab testing)")
 
 ggplot(flu_B) +
   #geom_point(aes(week, data_14)) + 
@@ -67,5 +67,5 @@ ggplot(flu_B) +
   geom_line(aes(week, data_21, color = '2021')) + 
   guides(color = guide_legend("Year")) +
   ylab("Influenza cases UK (cases)") +
-  ggtitle("UK influenza B cases by year")
+  ggtitle("UK influenza B cases by year (swab testing)")
 
