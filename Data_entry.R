@@ -44,5 +44,12 @@ for (i in 1:length(sheet_vector_201819)) {
 names(df_list_201920) <- sheet_vector_201920
 
 #Chicanery 4.0
-
+path_2021 <- "data_2021.xlsx"
+df_list_2021 <- list()
+sheet_vector_2021 <- path_2021 %>% excel_sheets()
+for (i in 1:length(sheet_vector_2021)) {
+  
+  df_list_2021[[i]] <- tibble(read_xlsx(path_2021, sheet_vector_2021[i], skip=7))
+}
+names(df_list_2021) <- sheet_vector_2021
 
