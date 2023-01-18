@@ -1,11 +1,11 @@
 # Magnifique d'avoir ###########################################################
 
 # Initialize ###################################################################
-
 library(pacman)
 p_load(tidyverse, magrittr, here, lubridate, calendar) 
-# p_load(pdftools, curl, openxlsx, readODS) might need later
-# clearly we have very different package-loading habits
+p_load(pdftools, curl, openxlsx, readODS)
+
+here::i_am("mortality.R")
 
 # all bank hol since 2018, ics file from gov.uk
 bankhol <- ic_read(here("allData", "bankhol.ics")) %>%
@@ -34,9 +34,9 @@ ggplot(data=euromomo, aes(x=date, y=zscore, color=country)) +
 
 ## ONS, not finished yet, going to sleep now ----
 
-ons_link <- c("https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/",
-              "2023/publicationfileweek012023.xlsx",
-              "2022/ublicationfileweek522022.xlsx",
+ons_link <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/"
+years    <- c("2023/publicationfileweek012023.xlsx",
+              "2022/publicationfileweek522022.xlsx",
               "2021/publishedweek522021.xlsx",
               "2020/publishedweek532020.xlsx",
               "2019/publishedweek522019.xls",
@@ -44,11 +44,18 @@ ons_link <- c("https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/bir
               "2017/publishedweek522017.xls",
               "2016/publishedweek522016.xls"
               )
-mort <- tibble()
 
-mort <- read.xlsx(paste0(), 
-              sheet = x, rows = c(), rowNames = F, colNames = T,
-              skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T)
+# cod2023 <- read.xlsx(paste0(ons_link, years[year]), sheet = x, 
+#           rows = c(), rowNames = F, colNames = T,
+#           skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T)
+# 
+# 
+
+cod2022 <- read.xlsx(paste0(ons_link, years[2]), sheet = 6,
+                     rows = c(6:59), rowNames = F, colNames = T,
+                     skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T)
+
+cause <- 
     
 {
 "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2023/publicationfileweek012023.xlsx"
