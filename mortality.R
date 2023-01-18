@@ -1,16 +1,16 @@
 # Magnifique d'avoir ###########################################################
 
-# all bank hol since 2018, ics file from gov.uk
-bankhol <- ic_read(here("allData", "bankhol.ics")) %>%
-            select(`DTSTART;VALUE=DATE`, SUMMARY) %>%
-            rename(DATE = `DTSTART;VALUE=DATE`)
-
 # Initialize ###################################################################
 
 library(pacman)
 p_load(tidyverse, magrittr, here, lubridate, calendar) 
 # p_load(pdftools, curl, openxlsx, readODS) might need later
 # clearly we have very different package-loading habits
+
+# all bank hol since 2018, ics file from gov.uk
+bankhol <- ic_read(here("allData", "bankhol.ics")) %>%
+  select(`DTSTART;VALUE=DATE`, SUMMARY) %>%
+  rename(DATE = `DTSTART;VALUE=DATE`)
 
 # Excess Mortality #############################################################
 ## EuroMomo, really easy one ----
