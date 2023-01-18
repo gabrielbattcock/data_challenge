@@ -1,5 +1,4 @@
-﻿,Severe_mandatory,,,,,,sentinal_hospital,,,,,,sentinal_hospital_death,,,
-Week no,H1N1pdm09,H3N2,A_unknown,B,rate,death,H1N1pdm09,H3N2,A_unknown,B,rate,USISS_sev_res_failure_confirmed,H1N1pdm09,H3N2,A_unknown,B
+﻿Week no,sev_H1N1pdm09,sev_H3N2,sev_A_unknown,sev_B,sev_rate,death,sent_H1N1pdm09,sent_H3N2,sent_A_unknown,sent_B,sent_rate,USISS_sev_res_failure_confirmed,,,,
 40,0,0,2,0,0,0,6,1,2,3,0.14,0,,,,
 41,1,0,1,1,0.01,0,1,5,0,2,0.09,0,,,,
 42,0,0,1,0,0,8,8,0,4,0,0.06,0,,,,
