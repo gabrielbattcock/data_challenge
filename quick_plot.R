@@ -20,16 +20,16 @@ flu_A <- select(data, flu_A, year, week) %>%  pivot_wider(names_from = year,
                      )
 
 flu_B <- select(data, flu_B, year, week) %>%  pivot_wider(names_from = year,
-                                                          values_from = flu_B) %>% rename(
-                                                            data_14 = "2014", 
-                                                            data_15 = "2015",
-                                                            data_16 = "2016", 
-                                                            data_17 = "2017",
-                                                            data_18 = "2018", 
-                                                            data_19 = "2019", 
-                                                            data_20 = "2020", 
-                                                            data_21 = "2021"
-                                                          )
+                      values_from = flu_B) %>% rename(
+                      data_14 = "2014", 
+                      data_15 = "2015",
+                      data_16 = "2016", 
+                      data_17 = "2017",
+                      data_18 = "2018", 
+                      data_19 = "2019", 
+                      data_20 = "2020", 
+                      data_21 = "2021"
+                    )
 
 ggplot(flu_A) +
   #geom_point(aes(week, data_14)) + 
@@ -48,7 +48,7 @@ ggplot(flu_A) +
   geom_line(aes(week, data_21, color = '2021')) + 
   guides(color = guide_legend("Year")) +
   ylab("Influenza cases UK (cases)") +
-  ggtitle("UK influenza A cases by year")
+  ggtitle("UK influenza A cases by year (swab testing)")
 
 ggplot(flu_B) +
   #geom_point(aes(week, data_14)) + 
@@ -67,7 +67,5 @@ ggplot(flu_B) +
   geom_line(aes(week, data_21, color = '2021')) + 
   guides(color = guide_legend("Year")) +
   ylab("Influenza cases UK (cases)") +
-  ggtitle("UK influenza B cases by year")
-
-
+  ggtitle("UK influenza B cases by year (swab testing)")
 
