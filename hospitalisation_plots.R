@@ -55,16 +55,19 @@ for (i in 1:length(sheet_vector_2022)) {
   df_list_2022[[i]] <- tibble(read_xlsx(path, sheet_vector_2022[i], skip=7))
 }
 names(df_list_2022) <- sheet_vector_2022
-s_22_23<- df_list_2022$`Figure_35__SARI_Watch-hospital`$`Influenza hospital admission rate` 
-s_22_23 %>% 
+s_22_23 <- df_list_2022$`Figure_35__SARI_Watch-hospital` %>% 
+  filter( df_list_2022$`Figure_35__SARI_Watch-hospital`$`Week number`>39) %>% 
+  pull(3)
+
+nas <- rep(NA, 20)
+s_22_23 <- c(s_22_23, nas)
 #create one data frame for the weeks and rate per year
 seasons <- data.frame(week, s_17_18, s_18_19, s_19_20, s_22_23) 
 
-
+print(df_list_2022$`Figure_35__SARI_Watch-hospital`, n = 52)
 
 #plot all lines on pne plot
 ggplot(seasons) +
-
   geom_line(aes(week, s_17_18, color = '2017-18')) +
   geom_line(aes(week, s_18_19, color = '2018-19')) +
   geom_line(aes(week, s_19_20, color = '2019-20')) +
