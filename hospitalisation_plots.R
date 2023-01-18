@@ -56,10 +56,13 @@ for (i in 1:length(sheet_vector_2022)) {
 }
 names(df_list_2022) <- sheet_vector_2022
 s_22_23 <- df_list_2022$`Figure_35__SARI_Watch-hospital` %>% 
-  filter(df_list_2022$`Figure_35__SARI_Watch-hospital`$`Week number`<21 | df_list_2022$`Figure_35__SARI_Watch-hospital`$`Week number`>39) %>% 
+  filter( df_list_2022$`Figure_35__SARI_Watch-hospital`$`Week number`>39) %>% 
   pull(3)
+
+nas <- rep(NA, 20)
+s_22_23 <- c(s_22_23, nas)
 #create one data frame for the weeks and rate per year
-seasons <- data.frame(week, s_17_18, s_18_19, s_19_20) 
+seasons <- data.frame(week, s_17_18, s_18_19, s_19_20, s_22_23) 
 
 print(df_list_2022$`Figure_35__SARI_Watch-hospital`, n = 52)
 
