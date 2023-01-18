@@ -9,14 +9,16 @@ library(gtsummary)
 library(scales)
 library(ggrepel)
 library(mada)
+library(here)
 p_load(tidyverse, knitr, RColorBrewer, kableExtra, ggpubr, ggplot2)
+here::i_am()
 path <- "2022-Influenza_excl.xlsx"
 df_list_2022 <- list()
-#Some chicanery
+#Generate list of tibbles for 2022 data
 sheet_vector_2022 <- path %>% excel_sheets()
 for (i in 1:length(sheet_vector_2022)) {
   
- df_list_2022[[i]] <- tibble(read_xlsx(path, sheet_vector[i], skip=7))
+ df_list_2022[[i]] <- tibble(read_xlsx(path, sheet_vector_2022[i], skip=7))
 }
 names(df_list_2022) <- sheet_vector_2022
 
@@ -43,7 +45,7 @@ for (i in 1:length(sheet_vector_201819)) {
 }
 names(df_list_201920) <- sheet_vector_201920
 
-#Chicanery 4.0
+#List of tibbles for 2021 data
 path_2021 <- "data_2021.xlsx"
 df_list_2021 <- list()
 sheet_vector_2021 <- path_2021 %>% excel_sheets()
