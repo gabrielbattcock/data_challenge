@@ -12,9 +12,10 @@ library(mada)
 library(here)
 p_load(tidyverse, knitr, RColorBrewer, kableExtra, ggpubr, ggplot2)
 here::i_am()
+#Generate list of tibbles for 2022 data
 path <- "2022-Influenza_excl.xlsx"
 df_list_2022 <- list()
-#Generate list of tibbles for 2022 data
+
 sheet_vector_2022 <- path %>% excel_sheets()
 for (i in 1:length(sheet_vector_2022)) {
   
