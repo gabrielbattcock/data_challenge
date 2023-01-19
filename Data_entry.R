@@ -11,7 +11,7 @@ library(ggrepel)
 library(mada)
 library(here)
 p_load(tidyverse, knitr, RColorBrewer, kableExtra, ggpubr, ggplot2)
-here::i_am()
+here::i_am("Data_entry.r")
 #Generate list of tibbles for 2022 data
 path <- "2022-Influenza_excl.xlsx"
 df_list_2022 <- list()

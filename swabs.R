@@ -36,7 +36,9 @@ swab_season22_23$flu_A <- rowSums(swab_season22_23[2:4])
 colnames(swab_season22_23)[5] = 'flu_B'
 
 swab_season22_23 <- swab_season22_23 %>% select ( flu_A,
-                              flu_B)
+                                                  flu_B)
+
+
 
 # Add id number to plot the data
 swab_season17_18$id <- 1:nrow(swab_season17_18)
