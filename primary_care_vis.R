@@ -79,6 +79,11 @@ primary_care_vis <- primary_care_total %>% pivot_longer(cols = 2:5, names_to = "
       hjust = 1
     )) 
 
+
+primary_care_vis <- primary_care_total %>% 
+  pivot_longer(cols = 2:5, names_to = "Flu Season", values_to = "Rate") %>%
+  mutate(Weeks = ifelse(Weeks>=40, Weeks-39, Weeks+13))
+
 ggplot(primary_care_vis, aes(x = Weeks, y = Rate)) +
   geom_line(lwd = 1.5, aes(colour = `Flu Season`)) +
   labs(x="Week", y="Rate of consultations (per 100,000)",
@@ -102,14 +107,4 @@ ggplot(primary_care_vis, aes(x = Weeks, y = Rate)) +
   scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4)) +
   coord_cartesian(ylim = c(0, 60), expand = FALSE)
   scale_y_continuous(breaks = seq(0, 60, 10), 
-                     minor_breaks = seq(0, 60, 5)) +
-  scale_fill_manual("Threshold boundaries",values="grey12")
-  
-  +
-  scale_linetype_manual(name = "Avg across all ICUs", 
-                          values = c(1, 1, 1, 1), 
-                          guide = guide_legend(reverse = T,
-                          override.aes = list(color = c(7, 5, 2, 1))))
- 
-  
-
+                     minor_breaks = seq(0, 60, 5)) 
