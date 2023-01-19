@@ -10,20 +10,9 @@ library(scales)
 library(ggrepel)
 library(mada)
 library(here)
-p_load(tidyverse, knitr, RColorBrewer, kableExtra, ggpubr, ggplot2)
+library(reshape2)
+p_load(tidyverse, knitr, RColorBrewer, kableExtra, ggpubr, ggplot2, wesanderson, hrbrthemes)
 here::i_am("source_data_entry.r")
-#Generate list of tibbles for 2022 data
-path <- "2022-Influenza_excl.xlsx"
-df_list_2022 <- list()
-
-sheet_vector_2022 <- path %>% excel_sheets()
-for (i in 1:length(sheet_vector_2022)) {
-  
- df_list_2022[[i]] <- tibble(read_xlsx(path, sheet_vector_2022[i], skip=7))
-}
-names(df_list_2022) <- sheet_vector_2022
-
-
 
 #2018-19 flu season
 path_18_19 <- "2018-19_flu_season_data.xlsx"
@@ -55,6 +44,18 @@ for (i in 1:length(sheet_vector_2021)) {
   df_list_2021[[i]] <- tibble(read_xlsx(path_2021, sheet_vector_2021[i], skip=7))
 }
 names(df_list_2021) <- sheet_vector_2021
+
+#Generate list of tibbles for 2022 data
+path <- "2022-Influenza_excl.xlsx"
+df_list_2022 <- list()
+
+sheet_vector_2022 <- path %>% excel_sheets()
+for (i in 1:length(sheet_vector_2022)) {
+  
+  df_list_2022[[i]] <- tibble(read_xlsx(path, sheet_vector_2022[i], skip=7))
+}
+names(df_list_2022) <- sheet_vector_2022
+
 
 #Creating data for swabs
 swabs <- tibble(read_csv(here("allData", "swab", "2014 - 2021 swab data.csv")))
@@ -96,3 +97,38 @@ swab_season17_18$id <- 1:nrow(swab_season17_18)
 swab_season18_19$id <- 1:nrow(swab_season18_19)
 swab_season19_20$id <- 1:nrow(swab_season19_20)
 swab_season22_23$id <- 1:nrow(swab_season22_23)
+# Create data frames for 2 separate flu types
+typeA1 <- tibble(id = swab_season17_18$id,
+                 '17-18' = swab_season17_18$flu_A,
+                 '18-19' = swab_season18_19$flu_A,
+                 '19-20' = swab_season19_20$flu_A,
+                 '22-23' = swab_season22_23$flu_A)
+
+typeA <- melt(typeA1 ,  id.vars = 'id', variable.name = 'series')
+
+typeB1 <- tibble(id = swab_season17_18$id,
+                 '17-18' = swab_season17_18$flu_B,
+                 '18-19' = swab_season18_19$flu_B,
+                 '19-20' = swab_season19_20$flu_B,
+                 '22-23' = swab_season22_23$flu_B)
+
+typeB <- melt(typeB1 ,  id.vars = 'id', variable.name = 'series')
+
+### Hospitalisation data
+
+#2017 hospital data data
+data_2017 <- read.csv("2017-18_flu_hospital_data.csv")
+week <- data_2017$Week.no
+week <- ifelse(week>=40, week-39, week+13)
+
+#The season-by-season data
+hosp_17_18 <- data_2017$sent_rate
+hosp_18_19 <- df_list_201819$USISS_Sentinel$`2018-19 Hospital admission (rate)`
+hosp_19_20 <- df_list_201920$USISS_Sentinel$`Hospital admission (rate)`
+hosp_22_23 <- df_list_2022$`Figure_35__SARI_Watch-hospital` %>% 
+  filter( df_list_2022$`Figure_35__SARI_Watch-hospital`$`Week number`>39) %>% 
+  pull(3)
+nas <- rep(NA, 20)
+hosp_22_23 <- c(hosp_22_23, nas)
+#create one data frame for the weeks and hospitalisation rate per year
+hosp_seasons <- data.frame(week, hosp_17_18, hosp_18_19, hosp_18_19, hosp_22_23) 
