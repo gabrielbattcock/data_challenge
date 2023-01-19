@@ -10,11 +10,11 @@ library(ggrepel)
 library(mada)
 library(hrbrthemes)
 p_load(tidyverse, knitr, RColorBrewer, kableExtra, ggpubr, ggplot2)
-
+#Some data management to create the flu seasons
 primary_care_201718 <- read_csv("allData/gp/2017_2018/gp_consultations_17_18.csv")
 primary_care_2021 <- df_list_2021$`Figure 33&34. Primary care`$`ILI rate`[2:53]
 primary_care_2022 <- df_list_2022$`Figure_31&32__Primary_care`$`ILI rate`
-
+#This is the tibble we're using
 primary_care_total <- tibble(
   Weeks = c(40:52, 1:20),
   `2017-18` = as.numeric(primary_care_201718$`GP ILI consulation rates (all ages)`[2:34]),
@@ -23,14 +23,19 @@ primary_care_total <- tibble(
   `2021-22` = c(primary_care_2021[40:52], primary_care_2022[1:20])
 )
 
-#week <- ifelse(week>=40, week-39, week+13)
+#So doing some more tidyverse tidying. Pivoting longer to avoid using multiple lines
 primary_care_vis <- primary_care_total %>% pivot_longer(cols = 2:5, names_to = "Flu Season", values_to = "Rate") %>%
+  #Gabriels pattented rearranging code pt.1
   mutate(Weeks = ifelse(Weeks>=40, Weeks-39, Weeks+13)) %>%
+  #The GGPLOT stuff
   ggplot() + aes(x=Weeks, y=Rate, colour=`Flu Season`) + 
+  #The ribbons are the ranges from below
+#https://www.gov.uk/guidance/sources-of-uk-flu-data-influenza-surveillance-in-the-uk#clinical-surveillance-through-primary-care
   geom_ribbon(aes(ymin=0,ymax=12.7),fill="#B7CE89", alpha=0.08)+
   geom_ribbon(aes(ymin=12.7,ymax=24.1),fill="#FEFF67", alpha=0.08)+
   geom_ribbon(aes(ymin=24.1,ymax=60), outline.type="lower",fill="#F7B27E", alpha=0.08)+
   geom_line() + theme_minimal() +
+  #My own custom scale, replace with wes please Sczymon
    scale_color_manual(values=c( "#2F4F4F","#528B8B","#79CDCD","#8DEEEE")) +
   #Previous colour scheme values=c("#8DEEEE","#79CDCD","#528B8B", "#2F4F4F")
   scale_x_discrete(name = "Week",
@@ -41,11 +46,13 @@ primary_care_vis <- primary_care_total %>% pivot_longer(cols = 2:5, names_to = "
                               "11", "12", "13", "14", "15", "16",
                               "17", "18", "19", "20"
                    )) +
+  #Labels
   labs(
     title="GP consultations for Influenza type illness per 100,000",
     subtitle="As collected by the RCGP in England",
     y="Rate of consultations (per 100,000)"
   ) +
+  #Some stolen code
   theme( # Adjustments for aesthetic improvements and formatting
     plot.title = element_text(
       hjust = 0.5,
