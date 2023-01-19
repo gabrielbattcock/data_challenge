@@ -1,16 +1,16 @@
 # Magnifique d'avoir ###########################################################
 
-# Initialize ###################################################################
-library(pacman)
-p_load(tidyverse, magrittr, here, lubridate, calendar) 
-p_load(pdftools, curl, openxlsx, readODS)
-
-here::i_am("mortality.R")
-
 # all bank hol since 2018, ics file from gov.uk
 bankhol <- ic_read(here("allData", "bankhol.ics")) %>%
-  select(`DTSTART;VALUE=DATE`, SUMMARY) %>%
-  rename(DATE = `DTSTART;VALUE=DATE`)
+            select(`DTSTART;VALUE=DATE`, SUMMARY) %>%
+            rename(DATE = `DTSTART;VALUE=DATE`)
+
+# Initialize ###################################################################
+library(pacman)
+p_load(tidyverse, magrittr, here, lubridate, calendar) # data manipulation
+p_load(readxl, pdftools, curl, openxlsx, readODS)      # file reading utils
+
+here::i_am("mortality.R")
 
 # Excess Mortality #############################################################
 ## EuroMomo, really easy one ----
@@ -32,8 +32,9 @@ ggplot(data=euromomo, aes(x=date, y=zscore, color=country)) +
     ggtitle("Mortality z-score by nation, 2017w03 - 2023w01")
     # it could be much better but that's all i can bother with right now
 
-## ONS, not finished yet, going to sleep now ----
-
+## ONS ----
+## cod means "cause of death"
+## tot means "total deaths"
 ons_link <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/"
 years    <- c("2023/publicationfileweek012023.xlsx",
               "2022/publicationfileweek522022.xlsx",
@@ -45,18 +46,78 @@ years    <- c("2023/publicationfileweek012023.xlsx",
               "2016/publishedweek522016.xls"
               )
 
-# cod2023 <- read.xlsx(paste0(ons_link, years[year]), sheet = x, 
-#           rows = c(), rowNames = F, colNames = T,
-#           skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T)
-# 
-# 
-
+### 2022 ----
 cod2022 <- read.xlsx(paste0(ons_link, years[2]), sheet = 6,
                      rows = c(6:59), rowNames = F, colNames = T,
-                     skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T)
+                     skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T) %>%
+            select(c(1,5,6))
 
-cause <- 
-    
+stopifnot(dim(cod2022) == c(52,3))
+
+### 2021 ----
+cod2021 <- read.xlsx(paste0(ons_link, years[3]), sheet = 6, 
+                     rows = c(6,7,11,12,15,16,19,20), rowNames = F, colNames = T,
+                     skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T) %>%
+            drop_na() %>%
+            t() %>%
+            as_tibble(.name_repair = "unique") %>%
+            mutate(Week.number = as.numeric(rownames(.))-1, .before = 1)  %>%
+            select(c(1,5,6))
+colnames(cod2021) <- as.character(cod2021[1,])
+cod2021 %<>% slice(-1)
+
+stopifnot(dim(cod2021) == c(52,3))
+
+### 2020 ----
+### data structure changed due to covid; currently done using part of ONS bulletin
+### could also include avg for past five years by `select(2:5)`
+tmplink <- "https://www.ons.gov.uk/visualisations/dvc1221/fig2/datadownload.xlsx"
+cod2020 <- read.xlsx(tmplink, sheet = 1, 
+                     rows = c(7:60), rowNames = F, colNames = T,
+                     skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T) %>%
+            select(3:4) %>%
+            mutate(week = row_number(), .before = 1)
+
+stopifnot(dim(cod2020) == c(53,3))
+
+### 2019 ----
+### this variable is not actually useful
+destfile <- curl_download(paste0(ons_link, years[5]), destfile = here("allData", "mortality", "2019.xls"))
+
+# the table is wide and contains a mix of  type:date and type:numeric
+suppressWarnings( 
+cod2019 <- read_xls(destfile, sheet = 4, range = "A4:BB13", col_types = "guess") %>%
+            drop_na("1") %>%
+            unite(col = "head", c(`Week number`, `...2`), 
+                  na.rm = T, remove = T) %>%
+            slice(-1) %>%
+            t() %>%
+            as_tibble() %>%
+            mutate(week = row_number()-1, .before = 1)
+)
+colnames(cod2019) <- as.character(cod2019[1,])
+cod2019 %<>% slice(-1)
+
+stopifnot(dim(cod2019) == c(52,4))
+          
+### historical up to 2018 ----
+
+tmplink <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/adhocs/14188numberofdeathsregisteredfiveyearaverage20162017201820192020inenglandandwalesbyweek/fiveyearaverageenglandandwales1.xlsx"
+tot2018 <- read.xlsx(tmplink, sheet = 3,
+                     rows = c(5:57), rowNames = F, colNames = T,)
+
+### historical (2016~2018) weekly mortality due to J09:J18 ----
+### nothing about "involving", just "due to"
+link <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/adhocs/15421numberofdeathsduetoinfluenzaandpneumoniaj09j18andfiveyearaveragebyweekregisteredin2016to2019and2021englandandwales/weeklyaverageinfluenzaandpneumoniadeaths1.xlsx"
+historical <- read.xlsx(link, sheet = 4, rows = c(5:57), rowNames = F, colNames = T,
+                        skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T)
+
+for (i in 2016:2018) {
+  name = paste0("cod",i)
+  assign(name, tibble(historical[1], NA, historical[i-2014]))
+  stopifnot(dim(name) == c(52,3))
+}
+
 {
 "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2023/publicationfileweek012023.xlsx"
     
@@ -81,9 +142,9 @@ cause <-
 # Final end of season  end of February 2019 cumulative uptake data for England 
 # on influenza vaccinations given from 1 Sep 2018 to 28 Feb 2019.
 
-vaccine_18 <- read.xlsx(here("allData", "vaccine", "vaccine18.xlsx"),
-                      sheet = 3, rows = c(4:25, 27:48, 50:71), rowNames = F, colNames = T,
-                      skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T)
+vac18 <- read.xlsx(here("allData", "vaccine", "vaccine18.xlsx"), sheet = 3, 
+                   rows = c(4:25, 27:48, 50:71), rowNames = F, colNames = T,
+                   skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T)
 
 colnames(vaccine_18) %<>% paste(vaccine_18[1,], vaccine_18[2,], sep = '_')
 
