@@ -55,7 +55,23 @@ for (i in 1:length(sheet_vector_2022)) {
   df_list_2022[[i]] <- tibble(read_xlsx(path, sheet_vector_2022[i], skip=7))
 }
 names(df_list_2022) <- sheet_vector_2022
-
+#Primary care data cleaning
+#Some data management to create the flu seasons
+primary_care_201718 <- read_csv("allData/gp/2017_2018/gp_consultations_17_18.csv")
+primary_care_2021 <- df_list_2021$`Figure 33&34. Primary care`$`ILI rate`[2:53]
+primary_care_2022 <- df_list_2022$`Figure_31&32__Primary_care`$`ILI rate`
+#This is the tibble we're using
+primary_care_total <- tibble(
+  Weeks = c(40:52, 1:20),
+  `2017-18` = as.numeric(primary_care_201718$`GP ILI consulation rates (all ages)`[2:34]),
+  `2018-19` = as.numeric(df_list_201819$RCGP$...3[2:34]),
+  `2019-20` = as.numeric(df_list_201920$RCGP$...4[2:34]),
+  `2021-22` = c(primary_care_2021[40:52], primary_care_2022[1:20])
+)
+#Now just creating the final table for data presentation
+primary_care_vis <- primary_care_total %>% 
+  pivot_longer(cols = 2:5, names_to = "Flu Season", values_to = "Rate") %>%
+  mutate(Weeks = ifelse(Weeks>=40, Weeks-39, Weeks+13))
 
 #Creating data for swabs
 swabs <- tibble(read_csv(here("allData", "swab", "2014 - 2021 swab data.csv")))
