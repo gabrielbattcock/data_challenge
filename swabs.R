@@ -5,7 +5,7 @@ library(pacman)
 p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 
 here::i_am("swabs.R")
-
+#Aizaz started to copy here for source_data_entry
 swabs <- tibble(read_csv(here("allData", "swab", "2014 - 2021 swab data.csv")))
 swabs <- swabs[,-1] %>% select(-year, -week) 
 
@@ -46,6 +46,7 @@ swab_season18_19$id <- 1:nrow(swab_season18_19)
 swab_season19_20$id <- 1:nrow(swab_season19_20)
 swab_season22_23$id <- 1:nrow(swab_season22_23)
 
+#Aizaz stopped copying here for source_data_entry
 
 # Create data frames for 2 separate flu types
 typeA1 <- tibble(id = swab_season17_18$id,
