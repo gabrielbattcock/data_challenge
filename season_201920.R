@@ -46,7 +46,7 @@ ggplot(season_201920) +
 
 
 #normalising it so all the peaks are the same heigh (swab data is in number not rate)
-hospital_norm <- hospital/mean(hospital), rm.na = T)
+# hospital_norm <- hospital/mean(hospital), rm.na = T)
 
 
 
