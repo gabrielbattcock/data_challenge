@@ -33,8 +33,7 @@ ggplot(data=euromomo, aes(x=date, y=zscore, color=country)) +
     # it could be much better but that's all i can bother with right now
 
 ## ONS ----
-## cod means "cause of death"
-## tot means "total deaths"
+## cod means "cause of death" & tot means "total deaths"
 ons_link <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/"
 years    <- c("2023/publicationfileweek012023.xlsx",
               "2022/publicationfileweek522022.xlsx",
@@ -80,13 +79,43 @@ cod2020 <- read.xlsx(tmplink, sheet = 1,
 
 stopifnot(dim(cod2020) == c(53,3))
 
-### 2019 ----
-### this variable is not actually useful
+### historical (2016~2019) ----
+### weekly mortality due to J09:J18, nothing about "involving", just "due to"
+link <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/adhocs/15421numberofdeathsduetoinfluenzaandpneumoniaj09j18andfiveyearaveragebyweekregisteredin2016to2019and2021englandandwales/weeklyaverageinfluenzaandpneumoniadeaths1.xlsx"
+historical <- read.xlsx(link, sheet = 4, rows = c(5:57), rowNames = F, colNames = T,
+                        skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T)
+
+for (i in 2016:2019) {
+  name = paste0("cod",i)
+  assign(name, tibble(historical[1], NA, historical[i-2014]))
+  #stopifnot(dim(name) == c(52,3))
+}
+
+{
+"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2023/publicationfileweek012023.xlsx"
+"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2022/publicationfileweek522022.xlsx"
+"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2021/publishedweek522021.xlsx"
+"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2020/publishedweek532020.xlsx"
+"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2019/publishedweek522019.xls"
+"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2018/publishedweek522018withupdatedrespiratoryrow.xls"
+"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2017/publishedweek522017.xls"
+"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2016/publishedweek522016.xls"
+} # fold these full length links just in case 
+
+# 2010 - 2015 also available but we don't care alright
+          
+
+### > gather a list of tibbles ----
+allmort <- list(cod2016,cod2017,cod2018,cod2019,cod2020,cod2021,cod2022)
+# rbind them and slice by season
+
+### [not useful] Total 2019 ----
 destfile <- curl_download(paste0(ons_link, years[5]), destfile = here("allData", "mortality", "2019.xls"))
 
 # the table is wide and contains a mix of  type:date and type:numeric
+# am i bovvered though?
 suppressWarnings( 
-cod2019 <- read_xls(destfile, sheet = 4, range = "A4:BB13", col_types = "guess") %>%
+tot2019 <- read_xls(destfile, sheet = 4, range = "A4:BB13", col_types = "guess") %>%
             drop_na("1") %>%
             unite(col = "head", c(`Week number`, `...2`), 
                   na.rm = T, remove = T) %>%
@@ -99,46 +128,16 @@ colnames(cod2019) <- as.character(cod2019[1,])
 cod2019 %<>% slice(-1)
 
 stopifnot(dim(cod2019) == c(52,4))
-          
-### historical up to 2018 ----
 
+### [not useful] ----
+### total deaths registered per week in England and Wales, 2016~2021
 tmplink <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/adhocs/14188numberofdeathsregisteredfiveyearaverage20162017201820192020inenglandandwalesbyweek/fiveyearaverageenglandandwales1.xlsx"
 tot2018 <- read.xlsx(tmplink, sheet = 3,
                      rows = c(5:57), rowNames = F, colNames = T,)
 
-### historical (2016~2018) weekly mortality due to J09:J18 ----
-### nothing about "involving", just "due to"
-link <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/adhocs/15421numberofdeathsduetoinfluenzaandpneumoniaj09j18andfiveyearaveragebyweekregisteredin2016to2019and2021englandandwales/weeklyaverageinfluenzaandpneumoniadeaths1.xlsx"
-historical <- read.xlsx(link, sheet = 4, rows = c(5:57), rowNames = F, colNames = T,
-                        skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T)
 
-for (i in 2016:2018) {
-  name = paste0("cod",i)
-  assign(name, tibble(historical[1], NA, historical[i-2014]))
-  stopifnot(dim(name) == c(52,3))
-}
 
-{
-"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2023/publicationfileweek012023.xlsx"
-    
-"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2022/publicationfileweek522022.xlsx"
-
-"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2021/publishedweek522021.xlsx"
-
-"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2020/publishedweek532020.xlsx"
-
-"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2019/publishedweek522019.xls"
-
-"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2018/publishedweek522018withupdatedrespiratoryrow.xls"
-
-"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2017/publishedweek522017.xls"
-
-"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2016/publishedweek522016.xls"
-} # fold these full length links just in case 
-# 2010 - 2015 also available but we don't care alright
-
-# ______ Disregard everything below this line ______ ###########################
-## Vaccine Uptake ##############################################################
+# Vaccine Uptake ###############################################################
 # Final end of season  end of February 2019 cumulative uptake data for England 
 # on influenza vaccinations given from 1 Sep 2018 to 28 Feb 2019.
 
@@ -146,15 +145,41 @@ vac18 <- read.xlsx(here("allData", "vaccine", "vaccine18.xlsx"), sheet = 3,
                    rows = c(4:25, 27:48, 50:71), rowNames = F, colNames = T,
                    skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T)
 
-colnames(vaccine_18) %<>% paste(vaccine_18[1,], vaccine_18[2,], sep = '_')
+colnames(vac18) %<>% paste(vac18[1,], vac18[2,], sep = '_')
 
-vaccine_18 %>%
+vac18 %>%
   tibble() %>%
   slice(1:67) %>%
   filter(substr(.$`X1_Org Code_Org Code`,1,1) == 'Y') %>%
   view()
 
-## Laboratory Surveillance #####################################################
+# ______ Disregard everything below this line ______ ###########################
+# Community Surveillance ######################################################
+## Fit notes issued by GP practices, England, Apr 2018 to Sep 2022
+# CSV (Episodes with diagnosis and duration)
+fitnotes <- read_csv('https://files.digital.nhs.uk/AF/AC228F/gp-fit-note-eng-csv-ep-dur-sep-22.csv')
+
+fitnotes %>%
+  mutate(Date = dmy(paste0("01", Date))) %>%
+  mutate(Resp = grepl("respiratory", `Diagnosis (ICD10 chapter)`), 
+         .before = 3, .keep = "unused") %>%
+  group_by(Date, Resp, Duration) %>%
+  summarise(mean = mean(`Count of episodes`)) -> fitnotes_sum
+
+# test viz
+ggplot(fitnotes_sum, aes(Date, mean)) +
+  geom_bar(aes(fill = Resp), position = "dodge", stat = "identity")
+
+# get cumulative num of ppl taking sick leave
+# by modelling using normal (or χ2) distribution
+sick <- tibble(unique(fitnotes_sum$Date))
+
+
+hist(rchisq(200,6))
+
+
+
+## (done in other script) Laboratory Surveillance #####################################################
 # Influenze virus detections reported to FluNet
 
 flunet <- read_csv('/Users/jackliu/Downloads/flunet.csv',) %>%
@@ -175,8 +200,3 @@ flunet %>%
 ggplot(flunet.sen) +
   geom_smooth(aes(x = ISO_SDATE, y = AH1N12009), color=2, method = 'lm') +
   geom_path(aes(x = ISO_SDATE, y = BNOTDETERMINED), color=3)
-
-## Community Surveillance ######################################################
-# Fit notes issued by GP practices, England, April 2018 to September 2022
-# CSV (Episodes with diagnosis and duration)
-fitnotes <- read_csv('https://files.digital.nhs.uk/AF/AC228F/gp-fit-note-eng-csv-ep-dur-sep-22.csv')
