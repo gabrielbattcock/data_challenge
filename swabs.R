@@ -70,31 +70,38 @@ plotA <- ggplot(typeA, aes(id, value)) +
   ggtitle("Positive influenza type A test results") +
   theme_ipsum() +
   ylab("Number of cases") +
-  scale_x_discrete(name = "Week",
-                   limits = c("40", "41", "42", "43", "44",
-                              "45", "46", "47", "48", "49",
-                              "50", "51", "52", "1", "2", "3",
-                              "4", "5", "6", "7", "8", "9", "10",
-                              "11", "12", "13", "14", "15", "16",
-                              "17", "18", "19", "20")) +
+  xlab("Week") +
+  scale_x_continuous(breaks = seq(0, 34, 2), 
+                     minor_breaks = seq(0, 34, 1),
+                     labels = c("40", "42", "44",
+                                "46", "48",
+                                "50", "52", "2",
+                                "4", "6", "8", "10",
+                                "12","14","16",
+                                "18", "20", "22")) +
+  scale_y_continuous(breaks = seq(0, 3500, 1000)) +
+  coord_cartesian(ylim = c(0,3500)) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
   scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4))
 
-
 plotB <- ggplot(typeB, aes(id, value)) +
   geom_line(lwd = 1.5, aes(colour = series)) +
   ggtitle("Positive influenza type B test results") +
-  theme_ipsum_() +
+  theme_ipsum() +
   ylab("Number of cases") +
-  scale_x_discrete(name = "Week",
-                   limits = c("40", "41", "42", "43", "44",
-                              "45", "46", "47", "48", "49",
-                              "50", "51", "52", "1", "2", "3",
-                              "4", "5", "6", "7", "8", "9", "10",
-                              "11", "12", "13", "14", "15", "16",
-                              "17", "18", "19", "20")) +
+  xlab("Week") +
+  scale_x_continuous(breaks = seq(0, 34, 2), 
+                     minor_breaks = seq(0, 34, 1),
+                     labels = c("40", "42", "44",
+                                "46", "48",
+                                "50", "52", "2",
+                                "4", "6", "8", "10",
+                                "12","14","16",
+                                "18", "20", "22")) +
+  scale_y_continuous(breaks = seq(0, 3500, 1000)) +
+  coord_cartesian(ylim = c(0,3500)) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
