@@ -86,7 +86,7 @@ plotA <- ggplot(typeA, aes(id, value)) +
 plotB <- ggplot(typeB, aes(id, value)) +
   geom_line(lwd = 1.5, aes(colour = series)) +
   ggtitle("Positive influenza type B test results") +
-  theme_ipsum_() +
+  theme_ipsum() +
   ylab("Number of cases") +
   scale_x_discrete(name = "Week",
                    limits = c("40", "41", "42", "43", "44",
