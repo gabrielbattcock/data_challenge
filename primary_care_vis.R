@@ -35,7 +35,7 @@ primary_care_vis <- primary_care_total %>% pivot_longer(cols = 2:5, names_to = "
   geom_ribbon(aes(ymin=12.7,ymax=24.1),fill="#FEFF67", alpha=0.08)+
   geom_ribbon(aes(ymin=24.1,ymax=60), outline.type="lower",fill="#F7B27E", alpha=0.08)+
   geom_line() + theme_minimal() +
-  #My own custom scale, replace with wes please Sczymon
+  #My own custom scale, replace with wes please Szymon
    scale_color_manual(values=c( "#2F4F4F","#528B8B","#79CDCD","#8DEEEE")) +
   #Previous colour scheme values=c("#8DEEEE","#79CDCD","#528B8B", "#2F4F4F")
   scale_x_discrete(name = "Week",
@@ -78,4 +78,38 @@ primary_care_vis <- primary_care_total %>% pivot_longer(cols = 2:5, names_to = "
       vjust = 0.5,
       hjust = 1
     )) 
+
+ggplot(primary_care_vis, aes(x = Weeks, y = Rate)) +
+  geom_line(lwd = 1.5, aes(colour = `Flu Season`)) +
+  labs(x="Week", y="Rate of consultations (per 100,000)",
+       title="GP consultations for Influenza type illness per 100,000",
+       caption="As collected by the RCGP in England") +
+  theme_ipsum_rc() +
+  scale_x_continuous(breaks = seq(0, 34, 2), 
+                     minor_breaks = seq(0, 34, 1),
+                     labels = c("40", "42", "44",
+                                "46", "48",
+                                "50", "52", "2",
+                                "4", "6", "8", "10",
+                                "12","14","16",
+                                "18", "20", "22")) +
+  theme(panel.border = element_rect(color = "dark grey",
+                                    fill = NA,
+                                    size = 0.1)) +
+  geom_ribbon(aes(ymin=0,ymax=12.7),fill="#B7CE89", alpha=0.25)+
+  geom_ribbon(aes(ymin=12.7,ymax=24.1),fill="#FEFF67", alpha=0.25)+
+  geom_ribbon(aes(ymin=24.1,ymax=60), outline.type="lower",fill="#F7B27E", alpha=0.25)+
+  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4)) +
+  coord_cartesian(ylim = c(0, 60), expand = FALSE)
+  scale_y_continuous(breaks = seq(0, 60, 10), 
+                     minor_breaks = seq(0, 60, 5)) +
+  scale_fill_manual("Threshold boundaries",values="grey12")
+  
+  +
+  scale_linetype_manual(name = "Avg across all ICUs", 
+                          values = c(1, 1, 1, 1), 
+                          guide = guide_legend(reverse = T,
+                          override.aes = list(color = c(7, 5, 2, 1))))
+ 
+  
 
