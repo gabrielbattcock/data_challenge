@@ -46,7 +46,7 @@ swab_season18_19$id <- 1:nrow(swab_season18_19)
 swab_season19_20$id <- 1:nrow(swab_season19_20)
 swab_season22_23$id <- 1:nrow(swab_season22_23)
 
-#Aizaz stopped copying here for source_data_entry
+
 
 # Create data frames for 2 separate flu types
 typeA1 <- tibble(id = swab_season17_18$id,
@@ -64,12 +64,12 @@ typeB1 <- tibble(id = swab_season17_18$id,
                 '22-23' = swab_season22_23$flu_B)
 
 typeB <- melt(typeB1 ,  id.vars = 'id', variable.name = 'series')
-
+#Aizaz stopped copying here for source_data_entry
 # Create initial plots
 plotA <- ggplot(typeA, aes(id, value)) +
   geom_line(lwd = 1.5, aes(colour = series)) +
   ggtitle("Positive influenza type A test results") +
-  theme_ipsum_rc() +
+  theme_ipsum() +
   ylab("Number of cases") +
   scale_x_discrete(name = "Week",
                    limits = c("40", "41", "42", "43", "44",
@@ -87,7 +87,7 @@ plotA <- ggplot(typeA, aes(id, value)) +
 plotB <- ggplot(typeB, aes(id, value)) +
   geom_line(lwd = 1.5, aes(colour = series)) +
   ggtitle("Positive influenza type B test results") +
-  theme_ipsum_rc() +
+  #theme_ipsum_rc() +
   ylab("Number of cases") +
   scale_x_discrete(name = "Week",
                    limits = c("40", "41", "42", "43", "44",
