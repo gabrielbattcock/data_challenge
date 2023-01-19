@@ -8,6 +8,7 @@ library(gtsummary)
 library(scales)
 library(ggrepel)
 library(mada)
+library(hrbrthemes)
 p_load(tidyverse, knitr, RColorBrewer, kableExtra, ggpubr, ggplot2)
 
 primary_care_201718 <- read_csv("allData/gp/2017_2018/gp_consultations_17_18.csv")
