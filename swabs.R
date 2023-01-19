@@ -2,10 +2,10 @@
 # Flu swab data UKHSA & Datamart
 
 library(pacman)
-p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
+p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson, readxl)
 
 here::i_am("swabs.R")
-#Aizaz started to copy here for source_data_entry
+
 swabs <- tibble(read_csv(here("allData", "swab", "2014 - 2021 swab data.csv")))
 swabs <- swabs[,-1] %>% select(-year, -week) 
 
@@ -14,7 +14,7 @@ swab_season18_19 <- swabs %>% slice(227:259)
 swab_season19_20 <- swabs %>% slice(279:311)
 
 swab_season22_23 <- tibble(df_list_2022$`Figure_10__Datamart_-_Flu`) %>% 
-                    slice(14:46) 
+  slice(14:46) 
 
 # Add some supplementary data from the 2023
 path <- "weekly_report_flu_2023.xlsx"
@@ -46,22 +46,21 @@ swab_season18_19$id <- 1:nrow(swab_season18_19)
 swab_season19_20$id <- 1:nrow(swab_season19_20)
 swab_season22_23$id <- 1:nrow(swab_season22_23)
 
-#Aizaz stopped copying here for source_data_entry
 
 # Create data frames for 2 separate flu types
 typeA1 <- tibble(id = swab_season17_18$id,
-                '17-18' = swab_season17_18$flu_A,
-                '18-19' = swab_season18_19$flu_A,
-                '19-20' = swab_season19_20$flu_A,
-                '22-23' = swab_season22_23$flu_A)
+                 '17-18' = swab_season17_18$flu_A,
+                 '18-19' = swab_season18_19$flu_A,
+                 '19-20' = swab_season19_20$flu_A,
+                 '22-23' = swab_season22_23$flu_A)
 
 typeA <- melt(typeA1 ,  id.vars = 'id', variable.name = 'series')
 
 typeB1 <- tibble(id = swab_season17_18$id,
-                '17-18' = swab_season17_18$flu_B,
-                '18-19' = swab_season18_19$flu_B,
-                '19-20' = swab_season19_20$flu_B,
-                '22-23' = swab_season22_23$flu_B)
+                 '17-18' = swab_season17_18$flu_B,
+                 '18-19' = swab_season18_19$flu_B,
+                 '19-20' = swab_season19_20$flu_B,
+                 '22-23' = swab_season22_23$flu_B)
 
 typeB <- melt(typeB1 ,  id.vars = 'id', variable.name = 'series')
 
@@ -79,8 +78,8 @@ plotA <- ggplot(typeA, aes(id, value)) +
                               "11", "12", "13", "14", "15", "16",
                               "17", "18", "19", "20")) +
   theme(panel.border = element_rect(color = "dark grey",
-                            fill = NA,
-                            size = 0.1)) +
+                                    fill = NA,
+                                    size = 0.1)) +
   scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4))
 
 
@@ -99,8 +98,9 @@ plotB <- ggplot(typeB, aes(id, value)) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
-        scale_color_manual('Season', values= wes_palette("GrandBudapest1", n = 4))
+  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4))
 
 combined_plot <- ggarrange(plotA, plotB, 
-                ncol = 1, nrow = 2)
+                           ncol = 1, nrow = 2)
+
 combined_plot
