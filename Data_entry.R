@@ -25,7 +25,7 @@ names(df_list_2022) <- sheet_vector_2022
 
 
 
-#Some chicanery 2.0
+#2018-19 flu season
 path_18_19 <- "2018-19_flu_season_data.xlsx"
 df_list_201819 <- list()
 sheet_vector_201819 <- path_18_19 %>% excel_sheets()
@@ -36,7 +36,7 @@ for (i in 1:length(sheet_vector_201819)) {
 names(df_list_201819) <- sheet_vector_201819
 
 
-#Chicanery 3.0
+#Flu season 2019-20
 path_19_20 <- "2019-20_flu_season_data.xlsx"
 df_list_201920 <- list()
 sheet_vector_201920 <- path_19_20 %>% excel_sheets()

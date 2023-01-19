@@ -104,7 +104,7 @@ seasons %>% transmute(
   #Now we're done with tidying, we can plot
   ggplot() + aes(x=week, y=Rate, colour=`Flu Season`) + geom_line() + theme_minimal() +
   #Its 4 flu seaseson, so 4 colour values seems appropriate, with colour darkening as we go forward
-  scale_color_manual(values=c( "#2F4F4F","#528B8B","#79CDCD","#8DEEEE")) +
+  scale_color_manual(values=c( "#8DEEEE","#79CDCD","#528B8B","#2F4F4F")) +
   scale_x_discrete(name = "Week",
                    limits = c("40", "41", "42", "43", "44",
                               "45", "46", "47", "48", "49",
