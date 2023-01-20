@@ -9,6 +9,12 @@ bibliography: UKHSA_bibliography.bib
 ---
 
 ## Introduction
+``` {r}
+#Loading the presentation stuff
+source("source_data_entry.R")
+source("swabs.R")
+
+```
 
 We were tasked to
 
@@ -40,5 +46,21 @@ What is the temporal relationship between different influenza data sources (lab-
 ![](swabs.png){.absolute left=150 top=180 height="550"}
 :::
 
-## Using the 
+## Lab confirmed influenza cases
+
+::: panel-tabset
+
+### Influenza A subtype
+``` {r}
+#| echo: true
+plotA
+```
+
+### Influenza B subtype
+``` {r}
+#| echo: true
+plotB
+```
+
+:::
 ## References
