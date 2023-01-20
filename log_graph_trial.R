@@ -1,0 +1,75 @@
+# trial log graph t
+
+### seasonality 2019-20 year
+
+#Reading in 
+library(readxl)
+library(pacman)
+library(dplyr)
+library(stringr)
+library(scales)
+library(ggrepel)
+p_load(tidyverse, knitr, RColorBrewer, kableExtra, ggpubr, ggplot2)
+library(pacman)
+p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
+
+
+## 2019-20 data
+
+here::i_am("season_201920.R")
+
+hospital <- df_list_201920$USISS_Sentinel[4]
+gp =  as.numeric(df_list_201920$RCGP$...4[2:34])
+swab_df <- swabs %>% slice(279:311)
+swab_df$total = swab_df$flu_A+swab_df$flu_B
+swab <- swab_df$total
+week <- seq(1:33)
+season_201920 <- data.frame( week,hospital, gp, swab)
+names(season_201920) <- c("week", "hospital", "gp", "swab")
+
+log_hosp <- log(hospital)
+log_week <- log(week)
+log_gp <- log(gp)
+log_season <- data.frame(log_week, log_hosp, log_gp)
+log_season_subset <- data.frame(week = log_season$log_week[5:12], hosp = log_season$log_hosp[5:12], gp = log_season$log_gp[5:12])
+
+#creat linear models for when 
+lm_hosp <- lm(data = log_season_subset,formula = hosp~week)
+hosp_predict <- data.frame(hosp_line = predict(lm_hosp, log_season_subset), week = log_season_subset$week)
+lm_gp <- lm(data = log_season_subset,formula = gp~week)
+gp_predict <- data.frame(gp_line = predict(lm_gp, log_season_subset), week = log_season_subset$week)
+summary(lm_gp)
+summary(lm_hosp)
+
+
+log_hosp_plot <- ggplot(log_season) +
+  theme_ipsum() +
+  geom_point(lwd = 1.5, aes(log_week, log_hosp, color = 'Hospital')) +
+  geom_point(lwd = 1.5, aes(log_week, log_gp, color = 'GP')) +
+  geom_line(data = hosp_predict, aes(hosp_predict$week, hosp_predict$hosp_line)) +
+  geom_line(data = hosp_predict, aes(gp_predict$week, gp_predict$gp_line)) + 
+  # guides(color = guide_legend("Data source")) +
+  # ylab("Log rate") +
+  # # xlim(-12, 20)+
+  # ggtitle("UK influenza cases 2019-20 \n per different data sources") +
+  # scale_x_continuous(breaks = seq(0, 34, 2), 
+  #                    minor_breaks = seq(0, 34, 1),
+  #                    labels = c("40", "42", "44",
+  #                               "46", "48",
+  #                               "50", "52", "2",
+  #                               "4", "6", "8", "10",
+  #                               "12","14","16",
+  #                               "18", "20", "22")) + 
+  theme(panel.border = element_rect(color = "dark grey",
+                                    fill = NA,
+                                    size = 0.1)) +
+  # coord_cartesian(ylim = c(-1, 25), expand = FALSE) +
+  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 2))
+
+log_hosp_plot + 
+  geom_smooth(data = log_season_subset, formula = log_hosp~log_week, method = 'lm')
+#normalising it so all the peaks are the same heigh (swab data is in number not rate)
+# hospital_norm <- hospital/mean(hospital), rm.na = T)
+
+
+
