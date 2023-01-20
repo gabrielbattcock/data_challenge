@@ -5,7 +5,7 @@ source("source_data_entry.R")
 here::i_am("primary_care_vis.R")
 
 
-ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +
+gp_cases <- ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +
   geom_line(lwd = 1.5, aes(colour = `Flu Season`)) +
   labs(x="Week", y="Rate of consultations (per 100,000)",
        title="UK influenza cases by year",
@@ -33,3 +33,4 @@ ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +
   scale_fill_manual(values=c("#B7CE89","#FEFF67","#F7B27E"), name="The MEM threshold",
                     labels = c("Baseline threshold", "Low", "Medium"),
                     guide = guide_legend(reverse = F, order = 2))
+gp_cases
