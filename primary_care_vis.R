@@ -4,13 +4,14 @@ source("source_data_entry.R")
 #Primary care vis (Szymon's version)
 here::i_am("primary_care_vis.R")
 
+
 ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +
   geom_line(lwd = 1.5, aes(colour = `Flu Season`)) +
   labs(x="Week", y="Rate of consultations (per 100,000)",
        title="UK influenza cases by year",
        subtitle = "(GP consultations)",
        caption="As collected by the RCGP in England") +
-  theme_ipsum() +
+  theme_ipsum() + 
   scale_x_continuous(breaks = seq(0, 34, 2), 
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
@@ -31,5 +32,4 @@ ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +
                      minor_breaks = seq(0, 60, 5)) +
   scale_fill_manual(values=c("#B7CE89","#FEFF67","#F7B27E"), name="The MEM threshold",
                     labels = c("Baseline threshold", "Low", "Medium"),
-                    guide = guide_legend(reverse = F))
-
+                    guide = guide_legend(reverse = F, order = 2))
