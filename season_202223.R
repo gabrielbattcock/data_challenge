@@ -26,7 +26,7 @@ season_202223 <- data.frame( week,hospital, gp, swab)
 names(season_202223) <- c("week", "hospital", "gp", "swab")
 
 
-ggplot(season_202223) +
+plot_202223 <- ggplot(season_202223) +
   theme_ipsum() +
   geom_line(lwd = 1.5, aes(week, hospital, color = 'Hospital')) +
   geom_line(lwd = 1.5, aes(week, gp, color = 'GP')) +
@@ -48,7 +48,7 @@ ggplot(season_202223) +
                                     size = 0.1)) +
   scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
 
-
+plot_202223
 #normalising it so all the peaks are the same heigh (swab data is in number not rate)
 # hospital_norm <- hospital/mean(hospital), rm.na = T)
 

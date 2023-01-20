@@ -21,7 +21,7 @@ hosp_seasons_melted <- melt(hosp_seasons,  id.vars = 'week', variable.name = 'se
   
   
 #Szymon's plot
-ggplot(hosp_seasons_melted, aes(week, value) ) +
+hospital_plot <- ggplot(hosp_seasons_melted, aes(week, value) ) +
   geom_line(lwd = 1.5, aes(colour = series)) +
   labs(x="Week", y="Influenza cases UK (cases per 100,000)",
        title="UK influenza cases by year", 
@@ -58,7 +58,7 @@ ggplot(hosp_seasons_melted, aes(week, value) ) +
 
 
 
-
+hospital_plot
 
 
 ########################

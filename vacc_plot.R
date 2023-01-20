@@ -5,14 +5,12 @@ vacc_rate <- select(allvac,
                     'Over 65 year' = over65_pct,
                     '50-65 with clinical risk' = atrisk_pct,
                     'Pregnant women' = pregnt_pct,
-                    '2-3 year olds' = y2and3_pct)
-
-vacc_rate <- vacc_rate %>% pivot_longer(-Year) %>% arrange(., Year)
+                    '2-3 year olds' = y2and3_pct) %>% pivot_longer(-Year) %>% arrange(., Year)
 
 
 # Create a plot for vaccination rate stratified by risk groups
 
-vacc_plot <- ggplot(tes, aes(fill=name, y=value, x=Year)) + 
+vacc_plot <- ggplot(vacc_rate, aes(fill=name, y=value, x=Year)) + 
   xlab("Year") +
   ylab("[%]") +
   ggtitle("Vaccination rate in different risk groups") +
