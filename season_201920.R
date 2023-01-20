@@ -14,16 +14,14 @@ p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 
 here::i_am("season201920.R")
 
-
-
 hospital <- df_list_201920$USISS_Sentinel[4]
 gp =  as.numeric(df_list_201920$RCGP$...4[2:34])
 swab_df <- swabs %>% slice(279:311)
 swab_df$total = swab_df$flu_A+swab_df$flu_B
 swab <- swab_df$total
-week <- data$Week.no
-week <- ifelse(week>=40, week-39, week+13)
-season_201920 <- tibble(week = week,  hospital = hospital, gp =  gp, swab =swab)
+week <- seq(1:33)
+season_201920 <- data.frame( week,hospital, gp, swab)
+names(season_201920) <- c("week", "hospital", "gp", "swab")
 
 
 ggplot(season_201920) +
@@ -42,11 +40,13 @@ ggplot(season_201920) +
                               "4", "5", "6", "7", "8", "9", "10",
                               "11", "12", "13", "14", "15", "16",
                               "17", "18", "19", "20"
-                   )) + 
-  # theme(panel.border = element_rect(color = "dark grey",
-  #                                   fill = NA,
-  #                                   size = 0.1)) +
-  # scale_color_manual('Season', values= wes_palette("Moonrise1", n = 2))
+                   ))+
+  theme(panel.border = element_rect(color = "dark grey",
+                                    fill = NA,
+                                    size = 0.1)) +
+  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 2))
+
+
 
 
 #normalising it so all the peaks are the same heigh (swab data is in number not rate)
