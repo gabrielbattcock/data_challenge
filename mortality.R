@@ -3,6 +3,7 @@ library(pacman)
 p_load(tidyverse, magrittr, janitor, here, lubridate)       # data manipulation
 p_load(readxl, pdftools, curl, openxlsx, readODS, calendar) # file reading utils
 here::i_am("mortality.R")
+
 # Excess Mortality #############################################################
 ## EuroMomo, I don't think we need this source ----
 ## I have a local copy just in case

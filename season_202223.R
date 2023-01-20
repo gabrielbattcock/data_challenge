@@ -14,9 +14,9 @@ p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 
 ## 2019-20 data
 
-here::i_am("season202223.R")
+here::i_am("season_202223.R")
 
-hospital <- hosp_seasons$hosp_22_23
+hospital <- hosp_seasons$`2022-23`
 gp =  primary_care_total$`2022-23`
 swab_df <- swab_season22_23
 swab_df$total = swab_df$flu_A+swab_df$flu_B
@@ -28,8 +28,8 @@ names(season_202223) <- c("week", "hospital", "gp", "swab")
 
 ggplot(season_202223) +
   theme_ipsum() +
-  geom_line(aes(week, hospital, color = 'Hospital')) +
-  geom_line(aes(week, gp, color = 'GP')) +
+  geom_line(lwd = 1.5, aes(week, hospital, color = 'Hospital')) +
+  geom_line(lwd = 1.5, aes(week, gp, color = 'GP')) +
   #geom_line(aes(week, swab, color = 'Swabbing data')) +
   guides(color = guide_legend("Data source")) +
   ylab("Influenza cases (cases per 100,000)") +

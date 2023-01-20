@@ -14,7 +14,7 @@ p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 
 ## 2019-20 data
 
-here::i_am("season201718.R")
+here::i_am("season_201718.R")
 
 hospital <- data_2017$sent_rate
 gp =  as.numeric(primary_care_201718$`GP ILI consulation rates (all ages)`[2:34])
@@ -28,13 +28,13 @@ names(season_201718) <- c("week", "hospital", "gp", "swab")
 
 ggplot(season_201718) +
   theme_ipsum() +
-  geom_line(aes(week, hospital, color = 'Hospital')) +
-  geom_line(aes(week, gp, color = 'GP')) +
+  geom_line(lwd = 1.5, aes(week, hospital, color = 'Hospital')) +
+  geom_line(lwd = 1.5, aes(week, gp, color = 'GP')) +
   #geom_line(aes(week, swab, color = 'Swabbing data')) +
   guides(color = guide_legend("Data source")) +
-  ylab("Influenza cases (cases per 100,000)") +
+  ylab("Influenza rate (per 100,000)") +
   # xlim(-12, 20)+
-  ggtitle("UK influenza cases 2017-18 \n per different data sources") +
+  ggtitle("UK influenza cases 2017-18 for each data source") +
   scale_x_continuous(breaks = seq(0, 34, 2), 
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
@@ -46,6 +46,7 @@ ggplot(season_201718) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
+  coord_cartesian(ylim = c(-1, 60), expand = FALSE) +
   scale_color_manual('Season', values= wes_palette("Moonrise1", n = 2))
 
 
