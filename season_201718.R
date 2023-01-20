@@ -14,19 +14,19 @@ p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 
 ## 2019-20 data
 
-here::i_am("season201920.R")
+here::i_am("season201718.R")
 
-hospital <- df_list_201920$USISS_Sentinel[4]
-gp =  as.numeric(df_list_201920$RCGP$...4[2:34])
-swab_df <- swabs %>% slice(279:311)
+hospital <- data_2017$sent_rate
+gp =  as.numeric(primary_care_201718$`GP ILI consulation rates (all ages)`[2:34])
+swab_df <- swab_season17_18
 swab_df$total = swab_df$flu_A+swab_df$flu_B
 swab <- swab_df$total
 week <- seq(1:33)
-season_201920 <- data.frame( week,hospital, gp, swab)
-names(season_201920) <- c("week", "hospital", "gp", "swab")
+season_201718 <- data.frame( week,hospital, gp, swab)
+names(season_201718) <- c("week", "hospital", "gp", "swab")
 
 
-ggplot(season_201920) +
+ggplot(season_201718) +
   theme_ipsum() +
   geom_line(aes(week, hospital, color = 'Hospital')) +
   geom_line(aes(week, gp, color = 'GP')) +
@@ -34,7 +34,7 @@ ggplot(season_201920) +
   guides(color = guide_legend("Data source")) +
   ylab("Influenza cases (cases per 100,000)") +
   # xlim(-12, 20)+
-  ggtitle("UK influenza cases 2019-20 per different data sources") +
+  ggtitle("UK influenza cases 2018-19 per different data sources") +
   scale_x_continuous(breaks = seq(0, 34, 2), 
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
