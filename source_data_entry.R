@@ -148,7 +148,7 @@ cod22 <- read.xlsx(link, sheet = 6,
                    rows = c(6:59), rowNames = F, colNames = T,
                    skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T) %>%
           select(c(1,5,6)) %>%
-          mutate(`Flu Season` = "2022-23", .before = 2)
+          mutate(Series = "2022", .before = 2)
 
 colnames(cod22) <- c("Week Number", "Series", "Involving", "Due to")
 
@@ -162,7 +162,7 @@ cod21 <- read.xlsx(link, sheet = 6,
           as_tibble(.name_repair = "unique") %>%
           select(5,6) %>%
           relocate("...6", .before =1) %>%
-          mutate("Series" = "2021-22", .before = 1) %>%
+          mutate("Series" = "2021", .before = 1) %>%
           mutate("Week Number" = as.numeric(rownames(.))-1, .before = 1)  %>%
           slice(-1)
 
@@ -175,7 +175,7 @@ cod20 <- read.xlsx(link, sheet = 1,
                    rows = c(7:60), rowNames = F, colNames = T,
                    skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T) %>%
           select(3:4) %>%
-          mutate(Series = "2020-21", .before = 1) %>%
+          mutate(Series = "2020", .before = 1) %>%
           mutate(week = row_number(), .before = 1)
 
 colnames(cod20) <- c("Week Number", "Series", "Involving", "Due to")
@@ -186,22 +186,34 @@ link <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdea
 historical <- read.xlsx(link, sheet = 4, rows = c(5:57), rowNames = F, colNames = T,
                         skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T) %>%
               melt(id.vars = 'Week.number', variable.name = 'Series') %>%
+              as_tibble() %>%
               rename("Due to" = value) %>%
               rename("Week Number" = "Week.number") %>%
               mutate("Involving" = NA, .before = 3) %>%
               mutate(across(Series, as.character)) %>%
-              mutate(Series = case_when(Series == "2016" ~ "2016-17",
-                                        Series == "2017" ~ "2017-18",
-                                        Series == "2018" ~ "2018-19",
-                                        Series == "2019" ~ "2019-20")) %>%
-              as_tibble()
+              filter(Series < 2020)
 
 ## gather into one tibble, ready for vis ----
-mortality_vis <- rbind(cod20, cod21, cod22) %>%
-                  as_tibble() %>%
-                  mutate(across(c(`Involving`, `Due to`), as.double)) %>%
-                  rows_append(historical)  %>%
-                  mutate(across(Series, as_factor))
+allmort <- rbind(cod20, cod21, cod22) %>%
+            as_tibble() %>%
+            mutate(across(c(`Involving`, `Due to`), as.double)) %>%
+            rows_append(historical)  %>%
+            arrange(., Series) %>%
+            filter(`Week Number` >= 40 | `Week Number` <= 20) %>%
+            select(-3)
+
+mort_season16_17 <- allmort %>% slice(21:54) %>% mutate(id = row_number(), .before = 1) %>% mutate(Series = "2016-17")
+mort_season17_18 <- allmort %>% slice(55:86) %>% mutate(id = row_number(), .before = 1) %>% mutate(Series = "2017-18")
+mort_season18_19 <- allmort %>% slice(87:119) %>% mutate(id = row_number(), .before = 1) %>% mutate(Series = "2018-19")
+mort_season19_20 <- allmort %>% slice(120:152) %>% mutate(id = row_number(), .before = 1) %>% mutate(Series = "2019-20")
+mort_season20_21 <- allmort %>% slice(153:186) %>% mutate(id = row_number(), .before = 1) %>% mutate(Series = "2020-21")
+mort_season21_22 <- allmort %>% slice(187:219) %>% mutate(id = row_number(), .before = 1) %>% mutate(Series = "2021-22")
+
+mortality_vis <- rbind(mort_season16_17, mort_season17_18, mort_season18_19,
+                       mort_season19_20, mort_season20_21, mort_season21_22) %>%
+                  select(-2) 
+
+rm(mort_season16_17, mort_season17_18, mort_season18_19, mort_season19_20, mort_season20_21, mort_season21_22, cod20, cod21, cod22, historical, allmort)
 
 # Vaccine Uptake ###############################################################
 # [1] Final end of season cumulative uptake data for England 
