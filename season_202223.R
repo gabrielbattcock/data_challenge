@@ -14,19 +14,19 @@ p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 
 ## 2019-20 data
 
-here::i_am("season201920.R")
+here::i_am("season202223.R")
 
-hospital <- df_list_201920$USISS_Sentinel[4]
-gp =  as.numeric(df_list_201920$RCGP$...4[2:34])
-swab_df <- swabs %>% slice(279:311)
+hospital <- hosp_seasons$hosp_22_23
+gp =  primary_care_total$`2022-23`
+swab_df <- swab_season22_23
 swab_df$total = swab_df$flu_A+swab_df$flu_B
 swab <- swab_df$total
 week <- seq(1:33)
-season_201920 <- data.frame( week,hospital, gp, swab)
-names(season_201920) <- c("week", "hospital", "gp", "swab")
+season_202223 <- data.frame( week,hospital, gp, swab)
+names(season_202223) <- c("week", "hospital", "gp", "swab")
 
 
-ggplot(season_201920) +
+ggplot(season_202223) +
   theme_ipsum() +
   geom_line(aes(week, hospital, color = 'Hospital')) +
   geom_line(aes(week, gp, color = 'GP')) +
@@ -34,7 +34,7 @@ ggplot(season_201920) +
   guides(color = guide_legend("Data source")) +
   ylab("Influenza cases (cases per 100,000)") +
   # xlim(-12, 20)+
-  ggtitle("UK influenza cases 2019-20 \n per different data sources") +
+  ggtitle("UK influenza cases 2022-23 \n per different data sources") +
   scale_x_continuous(breaks = seq(0, 34, 2), 
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
@@ -46,7 +46,7 @@ ggplot(season_201920) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 2))
+  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
 
 
 #normalising it so all the peaks are the same heigh (swab data is in number not rate)
