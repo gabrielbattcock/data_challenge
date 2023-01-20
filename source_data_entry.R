@@ -55,18 +55,32 @@ for (i in 1:length(sheet_vector_2022)) {
   df_list_2022[[i]] <- tibble(read_xlsx(path, sheet_vector_2022[i], skip=7))
 }
 names(df_list_2022) <- sheet_vector_2022
+# Add some supplementary data from the 2023
+path_2023 <- "weekly_report_flu_2023.xlsx"
+df_list_2023 <- list()
+
+sheet_vector_2023 <- path_2023 %>% excel_sheets()
+
+for (i in 1:length(sheet_vector_2023)) {
+  
+  df_list_2023[[i]] <- tibble(read_xlsx(path_2023, sheet_vector_2023[i], skip=7))
+}
+names(df_list_2023) <- sheet_vector_2023
 #Primary care data cleaning
 #Some data management to create the flu seasons
 primary_care_201718 <- read_csv("allData/gp/2017_2018/gp_consultations_17_18.csv")
 primary_care_2021 <- df_list_2021$`Figure 33&34. Primary care`$`ILI rate`[2:53]
 primary_care_2022 <- df_list_2022$`Figure_31&32__Primary_care`$`ILI rate`
+primary_care_2023 <- df_list_2023$`Figure_31&32__Primary_care`$`ILI rate`
 #This is the tibble we're using
 primary_care_total <- tibble(
   Weeks = c(40:52, 1:20),
   `2017-18` = as.numeric(primary_care_201718$`GP ILI consulation rates (all ages)`[2:34]),
   `2018-19` = as.numeric(df_list_201819$RCGP$...3[2:34]),
   `2019-20` = as.numeric(df_list_201920$RCGP$...4[2:34]),
-  `2021-22` = c(primary_care_2021[40:52], primary_care_2022[1:20])
+  `2021-22` = c(primary_care_2021[40:52], primary_care_2022[1:20]),
+#Please note that this includes 2022 week 40 to 2023 week
+  `2022-23` = primary_care_2023[39:52]
 )
 #Now just creating the final table for data presentation
 primary_care_vis <- primary_care_total %>% 
@@ -84,17 +98,7 @@ swab_season19_20 <- swabs %>% slice(279:311)
 swab_season22_23 <- tibble(df_list_2022$`Figure_10__Datamart_-_Flu`) %>% 
   slice(14:46) 
 
-# Add some supplementary data from the 2023
-path_2023 <- "weekly_report_flu_2023.xlsx"
-df_list_2023 <- list()
 
-sheet_vector_2023 <- path_2023 %>% excel_sheets()
-
-for (i in 1:length(sheet_vector_2023)) {
-  
-  df_list_2023[[i]] <- tibble(read_xlsx(path_2023, sheet_vector_2023[i], skip=7))
-}
-names(df_list_2023) <- sheet_vector_2023
 
 supplement_data_2023 <- df_list_2023$`Figure_10__Datamart_-_Flu`
 
