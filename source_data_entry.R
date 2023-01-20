@@ -1,9 +1,9 @@
 # INITIALISE ###################################################################
 library(pacman)
-p_load(tidyverse, knitr, kableExtra, mada, reshape2) # data manipulation
-p_load(curl, here, openxlsx, readODS, readxl)        # reading files
+p_load(tidyverse, knitr, kableExtra, mada, magrittr, reshape2) # data manipulation
+p_load(curl, here, openxlsx, readODS, readxl)                  # reading files
 p_load(ggrepel, ggpubr, gt, gtsummary, hrbrthemes, 
-       RColorBrewer, robvis, scales, wesanderson)    # visualisation
+       RColorBrewer, robvis, scales, wesanderson)              # visualisation
 
 here::i_am("source_data_entry.r")
 
@@ -31,7 +31,7 @@ path <- here("allData", "data_2021.xlsx")
 df_list_2021 <- list()
 sheet_vector_2021 <- path %>% excel_sheets()
 for (i in 1:length(sheet_vector_2021)) {
-  df_list_2021[[i]] <- tibble(read_xlsx(path_2021, sheet_vector_2021[i], skip=7))
+  df_list_2021[[i]] <- tibble(read_xlsx(path, sheet_vector_2021[i], skip=7))
 }
 names(df_list_2021) <- sheet_vector_2021
 
@@ -87,8 +87,7 @@ swab_season18_19 <- swabs %>% slice(227:259)
 swab_season19_20 <- swabs %>% slice(279:311)
 
 swab_season22_23 <- tibble(df_list_2022$`Figure_10__Datamart_-_Flu`) %>% 
-  slice(14:46)  %>%
-  ...
+                    slice(14:46)
 
 supplement_data_2023 <- df_list_2023$`Figure_10__Datamart_-_Flu`
 
@@ -125,7 +124,7 @@ typeB <- melt(typeB1, id.vars = 'id', variable.name = 'series')
 
 # HOSPITALISATION ##############################################################
 ## 2017 ----
-data_2017 <- read.csv(here("allData", "2017-18_flu_hospital_data.csv"))
+data_2017 <- read.csv(here("allData", "hospitalisation", "2017-18_flu_hospital_data.csv"))
 week <- data_2017$Week.no
 week <- ifelse(week>=40, week-39, week+13)
 
@@ -322,3 +321,4 @@ colnames(allvac) <- c("year",
                       "y2and3_num", "y2and3_vac", "y2and3_pct")
 
 # next heading #################################################################
+
