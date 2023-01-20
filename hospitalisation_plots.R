@@ -5,6 +5,63 @@
 source("source_data_entry.R")
 here::i_am("hospitalisation_plots.R")
 
+
+
+#First, we take the data, and rename the columns so they show up okay in the plot
+hosp_seasons <- hosp_seasons %>% transmute(
+  week=week,
+  `2017-18`=hosp_17_18,
+  `2018-19`=hosp_18_19,
+  `2019-20`=hosp_19_20,
+  `2022-23`=hosp_22_23)
+# pivot_longer(cols=2:5, names_to = "Flu Season", values_to = "Rate")
+
+# Next, we make one outcome table, saves us adding a new geom_line every time
+hosp_seasons_melted <- melt(hosp_seasons,  id.vars = 'week', variable.name = 'series') 
+  
+  
+#Szymon's plot
+ggplot(hosp_seasons_melted, aes(week, value) ) +
+  geom_line(lwd = 1.5, aes(colour = series)) +
+  labs(x="Week", y="Influenza cases UK (cases per 100,000)",
+       title="UK influenza cases by year (hospitalisation)",
+       caption="As reported by UKHSA/PHE") +
+  theme_ipsum() +
+  scale_x_continuous(breaks = seq(0, 34, 2), 
+                     minor_breaks = seq(0, 34, 1),
+                     labels = c("40", "42", "44",
+                                "46", "48",
+                                "50", "52", "2",
+                                "4", "6", "8", "10",
+                                "12","14","16",
+                                "18", "20", "22")) +
+  theme(panel.border = element_rect(color = "dark grey",
+                                    fill = NA,
+                                    size = 0.1)) +
+  geom_ribbon(aes(ymin=-0.5,ymax=0.99,fill="#A55E5E"), alpha=0.25)+
+  geom_ribbon(aes(ymin=0.99,ymax=2.65,fill="#B7CE89"), alpha=0.25)+
+  geom_ribbon(aes(ymin=2.65,ymax=7.87,fill='#CE8282'), alpha=0.25)+
+  geom_ribbon(aes(ymin=7.87,ymax=12.73,fill="#F7B27E"),alpha=0.25)+
+  geom_ribbon(aes(ymin=12.73,ymax=16,fill="#FEFF67"), alpha=0.25)+
+  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4)) +
+  coord_cartesian(ylim = c(-0.5, 16), expand = F) +
+  scale_y_continuous(breaks = seq(0, 15, 5),
+                     minor_breaks = seq(0, 15, 2.5)) +
+  scale_fill_manual(values=c("#B7CE89","#FEFF67","#F7B27E",
+                            "#CE8282",'#A55E5E' ), name="Threshold boundary",
+                    labels = c("Baseline threshold", "Low", "Moderate", 
+                               "High", "Very high"),
+                    guide = guide_legend(reverse = F))
+
+
+
+
+
+
+
+
+########################
+
 #plot all lines on pne plot
 ggplot(hosp_seasons) +
   theme_minimal() +
@@ -16,7 +73,7 @@ ggplot(hosp_seasons) +
   ylab("Influenza cases UK (cases per 100,000)") +
   # xlim(-12, 20)+
   ggtitle("UK influenza cases by year (hospitalisation)") +
-
+  
   scale_x_discrete(name = "Week",
                    limits = c("40", "41", "42", "43", "44",
                               "45", "46", "47", "48", "49",
@@ -24,20 +81,12 @@ ggplot(hosp_seasons) +
                               "4", "5", "6", "7", "8", "9", "10",
                               "11", "12", "13", "14", "15", "16",
                               "17", "18", "19", "20"
-                              ))
+                   ))
 
 
-#Aizaz variation on hospitalisation data. Please run all below
-#First, we take the data, and rename the columns so they show up okay in the plot
-hosp_seasons %>% transmute(
-  week=week,
-  `2017-18`=hosp_17_18,
-  `2018-19`=hosp_18_19,
-  `2019-20`=hosp_19_20,
-  `2022-23`=hosp_22_23
-) %>%
-  #Next, we make one outcome table, saves us adding a new geom_line every time
-  pivot_longer(cols=2:5, names_to = "Flu Season", values_to = "Rate") %>%
+
+
+
   #Now we're done with tidying, we can plot
   ggplot() + aes(x=week, y=Rate, colour=`Flu Season`) + geom_line() + theme_minimal() +
   #Its 4 flu seaseson, so 4 colour values seems appropriate, with colour darkening as we go forward
@@ -83,3 +132,31 @@ hosp_seasons %>% transmute(
       vjust = 0.5,
       hjust = 1
     ))
+
+ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +
+  geom_line(lwd = 1.5, aes(colour = `Flu Season`)) +
+  labs(x="Week", y="Rate of consultations (per 100,000)",
+       title="GP consultations for Influenza type illness per 100,000",
+       caption="As collected by the RCGP in England") +
+  theme_ipsum() +
+  scale_x_continuous(breaks = seq(0, 34, 2), 
+                     minor_breaks = seq(0, 34, 1),
+                     labels = c("40", "42", "44",
+                                "46", "48",
+                                "50", "52", "2",
+                                "4", "6", "8", "10",
+                                "12","14","16",
+                                "18", "20", "22")) +
+  theme(panel.border = element_rect(color = "dark grey",
+                                    fill = NA,
+                                    size = 0.1)) +
+  geom_ribbon(aes(ymin=0,ymax=12.7,fill="#B7CE89"), alpha=0.25) +
+  geom_ribbon(aes(ymin=12.7,ymax=24.1,fill="#FEFF67"), alpha=0.25)+
+  geom_ribbon(aes(ymin=24.1,ymax=60,fill="black"),  alpha=0.25)+
+  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4)) +
+  coord_cartesian(ylim = c(0, 60), expand = FALSE) +
+  scale_y_continuous(breaks = seq(0, 60, 10), 
+                     minor_breaks = seq(0, 60, 5)) +
+  scale_fill_manual(values=c("#B7CE89","#FEFF67","#F7B27E"), name="Threshold boundary",
+                    labels = c("Baseline threshold", "Low", "Medium"),
+                    guide = guide_legend(reverse = F))

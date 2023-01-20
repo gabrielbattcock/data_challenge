@@ -151,4 +151,4 @@ hosp_22_23 <- df_list_2022$`Figure_35__SARI_Watch-hospital` %>%
 nas <- rep(NA, 20)
 hosp_22_23 <- c(hosp_22_23, nas)
 #create one data frame for the weeks and hospitalisation rate per year
-hosp_seasons <- data.frame(week, hosp_17_18, hosp_18_19, hosp_18_19, hosp_22_23) 
+hosp_seasons <- data.frame(week, hosp_17_18, hosp_18_19, hosp_19_20, hosp_22_23) 
