@@ -24,7 +24,8 @@ hosp_seasons_melted <- melt(hosp_seasons,  id.vars = 'week', variable.name = 'se
 ggplot(hosp_seasons_melted, aes(week, value) ) +
   geom_line(lwd = 1.5, aes(colour = series)) +
   labs(x="Week", y="Influenza cases UK (cases per 100,000)",
-       title="UK influenza cases by year (hospitalisation)",
+       title="UK influenza cases by year \n 
+       (hospitalisation)",
        caption="As reported by UKHSA/PHE") +
   theme_ipsum() +
   scale_x_continuous(breaks = seq(0, 34, 2), 
