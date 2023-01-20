@@ -4,7 +4,7 @@ source("source_data_entry.R")
 #Primary care vis (Szymon's version)
 here::i_am("primary_care_vis.R")
 
-ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +
+GPplot <- ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +
   geom_line(lwd = 1.5, aes(colour = `Flu Season`)) +
   labs(x="Week", y="Rate of consultations (per 100,000)",
        title="GP consultations for Influenza type illness per 100,000",
