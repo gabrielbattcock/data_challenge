@@ -28,13 +28,13 @@ names(season_201819) <- c("week", "hospital", "gp", "swab")
 
 ggplot(season_201819) +
   theme_ipsum() +
-  geom_line(aes(week, hospital, color = 'Hospital')) +
-  geom_line(aes(week, gp, color = 'GP')) +
+  geom_line(lwd = 1.5, aes(week, hospital, color = 'Hospital')) +
+  geom_line(lwd = 1.5, aes(week, gp, color = 'GP')) +
   #geom_line(aes(week, swab, color = 'Swabbing data')) +
   guides(color = guide_legend("Data source")) +
   ylab("Influenza cases (cases per 100,000)") +
   # xlim(-12, 20)+
-  ggtitle("UK influenza cases 2018-19 \n per different data sources") +
+  ggtitle("UK influenza cases 2018-19 for each data source") +
   scale_x_continuous(breaks = seq(0, 34, 2), 
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
