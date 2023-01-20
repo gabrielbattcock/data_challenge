@@ -2,27 +2,43 @@
 title: "Mid Module Presentation"
 format: 
   revealjs:
-    theme: league
+    theme: beige
     incremental: true
 editor: visual
 bibliography: UKHSA_bibliography.bib
 ---
 
 ## Introduction
-We were tasked to 
+
+We were tasked to
 
 ## Our Question
 
 What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/3 compared to the pre-pandemic years 2016-2019?
 
-[@lipsitch2003]
-
 ## Our data
 
-::: {.incremental}
-- **Primary care**: Royal College of GP appointments for Influence Like Illnesses
-- **Secondary care**: Hospitalisation data as reported by th UKHSA Severe Acute Respiratory Infection (SARI) Watch system and the UK Severe Influenza Surveillance Schemes (USISS) prior to that.
-- **Laboratory confirmed**: Reports of respiratory infections made to PHE from PHE and NHS laboratories in England and Wales
-
-
+::: incremental
+-   **Primary care**: Royal College of GP appointments for Influence Like Illnesses
+-   **Secondary care**: Hospitalisation data as reported by th UKHSA Severe Acute Respiratory Infection (SARI) Watch system and the UK Severe Influenza Surveillance Schemes (USISS) prior to that.
+-   **Laboratory confirmed**: Reports of respiratory infections made to PHE from PHE and NHS laboratories in England and Wales
 :::
+
+## Some presentations
+
+::: panel-tabset
+### Primary care
+
+![](GP_cases.png){.absolute left=200 top=180 width="700" height="550"}
+
+### Secondary Care
+
+![](hospitalistaion.png){.absolute left=200 top=180 width="700" height="550"}
+
+### Lab confirmed cases
+
+![](swabs.png){.absolute left=150 top=180 height="550"}
+:::
+
+## Using the 
+## References
