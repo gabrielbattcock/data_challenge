@@ -78,9 +78,9 @@ primary_care_total <- tibble(
   `2017-18` = as.numeric(primary_care_201718$`GP ILI consulation rates (all ages)`[2:34]),
   `2018-19` = as.numeric(df_list_201819$RCGP$...3[2:34]),
   `2019-20` = as.numeric(df_list_201920$RCGP$...4[2:34]),
-  `2021-22` = c(primary_care_2021[40:52], primary_care_2022[1:20]),
+ # `2021-22` = c(primary_care_2021[40:52], primary_care_2022[1:20]),
 #Please note that this includes 2022 week 40 to 2023 week
-  `2022-23` = primary_care_2023[39:52]
+  `2022-23` = c(primary_care_2023[39:52], rep(NA, 19))
 )
 #Now just creating the final table for data presentation
 primary_care_vis <- primary_care_total %>% 
