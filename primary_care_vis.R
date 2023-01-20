@@ -21,10 +21,14 @@ ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
-  geom_ribbon(aes(ymin=0,ymax=12.7),fill="#B7CE89", alpha=0.25)+
-  geom_ribbon(aes(ymin=12.7,ymax=24.1),fill="#FEFF67", alpha=0.25)+
-  geom_ribbon(aes(ymin=24.1,ymax=60), outline.type="lower",fill="#F7B27E", alpha=0.25)+
+  geom_ribbon(aes(ymin=0,ymax=12.7,fill="#B7CE89"), alpha=0.25) +
+  geom_ribbon(aes(ymin=12.7,ymax=24.1,fill="#FEFF67"), alpha=0.25)+
+  geom_ribbon(aes(ymin=24.1,ymax=60,fill="black"),  alpha=0.25)+
   scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4)) +
   coord_cartesian(ylim = c(0, 60), expand = FALSE) +
   scale_y_continuous(breaks = seq(0, 60, 10), 
-                     minor_breaks = seq(0, 60, 5)) 
+                     minor_breaks = seq(0, 60, 5)) +
+  scale_fill_manual(values=c("#B7CE89","#FEFF67","#F7B27E"), name="Threshold boundary",
+                    labels = c("Baseline threshold", "Low", "Medium"),
+                    guide = guide_legend(reverse = F))
+
