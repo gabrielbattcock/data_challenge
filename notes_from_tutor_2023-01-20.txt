@@ -1,0 +1,7 @@
+Plot on a log scale to see if there is a linear relationship - R_0 . 
+
+Ratio betweeneach of them is constant in time and if its the same before and after. 
+
+Analysis route
+
+Calculate the reproduction number 
