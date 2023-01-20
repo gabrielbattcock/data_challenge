@@ -4,6 +4,9 @@ format:
   revealjs:
     theme: beige
     incremental: true
+    menu: 
+      side: left
+      width: third
 editor: visual
 bibliography: UKHSA_bibliography.bib
 ---
@@ -16,13 +19,26 @@ source("swabs.R")
 
 ```
 
-We were tasked to
+## Abstract/Summary
+
+- **Title**:
+- **Introduction**:
+- **Methods**:
+- **Results**:
+- **Discussion**:
+- **Conclusion**:
 
 ## Our Question
 
 What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/3 compared to the pre-pandemic years 2016-2019?
 
-## Our data
+## Background
+
+
+
+## Methods
+
+
 
 ::: incremental
 -   **Primary care**: Royal College of GP appointments for Influence Like Illnesses
@@ -30,7 +46,14 @@ What is the temporal relationship between different influenza data sources (lab-
 -   **Laboratory confirmed**: Reports of respiratory infections made to PHE from PHE and NHS laboratories in England and Wales
 :::
 
-## Some presentations
+## Results
+
+## Our data
+
+
+
+
+## Exploring our main data sources
 
 ::: panel-tabset
 ### Primary care
@@ -63,4 +86,9 @@ plotB
 ```
 
 :::
+
+##Discussion and conclusions
+
+
+
 ## References
