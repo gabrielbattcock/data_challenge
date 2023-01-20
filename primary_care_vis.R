@@ -7,7 +7,8 @@ here::i_am("primary_care_vis.R")
 ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +
   geom_line(lwd = 1.5, aes(colour = `Flu Season`)) +
   labs(x="Week", y="Rate of consultations (per 100,000)",
-       title="GP consultations for Influenza type illness per 100,000",
+       title="UK influenza cases by year",
+       subtitle = "(GP consultations)",
        caption="As collected by the RCGP in England") +
   theme_ipsum() +
   scale_x_continuous(breaks = seq(0, 34, 2), 
