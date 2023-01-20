@@ -9,7 +9,7 @@ plotA <- ggplot(typeA, aes(id, value)) +
   geom_line(lwd = 1.5, aes(colour = series)) +
   labs(x="Week", y="Number of cases",
        title="UK influenza cases per year",
-       subtitle = "(Swabs for type B)",
+       subtitle = "(Swabs for type A)",
        caption="As collected by the PHE lab reports") +
   theme_ipsum() +
   scale_x_continuous(breaks = seq(0, 34, 2), 

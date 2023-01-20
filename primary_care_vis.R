@@ -29,7 +29,7 @@ ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +
   coord_cartesian(ylim = c(0, 60), expand = FALSE) +
   scale_y_continuous(breaks = seq(0, 60, 10), 
                      minor_breaks = seq(0, 60, 5)) +
-  scale_fill_manual(values=c("#B7CE89","#FEFF67","#F7B27E"), name="Threshold boundary",
+  scale_fill_manual(values=c("#B7CE89","#FEFF67","#F7B27E"), name="The MEM threshold",
                     labels = c("Baseline threshold", "Low", "Medium"),
                     guide = guide_legend(reverse = F))
 

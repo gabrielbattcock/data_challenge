@@ -49,7 +49,7 @@ ggplot(hosp_seasons_melted, aes(week, value) ) +
   scale_y_continuous(breaks = seq(0, 15, 5),
                      minor_breaks = seq(0, 15, 2.5)) +
   scale_fill_manual(values=c("#B7CE89","#FEFF67","#F7B27E",
-                            "#CE8282",'#A55E5E' ), name="Threshold boundary",
+                            "#CE8282",'#A55E5E' ), name="The MEM threshold",
                     labels = c("Baseline threshold", "Low", "Moderate", 
                                "High", "Very high"),
                     guide = guide_legend(reverse = F))
