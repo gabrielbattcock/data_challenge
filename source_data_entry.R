@@ -1,28 +1,29 @@
 # INITIALISE ###################################################################
 library(pacman)
-p_load(tidyverse, knitr, kableExtra, mada, magrittr, reshape2) # data manipulation
-p_load(curl, here, openxlsx, readODS, readxl)                  # reading files
+p_load(tidyverse, knitr, kableExtra, mada, magrittr, 
+       RcppRoll, reshape2, spgwr)                           # data manipulation
+p_load(curl, here, openxlsx, readODS, readxl)               # reading files
 p_load(ggrepel, ggpubr, gt, gtsummary, hrbrthemes, 
-       RColorBrewer, robvis, scales, wesanderson)              # visualisation
+       RColorBrewer, robvis, scales, wesanderson)           # visualisation
 
 here::i_am("source_data_entry.r")
 
 # COMBINED: RCGP, USISS, GP Swabbing, DataMart #################################
 ## 2018-19 flu season ----
-path_18_19 <- here("allData", "2018-19_flu_season_data.xlsx")
+path <- here("allData", "2018-19_flu_season_data.xlsx")
 df_list_201819 <- list()
-sheet_vector_201819 <- path_18_19 %>% excel_sheets()
+sheet_vector_201819 <- path %>% excel_sheets()
 for (i in 1:length(sheet_vector_201819)) {
-  df_list_201819[[i]] <- tibble(read_xlsx(path_18_19, sheet_vector_201819[i], skip=7))
+  df_list_201819[[i]] <- tibble(read_xlsx(path, sheet_vector_201819[i], skip=7))
 }
 names(df_list_201819) <- sheet_vector_201819
 
 ## 2019-20 flu season ----
-path_19_20 <- here("allData", "2019-20_flu_season_data.xlsx")
+path <- here("allData", "2019-20_flu_season_data.xlsx")
 df_list_201920 <- list()
-sheet_vector_201920 <- path_19_20 %>% excel_sheets()
+sheet_vector_201920 <- path %>% excel_sheets()
 for (i in 1:length(sheet_vector_201819)) {
-  df_list_201920[[i]] <- tibble(read_xlsx(path_19_20, sheet_vector_201920[i], skip=7))
+  df_list_201920[[i]] <- tibble(read_xlsx(path, sheet_vector_201920[i], skip=7))
 }
 names(df_list_201920) <- sheet_vector_201920
 
@@ -38,7 +39,6 @@ names(df_list_2021) <- sheet_vector_2021
 ## 2022-23 flu season ----
 path <- here("allData", "2022-Influenza_excl.xlsx")
 df_list_2022 <- list()
-
 sheet_vector_2022 <- path %>% excel_sheets()
 for (i in 1:length(sheet_vector_2022)) {
   
@@ -46,21 +46,18 @@ for (i in 1:length(sheet_vector_2022)) {
 }
 names(df_list_2022) <- sheet_vector_2022
 
-# Add some supplementary data from the 2023
-path_2023 <- "weekly_report_flu_2023.xlsx"
+## supplementary data from 2023 season ----
+path <- here("allData", "weekly_report_flu_2023.xlsx")
 df_list_2023 <- list()
-
-sheet_vector_2023 <- path_2023 %>% excel_sheets()
-
+sheet_vector_2023 <- path %>% excel_sheets()
 for (i in 1:length(sheet_vector_2023)) {
   
-  df_list_2023[[i]] <- tibble(read_xlsx(path_2023, sheet_vector_2023[i], skip=7))
+  df_list_2023[[i]] <- tibble(read_xlsx(path, sheet_vector_2023[i], skip=7))
 }
 names(df_list_2023) <- sheet_vector_2023
 
-
 # PRIMARY CARE #################################################################
-primary_care_201718 <- read_csv("allData/gp/2017_2018/gp_consultations_17_18.csv")
+primary_care_201718 <- read_csv(here("allData", "gp", "2017_2018", "gp_consultations_17_18.csv"))
 primary_care_2021 <- df_list_2021$`Figure 33&34. Primary care`$`ILI rate`[2:53]
 primary_care_2022 <- df_list_2022$`Figure_31&32__Primary_care`$`ILI rate`
 primary_care_2023 <- df_list_2023$`Figure_31&32__Primary_care`$`ILI rate`
@@ -73,14 +70,15 @@ primary_care_total <- tibble(Weeks = c(40:52, 1:20),
                             `2022-23` = c(primary_care_2023[39:52], rep(NA, 19))
                             )
 
-## gather into one tibble, ready for vis ----
+## ready for vis ----
 primary_care_vis <- primary_care_total %>% 
-  pivot_longer(cols = 2:5, names_to = "Flu Season", values_to = "Rate") %>%
-  mutate(Weeks = ifelse(Weeks>=40, Weeks-39, Weeks+13))
+                    pivot_longer(cols = 2:5, names_to = "Flu Season", values_to = "Rate") %>%
+                    mutate(Weeks = ifelse(Weeks>=40, Weeks-39, Weeks+13))
 
 # SWAB DATA ####################################################################
-swabs <- read_csv(here("allData", "swab", "2014 - 2021 swab data.csv")) %>% tibble()
-swabs <- swabs[,-1] %>% select(-year, -week) 
+swabs <- read_csv(here("allData", "swab", "2014 - 2021 swab data.csv")) %>% 
+          as_tibble() %>%
+          select(flu_A, flu_B) 
 
 swab_season17_18 <- swabs %>% slice(175:207)
 swab_season18_19 <- swabs %>% slice(227:259)
@@ -96,8 +94,7 @@ swab_season22_23[14,2:5] <- supplement_data_2023[27,2:5]
 swab_season22_23$flu_A <- rowSums(swab_season22_23[2:4])
 colnames(swab_season22_23)[5] = 'flu_B'
 
-swab_season22_23 <- swab_season22_23 %>% select ( flu_A,
-                                                  flu_B)
+swab_season22_23 %<>% select(flu_A, flu_B)
 
 ## add id number to plot the data ----
 swab_season17_18$id <- 1:nrow(swab_season17_18)
@@ -105,14 +102,14 @@ swab_season18_19$id <- 1:nrow(swab_season18_19)
 swab_season19_20$id <- 1:nrow(swab_season19_20)
 swab_season22_23$id <- 1:nrow(swab_season22_23)
 
-## create 2 data frames for flu type A and B ----
+## create 2 df for flu type A and B ----
 typeA1 <- tibble(id = swab_season17_18$id,
                  '17-18' = swab_season17_18$flu_A,
                  '18-19' = swab_season18_19$flu_A,
                  '19-20' = swab_season19_20$flu_A,
                  '22-23' = swab_season22_23$flu_A)
 
-typeA <- melt(typeA1 ,  id.vars = 'id', variable.name = 'series')
+typeA <- melt(typeA1, id.vars = 'id', variable.name = 'series')
 
 typeB1 <- tibble(id = swab_season17_18$id,
                  '17-18' = swab_season17_18$flu_B,
@@ -121,6 +118,9 @@ typeB1 <- tibble(id = swab_season17_18$id,
                  '22-23' = swab_season22_23$flu_B)
 
 typeB <- melt(typeB1, id.vars = 'id', variable.name = 'series')
+
+## ready for vis ----
+swab_vis = list(typeA, typeB)
 
 # HOSPITALISATION ##############################################################
 ## 2017 ----
@@ -133,13 +133,13 @@ hosp_17_18 <- data_2017$sent_rate
 hosp_18_19 <- df_list_201819$USISS_Sentinel$`2018-19 Hospital admission (rate)`
 hosp_19_20 <- df_list_201920$USISS_Sentinel$`Hospital admission (rate)`
 hosp_22_23 <- df_list_2022$`Figure_35__SARI_Watch-hospital` %>% 
-  filter( df_list_2022$`Figure_35__SARI_Watch-hospital`$`Week number`>39) %>% 
-  pull(3)
+            filter( df_list_2022$`Figure_35__SARI_Watch-hospital`$`Week number`>39) %>% 
+            pull(3)
 nas <- rep(NA, 20)
 hosp_22_23 <- c(hosp_22_23, nas)
 
-## gather into one tibble, ready for vis ----
-hosp_seasons <- data.frame(week, hosp_17_18, hosp_18_19, hosp_19_20, hosp_22_23) 
+## ready for vis ----
+hosp_vis <- data.frame(week, hosp_17_18, hosp_18_19, hosp_19_20, hosp_22_23)
 
 # MORTALITY ####################################################################
 ## 2022 ----
@@ -147,8 +147,9 @@ link <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdea
 cod22 <- read.xlsx(link, sheet = 6,
                    rows = c(6:59), rowNames = F, colNames = T,
                    skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T) %>%
-          select(c(1,5,6)) %>%
-          mutate(Series = "2022", .before = 2)
+          mutate(Series = 2022) %>%
+          select(1,9,5,6)
+
 
 colnames(cod22) <- c("Week Number", "Series", "Involving", "Due to")
 
@@ -159,11 +160,10 @@ cod21 <- read.xlsx(link, sheet = 6,
                    skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T) %>%
           drop_na() %>%
           t() %>%
-          as_tibble(.name_repair = "unique") %>%
-          select(5,6) %>%
-          relocate("...6", .before =1) %>%
-          mutate("Series" = "2021", .before = 1) %>%
-          mutate("Week Number" = as.numeric(rownames(.))-1, .before = 1)  %>%
+          as_tibble(.name_repair = "unique")  %>%
+          mutate("Series"      = 2021,
+                 "Week Number" = as.numeric(rownames(.))-1) %>%
+          select(9,8,4,5) %>%
           slice(-1)
 
 colnames(cod21) <- c("Week Number", "Series", "Involving", "Due to")
@@ -174,9 +174,8 @@ link <- "https://www.ons.gov.uk/visualisations/dvc1221/fig2/datadownload.xlsx"
 cod20 <- read.xlsx(link, sheet = 1, 
                    rows = c(7:60), rowNames = F, colNames = T,
                    skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T) %>%
-          select(3:4) %>%
-          mutate(Series = "2020", .before = 1) %>%
-          mutate(week = row_number(), .before = 1)
+          mutate("Week Number" = row_number()) %>%
+          select(8,1,3,4)
 
 colnames(cod20) <- c("Week Number", "Series", "Involving", "Due to")
 
@@ -187,95 +186,122 @@ historical <- read.xlsx(link, sheet = 4, rows = c(5:57), rowNames = F, colNames 
                         skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T) %>%
               melt(id.vars = 'Week.number', variable.name = 'Series') %>%
               as_tibble() %>%
-              rename("Due to" = value) %>%
-              rename("Week Number" = "Week.number") %>%
-              mutate("Involving" = NA, .before = 3) %>%
+              rename("Due to" = value,
+                     "Week Number" = "Week.number") %>%
+              mutate(Involving = NA, .before = 3) %>%
               mutate(across(Series, as.character)) %>%
               filter(Series < 2020)
 
-## gather into one tibble, ready for vis ----
+## ready for vis ----
+## incl smoothing by rolling average
 allmort <- rbind(cod20, cod21, cod22) %>%
             as_tibble() %>%
             mutate(across(c(`Involving`, `Due to`), as.double)) %>%
-            rows_append(historical)  %>%
-            arrange(., Series) %>%
-            filter(`Week Number` >= 40 | `Week Number` <= 20) %>%
+            rbind(historical)  %>%
+            arrange(Series) %>%
             select(-3)
 
-mort_season16_17 <- allmort %>% slice(21:54) %>% mutate(id = row_number(), .before = 1) %>% mutate(Series = "2016-17")
-mort_season17_18 <- allmort %>% slice(55:86) %>% mutate(id = row_number(), .before = 1) %>% mutate(Series = "2017-18")
-mort_season18_19 <- allmort %>% slice(87:119) %>% mutate(id = row_number(), .before = 1) %>% mutate(Series = "2018-19")
-mort_season19_20 <- allmort %>% slice(120:152) %>% mutate(id = row_number(), .before = 1) %>% mutate(Series = "2019-20")
-mort_season20_21 <- allmort %>% slice(153:186) %>% mutate(id = row_number(), .before = 1) %>% mutate(Series = "2020-21")
-mort_season21_22 <- allmort %>% slice(187:219) %>% mutate(id = row_number(), .before = 1) %>% mutate(Series = "2021-22")
+{
+w <- gwr.Gauss(c(6,4,2,0), 2)
+w <- w / sum(w)
+}
 
-mortality_vis <- rbind(mort_season16_17, mort_season17_18, mort_season18_19,
-                       mort_season19_20, mort_season20_21, mort_season21_22) %>%
-                  select(-2) 
+mortality_vis <- allmort %>% 
+                  mutate(y      = round(as.numeric(Series) + `Week Number`/100 - 0.89, 0),
+                         Series = as.factor(paste0(y,"-",y-1999)),
+                         Smooth = roll_meanr(`Due to`, weights = w)) %>%
+                  filter(`Week Number` >= 40 | `Week Number` <= 20) %>%
+                  select(Series, `Due to`, Smooth) %>%
+                  slice(-c(1:20)) %>%
+                  group_by(Series) %>%
+                  mutate(id = as.numeric(1:n()), .before=1)
 
-rm(mort_season16_17, mort_season17_18, mort_season18_19, mort_season19_20, mort_season20_21, mort_season21_22, cod20, cod21, cod22, historical, allmort)
+mortality_vis_list <- mortality_vis %>%
+                      group_by(Series) %>%
+                      group_split()
 
-# Vaccine Uptake ###############################################################
+# VACCINE UPTAKE ###############################################################
 # [1] Final end of season cumulative uptake data for England 
 #     Because of the CCG->ICB shuffle, the data used were grouped by Local Authority
 #     Doesn't matter anyway
-# [2] Read from URL where possible. All ODS needs downloading to local,
-#     they are referenced using here().
+# [2] Read from URL where possible. 
+#     All ODS needs downloading to local, they are referenced using here().
+
+vac_label = c("over65_num", "over65_vac", "over65_pct",
+              "atrisk_num", "atrisk_vac", "atrisk_pct",
+              "pregnt_num", "pregnt_vac", "pregnt_pct",
+              "y2and3_num", "y2and3_vac", "y2and3_pct")
 
 ## winter 2022 ----
 ## only published until end of Nov 2022, not end of season
 link <- "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1125840/UKHSA_seasonal_influenza_vaccine_uptake_LA_November2223.ods"
-dest <- curl_download(link, here("allData", "vaccine", "vac22.ods"), quiet = F)
+ifelse(file.exists(here("allData", "vaccine", "vac22.ods")),
+       dest <- here("allData", "vaccine", "vac22.ods"),
+       dest <- curl_download(link, here("allData", "vaccine", "vac22.ods"), quiet = F))
+
 vac22 <- read_ods(dest, sheet = 2, range = "A23:D29", col_names = F) %>%
           slice(-c(4,5)) %>%
           pivot_wider(names_from = "A", 
                       values_from = c("B","C","D"),
-                      names_vary = "slowest")
-vac22[,10:11] <- vac22[,10:11] + vac22[,13:14]
-vac22[,12] <- 100* vac22[,11] / vac22[,10]
-vac22 %<>% select(-c(13:15))
-colnames(vac22) <- LETTERS[1:12]
+                      names_vary = "slowest") %>%
+          mutate("y2and3_num" = .[[10]] + .[[13]],
+                 "y2and3_vac" = .[[11]] + .[[14]],
+                 "y2and3_pct" = y2and3_vac/y2and3_num * 100)  %>%
+          select(-c(10:15))
+## chaning colname also has the effect of ensuring the data has the right dimension
+colnames(vac22) <- vac_label
 
 ## winter 2021 ----
 link <- "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1062488/LA__Seasonal_influenza_vaccine_uptake_GP_patients_February_2122.ods"
-dest <- curl_download(link, here("allData", "vaccine", "vac21.ods"), quiet = F)
+ifelse(file.exists(here("allData", "vaccine", "vac21.ods")),
+       dest <- here("allData", "vaccine", "vac21.ods"),
+       dest <- curl_download(link, here("allData", "vaccine", "vac21.ods"), quiet = F))
+
 vac21 <- read_ods(dest, sheet = 2, range = "A22:D33", col_names = F) %>%
           slice(-c(4:8,10,11)) %>%
           pivot_wider(names_from = "A", 
                       values_from = c("B","C","D"),
-                      names_vary = "slowest")
-
-vac21[,10:11] <- vac21[,10:11] + vac21[,13:14]
-vac21[,12] <- 100* vac21[,11] / vac21[,10]
-vac21 %<>% select(-c(13:15))
-colnames(vac21) <- LETTERS[1:12]
+                      names_vary = "slowest") %>%
+          mutate("y2and3_num" = .[[10]] + .[[13]],
+                 "y2and3_vac" = .[[11]] + .[[14]],
+                 "y2and3_pct" = y2and3_vac/y2and3_num * 100)  %>%
+          select(-c(10:15))
+colnames(vac21) <- vac_label
 
 ## winter 2020 ----
 link <- "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/995899/Supplementarytables_LA_2021.ods"
-dest <- curl_download(link, here("allData", "vaccine", "vac20.ods"))
+ifelse(file.exists(here("allData", "vaccine", "vac20.ods")),
+       dest <- here("allData", "vaccine", "vac20.ods"),
+       dest <- curl_download(link, here("allData", "vaccine", "vac20.ods"), quiet = F))
+
 vac20 <- read_ods(dest, sheet = 2, range = "A11:R26") %>%
           as_tibble(.name_repair = "unique") %>%
           select(-c(4:6, 10:12, 16:18)) 
+
 vac20 <- cbind(vac20[3,1:9], vac20[9,7:9], vac20[15, 7:9]) %>%
           as_tibble(.name_repair = "unique") %>%
-          mutate(across(1:15, as.double))
+          mutate(across(1:15, as.double)) %>%
+          mutate("y2and3_num" = .[[10]] + .[[13]],
+                 "y2and3_vac" = .[[11]] + .[[14]],
+                 "y2and3_pct" = y2and3_vac/y2and3_num * 100) %>%
+          select(-c(10:15))
 
-vac20[,10:11] <- vac20[,10:11] + vac20[,13:14]
-vac20[,12] <- 100* vac20[,11] / vac20[,10]
-vac20 %<>% select(-c(13:15))
-colnames(vac20) <- LETTERS[1:12]
+colnames(vac20) <- vac_label
 
 ## winter 2019 ----
 ## in this year only, 2yo and 3yo data are combined
 ## this means we have to combine it for every other year
 link <- "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/913214/LT_1920_formatted_amended_V4.ods"
-dest <- curl_download(link, here("allData", "vaccine", "vac19.ods"))
+ifelse(file.exists(here("allData", "vaccine", "vac19.xlsx")),
+       dest <- here("allData", "vaccine", "vac19.xlsx"),
+       dest <- curl_download(link, here("allData", "vaccine", "vac19.xlsx"), quiet = F))
+
 vac19 <- read_ods(dest, sheet = 2, range = "B12:S21") %>%
           as_tibble(.name_repair = "unique") %>%
           select(-c(4:6, 10:12, 16:18)) 
 
 vac19 <- cbind(vac19[3,1:9], vac19[9,7:9])
-colnames(vac19) <- LETTERS[1:12]
+colnames(vac19) <- vac_label
 
 ## winter 2018 ----
 link <- "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/807777/EndOfSeason_Feb_201819_LA_PHEC_amended100619.xlsx"
@@ -287,12 +313,13 @@ vac18 <- read.xlsx(link, sheet = 2,
 
 vac18 <- cbind(vac18[3,1:9], vac18[9,7:9], vac18[15, 7:9]) %>% 
           as_tibble(.name_repair = "unique") %>%
-          mutate_if(is.character, as.numeric)
+          mutate_if(is.character, as.numeric) %>%
+          mutate("y2and3_num" = .[[10]] + .[[13]],
+                 "y2and3_vac" = .[[11]] + .[[14]],
+                 "y2and3_pct" = y2and3_vac/y2and3_num * 100) %>%
+          select(-c(10:15))
 
-vac18[,10:11] <- vac18[,10:11] + vac18[,13:14]
-vac18[,12] <- 100* vac18[,11] / vac18[,10]
-vac18 %<>% select(-c(13:15))
-colnames(vac18) <- LETTERS[1:12]
+colnames(vac18) <- vac_label
 
 ## winter 2017 ----
 ## _1 is over65 and at_risk
@@ -301,7 +328,9 @@ colnames(vac18) <- LETTERS[1:12]
 ## _4 is all 3-year-olds
 
 link <- "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/710428/Seasonal_flu_GP_patients_01Sept_2017_31Jan_2018_LA.xlsx"
-dest <- curl_download(link, here("allData", "vaccine", "vac17.xlsx"), quiet = F)
+ifelse(file.exists(here("allData", "vaccine", "vac17.xlsx")),
+       dest <- here("allData", "vaccine", "vac17.xlsx"),
+       dest <- curl_download(link, here("allData", "vaccine", "vac17.xlsx"), quiet = F))
 vac17_1 <- read.xlsx(dest, sheet = 2, 
                      rows = 156, cols = 7:12, rowNames = F, colNames = F,
                      skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = F)
@@ -317,20 +346,38 @@ vac17_4 <- read.xlsx(dest, sheet = 5,
 
 vac17 <- cbind(vac17_1[,7:12], vac17_2[,13:15], vac17_3[,13:15] + vac17_4[,13:15])
 vac17[,12] <- 100* vac17[,11] / vac17[,10]
-rm(vac17_1, vac17_2, vac17_3, vac17_4)
 
-colnames(vac17) <- LETTERS[1:12]
+colnames(vac17) <- vac_label
 
-## gather into a single tibble, ready for vis ----
-allvac <- rbind(vac17, vac18, vac19, vac20, vac21, vac22) %>%
-          as_tibble() %>%
-          mutate(year = 2022:2017, .before = 1) %>%
-          mutate_if(is.character, as.numeric)
-colnames(allvac) <- c("year",
-                      "over65_num", "over65_vac", "over65_pct",
-                      "atrisk_num", "atrisk_vac", "atrisk_pct",
-                      "pregnt_num", "pregnt_vac", "pregnt_pct",
-                      "y2and3_num", "y2and3_vac", "y2and3_pct")
+## ready for vis ----
+vaccine_vis <- rbind(vac17, vac18, vac19, vac20, vac21, vac22) %>%
+                as_tibble() %>%
+                mutate(year = 2022:2017, .before = 1) %>%
+                mutate_if(is.character, as.numeric)
+colnames(vaccine_vis) <- c("year", vac_label)
 
-# next heading #################################################################
+# REMOVE IRRELEVANT VARS #################################################################
 
+suppressWarnings({
+  
+rm(primary_care_201718, primary_care_2021, primary_care_2022, 
+   primary_care_2023, primary_care_total)
+  
+rm(swab_season17_18, swab_season18_19, swab_season19_20, 
+   swab_season22_23, swabs, typeA1, typeB1)
+
+rm(data_2017, week, hosp_17_18, hosp_18_19, hosp_19_20, hosp_22_23)
+
+rm(sheet_vector_201819, sheet_vector_201920, sheet_vector_2021,
+   sheet_vector_2022, sheet_vector_2023)
+
+rm(df_list_201819, df_list_201920, df_list_2021,
+   df_list_2022, df_list_2023, supplement_data_2023)
+
+rm(cod20, cod21, cod22, historical, allmort)
+
+rm(vac17, vac17_1, vac17_2, vac17_3, vac17_4,
+   vac18, vac19, vac20, vac21, vac22, allvac, vac_label)
+
+rm(nas, i, dest, path)
+})
