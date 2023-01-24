@@ -24,14 +24,14 @@ swab_df <- swabs %>% slice(279:311)
 swab_df$total = swab_df$flu_A+swab_df$flu_B
 swab <- swab_df$total
 week <- seq(1:33)
-season_201920 <- data.frame( week,hospital, gp, swab)
+season_201920 <- data.frame( week,hospital$`2018-19 Hospital admission (rate)`, gp, swab)
 names(season_201920) <- c("week", "hospital", "gp", "swab")
 
-log_hosp <- log(hospital)
-log_week <- log(week)
-log_gp <- log(gp)
-log_season <- data.frame(log_week, log_hosp, log_gp)
-log_season_subset <- data.frame(week = log_season$log_week[5:12], hosp = log_season$log_hosp[5:12], gp = log_season$log_gp[5:12])
+log_hosp <- log10(hospital$`2018-19 Hospital admission (rate)`)
+log_week <- log10(week)
+log_gp <- log10(gp)
+log_season <- data.frame(week, log_hosp = log_hosp, log_gp)
+log_season_subset <- data.frame(week = week[5:12], hosp = log_season$log_hosp[5:12], gp = log_season$log_gp[5:12])
 
 #creat linear models for when 
 lm_hosp <- lm(data = log_season_subset,formula = hosp~week)
@@ -41,10 +41,17 @@ gp_predict <- data.frame(gp_line = predict(lm_gp, log_season_subset), week = log
 summary(lm_gp)
 summary(lm_hosp)
 
+#check whether the R_0 rates are similar
+confint(lm_gp, level = 0.95)
+
+10**0.08166553
+10**(0.102)
+10**(0.148)
+
 
 log_hosp_plot <- ggplot(log_season) +
   theme_ipsum() +
-  geom_point(lwd = 1.5, aes(log_week, log_hosp, color = 'Hospital')) +
+  geom_point(lwd = 1.5, aes(weel, log_hosp, color = 'Hospital')) +
   geom_point(lwd = 1.5, aes(log_week, log_gp, color = 'GP')) +
   geom_line(data = hosp_predict, aes(hosp_predict$week, hosp_predict$hosp_line)) +
   geom_line(data = hosp_predict, aes(gp_predict$week, gp_predict$gp_line)) + 

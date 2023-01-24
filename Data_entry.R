@@ -37,10 +37,10 @@ names(df_list_201819) <- sheet_vector_201819
 
 
 #Flu season 2019-20
-path_19_20 <- "2019-20_flu_season_data.xlsx"
+path_19_20 <- "allData/2019-20_flu_season_data.xlsx"
 df_list_201920 <- list()
 sheet_vector_201920 <- path_19_20 %>% excel_sheets()
-for (i in 1:length(sheet_vector_201819)) {
+for (i in 1:length(sheet_vector_201920)) {
   
   df_list_201920[[i]] <- tibble(read_xlsx(path_19_20, sheet_vector_201920[i], skip=7))
 }
@@ -96,3 +96,4 @@ swab_season17_18$id <- 1:nrow(swab_season17_18)
 swab_season18_19$id <- 1:nrow(swab_season18_19)
 swab_season19_20$id <- 1:nrow(swab_season19_20)
 swab_season22_23$id <- 1:nrow(swab_season22_23)
+
