@@ -356,6 +356,14 @@ vaccine_vis <- rbind(vac17, vac18, vac19, vac20, vac21, vac22) %>%
                 mutate_if(is.character, as.numeric)
 colnames(vaccine_vis) <- c("year", vac_label)
 
+# Pivotting the df to the most suitable format for plotting
+vacc_rate <- select(vaccine_vis, 
+                    'Year' = year,
+                    'Over 65 year' = over65_pct,
+                    '50-65 with clinical risk' = atrisk_pct,
+                    'Pregnant women' = pregnt_pct,
+                    '2-3 year olds' = y2and3_pct) %>% pivot_longer(-Year) %>% arrange(., Year)
+
 # REMOVE IRRELEVANT VARS #################################################################
 
 suppressWarnings({
