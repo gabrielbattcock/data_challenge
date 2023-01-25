@@ -12,33 +12,35 @@ bibliography: UKHSA_bibliography.bib
 ---
 
 ## Introduction
-``` {r}
+
+```{r}
 #Loading the presentation stuff
 source("source_data_entry.R")
 source("swabs.R")
+#For the vaccine plot
+source("vacc_plot.R")
 
 ```
 
-## Abstract/Summary
+## Introduction
 
-- **Title**:
-- **Introduction**:
-- **Methods**:
-- **Results**:
-- **Discussion**:
-- **Conclusion**:
+-   Highly infectious and rapidly evolving respiratory virus circulating seasonally around the world
+-   Antigenic shifts may result in uncontrolled extensive spread causing an epidemic (e.g. 1918-2009)
+-   Progression may lead to deaths in at risk groups (children \<2 y.o., pregnant women, people \>65 y.o. and people with underlying medical conditions)
+-   Seasonal influenza circulation puts a burden on NHS e.g. emergency room and GP services
+-   Vaccination averts between 180,000 and 626,000 cases of influenza per year in England
+-   Flu vaccination helps avert between 5,678 and 8,800 premature deaths per year
+-   The NHS flu vaccination programme costs £50,610 per death averted
+-   Understanding the circulation patterns can help UKHSA:
+    -   effectively allocate resources
+    -   forecast future season dynamics
+    -   aid early detection of anomalous seasons
 
 ## Our Question
 
 What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/3 compared to the pre-pandemic years 2016-2019?
 
-## Background
-
-
-
-## Methods
-
-
+## Data Sources
 
 ::: incremental
 -   **Primary care**: Royal College of GP appointments for Influence Like Illnesses
@@ -46,49 +48,88 @@ What is the temporal relationship between different influenza data sources (lab-
 -   **Laboratory confirmed**: Reports of respiratory infections made to PHE from PHE and NHS laboratories in England and Wales
 :::
 
-## Results
+# Methods
 
-## Our data
+## Data Wrangling
 
+## Analysis
 
-
+# Results
 
 ## Exploring our main data sources
 
 ::: panel-tabset
 ### Primary care
 
-![](GP_cases.png){.absolute left=200 top=180 width="700" height="550"}
+![](GP_cases.png){.absolute left="200" top="180" width="700" height="550"}
 
 ### Secondary Care
 
-![](hospitalistaion.png){.absolute left=200 top=180 width="700" height="550"}
+![](hospitalistaion.png){.absolute left="200" top="180" width="700" height="550"}
 
 ### Lab confirmed cases
 
-![](swabs.png){.absolute left=150 top=180 height="550"}
+![](swabs.png){.absolute left="150" top="180" height="550"}
 :::
 
 ## Lab confirmed influenza cases
 
 ::: panel-tabset
-
 ### Influenza A subtype
-``` {r}
+
+```{r}
 #| echo: true
 plotA
 ```
 
 ### Influenza B subtype
-``` {r}
+
+```{r}
 #| echo: true
 plotB
 ```
-
 :::
 
-##Discussion and conclusions
+## Vaccine data
 
+```{r}
+vacc_plot
+```
 
+## Mortality Data
+
+## Per flu seasons
+
+::: panel-tabset
+### 2017-18
+
+```{r}
+source("season_201718.R")
+plot_201718
+```
+
+### 2018-19
+
+```{r}
+source("season_201819.R")
+plot_201819
+```
+
+### 2019-20
+
+```{r}
+source("season_201920.R")
+plot_201920
+```
+
+### 2022-23
+
+```{r}
+source("season_202223.R")
+plot_202223
+```
+:::
+
+## Discussion and conclusions
 
 ## References
