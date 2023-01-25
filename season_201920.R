@@ -16,7 +16,7 @@ p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 
 here::i_am("season_201920.R")
 
-hospital <- df_list_201920$USISS_Sentinel[4]
+hospital <- df_list_201920$USISS_Sentinel[3]
 gp =  as.numeric(df_list_201920$RCGP$...4[2:34])
 swab_df <- swabs %>% slice(279:311)
 swab_df$total = swab_df$flu_A+swab_df$flu_B
