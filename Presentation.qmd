@@ -143,7 +143,12 @@ plot_202223
 ```
 :::
 
-## Discussion and conclusions
+## Next steps
+
+- Calculating R0 values
+- Calculating time of peaks
+- Calculating delay between onset of season and peaks
+- Stratifying results by age
 
 
 

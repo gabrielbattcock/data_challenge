@@ -7,7 +7,7 @@
 <link href="Presentation_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="Presentation_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="Presentation_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.269">
+  <meta name="generator" content="quarto-1.1.251">
 
   <title>Mid Module Presentation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -341,21 +341,13 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" class="center">
   <h1 class="title">Mid Module Presentation</h1>
+</section>
 
-<<<<<<< HEAD
 <section>
 <section id="introduction" class="title-slide slide level1 center">
 <h1>Introduction</h1>
-=======
-<div class="quarto-title-authors">
-</div>
-
-</section>
-<section id="introduction" class="slide level2">
-<h2>Introduction</h2>
->>>>>>> a411de045de230b3c0fad199a6f7b1acd6bf9a37
 <div class="cell">
 
 </div>
@@ -374,7 +366,7 @@
 <ul>
 <li class="fragment">effectively allocate resources</li>
 <li class="fragment">forecast future season dynamics</li>
-<li class="fragment">aid early detection of anomalous seasons</li>
+<li class="fragment">to aid early detection of anomalous seasons</li>
 </ul></li>
 </ul>
 </section>
@@ -397,11 +389,24 @@
 <h1>Methods</h1>
 
 </section>
-<section id="data-wrangling" class="slide level2">
-<h2>Data Wrangling</h2>
+<section id="data-aquisition" class="slide level2">
+<h2>Data aquisition</h2>
+<ul>
+<li class="fragment">Various methods of converting data to a usable form have been used:
+<ul>
+<li class="fragment">UKHSA provided OpenDocument spreadsheets (.ODS) for all flu data (RCGP, USISS and SARI) from 2018-23</li>
+<li class="fragment">PDF scraping (use of R script provided to us) - swabs</li>
+<li class="fragment">2017-18 data for hospitalisation and GP consultations was manually entered from weekly published reports.</li>
+</ul></li>
+</ul>
 </section>
 <section id="analysis" class="slide level2">
 <h2>Analysis</h2>
+<ul>
+<li class="fragment">Time series plots</li>
+<li class="fragment"><span class="math inline">\(R_0\)</span> value for early spread</li>
+<li class="fragment">Calculate delay of peak/initial spread of flu between different data sources</li>
+</ul>
 </section></section>
 <section>
 <section id="results" class="title-slide slide level1 center">
@@ -490,8 +495,14 @@
 </div>
 </div>
 </section>
-<section id="discussion-and-conclusions" class="slide level2">
-<h2>Discussion and conclusions</h2>
+<section id="next-steps" class="slide level2">
+<h2>Next steps</h2>
+<ul>
+<li class="fragment">Calculating R0 values</li>
+<li class="fragment">Calculating time of peaks</li>
+<li class="fragment">Calculating delay between onset of season and peaks</li>
+<li class="fragment">Stratifying results by age</li>
+</ul>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
@@ -727,15 +738,12 @@
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
       (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
 
           // dispatch for shiny
           if (window.jQuery) {
@@ -746,6 +754,13 @@
               window.jQuery(currentSlide).trigger("shown");
             }
           }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
         }
 
         // hookup for slidy
@@ -797,24 +812,7 @@
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
         setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
-          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -852,42 +850,24 @@
           return note.innerHTML;
         });
       }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
-          }
-        } else {
-          return undefined;
-        }
-      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
           });
-        }
+          return popup.innerHTML;
+        });
       }
     });
     </script>
