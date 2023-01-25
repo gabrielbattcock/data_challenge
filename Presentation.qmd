@@ -23,6 +23,7 @@ source("vacc_plot.R")
 
 ```
 
+
 ## Background {.scrollable}
 
 -   Highly infectious and rapidly evolving respiratory virus circulating seasonally around the world [@cope2018]
@@ -35,7 +36,8 @@ source("vacc_plot.R")
 -   Understanding the circulation patterns can help UKHSA:
     -   effectively allocate resources
     -   forecast future season dynamics
-    -   aid early detection of anomalous seasons
+    -   to aid early detection of anomalous seasons
+
 
 ## Our Question
 
@@ -51,7 +53,12 @@ What is the temporal relationship between different influenza data sources (lab-
 
 # Methods
 
-## Data Wrangling
+## Data aquisition 
+
+- Various methods of converting data to a usable form have been used:
+    - UKHSA provides OpenDocument spreadsheets (.ODS) for all collected flu data from 2022-23
+    - PDF scraping (use of R script provided to us) - swabs
+    - 
 
 
 ## Analysis
