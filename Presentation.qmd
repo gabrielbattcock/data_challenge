@@ -56,12 +56,16 @@ What is the temporal relationship between different influenza data sources (lab-
 ## Data aquisition 
 
 - Various methods of converting data to a usable form have been used:
-    - UKHSA provides OpenDocument spreadsheets (.ODS) for all collected flu data from 2022-23
+    - UKHSA provided OpenDocument spreadsheets (.ODS) for all flu data (RCGP, USISS and SARI) from 2018-23
     - PDF scraping (use of R script provided to us) - swabs
-    - 
+    - 2017-18 data for hospitalisation and GP consultations was manually entered from weekly published reports.
 
 
 ## Analysis
+
+- Time series plots
+- $R_0$ value for early spread
+- Calculate delay of peak/initial spread of flu between different data sources
 
 # Results
 
