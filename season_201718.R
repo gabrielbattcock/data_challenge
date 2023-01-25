@@ -20,7 +20,7 @@ hospital <- data_2017$sent_rate
 gp =  as.numeric(primary_care_201718$`GP ILI consulation rates (all ages)`[2:34])
 swab_df <- swab_season17_18
 swab_df$total = swab_df$flu_A+swab_df$flu_B
-swab <- swab_df$total
+swab <- (swab_df$total/56000000)*100000
 week <- seq(1:33)
 season_201718 <- data.frame( week,hospital, gp, swab)
 names(season_201718) <- c("week", "hospital", "gp", "swab")
@@ -30,7 +30,7 @@ plot_201718 <- ggplot(season_201718) +
   theme_ipsum() +
   geom_line(lwd = 1.5, aes(week, hospital, color = 'Hospital')) +
   geom_line(lwd = 1.5, aes(week, gp, color = 'GP')) +
-  #geom_line(aes(week, swab, color = 'Swabbing data')) +
+  geom_line(lwd = 1.5, aes(week, swab, color = 'Swabbing data')) +
   guides(color = guide_legend("Data source")) +
   ylab("Influenza rate (per 100,000)") +
   # xlim(-12, 20)+
@@ -47,7 +47,7 @@ plot_201718 <- ggplot(season_201718) +
                                     fill = NA,
                                     size = 0.1)) +
   coord_cartesian(ylim = c(-1, 60), expand = FALSE) +
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 2))
+  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
 
 plot_201718
 #normalising it so all the peaks are the same heigh (swab data is in number not rate)
