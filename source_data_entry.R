@@ -365,27 +365,27 @@ vacc_rate <- select(vaccine_vis,
                     '2-3 year olds' = y2and3_pct) %>% pivot_longer(-Year) %>% arrange(., Year)
 
 # REMOVE IRRELEVANT VARS #################################################################
-
-suppressWarnings({
-  
-rm(primary_care_201718, primary_care_2021, primary_care_2022, 
-   primary_care_2023, primary_care_total)
-  
-rm(swab_season17_18, swab_season18_19, swab_season19_20, 
-   swab_season22_23, swabs, typeA1, typeB1)
-
-rm(data_2017, week, hosp_17_18, hosp_18_19, hosp_19_20, hosp_22_23)
-
-rm(sheet_vector_201819, sheet_vector_201920, sheet_vector_2021,
-   sheet_vector_2022, sheet_vector_2023)
-
-rm(df_list_201819, df_list_201920, df_list_2021,
-   df_list_2022, df_list_2023, supplement_data_2023)
-
-rm(cod20, cod21, cod22, historical, allmort)
-
-rm(vac17, vac17_1, vac17_2, vac17_3, vac17_4,
-   vac18, vac19, vac20, vac21, vac22, allvac, vac_label)
-
-rm(nas, i, dest, path)
-})
+# 
+# suppressWarnings({
+#   
+# rm(primary_care_201718, primary_care_2021, primary_care_2022, 
+#    primary_care_2023, primary_care_total)
+#   
+# rm(swab_season17_18, swab_season18_19, swab_season19_20, 
+#    swab_season22_23, swabs, typeA1, typeB1)
+# 
+# rm(data_2017, week, hosp_17_18, hosp_18_19, hosp_19_20, hosp_22_23)
+# 
+# rm(sheet_vector_201819, sheet_vector_201920, sheet_vector_2021,
+#    sheet_vector_2022, sheet_vector_2023)
+# 
+# rm(df_list_201819, df_list_201920, df_list_2021,
+#    df_list_2022, df_list_2023, supplement_data_2023)
+# 
+# rm(cod20, cod21, cod22, historical, allmort)
+# 
+# rm(vac17, vac17_1, vac17_2, vac17_3, vac17_4,
+#    vac18, vac19, vac20, vac21, vac22, allvac, vac_label)
+# 
+# rm(nas, i, dest, path)
+# })

@@ -13,7 +13,7 @@ library(here)
 p_load(tidyverse, knitr, RColorBrewer, kableExtra, ggpubr, ggplot2)
 here::i_am("source_data_entry.r")
 #Generate list of tibbles for 2022 data
-path <- "2022-Influenza_excl.xlsx"
+path <- "allData/2022-Influenza_excl.xlsx"
 df_list_2022 <- list()
 
 sheet_vector_2022 <- path %>% excel_sheets()
@@ -26,7 +26,7 @@ names(df_list_2022) <- sheet_vector_2022
 
 
 #2018-19 flu season
-path_18_19 <- "2018-19_flu_season_data.xlsx"
+path_18_19 <- "allData/2018-19_flu_season_data.xlsx"
 df_list_201819 <- list()
 sheet_vector_201819 <- path_18_19 %>% excel_sheets()
 for (i in 1:length(sheet_vector_201819)) {
@@ -47,7 +47,7 @@ for (i in 1:length(sheet_vector_201920)) {
 names(df_list_201920) <- sheet_vector_201920
 
 #List of tibbles for 2021 data 
-path_2021 <- "data_2021.xlsx"
+path_2021 <- "allData/data_2021.xlsx"
 df_list_2021 <- list()
 sheet_vector_2021 <- path_2021 %>% excel_sheets()
 for (i in 1:length(sheet_vector_2021)) {
@@ -68,7 +68,7 @@ swab_season22_23 <- tibble(df_list_2022$`Figure_10__Datamart_-_Flu`) %>%
   slice(14:46) 
 
 # Add some supplementary data from the 2023
-path_2023 <- "weekly_report_flu_2023.xlsx"
+path_2023 <- "allData/weekly_report_flu_2023.xlsx"
 df_list_2023 <- list()
 
 sheet_vector_2023 <- path_2023 %>% excel_sheets()

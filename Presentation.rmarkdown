@@ -11,7 +11,9 @@ editor: visual
 bibliography: UKHSA_bibliography.bib
 ---
 
+
 ## Introduction
+
 
 ```{r}
 #Loading the presentation stuff
@@ -21,6 +23,7 @@ source("swabs.R")
 source("vacc_plot.R")
 
 ```
+
 
 ## Abstract/Summary
 
@@ -72,24 +75,30 @@ What is the temporal relationship between different influenza data sources (lab-
 ::: panel-tabset
 ### Influenza A subtype
 
+
 ```{r}
 #| echo: true
 plotA
 ```
 
+
 ### Influenza B subtype
+
 
 ```{r}
 #| echo: true
 plotB
 ```
+
 :::
 
 ## Vaccine data
 
+
 ``` {r}
 vacc_plot
 ```
+
 
 ## Mortality Data
 
@@ -101,33 +110,42 @@ vacc_plot
 
 ### 2017-18 
 
+
 ``` {r}
 source("season_201718.R")
 plot_201718
 ```
 
+
 ### 2018-19
+
 
 ``` {r}
 source("season_201819.R")
 plot_201819
 ```
 
+
 ### 2019-20
+
 
 ``` {r}
 source("season_201920.R")
 plot_201920
 ```
 
+
 ### 2022-23
+
 
 ``` {r}
 source("season_202223.R")
 plot_202223
 ```
+
 :::
 
-## Discussion and conclusions
+##Discussion and conclusions
 
 ## References
+
