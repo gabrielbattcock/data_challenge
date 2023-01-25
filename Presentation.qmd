@@ -74,15 +74,27 @@ What is the temporal relationship between different influenza data sources (lab-
 ::: panel-tabset
 ### Primary care
 
-![](GP_cases.png){.absolute left="200" top="180" width="700" height="550"}
+
+``` {r}
+source("primary_care_vis.R")
+gp_cases
+```
 
 ### Secondary Care
 
-![](hospitalistaion.png){.absolute left="200" top="180" width="700" height="550"}
+
+``` {r}
+source("hospitalisation_plots.R")
+hospital_plot
+```
 
 ### Lab confirmed cases
 
-![](swabs.png){.absolute left="150" top="180" height="550"}
+
+``` {r}
+source("swabs.R")
+combined_plot
+```
 :::
 
 ## Lab confirmed influenza cases
