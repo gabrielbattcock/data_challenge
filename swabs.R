@@ -53,3 +53,5 @@ combined_plot <- ggarrange(plotA, plotB,
                            ncol = 1, nrow = 2)
 
 combined_plot
+
+
