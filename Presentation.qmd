@@ -9,9 +9,10 @@ format:
       width: third
 editor: visual
 bibliography: UKHSA_bibliography.bib
+csl: bmj.csl
 ---
 
-## Introduction
+# Introduction
 
 ```{r}
 #Loading the presentation stuff
@@ -22,15 +23,15 @@ source("vacc_plot.R")
 
 ```
 
-## Introduction
+## Background {.scrollable}
 
--   Highly infectious and rapidly evolving respiratory virus circulating seasonally around the world
--   Antigenic shifts may result in uncontrolled extensive spread causing an epidemic (e.g. 1918-2009)
--   Progression may lead to deaths in at risk groups (children \<2 y.o., pregnant women, people \>65 y.o. and people with underlying medical conditions)
--   Seasonal influenza circulation puts a burden on NHS e.g. emergency room and GP services
--   Vaccination averts between 180,000 and 626,000 cases of influenza per year in England
--   Flu vaccination helps avert between 5,678 and 8,800 premature deaths per year
--   The NHS flu vaccination programme costs £50,610 per death averted
+-   Highly infectious and rapidly evolving respiratory virus circulating seasonally around the world [@cope2018]
+-   Antigenic shifts may result in uncontrolled extensive spread causing an epidemic (e.g. 1918-2009) [@cope2018]
+-   Progression may lead to deaths in at risk groups (children \<2 y.o., pregnant women, people \>65 y.o. and people with underlying medical conditions) [@zarocostas2009]
+-   Seasonal influenza circulation puts a burden on NHS e.g. emergency room and GP services [@cope2018]
+-   Vaccination averts between 180,000 and 626,000 cases of influenza per year in England [@franklin2018]
+-   Flu vaccination helps avert between 5,678 and 8,800 premature deaths per year [@franklin2018]
+-   The NHS flu vaccination programme costs £50,610 per death averted [@franklin2018]
 -   Understanding the circulation patterns can help UKHSA:
     -   effectively allocate resources
     -   forecast future season dynamics
@@ -51,6 +52,7 @@ What is the temporal relationship between different influenza data sources (lab-
 # Methods
 
 ## Data Wrangling
+
 
 ## Analysis
 
@@ -78,14 +80,14 @@ What is the temporal relationship between different influenza data sources (lab-
 ### Influenza A subtype
 
 ```{r}
-#| echo: true
+
 plotA
 ```
 
 ### Influenza B subtype
 
 ```{r}
-#| echo: true
+
 plotB
 ```
 :::
@@ -131,5 +133,7 @@ plot_202223
 :::
 
 ## Discussion and conclusions
+
+
 
 ## References
