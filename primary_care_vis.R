@@ -4,12 +4,9 @@ source("source_data_entry.R")
 #Primary care vis (Szymon's version)
 here::i_am("primary_care_vis.R")
 
-<<<<<<< HEAD
-GPplot <- ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +
-=======
 
 gp_cases <- ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +
->>>>>>> b039bb2e267c1e47b24b3ce4cbd625b072afa9c5
+
   geom_line(lwd = 1.5, aes(colour = `Flu Season`)) +
   labs(x="Week", y="Rate of consultations (per 100,000)",
        title="GP consultations for Influenza type illness per 100,000",
@@ -35,10 +32,7 @@ gp_cases <- ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +
                      minor_breaks = seq(0, 60, 5)) +
   scale_fill_manual(values=c("#B7CE89","#FEFF67","#F7B27E"), name="Threshold boundary",
                     labels = c("Baseline threshold", "Low", "Medium"),
-<<<<<<< HEAD
-                    guide = guide_legend(reverse = F))
 
-=======
                     guide = guide_legend(reverse = F, order = 2))
 gp_cases
->>>>>>> b039bb2e267c1e47b24b3ce4cbd625b072afa9c5
+

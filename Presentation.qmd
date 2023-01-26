@@ -9,9 +9,10 @@ format:
       width: third
 editor: visual
 bibliography: UKHSA_bibliography.bib
+csl: bmj.csl
 ---
 
-## Introduction
+# Introduction
 
 ```{r}
 #Loading the presentation stuff
@@ -22,23 +23,21 @@ source("vacc_plot.R")
 
 ```
 
-## Introduction
-### What are is influenza?
 
--   Influenza (flu) is a highly infectious and rapidly evolving respiratory virus circulating annually around the world
--   Antigenic shifts may result in uncontrolled extensive spread causing an epidemic (e.g. 1918-2009)
--   Progression (of ......) may lead to deaths in at risk groups (children \<2 y.o., pregnant women, people \>65 y.o. and people with underlying medical conditions)
--   Seasonal influenza circulation puts a burden on NHS e.g. emergency room and GP services
--   Vaccination averts between 180,000 and 626,000 cases of influenza per year in England
--   Flu vaccination helps avert between 5,678 and 8,800 premature deaths per year
--   The NHS flu vaccination programme costs £50,610 per death averted
+## Background {.scrollable}
 
-### Why are we interested in studying the temporal nature of flu
-
+-   Highly infectious and rapidly evolving respiratory virus circulating seasonally around the world [@cope2018]
+-   Antigenic shifts may result in uncontrolled extensive spread causing an epidemic (e.g. 1918-2009) [@cope2018]
+-   Progression may lead to deaths in at risk groups (children \<2 y.o., pregnant women, people \>65 y.o. and people with underlying medical conditions) [@zarocostas2009]
+-   Seasonal influenza circulation puts a burden on NHS e.g. emergency room and GP services [@cope2018]
+-   Vaccination averts between 180,000 and 626,000 cases of influenza per year in England [@franklin2018]
+-   Flu vaccination helps avert between 5,678 and 8,800 premature deaths per year [@franklin2018]
+-   The NHS flu vaccination programme costs £50,610 per death averted [@franklin2018]
 -   Understanding the circulation patterns can help UKHSA:
     -   effectively allocate resources
     -   forecast future season dynamics
     -   to aid early detection of anomalous seasons
+
 
 ## Our Question
 
@@ -60,13 +59,21 @@ What is the temporal relationship between different influenza data sources (lab-
     - UKHSA provided OpenDocument spreadsheets (.ODS) for all flu data (RCGP, USISS and SARI) from 2018-23
     - PDF scraping (use of R script provided to us) - swabs
     - 2017-18 data for hospitalisation and GP consultations was manually entered from weekly published reports.
+<<<<<<< HEAD
+=======
+
+>>>>>>> ff2d871244e5d6d4bc8298f151d640dba8d5a4ca
 
 ## Analysis
 
 - Time series plots
+<<<<<<< HEAD
 
 - $R_0$ value for early spread
 
+=======
+- $R_0$ value for early spread
+>>>>>>> ff2d871244e5d6d4bc8298f151d640dba8d5a4ca
 - Calculate delay of peak/initial spread of flu between different data sources
 
 # Results
@@ -76,15 +83,27 @@ What is the temporal relationship between different influenza data sources (lab-
 ::: panel-tabset
 ### Primary care
 
-![](GP_cases.png){.absolute left="200" top="180" width="700" height="550"}
+
+``` {r}
+source("primary_care_vis.R")
+gp_cases
+```
 
 ### Secondary Care
 
-![](hospitalistaion.png){.absolute left="200" top="180" width="700" height="550"}
+
+``` {r}
+source("hospitalisation_plots.R")
+hospital_plot
+```
 
 ### Lab confirmed cases
 
-![](swabs.png){.absolute left="150" top="180" height="550"}
+
+``` {r}
+source("swabs.R")
+combined_plot
+```
 :::
 
 ## Lab confirmed influenza cases
@@ -93,14 +112,22 @@ What is the temporal relationship between different influenza data sources (lab-
 ### Influenza A subtype
 
 ```{r}
+<<<<<<< HEAD
 #| echo: true
+=======
+
+>>>>>>> ff2d871244e5d6d4bc8298f151d640dba8d5a4ca
 plotA
 ```
 
 ### Influenza B subtype
 
 ```{r}
+<<<<<<< HEAD
 #| echo: true
+=======
+
+>>>>>>> ff2d871244e5d6d4bc8298f151d640dba8d5a4ca
 plotB
 ```
 :::
@@ -145,6 +172,13 @@ plot_202223
 ```
 :::
 
-## Discussion and conclusions
+## Next steps
+
+- Calculating R0 values
+- Calculating time of peaks
+- Calculating delay between onset of season and peaks
+- Stratifying results by age
+
+
 
 ## References
