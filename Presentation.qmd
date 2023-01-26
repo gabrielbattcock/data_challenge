@@ -2,7 +2,6 @@
 title: "Mid Module Presentation"
 format: 
   revealjs:
-    theme: beige
     incremental: true
     menu: 
       side: left
@@ -20,9 +19,7 @@ source("source_data_entry.R")
 source("swabs.R")
 #For the vaccine plot
 source("vacc_plot.R")
-
 ```
-
 
 ## Background {.scrollable}
 
@@ -38,7 +35,6 @@ source("vacc_plot.R")
     -   forecast future season dynamics
     -   to aid early detection of anomalous seasons
 
-
 ## Our Question
 
 What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/3 compared to the pre-pandemic years 2016-2019?
@@ -53,28 +49,20 @@ What is the temporal relationship between different influenza data sources (lab-
 
 # Methods
 
-## Data aquisition 
 
-- Various methods of converting data to a usable form have been used:
-    - UKHSA provided OpenDocument spreadsheets (.ODS) for all flu data (RCGP, USISS and SARI) from 2018-23
-    - PDF scraping (use of R script provided to us) - swabs
-    - 2017-18 data for hospitalisation and GP consultations was manually entered from weekly published reports.
-<<<<<<< HEAD
-=======
+## Data aquisition
 
->>>>>>> ff2d871244e5d6d4bc8298f151d640dba8d5a4ca
+-   Various methods of converting data to a usable form have been used:
+    -   UKHSA provided OpenDocument spreadsheets (.ODS) for all flu data (RCGP, USISS and SARI) from 2018-23
+    -   PDF scraping (use of R script provided to us) - swabs
+    -   2017-18 data for hospitalisation and GP consultations was manually entered from weekly published reports.
 
 ## Analysis
 
-- Time series plots
-<<<<<<< HEAD
+-   Time series plots
+-   $R_0$ value for early spread
+-   Calculate delay of peak/initial spread of flu between different data sources
 
-- $R_0$ value for early spread
-
-=======
-- $R_0$ value for early spread
->>>>>>> ff2d871244e5d6d4bc8298f151d640dba8d5a4ca
-- Calculate delay of peak/initial spread of flu between different data sources
 
 # Results
 
@@ -83,24 +71,21 @@ What is the temporal relationship between different influenza data sources (lab-
 ::: panel-tabset
 ### Primary care
 
-
-``` {r}
+```{r}
 source("primary_care_vis.R")
 gp_cases
 ```
 
 ### Secondary Care
 
-
-``` {r}
+```{r}
 source("hospitalisation_plots.R")
 hospital_plot
 ```
 
 ### Lab confirmed cases
 
-
-``` {r}
+```{r}
 source("swabs.R")
 combined_plot
 ```
@@ -112,22 +97,12 @@ combined_plot
 ### Influenza A subtype
 
 ```{r}
-<<<<<<< HEAD
-#| echo: true
-=======
-
->>>>>>> ff2d871244e5d6d4bc8298f151d640dba8d5a4ca
 plotA
 ```
 
 ### Influenza B subtype
 
 ```{r}
-<<<<<<< HEAD
-#| echo: true
-=======
-
->>>>>>> ff2d871244e5d6d4bc8298f151d640dba8d5a4ca
 plotB
 ```
 :::
@@ -174,11 +149,9 @@ plot_202223
 
 ## Next steps
 
-- Calculating R0 values
-- Calculating time of peaks
-- Calculating delay between onset of season and peaks
-- Stratifying results by age
-
-
+-   Calculating R0 values
+-   Calculating time of peaks
+-   Calculating delay between onset of season and peaks
+-   Stratifying results by age
 
 ## References
