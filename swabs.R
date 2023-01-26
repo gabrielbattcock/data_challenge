@@ -5,7 +5,7 @@ source("source_data_entry.R")
 here::i_am("swabs.R")
 
 # Create initial plots
-plotA <- ggplot(typeA, aes(id, value)) +
+plotA <-  ggplot(typeA, aes(id, value)) +
   geom_line(lwd = 1.5, aes(colour = series)) +
   labs(x="Week", y="Number of cases",
        title="UK influenza cases per year",
@@ -25,7 +25,13 @@ plotA <- ggplot(typeA, aes(id, value)) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4))
+  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4)) +
+  theme(plot.margin = margin(t = 5,
+                             r = 3,  
+                             b = 5, 
+                             l = 3))
+
+
 
 plotB <- ggplot(typeB, aes(id, value)) +
   geom_line(lwd = 1.5, aes(colour = series)) +
@@ -47,7 +53,11 @@ plotB <- ggplot(typeB, aes(id, value)) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4))
+  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4)) +
+  theme(plot.margin = margin(t = 5,
+                       r = 3,  
+                       b = 5, 
+                       l = 3))
 
 combined_plot <- ggarrange(plotA, plotB, 
                            ncol = 1, nrow = 2)
