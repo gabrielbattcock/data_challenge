@@ -1,5 +1,5 @@
 ---
-title: "Mid Module Presentation"
+title: "Mid Module Presentation - UK Health Security Agency"
 format: 
   revealjs:
     incremental: true
@@ -37,13 +37,16 @@ source("vacc_plot.R")
     -   effectively allocate resources
     -   forecast future season dynamics
     -   to aid early detection of anomalous seasons
-
 :::
-
 
 ## Our Question
 
 What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/3 compared to the pre-pandemic years 2016-2019?
+
+### Hypothesis
+
+-   We expect there to be a time delay between reporting of different data sources.
+-   We expect a difference between of reporting between prior to COVID-19 pandemic and after.
 
 ::: notes
 We defined our Qs to address these issues. \\Szymon Hypothesis - There could be a time delay betw one source of surveillance and another. And the scale of the one that peaks earlier might be predictive of the later ones. \\Jack There are changes in reporting procedures for resp infections post-covid.
@@ -61,8 +64,6 @@ We defined our Qs to address these issues. \\Szymon Hypothesis - There could be 
 
 # Methods
 
-
-
 ## Data aquisition
 
 -   Various methods of converting data to a usable form have been used:
@@ -75,7 +76,6 @@ We defined our Qs to address these issues. \\Szymon Hypothesis - There could be 
 -   Time series plots
 -   $R_0$ value for early spread
 -   Calculate delay of peak/initial spread of flu between different data sources
-
 
 # Results
 
@@ -104,30 +104,28 @@ combined_plot
 ```
 :::
 
-## Lab confirmed influenza cases
+<!-- ## Lab confirmed influenza cases -->
 
-::: panel-tabset
-### Influenza A subtype
+<!-- ::: panel-tabset -->
+<!-- ### Influenza A subtype -->
 
-```{r}
-plotA
-```
+<!-- ```{r} -->
+<!-- plotA -->
+<!-- ``` -->
 
-### Influenza B subtype
+<!-- ### Influenza B subtype -->
 
-```{r}
+<!-- ```{r} -->
 
-plotB
-```
-:::
+<!-- plotB -->
+<!-- ``` -->
+<!-- ::: -->
 
 ## Vaccine data
 
 ```{r}
 vacc_plot
 ```
-
-## Mortality Data
 
 ## Per flu seasons
 
@@ -163,7 +161,7 @@ plot_202223
 
 ## Next steps
 
--   Calculating R0 values
+-   Calculating $R_0$ values
 -   Calculating time of peaks
 -   Calculating delay between onset of season and peaks
 -   Stratifying results by age

@@ -9,7 +9,7 @@
 <link href="Presentation_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.269">
 
-  <title>Mid Module Presentation</title>
+  <title>Mid Module Presentation - UK Health Security Agency</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -342,7 +342,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Mid Module Presentation</h1>
+  <h1 class="title">Mid Module Presentation - UK Health Security Agency</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -389,6 +389,11 @@
 <section id="our-question" class="slide level2">
 <h2>Our Question</h2>
 <p>What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/3 compared to the pre-pandemic years 2016-2019?</p>
+<h3 id="hypothesis">Hypothesis</h3>
+<ul>
+<li class="fragment">We expect there to be a time delay between reporting of different data sources.</li>
+<li class="fragment">We expect a difference between of reporting between prior to COVID-19 pandemic and after.</li>
+</ul>
 <aside class="notes">
 <p>We defined our Qs to address these issues. \Szymon Hypothesis - There could be a time delay betw one source of surveillance and another. And the scale of the one that peaks earlier might be predictive of the later ones. \Jack There are changes in reporting procedures for resp infections post-covid.</p>
 <style type="text/css">
@@ -481,66 +486,52 @@
 </div>
 </div>
 </div>
+<!-- ## Lab confirmed influenza cases -->
+<!-- ::: panel-tabset -->
+<!-- ### Influenza A subtype -->
+<!-- ```{r} -->
+<!-- plotA -->
+<!-- ``` -->
+<!-- ### Influenza B subtype -->
+<!-- ```{r} -->
+<!-- plotB -->
+<!-- ``` -->
+<!-- ::: -->
 </section>
-<section id="lab-confirmed-influenza-cases" class="slide level2">
-<h2>Lab confirmed influenza cases</h2>
+<section id="vaccine-data" class="slide level2">
+<h2>Vaccine data</h2>
+
+<img data-src="Presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
+<section id="per-flu-seasons" class="slide level2">
+<h2>Per flu seasons</h2>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Influenza A subtype</a></li><li><a href="#tabset-2-2">Influenza B subtype</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">2017-18</a></li><li><a href="#tabset-2-2">2018-19</a></li><li><a href="#tabset-2-3">2019-20</a></li><li><a href="#tabset-2-4">2022-23</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="Presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
-</div>
-</div>
-</div>
-<div id="tabset-2-2">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="Presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
 </div>
 </div>
 </div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="Presentation_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
 </div>
 </div>
-</section>
-<section id="vaccine-data" class="slide level2">
-<h2>Vaccine data</h2>
-
-<img data-src="Presentation_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
-<section id="mortality-data" class="slide level2">
-<h2>Mortality Data</h2>
-</section>
-<section id="per-flu-seasons" class="slide level2">
-<h2>Per flu seasons</h2>
-<div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">2017-18</a></li><li><a href="#tabset-3-2">2018-19</a></li><li><a href="#tabset-3-3">2019-20</a></li><li><a href="#tabset-3-4">2022-23</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1">
+</div>
+<div id="tabset-2-3">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="Presentation_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
 </div>
 </div>
 </div>
-<div id="tabset-3-2">
+<div id="tabset-2-4">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="Presentation_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
-</div>
-</div>
-</div>
-<div id="tabset-3-3">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="Presentation_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
-</div>
-</div>
-</div>
-<div id="tabset-3-4">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="Presentation_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -550,7 +541,7 @@
 <section id="next-steps" class="slide level2">
 <h2>Next steps</h2>
 <ul>
-<li class="fragment">Calculating R0 values</li>
+<li class="fragment">Calculating <span class="math inline">\(R_0\)</span> values</li>
 <li class="fragment">Calculating time of peaks</li>
 <li class="fragment">Calculating delay between onset of season and peaks</li>
 <li class="fragment">Stratifying results by age</li>
