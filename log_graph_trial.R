@@ -82,7 +82,7 @@ log_hosp_plot <- ggplot(log_season) +
   scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
 
 log_hosp_plot 
-  # geom_smooth(data = log_season_subset, formula = hosp~week, method = 'lm')
+# geom_smooth(data = log_season_subset, formula = hosp~week, method = 'lm')
 #normalising it so all the peaks are the same heigh (swab data is in number not rate)
 # hospital_norm <- hospital/mean(hospital), rm.na = T)
 
