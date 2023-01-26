@@ -51,7 +51,7 @@ What is the temporal relationship between different influenza data sources (lab-
 
 # Methods
 
-<<<<<<< HEAD
+
 ## Data aquisition
 
 -   Various methods of converting data to a usable form have been used:
