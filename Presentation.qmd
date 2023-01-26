@@ -1,7 +1,7 @@
 ---
 title: "Mid Module Presentation"
 format: 
-  revealjs:
+  revealjs:\
     incremental: true
     menu: 
       side: left
@@ -37,10 +37,9 @@ source("vacc_plot.R")
     -   effectively allocate resources
     -   forecast future season dynamics
     -   to aid early detection of anomalous seasons
-<<<<<<< HEAD
-=======
+
 :::
->>>>>>> f21c1d8 (Add infographic to qmd, the text will now show as speaker's notes.)
+
 
 ## Our Question
 
@@ -62,18 +61,12 @@ We defined our Qs to address these issues. \\Szymon Hypothesis - There could be 
 
 # Methods
 
-<<<<<<< HEAD
+
 
 ## Data aquisition
 
 -   Various methods of converting data to a usable form have been used:
     -   UKHSA provided OpenDocument spreadsheets (.ODS) for all flu data (RCGP, USISS and SARI) from 2018-23
-=======
-## Data Acquisition
-
--   Various methods of converting data to a usable form have been used:
-    -   UKHSA provided OpenDocument spreadsheets (.ods) for all flu data (RCGP, USISS and SARI) from 2018-23
->>>>>>> f21c1d8 (Add infographic to qmd, the text will now show as speaker's notes.)
     -   PDF scraping (use of R script provided to us) - swabs
     -   2017-18 data for hospitalisation and GP consultations was manually entered from weekly published reports.
 
@@ -82,10 +75,7 @@ We defined our Qs to address these issues. \\Szymon Hypothesis - There could be 
 -   Time series plots
 -   $R_0$ value for early spread
 -   Calculate delay of peak/initial spread of flu between different data sources
-<<<<<<< HEAD
 
-=======
->>>>>>> f21c1d8 (Add infographic to qmd, the text will now show as speaker's notes.)
 
 # Results
 
