@@ -8,7 +8,7 @@ here::i_am("hospitalisation_plots.R")
 
 
 #First, we take the data, and rename the columns so they show up okay in the plot
-hosp_seasons <- hosp_seasons %>% transmute(
+hosp_vis <- hosp_vis %>% transmute(
   week=week,
   `2017-18`=hosp_17_18,
   `2018-19`=hosp_18_19,
@@ -17,7 +17,7 @@ hosp_seasons <- hosp_seasons %>% transmute(
 # pivot_longer(cols=2:5, names_to = "Flu Season", values_to = "Rate")
 
 # Next, we make one outcome table, saves us adding a new geom_line every time
-hosp_seasons_melted <- melt(hosp_seasons,  id.vars = 'week', variable.name = 'series') 
+hosp_seasons_melted <- melt(hosp_vis,  id.vars = 'week', variable.name = 'series') 
   
   
 #Szymon's plot
@@ -64,7 +64,7 @@ hospital_plot
 ########################
 
 #plot all lines on pne plot
-ggplot(hosp_seasons) +
+ggplot(hosp_vis) +
   theme_minimal() +
   geom_line(aes(week, hosp_17_18, color = '2017-18')) +
   geom_line(aes(week, hosp_18_19, color = '2018-19')) +

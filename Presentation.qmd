@@ -103,6 +103,10 @@ plotA
 ### Influenza B subtype
 
 ```{r}
+<<<<<<< HEAD
+=======
+
+>>>>>>> c0bf05fa42bcccab4c58d31632a030d43d583857
 plotB
 ```
 :::
