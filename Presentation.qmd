@@ -23,7 +23,6 @@ source("vacc_plot.R")
 
 ```
 
-
 ## Background {.scrollable}
 
 -   Highly infectious and rapidly evolving respiratory virus circulating seasonally around the world [@cope2018]
@@ -37,7 +36,6 @@ source("vacc_plot.R")
     -   effectively allocate resources
     -   forecast future season dynamics
     -   to aid early detection of anomalous seasons
-
 
 ## Our Question
 
@@ -53,19 +51,18 @@ What is the temporal relationship between different influenza data sources (lab-
 
 # Methods
 
-## Data aquisition 
+## Data aquisition
 
-- Various methods of converting data to a usable form have been used:
-    - UKHSA provided OpenDocument spreadsheets (.ODS) for all flu data (RCGP, USISS and SARI) from 2018-23
-    - PDF scraping (use of R script provided to us) - swabs
-    - 2017-18 data for hospitalisation and GP consultations was manually entered from weekly published reports.
-
+-   Various methods of converting data to a usable form have been used:
+    -   UKHSA provided OpenDocument spreadsheets (.ODS) for all flu data (RCGP, USISS and SARI) from 2018-23
+    -   PDF scraping (use of R script provided to us) - swabs
+    -   2017-18 data for hospitalisation and GP consultations was manually entered from weekly published reports.
 
 ## Analysis
 
-- Time series plots
-- $R_0$ value for early spread
-- Calculate delay of peak/initial spread of flu between different data sources
+-   Time series plots
+-   $R_0$ value for early spread
+-   Calculate delay of peak/initial spread of flu between different data sources
 
 # Results
 
@@ -74,24 +71,21 @@ What is the temporal relationship between different influenza data sources (lab-
 ::: panel-tabset
 ### Primary care
 
-
-``` {r}
+```{r}
 source("primary_care_vis.R")
 gp_cases
 ```
 
 ### Secondary Care
 
-
-``` {r}
+```{r}
 source("hospitalisation_plots.R")
 hospital_plot
 ```
 
 ### Lab confirmed cases
 
-
-``` {r}
+```{r}
 source("swabs.R")
 combined_plot
 ```
@@ -157,11 +151,9 @@ plot_202223
 
 ## Next steps
 
-- Calculating R0 values
-- Calculating time of peaks
-- Calculating delay between onset of season and peaks
-- Stratifying results by age
-
-
+-   Calculating R0 values
+-   Calculating time of peaks
+-   Calculating delay between onset of season and peaks
+-   Stratifying results by age
 
 ## References
