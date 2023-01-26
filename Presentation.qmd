@@ -51,6 +51,7 @@ What is the temporal relationship between different influenza data sources (lab-
 
 # Methods
 
+<<<<<<< HEAD
 ## Data aquisition
 
 -   Various methods of converting data to a usable form have been used:
@@ -63,6 +64,7 @@ What is the temporal relationship between different influenza data sources (lab-
 -   Time series plots
 -   $R_0$ value for early spread
 -   Calculate delay of peak/initial spread of flu between different data sources
+
 
 # Results
 
@@ -97,7 +99,6 @@ combined_plot
 ### Influenza A subtype
 
 ```{r}
-
 plotA
 ```
 
