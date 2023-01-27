@@ -15,10 +15,11 @@ csl: bmj.csl
 
 ```{r}
 #Loading the presentation stuff
-source("source_data_entry.R")
-source("swabs.R")
+
+source("../R_scripts/source_data_entry.R")
+source("../R_scripts/source/swabs.R")
 #For the vaccine plot
-source("vacc_plot.R")
+source("../R_scripts/source/vacc_plot.R")
 ```
 
 ## Background {.scrollable}
@@ -64,7 +65,7 @@ We defined our Qs to address these issues. \\Szymon Hypothesis - There could be 
 
 # Methods
 
-## Data aquisition
+## Data acquisition
 
 -   Various methods of converting data to a usable form have been used:
     -   UKHSA provided OpenDocument spreadsheets (.ODS) for all flu data (RCGP, USISS and SARI) from 2018-23
@@ -85,21 +86,21 @@ We defined our Qs to address these issues. \\Szymon Hypothesis - There could be 
 ### Primary care
 
 ```{r}
-source("primary_care_vis.R")
+source("../R_scripts/source/primary_care_vis.R")
 gp_cases
 ```
 
 ### Secondary Care
 
 ```{r}
-source("hospitalisation_plots.R")
+source("../R_scripts/source/hospitalisation_plots.R")
 hospital_plot
 ```
 
 ### Lab confirmed cases
 
 ```{r}
-source("swabs.R")
+source("../R_scripts/source/swabs.R")
 combined_plot
 ```
 :::
@@ -107,10 +108,13 @@ combined_plot
 <!-- ## Lab confirmed influenza cases -->
 
 <!-- ::: panel-tabset -->
+
 <!-- ### Influenza A subtype -->
 
 <!-- ```{r} -->
+
 <!-- plotA -->
+
 <!-- ``` -->
 
 <!-- ### Influenza B subtype -->
@@ -118,7 +122,9 @@ combined_plot
 <!-- ```{r} -->
 
 <!-- plotB -->
+
 <!-- ``` -->
+
 <!-- ::: -->
 
 ## Vaccine data
@@ -133,28 +139,28 @@ vacc_plot
 ### 2017-18
 
 ```{r}
-source("season_201718.R")
+source("../R_scripts/Season_data/season_201718.R")
 plot_201718
 ```
 
 ### 2018-19
 
 ```{r}
-source("season_201819.R")
+source("../R_scripts/Season_data/season_201819.R")
 plot_201819
 ```
 
 ### 2019-20
 
 ```{r}
-source("season_201920.R")
+source("../R_scripts/Season_data/season_201920.R")
 plot_201920
 ```
 
 ### 2022-23
 
 ```{r}
-source("season_202223.R")
+source("../R_scripts/Season_data/season_202223.R")
 plot_202223
 ```
 :::

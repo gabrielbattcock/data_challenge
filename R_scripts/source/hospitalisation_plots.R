@@ -2,8 +2,9 @@
 # Hospitalistion data UKHSA 
 
 #Reading in 
-source("source_data_entry.R")
-here::i_am("hospitalisation_plots.R")
+here::i_am("R_scripts/source/hospitalisation_plots.R")
+source("../source_data_entry.R")
+
 
 
 
