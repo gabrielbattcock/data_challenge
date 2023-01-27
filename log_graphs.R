@@ -319,8 +319,3 @@ log_hosp_plot2223 <- ggplot(log_season) +
   scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
 
 log_hosp_plot2223
-
-
-
-
-
