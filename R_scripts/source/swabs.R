@@ -1,8 +1,8 @@
 # Szymon Jakobsze
 # Flu swab data UKHSA & Datamart
 
-source("source_data_entry.R")
-here::i_am("swabs.R")
+source("R_scripts/source_data_entry.R")
+here::i_am("R_scripts/source/swabs.R")
 
 # Create initial plots
 plotA <-  ggplot(typeA, aes(id, value)) +

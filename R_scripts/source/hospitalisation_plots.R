@@ -3,7 +3,7 @@
 
 #Reading in 
 here::i_am("R_scripts/source/hospitalisation_plots.R")
-source("../source_data_entry.R")
+source("R_scripts/source_data_entry.R")
 
 
 

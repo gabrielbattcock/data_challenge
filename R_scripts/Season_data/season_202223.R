@@ -14,7 +14,7 @@ p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 
 ## 2019-20 data
 
-here::i_am("season_202223.R")
+here::i_am("R_scripts/Season/season_202223.R")
 
 hospital <- hosp_vis$hosp_22_23
 gp =  primary_care_total$`2022-23`

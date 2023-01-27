@@ -1,8 +1,8 @@
 
-source("source_data_entry.R")
+source("R_scripts/source_data_entry.R")
 
 #Primary care vis (Szymon's version)
-here::i_am("primary_care_vis.R")
+here::i_am("R_scripts/souce/primary_care_vis.R")
 
 
 gp_cases <- ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +

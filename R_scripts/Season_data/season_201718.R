@@ -14,7 +14,7 @@ p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 
 ## 2019-20 data
 
-here::i_am("season_201718.R")
+here::i_am("R_scripts/Season/season_201718.R")
 
 hospital <- data_2017$sent_rate
 gp =  as.numeric(primary_care_201718$`GP ILI consulation rates (all ages)`[2:34])
