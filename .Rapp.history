@@ -1,0 +1,2 @@
+load("/Users/gabrielbattcock/Documents/LSHTM/data_challenge/data_challenge/2023-01-13PHE_scraped_flus_until_2020_end.RDS")
+load("/Users/gabrielbattcock/Documents/LSHTM/data_challenge/data_challenge/2023-01-17PHE_scraped_flus_until_2020_end.RDS")

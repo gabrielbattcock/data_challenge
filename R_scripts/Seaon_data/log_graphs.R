@@ -315,7 +315,7 @@ log_hosp_plot2223 <- ggplot(log_season) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
-  coord_cartesian(ylim = c(-1, 2), expand = FALSE) +
+  coord_cartesian(ylim = c(-1, 3), expand = FALSE) +
   scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
 
 log_hosp_plot2223
