@@ -144,18 +144,23 @@ hosp_vis <- data.frame(week, hosp_17_18, hosp_18_19, hosp_19_20, hosp_22_23)
 # MORTALITY ####################################################################
 ## 2022 ----
 link <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2022/publicationfileweek522022.xlsx"
-cod22 <- read.xlsx(link, sheet = 6,
+ifelse(file.exists(here("allData", "mortality", "cod22.xlsx")),
+       dest <- here("allData", "mortality", "cod22.xlsx"),
+       dest <- curl_download(link, here("allData", "mortality", "cod22.xlsx"), quiet = F))
+cod22 <- read.xlsx(dest, sheet = 6,
                    rows = c(6:59), rowNames = F, colNames = T,
                    skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T) %>%
           mutate(Series = 2022) %>%
           select(1,9,5,6)
 
-
 colnames(cod22) <- c("Week Number", "Series", "Involving", "Due to")
 
 ## 2021 ----
 link <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2021/publishedweek522021.xlsx"
-cod21 <- read.xlsx(link, sheet = 6, 
+ifelse(file.exists(here("allData", "mortality", "cod21.xlsx")),
+       dest <- here("allData", "mortality", "cod21.xlsx"),
+       dest <- curl_download(link, here("allData", "mortality", "cod21.xlsx"), quiet = F))
+cod21 <- read.xlsx(dest, sheet = 6, 
                    rows = c(6,7,11,12,15,16,19,20), rowNames = F, colNames = T,
                    skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T) %>%
           drop_na() %>%
@@ -171,7 +176,10 @@ colnames(cod21) <- c("Week Number", "Series", "Involving", "Due to")
 ## 2020 ----
 ## data structure changed due to covid; currently done using another ONS publication
 link <- "https://www.ons.gov.uk/visualisations/dvc1221/fig2/datadownload.xlsx"
-cod20 <- read.xlsx(link, sheet = 1, 
+ifelse(file.exists(here("allData", "mortality", "cod20.xlsx")),
+       dest <- here("allData", "mortality", "cod20.xlsx"),
+       dest <- curl_download(link, here("allData", "mortality", "cod20.xlsx"), quiet = F))
+cod20 <- read.xlsx(dest, sheet = 1, 
                    rows = c(7:60), rowNames = F, colNames = T,
                    skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T) %>%
           mutate("Week Number" = row_number()) %>%
@@ -182,7 +190,10 @@ colnames(cod20) <- c("Week Number", "Series", "Involving", "Due to")
 ## historical (2016~2019) ----
 ## weekly mortality due to J09:J18, nothing about "involving", just "due to"
 link <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/adhocs/15421numberofdeathsduetoinfluenzaandpneumoniaj09j18andfiveyearaveragebyweekregisteredin2016to2019and2021englandandwales/weeklyaverageinfluenzaandpneumoniadeaths1.xlsx"
-historical <- read.xlsx(link, sheet = 4, rows = c(5:57), rowNames = F, colNames = T,
+ifelse(file.exists(here("allData", "mortality", "historical.xlsx")),
+       dest <- here("allData", "mortality", "historical.xlsx"),
+       dest <- curl_download(link, here("allData", "mortality", "cod22.xlsx"), quiet = F))
+historical <- read.xlsx(dest, sheet = 4, rows = c(5:57), rowNames = F, colNames = T,
                         skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T) %>%
               melt(id.vars = 'Week.number', variable.name = 'Series') %>%
               as_tibble() %>%
