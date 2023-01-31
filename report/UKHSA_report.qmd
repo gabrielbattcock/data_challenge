@@ -18,11 +18,15 @@ UK Health Security Agency (UKHSA) was created as a successor to Public Health En
 
 Understanding the data of how flu is spread can help assist in planning vaccination roll-out. Vaccination is greatly beneficial as it averts between 180,000 and 626,000 cases of influenza per year in England, helping prevent between 5,678 and 8,800 premature deaths [@franklin2018]. Furthermore, every death averted due to vaccination is estimated to save the NHS £50,610 [@franklin2018].
 
-In the UK there are three main ways that influenza is reported: through primary care data, hospitalisation and through swabbing programmes. Having three separate data sources is a valuable so that
-
-### 
+In the UK there are three main ways that influenza is reported: through primary care data, hospitalisation and through swabbing programmes. Having three separate data sources is a valuable to compare whether the peak in the seasonal spread is in the same week or whether any of the data sources lag the others - identifying a possible prediction of a peak in hospitalisations for example. also knowing what strains and what age group is being hit by the flu initially may be useful to bla bla bla.
 
 ### Research question and hypothesis
+
+What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/3 compared to the pre-pandemic years 2016-2019?
+
+We defined our Qs to address these issues.
+
+Hypothesis - There could be a time delay betw one source of surveillance and another. And the scale of the one that peaks earlier might be predictive of the later ones. There are changes in reporting procedures for resp infections post-covid. Children may precede adults due to mixing .
 
 ## Methods
 
