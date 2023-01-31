@@ -1,8 +1,8 @@
 ---- Tutor meeting 2023-01-27 -----
 
-kids higher number of odntacts than adults,
+kids higher number of contacts than adults,
 
-more transmission in kids - coming up first
+more transmission in kids - coming up first -- potentially 
 
 gp surveliance in the kids and hospitalisation in adults.  
 

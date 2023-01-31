@@ -10,7 +10,7 @@ Highly infectious and rapidly evolving respiratory virus circulating seasonally 
 
 \Aizaz Antigenic shifts may result in uncontrolled extensive spread causing an epidemic (e.g. 1918-2009) [@cope2018]
 
-\Gabriel Progression may lead to deaths in at risk groups (children <2 y.o., pregnant women, people >65 y.o. and people with underlying medical conditions) [@zarocostas2009]
+\Gabriel Progression may lead to deaths in at risk groups (children \<2 y.o., pregnant women, people \>65 y.o. and people with underlying medical conditions) [@zarocostas2009]
 
 \Gabriel Seasonal influenza circulation puts a burden on NHS e.g. emergency room and GP services [@cope2018]
 
@@ -44,6 +44,6 @@ to aid early detection of anomalous seasons
 
 ## Discussion
 
-## Conculsion 
+## Conculsion
 
 ## References
