@@ -12,9 +12,9 @@ library(pacman)
 p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 
 
-## 2019-20 data
+## 2022-23 data
 
-here::i_am("R_scripts/Season/season_202223.R")
+# here::i_am("R_scripts/Season/season_202223.R")
 
 hospital <- hosp_vis$hosp_22_23
 gp =  primary_care_total$`2022-23`
@@ -22,15 +22,15 @@ swab_df <- swab_season22_23
 swab_df$total = swab_df$flu_A+swab_df$flu_B
 swab <- (swab_df$total/56000000)*100000
 week <- seq(1:33)
-season_202223 <- data.frame( week,hospital, gp, swab)
+season_202223 <- data.frame(week, hospital, gp, swab)
 names(season_202223) <- c("week", "hospital", "gp", "swab")
 
 
 plot_202223 <- ggplot(season_202223) +
   theme_ipsum() +
-  geom_line(lwd = 1.5, aes(week, hospital, color = 'Hospital')) +
-  geom_line(lwd = 1.5, aes(week, gp, color = 'GP')) +
-  geom_line(lwd = 1.5, aes(week, swab, color = 'Swabbing data')) +
+  geom_line(lwd = 1.5, aes(x = week, y = hospital, color = 'Hospital')) +
+  geom_line(lwd = 1.5, aes(x = week, y = gp, color = 'GP')) +
+  geom_line(lwd = 1.5, aes(x = week, y = swab, color = 'Swabbing data')) +
   guides(color = guide_legend("Data source")) +
   ylab("Influenza cases (cases per 100,000)") +
   # xlim(-12, 20)+

@@ -14,7 +14,7 @@ p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 
 ## 2019-20 data
 
-here::i_am("R_scripts/Season/season_201819.R")
+# here::i_am("R_scripts/Season/season_201819.R")
 
 hospital <- df_list_201819$USISS_Sentinel[4]
 gp =  as.numeric(df_list_201819$RCGP$...3[2:34])
