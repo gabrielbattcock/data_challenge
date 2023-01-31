@@ -26,6 +26,8 @@ source("../R_scripts/source/vacc_plot.R")
 
 ![infographic for intro slide](images/fig-intro.png)
 
+![infographic for intro slide](images/fig-intro.png)
+
 ::: notes
 -   \\Aizaz Highly infectious and rapidly evolving respiratory virus circulating seasonally around the world [@cope2018]
 -   \\Aizaz Antigenic shifts may result in uncontrolled extensive spread causing an epidemic (e.g. 1918-2009) [@cope2018]
@@ -54,6 +56,8 @@ We defined our Qs to address these issues. \\Szymon Hypothesis - There could be 
 :::
 
 ## Data Sources
+
+![infographic for data sources](images/fig-data-source.png)
 
 ![infographic for data sources](images/fig-data-source.png)
 
