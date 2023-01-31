@@ -16,17 +16,25 @@ p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 
 # here::i_am("R_scripts/Season/season_202223.R")
 
-hospital <- hosp_vis$hosp_22_23
-gp =  primary_care_total$`2022-23`
-swab_df <- swab_season22_23
+# hospital <- hosp_vis$hosp_22_23
+# gp =  primary_care_total$`2022-23`
+# swab_df <- swab_season22_23
+# swab_df$total = swab_df$flu_A+swab_df$flu_B
+# swab <- (swab_df$total/56000000)*100000
+# week <- seq(1:33)
+# season_202223 <- data.frame(week, hospital, gp, swab)
+
+hospital <- df_list_201920$USISS_Sentinel[3]
+gp =  as.numeric(df_list_201920$RCGP$...4[2:34])
+swab_df <- swabs %>% slice(279:311)
 swab_df$total = swab_df$flu_A+swab_df$flu_B
 swab <- (swab_df$total/56000000)*100000
 week <- seq(1:33)
-season_202223 <- data.frame(week, hospital, gp, swab)
-names(season_202223) <- c("week", "hospital", "gp", "swab")
+season_201920 <- data.frame( week,hospital, gp, swab)
+names(season_201920) <- c("week", "hospital", "gp", "swab")
 
 
-plot_202223 <- ggplot(season_202223) +
+plot_202223 <- ggplot(season_201920) +
   theme_ipsum() +
   geom_line(lwd = 1.5, aes(x = week, y = hospital, color = 'Hospital')) +
   geom_line(lwd = 1.5, aes(x = week, y = gp, color = 'GP')) +
