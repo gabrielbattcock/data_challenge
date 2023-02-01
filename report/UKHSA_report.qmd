@@ -12,7 +12,7 @@ Seasonal influenza appear in two types, classified as A and B. A types can are f
 
 Serious progression of the virus may lead to deaths in at risk groups such as children \<2 y.o., pregnant women, people \>65 y.o. and people with underlying medical conditions, [@zarocostas2009]. In a UK context, seasonal influenza circulation puts a burden on NHS especially hospital beds and GP services [@cope2018]. Having more data to help plan for seasonal peaks can help alleviate pressure on vital services.
 
-someone please help and put in the first graphic around here
+![An infographic summarising the key points addressed in this report. ](images/fig-intro.png)
 
 ### Who is UKHSA and why are they interested
 
@@ -35,6 +35,8 @@ Hypothesis - There could be a time delay betw one source of surveillance and ano
 methods for R nought (or effective) can be cited from Lipsitch
 
 ## Data sources and extraction
+
+![The data being used comes from various places and has been sourced through difference resources. ](images/fig-data-source.png)
 
 ## Results
 
