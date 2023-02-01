@@ -118,27 +118,25 @@ summary(lm_swab)
 
 ######## trial for calculating the R_0 number by hand 
 
-
-for (i in 1:length(hospital18$`2018-19 Hospital admission (rate)`)){
-  if (i==1){
-    print(i)
-    number_day = hospital18$`2018-19 Hospital admission (rate)`[i]
-    difference = number_day - 0 
-    rep_number = difference/1
-    num_prev_day = number_day 
-    diff_prev_day = difference
-  }
-  else{
-    print(i)
-    number_day = hospital18$`2018-19 Hospital admission (rate)`[i]
-    difference = number_day - num_prev_day
-    rep_number = difference/diff_prev_day
-    num_prev_day = number_day 
-    diff_prev_day = difference
-  }
-  hospital18$r_number[i] <- rep_number 
-}
-  
+# 
+# for (i in 1:length(hospital18$`2018-19 Hospital admission (rate)`)){
+#   if (i==1){
+#     number_day = hospital18$`2018-19 Hospital admission (rate)`[i]
+#     difference = number_day - 0 
+#     rep_number = difference/1
+#     num_prev_day = number_day 
+#     diff_prev_day = difference
+#   }
+#   else{
+#     number_day = hospital18$`2018-19 Hospital admission (rate)`[i]
+#     difference = number_day - num_prev_day
+#     rep_number = difference/diff_prev_day
+#     num_prev_day = number_day 
+#     diff_prev_day = difference
+#   }
+#   hospital18$r_number[i] <- rep_number 
+# }
+#   
 ggplot(hospital18) +
   geom_point(aes(week, hospital18$r_number)) +
   coord_cartesian(ylim = c(-15, 15), expand = FALSE) 

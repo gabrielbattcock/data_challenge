@@ -98,6 +98,12 @@ log_hosp_plot2223
 
 ### Stratified by Flu strain type
 
+
+```{r echo = FALSE}
+
+
+
+```
 ## Discussion
 
 ## Conclusion
