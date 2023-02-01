@@ -4,11 +4,23 @@ format: pdf
 bibliography: ../bibliography/UKHSA_bibliography.bib
 ---
 
+```{r}
+#Loading the presentation stuff
+
+source("../R_scripts/source_data_entry.R")
+source("../R_scripts/source/swabs.R")
+source("../R_scripts/source/primary_care_vis.R")
+source("../R_scripts/source/hospitalisation_plots.R")
+
+#For the vaccine plot
+source("../R_scripts/source/vacc_plot.R")
+```
+
 ## Introduction
 
 Influenza is a highly infectious and rapidly evolving respiratory virus circulating seasonally around the world [@cope2018]. The World Health Organisation (WHO) estimates that between 290000-650000 deaths occur due to the respiratory virus, not including deaths not due to secondary infections caused by influenza [@WHO2022]. Antigenic shifts in the virus may result in uncontrolled extensive spread causing an epidemic (e.g. 1918-2009) [@cope2018]
 
-Seasonal influenza appear in two types, classified as A and B. A types can are further broken down into subtypes H1N1 and H3N2 [@CDC2022]. Each year, a combination of the A subtypes and B type influenza circulate throughout the population with different proportions. There is some evidence to suggest that H3N2 subtype is more severe than H1N1, leading to higher hospitalisation rates.
+Seasonal influenza appear in two types, classified as A and B. A types can are further broken down into subtypes H1N1 and H3N2 [@CDC2022]. Each year, a combination of the A subtypes and B type influenza circulate throughout the population with different proportions. There is some evidence to suggest that H3N2 subtype is more severe than H1N1, leading to higher hospitalisation rates. 
 
 Serious progression of the virus may lead to deaths in at risk groups such as children \<2 y.o., pregnant women, people \>65 y.o. and people with underlying medical conditions, [@zarocostas2009]. In a UK context, seasonal influenza circulation puts a burden on NHS especially hospital beds and GP services [@cope2018]. Having more data to help plan for seasonal peaks can help alleviate pressure on vital services.
 
@@ -28,7 +40,7 @@ What is the temporal relationship between different influenza data sources (lab-
 
 We defined our Qs to address these issues.
 
-Hypothesis - There could be a time delay betw one source of surveillance and another. And the scale of the one that peaks earlier might be predictive of the later ones. There are changes in reporting procedures for resp infections post-covid. Children may precede adults due to mixing .
+Hypothesis - We suspect that there is a time delay between one source of surveillance and another and the scale of the one that peaks earlier might be predictive of the later ones (GP consultations being greater than hospitalisations for example). Secondly we believe there could be changes in reporting procedures for resp infections post-covid (swabbing increases). On a 
 
 ## Methods
 
@@ -39,6 +51,14 @@ methods for R nought (or effective) can be cited from Lipsitch
 ![The data being used comes from various places and has been sourced through difference resources. ](images/fig-data-source.png)
 
 ## Results
+
+### 
+```{r}
+
+gp_cases
+hospital_plot
+combined_plot
+```
 
 ### Source
 

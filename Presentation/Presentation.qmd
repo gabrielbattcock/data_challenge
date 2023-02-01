@@ -7,7 +7,7 @@ format:
       side: left
       width: third
 editor: visual
-bibliography: UKHSA_bibliography.bib
+bibliography: ../bibliography/UKHSA_bibliography.bib
 csl: bmj.csl
 ---
 
