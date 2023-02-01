@@ -1,6 +1,6 @@
 ---
 title: "UKHSA report"
-format: pdf
+format: html
 bibliography: ../bibliography/UKHSA_bibliography.bib
 ---
 
@@ -56,18 +56,33 @@ methods for R nought (or effective) can be cited from Lipsitch
 
 ## Results
 
-### 
-
-```{r echo= FALSE, warning = FALSE}
-
-# gp_cases
-# hospital_plot
-# combined_plot
-```
-
 ### Source
 
+```{r echo= FALSE, warning = FALSE, fig.show="hold", out.width="50%"}
+par(mar = c(4, 4, .1, .1))
+gp_cases
+hospital_plot
+combined_plot
+```
+
+We epected to see that over different seasons, peaks appear at different weeks. This is due to the complex nature of flu spread, the dynamics do not replicate every season. The size of the peaks however do indicate differing levels of severity in flu each season. 
+
+talk about the use of the MEM threshold and what it means. 
+
 ### Season
+
+```{r}
+source("../R_scripts/Season_data/season_201718.R")
+source("../R_scripts/Season_data/season_201819.R")
+source("../R_scripts/Season_data/season_201920.R")
+source("../R_scripts/Season_data/season_202223.R")
+par(mfrow=c(2,2))
+plot_201718
+plot_201819
+plot_201920
+plot_202223
+```
+
 
 ### Log graphs and $R_0$ value
 
