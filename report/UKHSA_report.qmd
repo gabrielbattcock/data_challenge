@@ -4,7 +4,11 @@ format: pdf
 bibliography: ../bibliography/UKHSA_bibliography.bib
 ---
 
-```{r}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+```
+
+```{r, echo = FALSE}
 #Loading the presentation stuff
 
 source("../R_scripts/source_data_entry.R")
@@ -20,11 +24,11 @@ source("../R_scripts/source/vacc_plot.R")
 
 Influenza is a highly infectious and rapidly evolving respiratory virus circulating seasonally around the world [@cope2018]. The World Health Organisation (WHO) estimates that between 290000-650000 deaths occur due to the respiratory virus, not including deaths not due to secondary infections caused by influenza [@WHO2022]. Antigenic shifts in the virus may result in uncontrolled extensive spread causing an epidemic (e.g. 1918-2009) [@cope2018]
 
-Seasonal influenza appear in two types, classified as A and B. A types can are further broken down into subtypes H1N1 and H3N2 [@CDC2022]. Each year, a combination of the A subtypes and B type influenza circulate throughout the population with different proportions. There is some evidence to suggest that H3N2 subtype is more severe than H1N1, leading to higher hospitalisation rates. 
+Seasonal influenza appear in two types, classified as A and B. A types can are further broken down into subtypes H1N1 and H3N2 [@CDC2022]. Each year, a combination of the A subtypes and B type influenza circulate throughout the population with different proportions. There is some evidence to suggest that H3N2 subtype is more severe than H1N1, leading to higher hospitalisation rates.
 
 Serious progression of the virus may lead to deaths in at risk groups such as children \<2 y.o., pregnant women, people \>65 y.o. and people with underlying medical conditions, [@zarocostas2009]. In a UK context, seasonal influenza circulation puts a burden on NHS especially hospital beds and GP services [@cope2018]. Having more data to help plan for seasonal peaks can help alleviate pressure on vital services.
 
-![An infographic summarising the key points addressed in this report. ](images/fig-intro.png)
+![An infographic summarising the key points addressed in this report.](images/fig-intro.png)
 
 ### Who is UKHSA and why are they interested
 
@@ -32,15 +36,15 @@ UK Health Security Agency (UKHSA) was created as a successor to Public Health En
 
 Understanding the data of how flu is spread can help assist in planning vaccination roll-out. Vaccination is greatly beneficial as it averts between 180,000 and 626,000 cases of influenza per year in England, helping prevent between 5,678 and 8,800 premature deaths [@franklin2018]. Furthermore, every death averted due to vaccination is estimated to save the NHS £50,610 [@franklin2018].
 
-In the UK there are three main ways that influenza is reported: through primary care data, hospitalisation and through swabbing programmes. Having three separate data sources is a valuable to compare whether the peak in the seasonal spread is in the same week or whether any of the data sources lag the others - identifying a possible prediction of a peak in hospitalisations for example. It also may be beneficial to know the strains are and what age group is being hit by the flu initially may be useful to bla bla bla.
+In the UK there are three main ways that influenza is reported: through primary care data, hospitalisation and through swabbing programmes. Having three separate data sources is a valuable to compare whether the peak in the seasonal spread is in the same week or whether any of the data sources lag the others - identifying a possible prediction of a peak in hospitalisations for example. It also may be beneficial to know which strains are in circulation at which and what age group is being affected most. If there is a lag between age groups or strains, hosopitals may be able to prepare better for an oncoming wave of influenza cases.
 
 ### Research question and hypothesis
 
-What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/3 compared to the pre-pandemic years 2016-2019?
+We defined our main research question to address the issues descirbed above.
 
-We defined our Qs to address these issues.
+*Question:* What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/23 compared to the pre-pandemic years 2016-2019?
 
-Hypothesis - We suspect that there is a time delay between one source of surveillance and another and the scale of the one that peaks earlier might be predictive of the later ones (GP consultations being greater than hospitalisations for example). Secondly we believe there could be changes in reporting procedures for resp infections post-covid (swabbing increases). On a 
+*Hypothesis:* We suspect that there is a time delay between one source of surveillance and another and the scale of the one that peaks earlier might be predictive of the later ones (GP consultations being greater than hospitalisations for example). Secondly we believe there could be changes in reporting procedures for resp infections post-covid (swabbing increases). As children have more interactions in schools and nurseries, we would expect a larger peak for children before a peak in the older population.
 
 ## Methods
 
@@ -48,16 +52,17 @@ methods for R nought (or effective) can be cited from Lipsitch
 
 ## Data sources and extraction
 
-![The data being used comes from various places and has been sourced through difference resources. ](images/fig-data-source.png)
+![The data being used comes from various places and has been sourced through difference resources.](images/fig-data-source.png)
 
 ## Results
 
 ### 
-```{r}
 
-gp_cases
-hospital_plot
-combined_plot
+```{r echo= FALSE, warning = FALSE}
+
+# gp_cases
+# hospital_plot
+# combined_plot
 ```
 
 ### Source
