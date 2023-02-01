@@ -1,7 +1,7 @@
 ---
 title: "UKHSA report"
 format: pdf
-# bibliography: /../bibliography/UKHSA_bibliography.bib
+bibliography: ../bibliography/UKHSA_bibliography.bib
 ---
 
 ## Introduction
