@@ -77,12 +77,18 @@ log_hosp_plot1920 <- ggplot(log_season) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
-  coord_cartesian(ylim = c(-4, 4), expand = FALSE) +
+  coord_cartesian(ylim = c(-1, 2), expand = FALSE) +
   scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
 
 log_hosp_plot1920
 # geom_smooth(data = log_season_subset, formula = hosp~week, method = 'lm')
 
+r_est_17 <- EpiEstim::estimate_R(
+  incid = hospital$`Hospital admission (rate)`[1:22],
+  method = "non_parametric_si", 
+  config = make_config(list(si_distr = week))
+  
+)
 
 
 #2018-19 data
@@ -177,7 +183,7 @@ log_hosp_plot1819 <- ggplot(log_season) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
-  coord_cartesian(ylim = c(-4, 4), expand = FALSE) +
+  coord_cartesian(ylim = c(-1, 2), expand = FALSE) +
   scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
 
 log_hosp_plot1819
@@ -243,7 +249,7 @@ log_hosp_plot1718 <- ggplot(log_season) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
-  coord_cartesian(ylim = c(-4, 4), expand = FALSE) +
+  coord_cartesian(ylim = c(-1, 2), expand = FALSE) +
   scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
 
 log_hosp_plot1718
@@ -252,7 +258,7 @@ log_hosp_plot1718
 #season 2022-23
 
 
-hospital22 <- hosp_vis[5]
+hospital22 <- hosp_vis$hosp_22_23
 gp22 =  primary_care_total$`2022-23`
 swab_df <- swab_season22_23
 swab_df$total = swab_df$flu_A+swab_df$flu_B
@@ -261,12 +267,12 @@ season_202223 <- data.frame( week,hospital22, gp22, swab22)
 names(season_202223) <- c("week", "hospital", "gp", "swab")
 
 #log trasnform
-log_hosp <- log(hospital22$`2022-23`)
+log_hosp <- log(hospital22)
 log_week <- log(week)
 log_gp <- log(gp22)
 log_swab <- log(swab22)
 log_season <- data.frame(week, log_hosp = log_hosp, log_gp, log_swab)
-log_season_subset <- data.frame(week = week[5:12], hosp = log_hosp[5:12], 
+log_season_subset <- data.frame(week = week[5:12], hosp = log_season$log_hosp[5:12], 
                                 gp = log_season$log_gp[5:12], swab = log_season$log_swab[5:12])
 
 #create linear models for when 
@@ -309,7 +315,7 @@ log_hosp_plot2223 <- ggplot(log_season) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
-  coord_cartesian(ylim = c(-4, 4), expand = FALSE) +
+  coord_cartesian(ylim = c(-1, 3), expand = FALSE) +
   scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
 
 log_hosp_plot2223

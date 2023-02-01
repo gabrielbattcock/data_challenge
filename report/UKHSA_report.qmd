@@ -71,7 +71,7 @@ talk about the use of the MEM threshold and what it means.
 
 ### Season
 
-```{r}
+```{r echo= FALSE, warning = FALSE,}
 source("../R_scripts/Season_data/season_201718.R")
 source("../R_scripts/Season_data/season_201819.R")
 source("../R_scripts/Season_data/season_201920.R")
@@ -85,6 +85,16 @@ plot_202223
 
 
 ### Log graphs and $R_0$ value
+
+```{r echo= FALSE, warning = FALSE}
+source("../R_scripts/Season_data/log_graphs.R")
+
+
+log_hosp_plot1718
+log_hosp_plot1819
+log_hosp_plot1920
+log_hosp_plot2223
+```
 
 ### Stratified by Flu strain type
 

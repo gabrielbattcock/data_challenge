@@ -24,17 +24,16 @@ p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 # week <- seq(1:33)
 # season_202223 <- data.frame(week, hospital, gp, swab)
 
-hospital <- df_list_201920$USISS_Sentinel[3]
-gp =  as.numeric(df_list_201920$RCGP$...4[2:34])
-swab_df <- swabs %>% slice(279:311)
+hospital22 <- hosp_vis[5]
+gp22 =  primary_care_total$`2022-23`
+swab_df <- swab_season22_23
 swab_df$total = swab_df$flu_A+swab_df$flu_B
-swab <- (swab_df$total/56000000)*100000
-week <- seq(1:33)
-season_201920 <- data.frame( week,hospital, gp, swab)
-names(season_201920) <- c("week", "hospital", "gp", "swab")
+swab22 <- (swab_df$total/56000000)*100000
+season_202223 <- data.frame( week,hospital22, gp22, swab22)
+names(season_202223) <- c("week", "hospital", "gp", "swab")
 
 
-plot_202223 <- ggplot(season_201920) +
+plot_202223 <- ggplot(season_202223) +
   theme_ipsum() +
   geom_line(lwd = 1.5, aes(x = week, y = hospital, color = 'Hospital')) +
   geom_line(lwd = 1.5, aes(x = week, y = gp, color = 'GP')) +
