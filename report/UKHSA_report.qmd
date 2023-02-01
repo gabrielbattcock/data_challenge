@@ -1,23 +1,26 @@
 ---
 title: "UKHSA report"
 format: html
+bibliography: UKHSA_bibliography.bib
 ---
 
 ## Introduction
 
 Influenza is a highly infectious and rapidly evolving respiratory virus circulating seasonally around the world [@cope2018]. The World Health Organisation (WHO) estimates that between 290000-650000 deaths occur due to the respiratory virus, not including deaths not due to secondary infections caused by influenza [@WHO2022]. Antigenic shifts in the virus may result in uncontrolled extensive spread causing an epidemic (e.g. 1918-2009) [@cope2018]
 
+Seasonal influenza appear in two types, classified as A and B. A types can are further broken down into subtypes H1N1 and H3N2 [@CDC2022]. Each year, a combination of the A subtypes and B type influenza circulate throughout the population with different proportions. There is some evidence to suggest that H3N2 subtype is more severe than H1N1, leading to higher hospitalisation rates.
+
 Serious progression of the virus may lead to deaths in at risk groups such as children \<2 y.o., pregnant women, people \>65 y.o. and people with underlying medical conditions, [@zarocostas2009]. In a UK context, seasonal influenza circulation puts a burden on NHS especially hospital beds and GP services [@cope2018]. Having more data to help plan for seasonal peaks can help alleviate pressure on vital services.
 
 someone please help and put in the first graphic around here
 
-### Who is UKHSA and why are they interested 
+### Who is UKHSA and why are they interested
 
 UK Health Security Agency (UKHSA) was created as a successor to Public Health England in April 2021 cite. Set up during the height of the COVID-19 pandemic, the UKHSA's main priority is to tackle national health threats through the use of data analytics and developing vaccines cite.
 
 Understanding the data of how flu is spread can help assist in planning vaccination roll-out. Vaccination is greatly beneficial as it averts between 180,000 and 626,000 cases of influenza per year in England, helping prevent between 5,678 and 8,800 premature deaths [@franklin2018]. Furthermore, every death averted due to vaccination is estimated to save the NHS £50,610 [@franklin2018].
 
-In the UK there are three main ways that influenza is reported: through primary care data, hospitalisation and through swabbing programmes. Having three separate data sources is a valuable to compare whether the peak in the seasonal spread is in the same week or whether any of the data sources lag the others - identifying a possible prediction of a peak in hospitalisations for example. also knowing what strains and what age group is being hit by the flu initially may be useful to bla bla bla.
+In the UK there are three main ways that influenza is reported: through primary care data, hospitalisation and through swabbing programmes. Having three separate data sources is a valuable to compare whether the peak in the seasonal spread is in the same week or whether any of the data sources lag the others - identifying a possible prediction of a peak in hospitalisations for example. It also may be beneficial to know the strains are and what age group is being hit by the flu initially may be useful to bla bla bla.
 
 ### Research question and hypothesis
 
