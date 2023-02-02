@@ -116,8 +116,14 @@ log_hosp_plot2223
 
 source("../R_scripts/Season_data/age_strat.R")
 age1718
-
+age1822
 ```
+``` {r}
+source("../R_scripts/log_graphs.R")
+effective_r_values
+```
+
+
 ## Discussion
 
 ## Conclusion

@@ -378,6 +378,44 @@ vacc_rate <- select(vaccine_vis,
 #For age stratification
 age_strat_df1 <- read_csv("allData/gp/ili-by-age-201718.csv")
 age_strat_df2 <- read_csv("allData/gp/ili-by-age-201822.csv")
+#Table theme
+gt_theme_538 <- function(data,...) {
+  data %>%
+    opt_all_caps()  %>%
+    opt_table_font(
+      font = list(
+        google_font("Chivo"),
+        default_fonts()
+      )
+    ) %>%
+    tab_style(
+      style = cell_borders(
+        sides = "bottom", color = "#00000000", weight = px(2)
+      ),
+      locations = cells_body(
+        columns = everything(),
+        # This is a relatively sneaky way of changing the bottom border
+        # Regardless of data size
+        rows = nrow(data$`_data`)
+      )
+    )  %>%
+    tab_options(
+      column_labels.background.color = "white",
+      table.border.top.width = px(3),
+      table.border.top.color = "#00000000",
+      table.border.bottom.color = "#00000000",
+      table.border.bottom.width = px(3),
+      column_labels.border.top.width = px(3),
+      column_labels.border.top.color = "#00000000",
+      column_labels.border.bottom.width = px(3),
+      column_labels.border.bottom.color = "black",
+      data_row.padding = px(3),
+      source_notes.font.size = 12,
+      table.font.size = 16,
+      heading.align = "left",
+      ...
+    )
+}
 
 # REMOVE IRRELEVANT VARS #################################################################
 # 

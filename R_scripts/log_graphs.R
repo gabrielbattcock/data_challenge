@@ -127,7 +127,8 @@ summary(lm_swab)
 
 for (i in 1:length(hospital18$`2018-19 Hospital admission (rate)`)){
   if (i==1){
-    print(i)
+   # print(i)
+    #Commented out print, so when we run the code elsewhere, we dont get a bunch of numbers lol
     number_day = hospital18$`2018-19 Hospital admission (rate)`[i]
     difference = number_day - 0 
     rep_number = difference/1
@@ -135,7 +136,7 @@ for (i in 1:length(hospital18$`2018-19 Hospital admission (rate)`)){
     diff_prev_day = difference
   }
   else{
-    print(i)
+   # print(i)
     number_day = hospital18$`2018-19 Hospital admission (rate)`[i]
     difference = number_day - num_prev_day
     rep_number = difference/diff_prev_day
@@ -256,8 +257,9 @@ log_hosp_plot1718
 
 
 #season 2022-23
-
-hospital22 <- hosp_vis[5]$`2022-23`
+#Note: hosp_vis[5]$`2022-23` is giving a null value. Gonna try and fix this
+#hospital22 <- hosp_vis[5]$`2022-23`
+hospital22 <- hosp_vis$hosp_22_23
 gp22 =  primary_care_total$`2022-23`
 swab_df <- swab_season22_23
 swab_df$total = swab_df$flu_A+swab_df$flu_B
@@ -328,3 +330,34 @@ log_hosp_plot2223
 # 2018-19|R_eff_18_gp|R_eff_18_hosp|R_eff_18_swab
 # 2019-20|R_eff_19_gp|R_eff_19_hosp|R_eff_19_swab
 # 2022-22|R_eff_22_gp|R_eff_22_hosp|R_eff_22_swab
+
+
+log_table_tibble <- tibble(
+  index_log_dat = c("2017-18","2018-19","2019-20", "2022-23"),
+  gp_log_dat = c(R_eff_17_gp, R_eff_18_gp, R_eff_19_gp, R_eff_22_gp),
+  hosp_log_dat = c(R_eff_17_hosp, R_eff_18_hosp, R_eff_19_hosp, R_eff_22_hosp),
+  swabs_log_dat = c(R_eff_17_swab, R_eff_18_swab, R_eff_19_swab, R_eff_22_swab)
+)
+
+
+
+
+effective_r_values <- log_table_tibble %>% gt() %>% tab_header(
+  title = "Effective R values",
+  subtitle = "Across flu seasons between 2017-18 and 2022-23"
+)  %>%
+  tab_source_note(
+    source_note = "Note: Data removed for 2021-22 flu season due to effect of Covid-19 pandemic on flu cases"
+  )%>%  
+  tab_spanner(
+    label = md("**Sources of flu data**"),
+    columns = c(gp_log_dat, hosp_log_dat, swabs_log_dat)
+  ) %>%
+  cols_label(
+    index_log_dat = md("**Flu season**"),
+    gp_log_dat = md("**Primary care**"),
+    hosp_log_dat = md("**Secondary care**"),
+    swabs_log_dat = md("**Lab confirmed cases**")
+  ) %>% gt_theme_538()
+
+
