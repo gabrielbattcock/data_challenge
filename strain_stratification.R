@@ -1,7 +1,7 @@
 # Szymon Jakobsze
 # Strain stratified data for swab testing schemes and hospitalisations 
 
-source("source_data_entry.R")
+source("R_scripts/source_data_entry.R")
 here::i_am("source_data_entry.r")
 
 ###################################SWAB DATA####################################
@@ -125,9 +125,9 @@ strains17_18_swabs_plot<- ggplot((strains17_18_swabs %>% slice(1:132)) ,
                                 "4", "6", "8", "10",
                                 "12","14","16",
                                 "18", "20", "22")) +
-  theme(panel.border = element_rect(color = "dark grey",
-                                    fill = NA,
-                                    linewidth = 0.1)) +
+  # theme(panel.border = element_rect(color = "dark grey",
+  #                                   fill = NA,
+  #                                   linewidth = 0.1)) +
   scale_color_manual('Strain', values= wes_palette("Zissou1", n = 4))
 
 
@@ -150,9 +150,9 @@ strains18_19_swabs_plot <- ggplot((strains18_19_swabs %>% slice(1:132)) ,
                                 "4", "6", "8", "10",
                                 "12","14","16",
                                 "18", "20", "22")) +
-  theme(panel.border = element_rect(color = "dark grey",
-                                    fill = NA,
-                                    linewidth = 0.1)) +
+  # theme(panel.border = element_rect(color = "dark grey",
+  #                                   fill = NA,
+  #                                   linewidth = 0.1)) +
   scale_color_manual('Strain', values= wes_palette("Zissou1", n = 4))
 
 
@@ -176,9 +176,9 @@ strains19_20_swabs_plot <- ggplot((strains19_20_swabs %>% slice(1:132)) ,
                                 "4", "6", "8", "10",
                                 "12","14","16",
                                 "18", "20", "22")) +
-  theme(panel.border = element_rect(color = "dark grey",
-                                    fill = NA,
-                                    linewidth = 0.1)) +
+  # theme(panel.border = element_rect(color = "dark grey",
+  #                                   fill = NA,
+  #                                   linewidth = 0.1)) +
   scale_color_manual('Strain', values= wes_palette("Zissou1", n = 4))
 
 # 2022 - 2023 season 
@@ -200,9 +200,9 @@ strains22_23_swabs_plot <- ggplot((strains22_23_swabs %>% slice(1:132)) ,
                                 "4", "6", "8", "10",
                                 "12","14","16",
                                 "18", "20", "22")) +
-  theme(panel.border = element_rect(color = "dark grey",
-                                    fill = NA,
-                                    linewidth = 0.1)) +
+  # theme(panel.border = element_rect(color = "dark grey",
+  #                                   fill = NA,
+  #                                   linewidth = 0.1)) +
   scale_color_manual('Strain', values= wes_palette("Zissou1", n = 4))
 
 
