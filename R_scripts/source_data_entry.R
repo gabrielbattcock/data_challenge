@@ -61,6 +61,11 @@ primary_care_201718 <- read_csv(here("allData", "gp", "2017_2018", "gp_consultat
 primary_care_2021 <- df_list_2021$`Figure 33&34. Primary care`$`ILI rate`[2:53]
 primary_care_2022 <- df_list_2022$`Figure_31&32__Primary_care`$`ILI rate`
 primary_care_2023 <- df_list_2023$`Figure_31&32__Primary_care`$`ILI rate`
+
+
+
+
+
 primary_care_total <- tibble(Weeks = c(40:52, 1:20),
                             `2017-18` = as.numeric(primary_care_201718$`GP ILI consulation rates (all ages)`[2:34]),
                             `2018-19` = as.numeric(df_list_201819$RCGP$...3[2:34]),
@@ -71,8 +76,9 @@ primary_care_total <- tibble(Weeks = c(40:52, 1:20),
                             )
 
 ## ready for vis ----
-primary_care_vis <- primary_care_total %>% 
-                    pivot_longer(cols = 2:5, names_to = "Flu Season", values_to = "Rate")
+primary_care_melted <- melt(primary_care_total,  id.vars = 'Weeks', variable.name = 'series') 
+
+primary_care_melted$id <- rep(1:33,4)
 
 # NEW GP ILI% continuous, by age group #########################################
 recent <- read_csv(here("allData", "gp", "ili-by-age-201822.csv"), 
