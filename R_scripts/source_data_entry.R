@@ -73,7 +73,6 @@ primary_care_total <- tibble(Weeks = c(40:52, 1:20),
 ## ready for vis ----
 primary_care_vis <- primary_care_total %>% 
                     pivot_longer(cols = 2:5, names_to = "Flu Season", values_to = "Rate") %>%
-                    mutate(Weeks = ifelse(Weeks>=40, Weeks-39, Weeks+13))
 
 # NEW GP ILI% continuous, by age group #########################################
 recent <- read_csv(here("allData", "gp", "ili-by-age-201822.csv"), 
@@ -157,7 +156,7 @@ hosp_vis <- data.frame(week, hosp_17_18, hosp_18_19, hosp_19_20, hosp_22_23)
 link <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales/2023/publicationfileweek032023.xlsx"
 ifelse(file.exists(here("allData", "mortality", "cod23.xlsx")),
        dest <- here("allData", "mortality", "cod23.xlsx"),
-       dest <- curl_download(link, here("allData", "mortality", "cod22.xlsx"), quiet = F))
+       dest <- curl_download(link, here("allData", "mortality", "cod23.xlsx"), quiet = F))
 cod23 <- read.xlsx(dest, sheet = 6,
                    rows = c(6:59), rowNames = F, colNames = T,
                    skipEmptyRows = F, skipEmptyCols = F, fillMergedCells = T) %>%
