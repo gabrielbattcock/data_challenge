@@ -53,7 +53,7 @@ hospital_plot <- ggplot(hosp_seasons_melted, aes(week, value) ) +
                             "#CE8282",'#A55E5E' ), name="The MEM threshold",
                     labels = c("Baseline threshold", "Low", "Moderate", 
                                "High", "Very high"),
-                    guide = guide_legend(reverse = F))
+                    guide = guide_legend(reverse = T))
 
 
 

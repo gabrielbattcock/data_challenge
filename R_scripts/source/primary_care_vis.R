@@ -6,9 +6,9 @@
 # source("R_scripts/source_data_entry.R")
 
 
-gp_cases <- ggplot(primary_care_vis, aes(x = Weeks, y = Rate) ) +
+gp_cases <- ggplot(primary_care_melted, aes(x = id, y = value) ) +
 
-  geom_line(lwd = 1.5, aes(colour = `Flu Season`)) +
+  geom_line(lwd = 1.5, aes(colour = `series`)) +
   labs(x="Week", y="Rate of consultations (per 100,000)",
        title="GP consultations for Influenza type illness per 100,000",
        caption="As collected by the RCGP in England") +
