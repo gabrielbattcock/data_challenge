@@ -16,16 +16,21 @@ suppressMessages(source(here("R_scripts", "source_data_entry.R")))
 # CLEANING #####################################################################
 
 swab_cor <- (typeA1 + typeB1) %>% select(-1)
-primary_care_cor <- primary_care_total %>% select(-1)
+# primary_care_cor <- primary_care_total %>% select(-1)
 hosp_cor <- hosp_vis %>% select(-1)
-mortality_cor <- tibble("17-18" = historical[92:124, 4],
-                        "18-19" = historical[144:176, 4],
-                        "19-20" = rbind(historical, cod20)[196:228, 4],
-                        "22-23" = rbind(cod22, cod23)[40:72, 4])
+mort_cor <- tibble("17-18" = historical[92:124, 4],
+                    "18-19" = historical[144:176, 4],
+                    "19-20" = rbind(historical, cod20)[196:228, 4],
+                    "22-23" = rbind(cod22, cod23)[40:72, 4])
+gp_cor <- tibble("17-18"  = ili[1:33, 6],
+                  "18-19" = ili[34:66, 6],
+                  "19-20" = ili[86:118, 6],
+                  "22-23" = rbind(ili[243:254, 6], tibble("age_all" = NA, .rows = 21)))
+years = c(2017, 2018, 2019, 2022)
 
 suppressWarnings({
-  rm(primary_care_201718, primary_care_2021, primary_care_2022,
-     primary_care_2023, primary_care_vis, recent, historical, primary_care_total)
+  rm(primary_care_201718, primary_care_2021, primary_care_2022, primary_care_2023, 
+     primary_care_vis, recent, historical, primary_care_total)
   rm(swab_season17_18, swab_season18_19, swab_season19_20,
     swab_season22_23, swabs, swab_vis, typeA, typeB, typeA1, typeB1)
   rm(data_2017, week, hosp_17_18, hosp_18_19, hosp_19_20, hosp_22_23,
@@ -36,33 +41,30 @@ suppressWarnings({
      cod20, cod21, cod22, cod23, historical, mortality_vis_list, mortality_vis, allmort)
   rm(vac17, vac17_1, vac17_2, vac17_3, vac17_4, vac18, vac19, 
      vac20, vac21, vac22, vac_label, vacc_rate, vaccine_vis)
-  rm(dest, i, link, nas, path, w)
+  rm(age_strat_df1, age_strat_df2)
+  rm(c, dest, i, link, nas, path, w, gt_theme_538)
 })
 
 # REAL STUFF ###################################################################
 
-## swab vs gp ------------------------------------------------------------------
+# Using cor.test betw x and y, method = 'spearman'.   
+# x is static. y is dynamic. logically we expect y to peak earlier than x,
+# so that when you push y with a certain lag, x~y correlation increases.
 
-# swab_vs_gp <- matrix(nrow = 4, ncol = 8)
-# rownames(swab_vs_gp) = c("swab2017", "swab2018", "swab2019", "swab2022")
-# colnames(swab_vs_gp) = c("gp_t-2", "gp_t-1", "gp_0", "gp_t+1", "gp_t+2", "gp_t+3", "gp_t+4", "gp_t+5")
-
-## gp vs hosp ------------------------------------------------------------------
-{
-primary_care_cor[14,4] <- NA
-gphosp <- tibble(year = NA, lag = NA, rho = NA, p = NA)
+## swab=y=earlier, gpili=x=later -----------------------------------------------
+swab_now <- swab_cor
+swab_now[13:14,4] <- NA
 allcor <- tibble(year = NA, lag = NA, rho = NA, p = NA)
-years = c(2017, 2018, 2019, 2022)
-}
 for(j in 1:4) {
   for(i in 0:5) {
-    x <- hosp_cor %>% 
-          select(j) %>%
+    x <- gp_cor %>% 
+          select(as.integer(j)) %>%
           drop_na() %>%
           tail(dim(.)[1]-i) %>%
-          pull(1)
-    y <- primary_care_cor %>% 
-          select(j) %>%
+          pull(1) %>%
+          as_vector()
+    y <- swab_now %>% 
+          select(as.integer(j)) %>%
           drop_na() %>%
           mutate(lag(., i)) %>%
           drop_na() %>%
@@ -72,6 +74,96 @@ for(j in 1:4) {
 }}
 allcor %>%
   group_by(year) %>%
-  slice(which.max(rho)) -> gp_vs_hosp
+  slice(which.max(rho)) -> vs_swab_gp
+print("Every year, swab peaks first. After k weeks, gp ili% peaks")
+print(vs_swab_gp)
 
+## gpili=y=earlier, hosp=x=later -----------------------------------------------
+allcor <- tibble(year = NA, lag = NA, rho = NA, p = NA)
+gp_now <- gp_cor
+gp_now[23:33, 3] <- NA
+hosp_now <- hosp_cor
+hosp_now[13, 4] <- NA
 
+for(j in 1:4) {
+  for(i in 0:5) {
+    x <- hosp_now %>% 
+          select(as.integer(j)) %>%
+          drop_na() %>%
+          tail(dim(.)[1]-i) %>%
+          pull(1)
+    y <- gp_now %>% 
+          select(as.integer(j)) %>%
+          drop_na() %>%
+          mutate(lag(., i)) %>%
+          drop_na() %>%
+          pull(1) %>%
+          as_vector()
+    c <- cor.test(x, y, method = 'spearman', exact = FALSE)
+    allcor %<>% rbind(tibble(year = years[j], lag = i, rho = c$estimate,  p = c$p.value))
+}}
+allcor %>%
+  group_by(year) %>%
+  slice(which.max(rho)) -> vs_gp_hosp
+print("Every year, GP ili% peaks first. After k weeks, hosp peaks")
+print(vs_gp_hosp)
+
+## hosp=y=earlier, mortality=x=later -------------------------------------------
+allcor <- tibble(year = NA, lag = NA, rho = NA, p = NA)
+mort_now <- mort_cor
+mort_now[23:33, 3] <- NA
+
+for(j in 1:3) {
+  for(i in 0:5) {
+    x <- mort_now %>% 
+          select(as.integer(j)) %>%
+          drop_na() %>%
+          tail(dim(.)[1]-i) %>%
+          pull(1) %>%
+          as_vector()
+    y <- hosp_now %>% 
+          select(as.integer(j)) %>%
+          drop_na() %>%
+          mutate(lag(., i)) %>%
+          drop_na() %>%
+          pull(1) %>%
+          as_vector()
+    c <- cor.test(x, y, method = 'spearman', exact = FALSE)
+    allcor %<>% rbind(tibble(year = years[j], lag = i, rho = c$estimate,  p = c$p.value))
+}}
+allcor %>%
+  group_by(year) %>%
+  slice(which.max(rho)) -> vs_hosp_mort
+print("Every year, hosp peaks first, after k weeks, mortality peaks")
+print(vs_hosp_mort)
+
+## two way loop ------------------------------------------------------------------
+## hosp=y=earlier, mortality=x=later
+allcor <- tibble(year = NA, lag = NA, rho = NA, p = NA)
+mort_now <- mort_cor
+mort_now[23:33, 3] <- NA
+
+for(j in 1:3) {
+  for(i in 0:5) {
+    x <- mort_now %>% 
+          select(as.integer(j)) %>%
+          drop_na() %>%
+          tail(dim(.)[1]-i) %>%
+          pull(1) %>%
+          as_vector()
+    y <- hosp_now %>% 
+          select(as.integer(j)) %>%
+          drop_na() %>%
+          mutate(lag(., i)) %>%
+          drop_na() %>%
+          pull(1) %>%
+          as_vector()
+    c <- cor.test(x, y, method = 'spearman', exact = FALSE)
+    allcor %<>% rbind(tibble(year = years[j], lag = i, rho = c$estimate,  p = c$p.value))
+}}
+
+allcor %>%
+  group_by(year) %>%
+  slice(which.max(rho)) -> test
+print("Every year, hosp peaks first, after k weeks, mortality peaks")
+print(test)

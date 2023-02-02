@@ -82,8 +82,8 @@ historical <- read_csv(here("allData", "gp", "ili-by-age-201718.csv"),
                  col_types = list('i','i','d','d','d','d')) %>%
         mutate(across(starts_with("age_"), function(x) x/100))
 
-ili <- rbind(recent, historical) %>%
-        mutate(across(everything(), as.integer))
+ili <- rbind(historical, recent) %>%
+        mutate(across(3:6, as.double))
 
 # SWAB DATA ####################################################################
 swabs <- read_csv(here("allData", "swab", "2014 - 2021 swab data.csv")) %>% 
@@ -402,8 +402,8 @@ vacc_rate <- select(vaccine_vis,
                     '2-3 year olds' = y2and3_pct) %>% pivot_longer(-Year) %>% arrange(., Year)
 
 #For age stratification
-age_strat_df1 <- read_csv("../allData/gp/ili-by-age-201718.csv")
-age_strat_df2 <- read_csv("../allData/gp/ili-by-age-201822.csv")
+age_strat_df1 <- read_csv(here("allData", "gp", "ili-by-age-201718.csv"))
+age_strat_df2 <- read_csv(here("allData", "gp", "ili-by-age-201822.csv"))
 #Table theme
 gt_theme_538 <- function(data,...) {
   data %>%
