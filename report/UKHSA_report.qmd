@@ -52,9 +52,9 @@ We defined our main research question to address the issues descirbed above.
 
 ![The data being used comes from various places and has been sourced through difference resources.](images/fig-data-source.png)
 
-Primary care data was reported by the RCGP Research and Surveillance Centre communicable and respiratory disease reports, where cases of Influenza Like Illnesses that present in GP practices participating in the scheme are collected and reported for England and Wales [@RCGP]. 
+To study the temporal relationship between data sources, three differing flu data sources have been used: primary care, secondary care and laboratory confirmed swab results. Primary care data was reported by the Royal College of General Practitioners (RCGP) Research and Surveillance Centre communicable and respiratory disease reports. In this report, cases of Influenza Like Illnesses (ILI) that present in GP practices participating in the scheme are collected and reported for England and Wales [\@RCGP].
 
-Secondary care data is extracted from the UKHSA Severe Acute Respiratory Infection Watch system. 
+Secondary care data is extracted from the UKHSA Severe Acute Respiratory Infection Watch system.
 
 
 
@@ -67,7 +67,9 @@ We cases data
 
 ### Moving Epidemic Method
 
-PHE and the UKHSA use the Moving Epidemic Method (MEM) to describe the severity of the epidemic season. This is calculated using through using previous epidemic activity [@Rachovic].
+PHE and the UKHSA use the Moving Epidemic Method (MEM) to report the severity of the epidemic season. This is calculated using through using previous epidemic activity [@Rachovic]. 
+
+From for each of the data sources presented, we have used the MEM calculated and published by PHE and the UKHSA respectively in their weekly national flu reports. 
 
 ### $R-0$ calculation
 
