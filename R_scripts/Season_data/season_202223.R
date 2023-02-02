@@ -24,6 +24,7 @@ p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 # week <- seq(1:33)
 # season_202223 <- data.frame(week, hospital, gp, swab)
 
+
 hospital22 <- hosp_vis[5]
 gp22 =  primary_care_total$`2022-23`
 swab_df <- swab_season22_23
