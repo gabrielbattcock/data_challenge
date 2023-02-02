@@ -48,13 +48,25 @@ We defined our main research question to address the issues descirbed above.
 
 ## Methods
 
-methods for R nought (or effective) can be cited from Lipsitch
+### Time series correlation
+
+-- jack correlation method of peaks
+
+
+### Moving Epidemic Method
+
+PHE and the UKHSA use the Moving Epidemic Method (MEM) to describe the severity of the epidemic season. This is calculated using through using previous epidemic activity [@Rachovic].
+
+### $R-0$ calculation
+methods for R nought (or effective) can be cited from [@lipsitch2003] .
 
 ## Data sources and extraction
 
 ![The data being used comes from various places and has been sourced through difference resources.](images/fig-data-source.png)
 
 ## Results
+
+To see view the trends in the data and to first explore it, case rate per 100,000 people was ploted against epidemic week. Lines for each season have been represented on of the same plot, each for a different data source. 
 
 ### Source
 
@@ -65,13 +77,11 @@ hospital_plot
 combined_plot
 ```
 
-We epected to see that over different seasons, peaks appear at different weeks. This is due to the complex nature of flu spread, the dynamics do not replicate every season. The size of the peaks however do indicate differing levels of severity in flu each season. 
-
-talk about the use of the MEM threshold and what it means. 
+We expected to see that over different seasons, peaks appear at different weeks. This is due to the complex nature of flu spread, the dynamics do not replicate every season. The size of the peaks however do indicate differing levels of severity in flu each season. 
 
 ### Season
 
-```{r echo= FALSE, warning = FALSE,}
+```{r echo= FALSE, warning = FALSE}
 source("../R_scripts/Season_data/season_201718.R")
 source("../R_scripts/Season_data/season_201819.R")
 source("../R_scripts/Season_data/season_201920.R")
@@ -83,6 +93,7 @@ plot_201920
 plot_202223
 ```
 
+-- Jack matrix on correlation --
 
 ### Log graphs and $R_0$ value
 
@@ -96,12 +107,15 @@ log_hosp_plot1920
 log_hosp_plot2223
 ```
 
+-- Aizaz $R_0$ value calculations for seasons
+
 ### Stratified by Flu strain type
 
 
 ```{r echo = FALSE}
 
-
+source("../R_scripts/Season_data/age_strat.R")
+age1718
 
 ```
 ## Discussion
