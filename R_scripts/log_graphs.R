@@ -17,7 +17,7 @@ p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 
 ## 2019-20 data
 
-here::i_am("R_scripts/Season_data/log_graphs.R")
+# here::i_am("R_scripts/Season_data/log_graphs.R")
 
 #read in the data in to suitable data frame for 
 hospital <- df_list_201920$USISS_Sentinel[3]
@@ -82,13 +82,13 @@ log_hosp_plot1920 <- ggplot(log_season) +
 
 log_hosp_plot1920
 # geom_smooth(data = log_season_subset, formula = hosp~week, method = 'lm')
-
-r_est_17 <- EpiEstim::estimate_R(
-  incid = hospital$`Hospital admission (rate)`[1:22],
-  method = "non_parametric_si", 
-  config = make_config(list(si_distr = week))
-  
-)
+# 
+# r_est_17 <- EpiEstim::estimate_R(
+#   incid = hospital$`Hospital admission (rate)`[1:22],
+#   method = "non_parametric_si", 
+#   config = make_config(list(si_distr = week))
+#   
+# )
 
 
 #2018-19 data
@@ -257,13 +257,12 @@ log_hosp_plot1718
 
 #season 2022-23
 
-
-hospital22 <- hosp_vis$hosp_22_23
+hospital22 <- hosp_vis[5]$`2022-23`
 gp22 =  primary_care_total$`2022-23`
 swab_df <- swab_season22_23
 swab_df$total = swab_df$flu_A+swab_df$flu_B
 swab22 <- (swab_df$total/56000000)*100000
-season_202223 <- data.frame( week,hospital22, gp22, swab22)
+season_202223 <- data.frame( week, hospital22, gp22, swab22)
 names(season_202223) <- c("week", "hospital", "gp", "swab")
 
 #log trasnform
@@ -287,9 +286,9 @@ summary(lm_hosp)
 summary(lm_swab)
 
 #check whether the R_0 rates are similar
-R_eff_22_gp <- 1+lm_gp$coefficients[2]
-R_eff_22_hosp <- 1+lm_hosp$coefficients[2]
-R_eff_22_swab <- 1+lm_swab$coefficients[2]
+R_eff_22_gp <- 1 + lm_gp$coefficients[2]
+R_eff_22_hosp <- 1 + lm_hosp$coefficients[2]
+R_eff_22_swab <- 1 + lm_swab$coefficients[2]
 
 
 log_hosp_plot2223 <- ggplot(log_season) +
@@ -319,3 +318,13 @@ log_hosp_plot2223 <- ggplot(log_season) +
   scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
 
 log_hosp_plot2223
+
+
+#Put together a table of R-effective numbers
+
+# |GP|Hospitalisation|Swabs
+# ---|---|---|---
+# 2017-18|R_eff_17_gp|R_eff_17_hosp|R_eff_17_swab
+# 2018-19|R_eff_18_gp|R_eff_18_hosp|R_eff_18_swab
+# 2019-20|R_eff_19_gp|R_eff_19_hosp|R_eff_19_swab
+# 2022-22|R_eff_22_gp|R_eff_22_hosp|R_eff_22_swab
