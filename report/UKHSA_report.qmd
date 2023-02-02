@@ -66,7 +66,10 @@ We cases data
 PHE and the UKHSA use the Moving Epidemic Method (MEM) to describe the severity of the epidemic season. This is calculated using through using previous epidemic activity [@Rachovic].
 
 ### $R-0$ calculation
-methods for R nought (or effective) can be cited from [@lipsitch2003] .
+
+To further investgate the temporal relationships between the data sources, an effective reproduction number has been calculated. This can be inferred from the observed exponential growth rate seen at the beginning of a flu epidemic. The observed reproduction number $R$ can be found through the linear equation $R = 1 + \frac{r}{b}$ , where $r$ is the rate of exponential growth and $b$ is the rate of leaving the infectious stage [@lipsitch2003]. By approximating the beginning of the growth curves as $N=ke^{ \frac{rt}{b}}$ (where $k$ a constant),  the value $\frac {r}{b}$ can be found from the gradient when plotting $\log (N)$ against $t$. 
+
+In practice, log graphs were plotted and a linear model was fitted to the points at the beginning of the epidemic. Using the gradient, the $R_{eff}$ was calculated for each data source, each season.   .
 
 
 
