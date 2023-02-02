@@ -83,12 +83,47 @@ To see view the trends in the data and to first explore it, case rate per 100,00
 
 ### Source
 
-```{r echo= FALSE, warning = FALSE, fig.show="hold", out.width="50%"}
-par(mar = c(4, 4, .1, .1))
+
+::: grid
+
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
 gp_cases
+
+```
+:::
+
+::: g-col-6
+```{r echo= FALSE, warning = FALSE,}
 hospital_plot
+
+```
+:::
+
+:::
+
+
+
+::: grid
+
+::: g-col-3
+
+:::
+
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+
 combined_plot
 ```
+:::
+
+::: g-col-3
+
+:::
+
+:::
+
+
 
 We expected to see that over different seasons, peaks appear at different weeks. This is due to the complex nature of flu spread, the dynamics do not replicate every season. The size of the peaks however do indicate differing levels of severity in flu each season. 
 
@@ -99,12 +134,38 @@ source("../R_scripts/Season_data/season_201718.R")
 source("../R_scripts/Season_data/season_201819.R")
 source("../R_scripts/Season_data/season_201920.R")
 source("../R_scripts/Season_data/season_202223.R")
-par(mfrow=c(2,2))
+
+```
+
+::: grid
+
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
 plot_201718
+```
+:::
+
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
 plot_201819
+```
+:::
+:::
+
+::: grid
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
 plot_201920
+```
+:::
+
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
 plot_202223
 ```
+:::
+
+:::
 
 -- Jack matrix on correlation --
 
@@ -113,28 +174,101 @@ plot_202223
 ```{r echo= FALSE, warning = FALSE}
 source("../R_scripts/Season_data/log_graphs.R")
 
-
-log_hosp_plot1718
-log_hosp_plot1819
-log_hosp_plot1920
-log_hosp_plot2223
 ```
 
+
+
+::: grid
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+log_hosp_plot1718
+
+```
+:::
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+
+log_hosp_plot1819
+
+```
+:::
+:::
+
+::: grid
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+
+log_hosp_plot1920
+
+```
+:::
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+log_hosp_plot2223
+```
+:::
+:::
 --  $R_0$ value calculations for seasons
 
 ### Stratified by Flu strain type
 
-
+::: grid
+::: g-col-6
 ```{r echo = FALSE}
 
 source("../R_scripts/Season_data/age_strat.R")
 age1718
+```
+
+:::
+::: g-col-6
+```{r echo = FALSE}
+
 age1822
 ```
-``` {r}
+:::
+
+:::
+
+Lab confirmed cases stratified by flu strain:
+
+::: grid
+
+::: g-col-6
+``` {r echo=FALSE}
+source("../strain_stratification.R")
+strains17_18_swabs_plot
+```
+:::
+::: g-col-6
+``` {r echo=FALSE}
+strains18_19_swabs_plot
+```
+:::
+:::
+
+::: grid
+::: g-col-6
+``` {r echo=FALSE}
+strains19_20_swabs_plot
+```
+:::
+
+::: g-col-6
+``` {r echo=FALSE}
+strains22_23_swabs_plot
+```
+:::
+
+:::
+
+``` {r echo=FALSE}
 source("../R_scripts/log_graphs.R")
 effective_r_values
 ```
+
+
+
 
 
 ## Discussion

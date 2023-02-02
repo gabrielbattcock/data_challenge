@@ -1,8 +1,8 @@
 # Szymon Jakobsze
 # Strain stratified data for swab testing schemes and hospitalisations 
 
-source("R_scripts/source_data_entry.R")
-here::i_am("source_data_entry.r")
+#source("R_scripts/source_data_entry.R")
+#here::i_am("source_data_entry.r")
 
 ###################################SWAB DATA####################################
 
@@ -206,13 +206,13 @@ strains22_23_swabs_plot <- ggplot((strains22_23_swabs %>% slice(1:132)) ,
   scale_color_manual('Strain', values= wes_palette("Zissou1", n = 4))
 
 
-combined_strain_plot <- ggarrange(strains17_18_swabs_plot, strains18_19_swabs_plot,
-                                  strains19_20_swabs_plot, strains22_23_swabs_plot,
-                                  ncol = 2, nrow = 2, common.legend = TRUE, legend="bottom",
-                                  labels = c("2017-18", "2018-19", "2019-20", "2022-23"))
+#combined_strain_plot <- ggarrange(strains17_18_swabs_plot, strains18_19_swabs_plot,
+ #                                 strains19_20_swabs_plot, strains22_23_swabs_plot,
+ #                                 ncol = 2, nrow = 2, common.legend = TRUE, legend="bottom",
+  #                                labels = c("2017-18", "2018-19", "2019-20", "2022-23"))
 
-combined_strain_plot %>% annotate_figure(top = text_grob("UK influenza laboratory confirmed cases, stratified by flu strain"),
-                                         bottom = text_grob("As collected by the Datamart scheme",
-                                                            hjust = 1, x = 1, face = "italic", size = 10))
+#combined_strain_plot %>% annotate_figure(top = text_grob("UK influenza laboratory confirmed cases, stratified by flu strain"),
+ #                                        bottom = text_grob("As collected by the Datamart scheme",
+  #                                                          hjust = 1, x = 1, face = "italic", size = 10))
 
 
