@@ -1,8 +1,8 @@
 # Szymon Jakobsze
 # Strain stratified data for swab testing schemes and hospitalisations 
 
-source("R_scripts/source_data_entry.R")
-here::i_am("source_data_entry.r")
+#source("R_scripts/source_data_entry.R")
+#here::i_am("source_data_entry.r")
 
 ###################################SWAB DATA####################################
 
