@@ -72,7 +72,7 @@ primary_care_total <- tibble(Weeks = c(40:52, 1:20),
 
 ## ready for vis ----
 primary_care_vis <- primary_care_total %>% 
-                    pivot_longer(cols = 2:5, names_to = "Flu Season", values_to = "Rate") %>%
+                    pivot_longer(cols = 2:5, names_to = "Flu Season", values_to = "Rate")
 
 # NEW GP ILI% continuous, by age group #########################################
 recent <- read_csv(here("allData", "gp", "ili-by-age-201822.csv"), 
@@ -402,8 +402,8 @@ vacc_rate <- select(vaccine_vis,
                     '2-3 year olds' = y2and3_pct) %>% pivot_longer(-Year) %>% arrange(., Year)
 
 #For age stratification
-age_strat_df1 <- read_csv("allData/gp/ili-by-age-201718.csv")
-age_strat_df2 <- read_csv("allData/gp/ili-by-age-201822.csv")
+age_strat_df1 <- read_csv("../allData/gp/ili-by-age-201718.csv")
+age_strat_df2 <- read_csv("../allData/gp/ili-by-age-201822.csv")
 #Table theme
 gt_theme_538 <- function(data,...) {
   data %>%
