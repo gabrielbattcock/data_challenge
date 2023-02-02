@@ -107,7 +107,7 @@ log_hosp_plot1920
 log_hosp_plot2223
 ```
 
--- Aizaz $R_0$ value calculations for seasons
+--  $R_0$ value calculations for seasons
 
 ### Stratified by Flu strain type
 

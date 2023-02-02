@@ -12,24 +12,22 @@ library(pacman)
 p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 
 
-df1 <- read_csv("allData/gp/ili-by-age-201718.csv")
-df2 <- read_csv("allData/gp/ili-by-age-201822.csv")
 
-df1$age_15 <- df1$age_15/100
-df1$age_adult <- df1$age_adult/100
-df1$age_65 <- df1$age_65/100
-df1$age_all <- df1$age_all/100
-df3 <- rbind(df1,df2)
+age_strat_df1$age_15 <- age_strat_df1$age_15/100
+age_strat_df1$age_adult <- age_strat_df1$age_adult/100
+age_strat_df1$age_65 <- age_strat_df1$age_65/100
+age_strat_df1$age_all <- age_strat_df1$age_all/100
+age_strat_df3 <- rbind(age_strat_df1,age_strat_df2)
 
-df2$age_15 <- as.numeric(df2$age_15)/5
-df2$age_adult <- as.numeric(df2$age_adult)/5
-df2$age_65 <- as.numeric(df2$age_65)/5
-df2$age_all <- as.numeric(df2$age_all)/5
+age_strat_df2$age_15 <- as.numeric(age_strat_df2$age_15)/5
+age_strat_df2$age_adult <- as.numeric(age_strat_df2$age_adult)/5
+age_strat_df2$age_65 <- as.numeric(age_strat_df2$age_65)/5
+age_strat_df2$age_all <- as.numeric(age_strat_df2$age_all)/5
 
-names(df1)
+names(age_strat_df1)
 #------------------------------------------------------------------------------
 # very interesting plot for 17-18 by age (altohugh total doesnt make sense)
-age1718 <- ggplot(df1) +
+age1718 <- ggplot(age_strat_df1) +
   theme_ipsum() +
   geom_line(lwd = 1.5, aes(1:33, age_15, color = 'Under 18s')) +
   geom_line(lwd = 1.5, aes(1:33, age_adult, color = '18-65')) +
@@ -56,7 +54,7 @@ age1718 <- ggplot(df1) +
 #------------------------------------------------------------------------------
 #this one doesn't make as much sense
 
-age1822 <- ggplot(df2) +
+age1822 <- ggplot(age_strat_df2) +
   theme_ipsum() +
   geom_line(lwd = 1.5, aes(1:221, age_15, color = 'Under 18s')) +
   geom_line(lwd = 1.5, aes(1:221, age_adult, color = '18-65')) +

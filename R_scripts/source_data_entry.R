@@ -375,6 +375,10 @@ vacc_rate <- select(vaccine_vis,
                     'Pregnant women' = pregnt_pct,
                     '2-3 year olds' = y2and3_pct) %>% pivot_longer(-Year) %>% arrange(., Year)
 
+#For age stratification
+age_strat_df1 <- read_csv("allData/gp/ili-by-age-201718.csv")
+age_strat_df2 <- read_csv("allData/gp/ili-by-age-201822.csv")
+
 # REMOVE IRRELEVANT VARS #################################################################
 # 
 # suppressWarnings({
