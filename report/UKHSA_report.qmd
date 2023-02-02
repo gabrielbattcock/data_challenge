@@ -230,8 +230,10 @@ age1822
 
 :::
 
-::: grid
 Lab confirmed cases stratified by flu strain:
+
+::: grid
+
 ::: g-col-6
 ``` {r echo=FALSE}
 source("../strain_stratification.R")
