@@ -1,61 +1,44 @@
 ---
-version: 0.0.2
+version: 0.1.0
 author: GB, AC, SJ, HL
 ---
 
 # Data_Challenge
 
-## \*\* This part is for team use only \*\*
+## Overview
 
-Shared repo for the data challenge module at LSHTM semester 2.
+## How to use this script
 
-When someone's done something please add / tick things on the list below:
+### 1. Download
 
-### Identify sources and extract data
+If you have SSH configured, great, just run 
+`git clone git@github.com:gabrielbattcock/data_challenge.git`
+in your terminal and it'll be sorted.
 
-- [x] Laboratory Surveillance, 
-  - using National Flu and COVID reports. Downloaded spreadsheet from the UKHSA website and scraped using prewritten scraping document. 
-  < https://www.gov.uk/government/statistics/national-flu-and-covid-19-surveillance-reports-2022-to-2023-season > 
-  <https://www.gov.uk/government/statistics/weekly-national-flu-reports-2019-to-2020-season >
+If you don't, all is not lost my friend, just run 
+`git clone https://github.com/gabrielbattcock/data_challenge.git`
+in your terminal.
+
+### 2. Dependencies
+
+This project cannot be built without the numerous packages from the R community. We use `pacman::p_load()` to install if needed, and load these packages without user intervention. If you prefer to install these selectively or individually, below is a comprehensive list of the packages, grouped by purpose.
+
+knitr, kableExtra, mada, magrittr, 
+       RcppRoll, reshape2, spgwr)   
+
+- GENERAL PURPOSE
+  - [Tidyverse (core)](https://www.tidyverse.org/packages/)
+  - [Magrittr](https://magrittr.tidyverse.org/)
+  - [Knitr](https://cran.r-project.org/web/packages/knitr/index.html)
+  - [Reshape2 (retired)](https://cran.r-project.org/web/packages/reshape2/index.html)
+  - [kableExtra](https://cran.r-project.org/web/packages/kableExtra/index.html)
+  - [mada](https://cran.r-project.org/web/packages/mada/index.html)
+- READING FILES
+- DATA MANIPULATION
+  - [RcppRoll](https://cran.r-project.org/web/packages/RcppRoll/index.html)
   
-  - @Szymon
-- [x] Primary Care, 
-  - using downloaded from the xlsx and read into R using a function 
-  - @ Aizaz
-- [x] Secondary Care
-  - using National Flu and reports. Downloaded into the R package. < https://www.gov.uk/government/statistics/national-flu-and-covid-19-surveillance-reports-2022-to-2023-season > 
-  - @[who]
-- [x] Excess Mortality
-  - using [EuroMomo](https://www.euromomo.eu/graphs-and-maps#excess-mortality) - z score only, stratified by country
-  - or we can use [ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard)
-  - @jack
-- [ ] (not sure if we do this) Vaccine coverage
+### 3. Running the codes
 
-### Cleaning
+With in the directory "R_scripts", there is a script called "source_data_entry.R" which inputs all data from the various csv and xlsx files that we have collected and outputs data frames which are used throughout the rest of the project. 
 
-- [ ] lorem ipsum
-- [ ] dolor sit amet
-
-### Plotting
-
-- [ ] lorem ipsum
-- [ ] dolor sit amet
-
-### Analysis
-
-- [ ] lorem ipsum
-- [ ] dolor sit amet
-
-### Fine-tuning
-
-### Writing up
-
----
-
-## \*\* Deliverable \*\*
-
-### Overview
-
-### How to use this script
-
-#### 
+The remainder of the code are saved under either "Season_data", for plots and analysis comparing each source over a season or in "source", which compares the seasons for a given source, such as GP data. Once "source_data_entry.R" has been run and all data frames are within your environment, all other scripts should run. 
