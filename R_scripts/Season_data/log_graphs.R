@@ -218,7 +218,7 @@ log_hosp_plot1718 <- ggplot(log_season) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
-  coord_cartesian(ylim = c(-4, 4), expand = FALSE) +
+  coord_cartesian(ylim = c(-4, 5), expand = FALSE) +
   scale_color_manual('Season', values= palette_flu)
 
 log_hosp_plot1718
@@ -242,7 +242,7 @@ log_gp <- log(gp22)
 log_swab <- log(swab22)
 log_season <- data.frame(week, log_hosp = log_hosp, log_gp, log_swab)
 log_season_subset <- data.frame(week = week[5:12], hosp = log_hosp[5:12], 
-                                gp = log_season$log_gp[5:12], swab = log_season$log_swab[5:12])
+                                gp = log_season$log_gp[3:10], swab = log_season$log_swab[5:12])
 
 #create linear models for when 
 lm_hosp <- lm(data = log_season_subset,formula = hosp~week)
@@ -267,7 +267,7 @@ log_hosp_plot2223 <- ggplot(log_season) +
   geom_line(lwd = 1.5, alpha = 0.6, aes(week, log_gp, color = 'GP')) +
   geom_line(lwd = 1.5, alpha = 0.6, aes(week, log_swab, color = 'Swab')) +
   geom_line(data = hosp_predict, aes(week, hosp_line)) +
-  geom_line(data = gp_predict, aes(week, gp_line)) + 
+  geom_line(data = gp_predict, aes(3:10, gp_line)) + 
   geom_line(data = swab_predict, aes(week, gp_line))+
   # guides(color = guide_legend("Data source")) +
   ylab("Log rate") +
