@@ -227,95 +227,95 @@ log_hosp_plot1718
 #season 2022-23
 
 
-# hospital22 <- hosp_vis$hosp_22_23
-# gp22 =  primary_care_total$`2022-23`
-# swab_df <- swab_season22_23
-# swab_df$total = swab_df$flu_A+swab_df$flu_B
-# swab22 <- (swab_df$total/56000000)*100000
-# # season_202223 <- data.frame( week,hospital22, gp22, swab22)
-# # names(season_202223) <- c("week", "hospital", "gp", "swab")
+hospital22 <- hosp_vis[5]$`2022-23`
+gp22 =  primary_care_total$`2022-23`
+swab_df <- swab_season22_23
+swab_df$total = swab_df$flu_A+swab_df$flu_B
+swab22 <- (swab_df$total/56000000)*100000
+season_202223 <- data.frame( week,hospital22, gp22, swab22)
+names(season_202223) <- c("week", "hospital", "gp", "swab")
+
+#log transform
+log_hosp <- log(hospital22)
+log_week <- log(week)
+log_gp <- log(gp22)
+log_swab <- log(swab22)
+log_season <- data.frame(week, log_hosp, log_gp, log_swab)
+log_season_subset <- data.frame(week = week[5:12], hosp = log_hosp[5:12],
+                                gp = log_season$log_gp[3:10], swab = log_season$log_swab[5:12])
+
+#create linear models for when
+lm_hosp <- lm(data = log_season_subset,formula = hosp~week)
+hosp_predict <- data.frame(hosp_line = predict(lm_hosp, log_season_subset), week = log_season_subset$week)
+lm_gp <- lm(data = log_season_subset,formula = gp~week)
+gp_predict <- data.frame(gp_line = predict(lm_gp, log_season_subset), week = log_season_subset$week)
+lm_swab <- lm(data = log_season_subset,formula = swab~week)
+swab_predict <- data.frame(gp_line = predict(lm_swab, log_season_subset), week = log_season_subset$week)
+summary(lm_gp)
+summary(lm_hosp)
+summary(lm_swab)
+
+#check whether the R_0 rates are similar
+R_eff_22_gp <- 1+lm_gp$coefficients[2]
+R_eff_22_hosp <- 1+lm_hosp$coefficients[2]
+R_eff_22_swab <- 1+lm_swab$coefficients[2]
+
+
+log_hosp_plot2223 <- ggplot(log_season) +
+  theme_ipsum() +
+  geom_line(lwd = 1.5, alpha = 0.6, aes(week, log_hosp, color = 'Hospital')) +
+  geom_line(lwd = 1.5, alpha = 0.6, aes(week, log_gp, color = 'GP')) +
+  geom_line(lwd = 1.5, alpha = 0.6, aes(week, log_swab, color = 'Swab')) +
+  geom_line(data = hosp_predict, aes(week, hosp_line)) +
+  geom_line(data = gp_predict, aes(3:10, gp_line)) +
+  geom_line(data = swab_predict, aes(week, gp_line))+
+  # guides(color = guide_legend("Data source")) +
+  ylab("Log rate") +
+  # # xlim(-12, 20)+
+  ggtitle("Log tranformed influenza cases 2022-23 \n per different data sources") +
+  scale_x_continuous(breaks = seq(0, 34, 2),
+                     minor_breaks = seq(0, 34, 1),
+                     labels = c("40", "42", "44",
+                                "46", "48",
+                                "50", "52", "2",
+                                "4", "6", "8", "10",
+                                "12","14","16",
+                                "18", "20", "22")) +
+  theme(panel.border = element_rect(color = "dark grey",
+                                    fill = NA,
+                                    size = 0.1)) +
+  coord_cartesian(ylim = c(-4, 4), expand = FALSE) +
+  scale_color_manual('Season', values= palette_flu)
+
+log_hosp_plot2223
 # 
-# #log transform
-# log_hosp <- log(as.numeric(hospital22))
-# log_week <- log(week)
-# log_gp <- log(gp22)
-# log_swab <- log(swab22)
-# log_season <- data.frame(week, log_hosp, log_gp, log_swab)
-# log_season_subset <- tibble(week = week[5:12], hosp = log_hosp[5:12],
-#                                 gp = log_season$log_gp[3:10], swab = log_season$log_swab[5:12])
-# 
-# #create linear models for when
-# lm_hosp <- lm(data = log_season_subset,formula = hosp~week)
-# hosp_predict <- data.frame(hosp_line = predict(lm_hosp, log_season_subset), week = log_season_subset$week)
-# lm_gp <- lm(data = log_season_subset,formula = gp~week)
-# gp_predict <- data.frame(gp_line = predict(lm_gp, log_season_subset), week = log_season_subset$week)
-# lm_swab <- lm(data = log_season_subset,formula = swab~week)
-# swab_predict <- data.frame(gp_line = predict(lm_swab, log_season_subset), week = log_season_subset$week)
-# summary(lm_gp)
-# summary(lm_hosp)
-# summary(lm_swab)
-# 
-# #check whether the R_0 rates are similar
-# R_eff_22_gp <- 1+lm_gp$coefficients[2]
-# R_eff_22_hosp <- 1+lm_hosp$coefficients[2]
-# R_eff_22_swab <- 1+lm_swab$coefficients[2]
-# 
-# 
-# log_hosp_plot2223 <- ggplot(log_season) +
-#   theme_ipsum() +
-#   geom_line(lwd = 1.5, alpha = 0.6, aes(week, log_hosp, color = 'Hospital')) +
-#   geom_line(lwd = 1.5, alpha = 0.6, aes(week, log_gp, color = 'GP')) +
-#   geom_line(lwd = 1.5, alpha = 0.6, aes(week, log_swab, color = 'Swab')) +
-#   geom_line(data = hosp_predict, aes(week, hosp_line)) +
-#   geom_line(data = gp_predict, aes(3:10, gp_line)) +
-#   geom_line(data = swab_predict, aes(week, gp_line))+
-#   # guides(color = guide_legend("Data source")) +
-#   ylab("Log rate") +
-#   # # xlim(-12, 20)+
-#   ggtitle("Log tranformed influenza cases 2022-23 \n per different data sources") +
-#   scale_x_continuous(breaks = seq(0, 34, 2),
-#                      minor_breaks = seq(0, 34, 1),
-#                      labels = c("40", "42", "44",
-#                                 "46", "48",
-#                                 "50", "52", "2",
-#                                 "4", "6", "8", "10",
-#                                 "12","14","16",
-#                                 "18", "20", "22")) +
-#   theme(panel.border = element_rect(color = "dark grey",
-#                                     fill = NA,
-#                                     size = 0.1)) +
-#   coord_cartesian(ylim = c(-4, 4), expand = FALSE) +
-#   scale_color_manual('Season', values= palette_flu)
-# 
-# log_hosp_plot2223
-# 
-# 
-# log_table_tibble <- tibble(
-#   index_log_dat = c("2017-18","2018-19","2019-20", "2022-23"),
-#   gp_log_dat = round(c(R_eff_17_gp, R_eff_18_gp, R_eff_19_gp, R_eff_22_gp), digits=1),
-#   hosp_log_dat = round(c(R_eff_17_hosp, R_eff_18_hosp, R_eff_19_hosp, R_eff_22_hosp), digits = 1),
-#   swabs_log_dat = round(c(R_eff_17_swab, R_eff_18_swab, R_eff_19_swab, R_eff_22_swab), digits = 1)
-# )
-# 
-# 
-# 
-# 
-# effective_r_values <- log_table_tibble %>% gt() %>% tab_header(
-#   title = "Effective R values",
-#   subtitle = "Across flu seasons between 2017-18 and 2022-23"
-# )  %>%
-#   tab_source_note(
-#     source_note = "Note: Data removed for 2021-22 flu season due to effect of Covid-19 pandemic on flu cases"
-#   )%>%  
-#   tab_spanner(
-#     label = md("**Sources of flu data**"),
-#     columns = c(gp_log_dat, hosp_log_dat, swabs_log_dat)
-#   ) %>%
-#   cols_label(
-#     index_log_dat = md("**Flu season**"),
-#     gp_log_dat = md("**Primary care**"),
-#     hosp_log_dat = md("**Secondary care**"),
-#     swabs_log_dat = md("**Lab confirmed cases**")
-#   ) %>% gt_theme_538()
-# 
-# 
+# #--------------------------------------------------------------------------------
+log_table_tibble <- tibble(
+  index_log_dat = c("2017-18","2018-19","2019-20", "2022-23"),
+  gp_log_dat = round(c(R_eff_17_gp, R_eff_18_gp, R_eff_19_gp, R_eff_22_gp), digits=1),
+  hosp_log_dat = round(c(R_eff_17_hosp, R_eff_18_hosp, R_eff_19_hosp, R_eff_22_hosp), digits = 1),
+  swabs_log_dat = round(c(R_eff_17_swab, R_eff_18_swab, R_eff_19_swab, R_eff_22_swab), digits = 1)
+)
+
+
+
+
+effective_r_values <- log_table_tibble %>% gt() %>% tab_header(
+  title = "Effective R values",
+  subtitle = "Across flu seasons between 2017-18 and 2022-23"
+)  %>%
+  tab_source_note(
+    source_note = "Note: Data removed for 2021-22 flu season due to effect of Covid-19 pandemic on flu cases"
+  )%>%
+  tab_spanner(
+    label = md("**Sources of flu data**"),
+    columns = c(gp_log_dat, hosp_log_dat, swabs_log_dat)
+  ) %>%
+  cols_label(
+    index_log_dat = md("**Flu season**"),
+    gp_log_dat = md("**Primary care**"),
+    hosp_log_dat = md("**Secondary care**"),
+    swabs_log_dat = md("**Lab confirmed cases**")
+  ) %>% gt_theme_538()
+
+
