@@ -334,9 +334,9 @@ log_hosp_plot2223
 
 log_table_tibble <- tibble(
   index_log_dat = c("2017-18","2018-19","2019-20", "2022-23"),
-  gp_log_dat = c(R_eff_17_gp, R_eff_18_gp, R_eff_19_gp, R_eff_22_gp),
-  hosp_log_dat = c(R_eff_17_hosp, R_eff_18_hosp, R_eff_19_hosp, R_eff_22_hosp),
-  swabs_log_dat = c(R_eff_17_swab, R_eff_18_swab, R_eff_19_swab, R_eff_22_swab)
+  gp_log_dat = round(c(R_eff_17_gp, R_eff_18_gp, R_eff_19_gp, R_eff_22_gp), digits=1),
+  hosp_log_dat = round(c(R_eff_17_hosp, R_eff_18_hosp, R_eff_19_hosp, R_eff_22_hosp), digits = 1),
+  swabs_log_dat = round(c(R_eff_17_swab, R_eff_18_swab, R_eff_19_swab, R_eff_22_swab), digits = 1)
 )
 
 
