@@ -13,68 +13,132 @@ p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 
 
 
-age_strat_df1$age_15 <- age_strat_df1$age_15/100
-age_strat_df1$age_adult <- age_strat_df1$age_adult/100
-age_strat_df1$age_65 <- age_strat_df1$age_65/100
-age_strat_df1$age_all <- age_strat_df1$age_all/100
-age_strat_df3 <- rbind(age_strat_df1,age_strat_df2)
-
-age_strat_df2$age_15 <- as.numeric(age_strat_df2$age_15)/5
-age_strat_df2$age_adult <- as.numeric(age_strat_df2$age_adult)/5
-age_strat_df2$age_65 <- as.numeric(age_strat_df2$age_65)/5
-age_strat_df2$age_all <- as.numeric(age_strat_df2$age_all)/5
-
 names(age_strat_df1)
 #------------------------------------------------------------------------------
 # very interesting plot for 17-18 by age (altohugh total doesnt make sense)
-age1718 <- ggplot(age_strat_df1) +
+age1718 <- age_strat_df1
+age1718$Week <- 1:33
+age1718 <- age1718 %>% select(Week,
+                              "<15 years" = age_15,
+                              "15-64 years" = age_adult,
+                              "65+ years" = age_65,
+                              "All ages" = age_all) %>%
+  melt(id.vars ='Week', variable.name = 'series') 
+
+
+plot_age1718 <- ggplot(age1718, aes(Week, value)) +
   theme_ipsum() +
-  geom_line(lwd = 1.5, aes(1:33, age_15, color = 'Under 18s')) +
-  geom_line(lwd = 1.5, aes(1:33, age_adult, color = '18-65')) +
-  geom_line(lwd = 1.5, aes(1:33, age_65, color = '65 and older')) +
-  geom_line(lwd = 1.5, aes(1:33, age_all, color = 'All ages')) +
-  guides(color = guide_legend("Age")) +
+  geom_line(lwd = 1.5 , alpha = 0.6, aes(color = series)) +
   ylab("Influenza rate (per 100,000) ") +
-  # xlim(-12, 20)+
-  ggtitle("UK influenza cases 2017-18 /n per age group") +
-  scale_x_continuous(breaks = seq(0, 34, 2), 
+  # xlim(33+52*3, 33+52*4)+
+  ggtitle("UK influenza cases 2018-10 \n per age group") +
+  scale_x_continuous(breaks = seq(0, 34, 2),
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
                                 "46", "48",
                                 "50", "52", "2",
                                 "4", "6", "8", "10",
                                 "12","14","16",
-                                "18", "20", "22")) + 
+                                "18", "20", "22")) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
   coord_cartesian(ylim = c(-1, 70), expand = FALSE) +
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4))
-
+  scale_color_manual("Age", values= palette_flu)
 #------------------------------------------------------------------------------
-#this one doesn't make as much sense
 
-age1822 <- ggplot(age_strat_df2) +
+
+age1819 <- age_strat_df2[1:33, ]
+age1819$Week <- 1:33
+age1819 <- age1819 %>% select(Week,
+                              "<15 years" = age_15,
+                              "15-64 years" = age_adult,
+                              "65+ years" = age_65,
+                              "All ages" = age_all) %>%
+  melt(id.vars ='Week', variable.name = 'series') 
+  
+age1920 <- age_strat_df2[53:85,]
+age1920$Week <- 1:33
+age1920 <- age1920 %>% select(Week,
+                              "<15 years" = age_15,
+                              "15-64 years" = age_adult,
+                              "65+ years" = age_65,
+                              "All ages" = age_all) %>%  
+  melt(id.vars ='Week', variable.name = 'series')
+
+age2223 <- age_strat_df2[210:221, ]
+age2223$Week <- 1:nrow(age2223)
+age2223 <- age2223 %>% select(Week,
+                              "<15 years" = age_15,
+                              "15-64 years" = age_adult,
+                              "65+ years" = age_65,
+                              "All ages" = age_all) %>%   
+  melt(id.vars ='Week', variable.name = 'series')
+
+
+
+
+plot_age1819 <- ggplot(age1819, aes(Week, value)) +
   theme_ipsum() +
-  geom_line(lwd = 1.5, aes(1:221, age_15, color = 'Under 18s')) +
-  geom_line(lwd = 1.5, aes(1:221, age_adult, color = '18-65')) +
-  geom_line(lwd = 1.5, aes(1:221, age_65, color = '65 and older')) +
-  geom_line(lwd = 1.5, aes(1:221, age_all, color = 'All ages')) +
-  guides(color = guide_legend("Age")) +
+  geom_line(lwd = 1.5 , alpha = 0.6, aes(color = series)) +
   ylab("Influenza rate (per 100,000) ") +
-  xlim(33+52*3, 33+52*4)+
-  ggtitle("UK influenza cases 2017-18 /n per age group") +
-  # scale_x_continuous(breaks = seq(0, 34, 2), 
-  #                    minor_breaks = seq(0, 34, 1),
-  #                    labels = c("40", "42", "44",
-  #                               "46", "48",
-  #                               "50", "52", "2",
-  #                               "4", "6", "8", "10",
-  #                               "12","14","16",
-  #                               "18", "20", "22")) + 
+  # xlim(33+52*3, 33+52*4)+
+  ggtitle("UK influenza cases 2018-10 \n per age group") +
+  scale_x_continuous(breaks = seq(0, 34, 2),
+                     minor_breaks = seq(0, 34, 1),
+                     labels = c("40", "42", "44",
+                                "46", "48",
+                                "50", "52", "2",
+                                "4", "6", "8", "10",
+                                "12","14","16",
+                                "18", "20", "22")) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
-  coord_cartesian(ylim = c(-1, 60), expand = FALSE) +
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4))
+  coord_cartesian(ylim = c(-1, 30), expand = FALSE) +
+  scale_color_manual("Age", values= palette_flu)
+
+
+plot_age1920 <- ggplot(age1920, aes(Week, value)) +
+  theme_ipsum() +
+  geom_line(lwd = 1.5 , alpha = 0.6, aes(color = series)) +
+  ylab("Influenza rate (per 100,000) ") +
+  # xlim(33+52*3, 33+52*4)+
+  ggtitle("UK influenza cases 2019-20 \n per age group") +
+  scale_x_continuous(breaks = seq(0, 34, 2),
+                     minor_breaks = seq(0, 34, 1),
+                     labels = c("40", "42", "44",
+                                "46", "48",
+                                "50", "52", "2",
+                                "4", "6", "8", "10",
+                                "12","14","16",
+                                "18", "20", "22")) +
+  theme(panel.border = element_rect(color = "dark grey",
+                                    fill = NA,
+                                    size = 0.1)) +
+  coord_cartesian(ylim = c(-1, 30), expand = FALSE) +
+  scale_color_manual("Age", values= palette_flu)
+
+
+plot_age2223 <- ggplot(age2223, aes(Week, value)) +
+  theme_ipsum() +
+  geom_line(lwd = 1.5 , alpha = 0.6, aes(color = series)) +
+  ylab("Influenza rate (per 100,000) ") +
+  xlim(1, 33)+
+  ggtitle("UK influenza cases 2022-23 \n per age group") +
+  scale_x_continuous(breaks = seq(0, 34, 2),
+                     minor_breaks = seq(0, 34, 1),
+                     labels = c("40", "42", "44",
+                                "46", "48",
+                                "50", "52", "2",
+                                "4", "6", "8", "10",
+                                "12","14","16",
+                                "18", "20", "22")) +
+  theme(panel.border = element_rect(color = "dark grey",
+                                    fill = NA,
+                                    size = 0.1)) +
+  coord_cartesian(ylim = c(-1, 40), expand = FALSE) +
+  scale_color_manual("Age", values= palette_flu)
+
+
 
