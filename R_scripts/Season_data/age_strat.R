@@ -18,26 +18,13 @@ p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
 names(age_strat_df1)
 #------------------------------------------------------------------------------
 # configuring data into correct frames
-age1718 <- age_strat_df1
-age1718$Week <- 1:33
-age1718 <- age1718 %>% select(Week,
+age2223 <- age2223 %>% select(Week,
                               "<15 years" = age_15,
                               "15-64 years" = age_adult,
                               "65+ years" = age_65,
                               "All ages" = age_all) %>%
-  melt(id.vars ='Week', variable.name = 'series') 
+  melt(id.vars ='Week', variable.name = 'series')
 
-age1819 <- age_strat_df2[1:33, ]
-age1819$Week <- 1:33
-age1819 <- age1819 %>% select(Week,
-                              "<15 years" = age_15,
-                              "15-64 years" = age_adult,
-                              "65+ years" = age_65,
-                              "All ages" = age_all) %>%
-  melt(id.vars ='Week', variable.name = 'series') 
-
-age1920 <- age_strat_df2[53:85,]
-age1920$Week <- 1:33
 age1920 <- age1920 %>% select(Week,
                               "<15 years" = age_15,
                               "15-64 years" = age_adult,
@@ -45,14 +32,19 @@ age1920 <- age1920 %>% select(Week,
                               "All ages" = age_all) %>%  
   melt(id.vars ='Week', variable.name = 'series')
 
-age2223 <- age_strat_df2[210:221, ]
-age2223$Week <- 1:nrow(age2223)
-age2223 <- age2223 %>% select(Week,
+age1819 <- age1819 %>% select(Week,
                               "<15 years" = age_15,
                               "15-64 years" = age_adult,
                               "65+ years" = age_65,
-                              "All ages" = age_all) %>%   
-  melt(id.vars ='Week', variable.name = 'series')
+                              "All ages" = age_all) %>%
+  melt(id.vars ='Week', variable.name = 'series') 
+
+age1718 <- age1718 %>% select(Week,
+                              "<15 years" = age_15,
+                              "15-64 years" = age_adult,
+                              "65+ years" = age_65,
+                              "All ages" = age_all) %>%
+  melt(id.vars ='Week', variable.name = 'series') 
 
 #------------------------------------------------------------------------------
 ## 2017-18
