@@ -8,7 +8,7 @@
 
 gp_cases <- ggplot(primary_care_melted, aes(x = id, y = value) ) +
 
-  geom_line(lwd = 1.5, aes(colour = `series`)) +
+  geom_line(lwd = 1.5, aes(colour = `series`), alpha = 0.8) +
   labs(x="Week", y="Rate of consultations (per 100,000)",
        title="GP consultations for Influenza type illness per 100,000",
        caption="As collected by the RCGP in England") +
@@ -27,7 +27,7 @@ gp_cases <- ggplot(primary_care_melted, aes(x = id, y = value) ) +
   geom_ribbon(aes(ymin=0,ymax=12.7,fill="#B7CE89"), alpha=0.25) +
   geom_ribbon(aes(ymin=12.7,ymax=24.1,fill="#FEFF67"), alpha=0.25)+
   geom_ribbon(aes(ymin=24.1,ymax=60,fill="black"),  alpha=0.25)+
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4)) +
+  scale_color_manual('Season', values= palette_flu) +
   coord_cartesian(ylim = c(0, 60), expand = FALSE) +
   scale_y_continuous(breaks = seq(0, 60, 10), 
                      minor_breaks = seq(0, 60, 5)) +

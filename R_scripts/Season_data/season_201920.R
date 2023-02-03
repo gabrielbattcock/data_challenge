@@ -25,11 +25,14 @@ week <- seq(1:33)
 season_201920 <- data.frame( week,hospital, gp, swab)
 names(season_201920) <- c("week", "hospital", "gp", "swab")
 
+# Add some of the missing data from season 2019-2020
+season_201920[23:33,3] <- (as.double(age1920$age_all[23:33]))/10
+
 
 plot_201920 <- ggplot(season_201920) +
   theme_ipsum() +
   geom_line(lwd = 1.5, alpha = 0.6, aes(week, hospital, color = 'Hospital')) +
-  geom_line(lwd = 1.5, alpha =0.6, aes(week, gp, color = 'GP')) +
+  geom_line(lwd = 1.5, alpha = 0.6, aes(week, gp, color = 'GP')) +
   geom_line(lwd = 1.5, alpha = 0.6, aes(week, swab, color = 'Swabbing data')) +
   guides(color = guide_legend("Data source")) +
   ylab("Influenza rate (per 100,000)") +
@@ -47,7 +50,7 @@ plot_201920 <- ggplot(season_201920) +
                                     fill = NA,
                                     size = 0.1)) +
   coord_cartesian(ylim = c(-1, 25), expand = FALSE) +
-  scale_color_manual('Season', values=palette_flu)
+  scale_color_manual('Season', values= palette_flu)
 
 plot_201920
 #normalising it so all the peaks are the same heigh (swab data is in number not rate)

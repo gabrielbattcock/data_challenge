@@ -1,8 +1,8 @@
 # Szymon Jakobsze
 # Strain stratified data for swab testing schemes and hospitalisations 
 
-#source("R_scripts/source_data_entry.R")
-#here::i_am("source_data_entry.r")
+source("R_scripts/source_data_entry.R")
+here::i_am("source_data_entry.r")
 
 ###################################SWAB DATA####################################
 
@@ -15,12 +15,15 @@ strains17_19_swabs <- path_swabs %>% read_csv()
 
 # Swabs data 17-18 season
 strains17_18_swabs <- strains17_19_swabs %>% slice(1:33) %>% select(-year,-week) 
-strains17_18_swabs <- mutate(strains17_18_swabs, id = seq.int(nrow(strains17_18_swabs)), .before = 1) %>% 
-                       melt(id.vars = 'id',variable.name = 'series')
+strains17_18_swabs <- mutate(strains17_18_swabs, id = seq.int(nrow(strains17_18_swabs)), .before = 1) %>%
+                      relocate(a_h1n1, .before = a_h3) %>% 
+                      melt(id.vars = 'id',variable.name = 'series')
+                    
     
 # Swabs data 18-19 season
 strains18_19_swabs <- strains17_19_swabs %>% slice(34:66) %>% select(-year,-week)
-strains18_19_swabs <- mutate(strains18_19_swabs, id = seq.int(nrow(strains18_19_swabs)), .before = 1) %>% 
+strains18_19_swabs <- mutate(strains18_19_swabs, id = seq.int(nrow(strains18_19_swabs)), .before = 1) %>%
+                      relocate(a_h1n1, .before = a_h3) %>% 
                       melt(id.vars = 'id',variable.name = 'series')
 
 # Swabs data 19-20 season
@@ -64,7 +67,7 @@ path_hosp <- here("allData", "hospitalisation", "2017-18_flu_hospital_data.csv")
 strains17_18_hosp <- path_hosp %>% 
                      read_csv() %>% 
                      select(
-                       a_h1n1 = `sent_H1N1pdm09` ,
+                       "A H1N1"= `sent_H1N1pdm09` ,
                        a_h3n2 = `sent_H3N2`,
                        a_unknown = `sent_A_unknown`,
                        b = `sent_B`) 
@@ -101,7 +104,7 @@ strains17_18_hosp_plot<- ggplot(strains17_18_hosp, aes(id, value)) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     linewidth = 0.1)) +
-  scale_color_manual('Strain', values= wes_palette("Moonrise1", n = 4))
+  scale_color_manual('Strain', values = palette_flu)
 
 
 # Swabs
@@ -128,7 +131,7 @@ strains17_18_swabs_plot<- ggplot((strains17_18_swabs %>% slice(1:132)) ,
   # theme(panel.border = element_rect(color = "dark grey",
   #                                   fill = NA,
   #                                   linewidth = 0.1)) +
-  scale_color_manual('Strain', values= wes_palette("Zissou1", n = 4))
+  scale_color_manual('Strain', values= palette_flu)
 
 
 # 2018 - 2019 season 
@@ -153,7 +156,7 @@ strains18_19_swabs_plot <- ggplot((strains18_19_swabs %>% slice(1:132)) ,
   # theme(panel.border = element_rect(color = "dark grey",
   #                                   fill = NA,
   #                                   linewidth = 0.1)) +
-  scale_color_manual('Strain', values= wes_palette("Zissou1", n = 4))
+  scale_color_manual('Strain', values= palette_flu)
 
 
 
@@ -179,7 +182,7 @@ strains19_20_swabs_plot <- ggplot((strains19_20_swabs %>% slice(1:132)) ,
   # theme(panel.border = element_rect(color = "dark grey",
   #                                   fill = NA,
   #                                   linewidth = 0.1)) +
-  scale_color_manual('Strain', values= wes_palette("Zissou1", n = 4))
+  scale_color_manual('Strain', values= palette_flu)
 
 # 2022 - 2023 season 
 
@@ -203,16 +206,19 @@ strains22_23_swabs_plot <- ggplot((strains22_23_swabs %>% slice(1:132)) ,
   # theme(panel.border = element_rect(color = "dark grey",
   #                                   fill = NA,
   #                                   linewidth = 0.1)) +
-  scale_color_manual('Strain', values= wes_palette("Zissou1", n = 4))
+  scale_color_manual('Strain', values = palette_flu)
 
 
-#combined_strain_plot <- ggarrange(strains17_18_swabs_plot, strains18_19_swabs_plot,
- #                                 strains19_20_swabs_plot, strains22_23_swabs_plot,
- #                                 ncol = 2, nrow = 2, common.legend = TRUE, legend="bottom",
-  #                                labels = c("2017-18", "2018-19", "2019-20", "2022-23"))
+combined_strain_plot <- ggarrange(strains17_18_swabs_plot, strains18_19_swabs_plot,
+                                strains19_20_swabs_plot, strains22_23_swabs_plot,
+                                ncol = 2, nrow = 2, 
+                                common.legend = TRUE, legend="bottom",
+                               labels = c("2017-18", "2018-19", "2019-20", "2022-23"))
 
+combined_strain_plot
 #combined_strain_plot %>% annotate_figure(top = text_grob("UK influenza laboratory confirmed cases, stratified by flu strain"),
  #                                        bottom = text_grob("As collected by the Datamart scheme",
   #                                                          hjust = 1, x = 1, face = "italic", size = 10))
 
 
+palette_flu <- c("#00425A", "#1F8A70", "#BFDB38", "#FC7300")
