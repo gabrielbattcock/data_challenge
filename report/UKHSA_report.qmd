@@ -68,6 +68,7 @@ We cases data
 ### Moving Epidemic Method
 
 PHE and the UKHSA use the Moving Epidemic Method (MEM) to describe the severity of the epidemic season. This is calculated using through using previous epidemic activity [@Rachovic].
+From for each of the data sources presented, we have used the MEM calculated and published by PHE and the UKHSA respectively in their weekly national flu reports.
 
 ### $R-0$ calculation
 
@@ -102,7 +103,7 @@ hospital_plot
 
 :::
 
-
+**Figure x1 and x2**: FIgure x1 shows RCGP RSC reports of Influenze Like Illnesses in participating GP practices per 100,000 people across 4 flu seasons from 2017-2018 to 2022-23 with 2020-2021 and 2021-2022 removed. FIgure x2 shows flu cases reported by SARI watch and USISS Sentinel data for hospitalisations of patients with influenza per 100,000 people
 
 ::: grid
 
@@ -123,9 +124,19 @@ combined_plot
 
 :::
 
+**Figure x**: Lab-confirmed cases of influenza, stratified by influenza strain (A and B). Data reported from PHE/UKHSA lab confirmed cases of influenza over the same time period.
 
+In figures x1 and x2, we represent the Moving Epidemic Model thresholds against trends of primary and secondary care cases in the background. 
 
 We expected to see that over different seasons, peaks appear at different weeks. This is due to the complex nature of flu spread, the dynamics do not replicate every season. The size of the peaks however do indicate differing levels of severity in flu each season. 
+
+This initial presentation of our results shows similarity in temporal characterisitcs between the 2017-18 and 2018-19 flu seasons; and the 2019-20/2022-23 flu seasons. In primary care data, the peaks for the 2017-18 and 2018-19 flu seasons occur at 4 weeks (with a subsequent peak in 2018-19 at 7 weeks). We see a similar split in secondary care data. Secondary cases in 2017-18 peak at week 3, with a smaller peak across week 8-9. For 2018-19 it peaks at week 7. In lab confirmed cases of influenza A, both 2017-18 and 2018-19 flu seasons peak at week 7.
+
+In the primary care data, the peaks for the 2019-20 and 22-23 season occur in the previous year at 52 and 50 weeks respectively. In secondary care data and lab confirmed cases of influenza A, the peaks for seasons 2019-20 and 2022-23 again occur in the previous year at week 52. 
+
+Lab confirmed cases of influenza B 
+  
+- Mention how the data for the 2022-23 data is inconclusive
 
 ### Season
 
@@ -208,7 +219,10 @@ log_hosp_plot2223
 ```
 :::
 :::
---  $R_0$ value calculations for seasons
+
+To estimate the effective reproduction number between each of the data sources, the case rate per 100,000 was transformed using a natural logarithm and plotted against epidemiological week. The log plot resulted in a straight line during the initial exponential growth period and a tail after the peak of infections, as was expected from theory. The plots were evaluated to find which weeks to fit a linear model to. Using the linear model function in R, a line was overlaid on the log plots and coefficients of gradients for each of the lines were extracted. Using $R = 1 + \frac{r}{b}$, as detailed above, the $R_{eff}$ was calculated.
+
+The estimated $R_{eff}$ for each year and data source is detailed below. As expected at the beginning of a flu season, the R numbers are all above 1. It is noted that a higher reproduction number calculated for the data from hospitalisations than from GP consultations.
 
 ### Stratified by Flu strain type
 
