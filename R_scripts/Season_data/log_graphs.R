@@ -63,7 +63,7 @@ log_hosp_plot1920 <- ggplot(log_season) +
   geom_line(data = gp_predict, aes(week, gp_line)) + 
   geom_line(data = swab_predict, aes(week, gp_line))+
   # guides(color = guide_legend("Data source")) +
-  # ylab("Log rate") +
+  ylab("Log rate") +
   # # xlim(-12, 20)+
   ggtitle("Log tranformed influenza cases 2019-20 \n per different data sources") +
   scale_x_continuous(breaks = seq(0, 34, 2),
@@ -78,7 +78,7 @@ log_hosp_plot1920 <- ggplot(log_season) +
                                     fill = NA,
                                     size = 0.1)) +
   coord_cartesian(ylim = c(-4, 4), expand = FALSE) +
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
+  scale_color_manual('Season', values= palette_flu)
 
 log_hosp_plot1920
 # geom_smooth(data = log_season_subset, formula = hosp~week, method = 'lm')
@@ -116,30 +116,7 @@ summary(lm_hosp)
 summary(lm_swab)
 
 
-######## trial for calculating the R_0 number by hand 
 
-# 
-# for (i in 1:length(hospital18$`2018-19 Hospital admission (rate)`)){
-#   if (i==1){
-#     number_day = hospital18$`2018-19 Hospital admission (rate)`[i]
-#     difference = number_day - 0 
-#     rep_number = difference/1
-#     num_prev_day = number_day 
-#     diff_prev_day = difference
-#   }
-#   else{
-#     number_day = hospital18$`2018-19 Hospital admission (rate)`[i]
-#     difference = number_day - num_prev_day
-#     rep_number = difference/diff_prev_day
-#     num_prev_day = number_day 
-#     diff_prev_day = difference
-#   }
-#   hospital18$r_number[i] <- rep_number 
-# }
-#   
-ggplot(hospital18) +
-  geom_point(aes(week, hospital18$r_number)) +
-  coord_cartesian(ylim = c(-15, 15), expand = FALSE) 
 
 # calculate R effective for each of the data sources  
 
@@ -154,14 +131,14 @@ R_eff_18_swab <- 1+lm_swab$coefficients[2]
 
 log_hosp_plot1819 <- ggplot(log_season) +
   theme_ipsum() +
-  geom_line(lwd = 1.5, aes(week, log_hosp, color = 'Hospital')) +
-  geom_line(lwd = 1.5, aes(week, log_gp, color = 'GP')) +
-  geom_line(lwd = 1.5, aes(week, log_swab, color = 'Swab')) +
+  geom_line(lwd = 1.5, alpha = 0.6,aes(week, log_hosp, color = 'Hospital')) +
+  geom_line(lwd = 1.5, alpha = 0.6,aes(week, log_gp, color = 'GP')) +
+  geom_line(lwd = 1.5, alpha = 0.6,aes(week, log_swab, color = 'Swab')) +
   geom_line(data = hosp_predict, aes(week, hosp_line)) +
   geom_line(data = gp_predict, aes(week, gp_line)) + 
   geom_line(data = swab_predict, aes(week, gp_line))+
   # guides(color = guide_legend("Data source")) +
-  # ylab("Log rate") +
+  ylab("Log rate") +
   # # xlim(-12, 20)+
   ggtitle("Log tranformed influenza cases 2018-19 \n per different data sources") +
   scale_x_continuous(breaks = seq(0, 34, 2),
@@ -176,7 +153,7 @@ log_hosp_plot1819 <- ggplot(log_season) +
                                     fill = NA,
                                     size = 0.1)) +
   coord_cartesian(ylim = c(-4, 4), expand = FALSE) +
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
+  scale_color_manual('Season', values= palette_flu)
 
 log_hosp_plot1819
 
@@ -220,14 +197,14 @@ R_eff_17_swab <- 1+lm_swab$coefficients[2]
 
 log_hosp_plot1718 <- ggplot(log_season) +
   theme_ipsum() +
-  geom_line(lwd = 1.5, aes(week, log_hosp, color = 'Hospital')) +
-  geom_line(lwd = 1.5, aes(week, log_gp, color = 'GP')) +
-  geom_line(lwd = 1.5, aes(week, log_swab, color = 'Swab')) +
+  geom_line(lwd = 1.5, alpha = 0.6,aes(week, log_hosp, color = 'Hospital')) +
+  geom_line(lwd = 1.5, alpha = 0.6,aes(week, log_gp, color = 'GP')) +
+  geom_line(lwd = 1.5, alpha = 0.6,aes(week, log_swab, color = 'Swab')) +
   geom_line(data = hosp_predict, aes(week, hosp_line)) +
   geom_line(data = gp_predict, aes(week, gp_line)) + 
   geom_line(data = swab_predict, aes(week, gp_line))+
   # guides(color = guide_legend("Data source")) +
-  # ylab("Log rate") +
+  ylab("Log rate") +
   # # xlim(-12, 20)+
   ggtitle("Log tranformed influenza cases 2017-18 \n per different data sources") +
   scale_x_continuous(breaks = seq(0, 34, 2),
@@ -241,8 +218,8 @@ log_hosp_plot1718 <- ggplot(log_season) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
-  coord_cartesian(ylim = c(-4, 4), expand = FALSE) +
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
+  coord_cartesian(ylim = c(-4, 5), expand = FALSE) +
+  scale_color_manual('Season', values= palette_flu)
 
 log_hosp_plot1718
 
@@ -259,13 +236,13 @@ season_202223 <- data.frame( week,hospital22, gp22, swab22)
 names(season_202223) <- c("week", "hospital", "gp", "swab")
 
 #log trasnform
-log_hosp <- log(hospital22$`2022-23`)
+log_hosp <- log(hospital22$hosp_22_23)
 log_week <- log(week)
 log_gp <- log(gp22)
 log_swab <- log(swab22)
 log_season <- data.frame(week, log_hosp = log_hosp, log_gp, log_swab)
 log_season_subset <- data.frame(week = week[5:12], hosp = log_hosp[5:12], 
-                                gp = log_season$log_gp[5:12], swab = log_season$log_swab[5:12])
+                                gp = log_season$log_gp[3:10], swab = log_season$log_swab[5:12])
 
 #create linear models for when 
 lm_hosp <- lm(data = log_season_subset,formula = hosp~week)
@@ -286,14 +263,14 @@ R_eff_22_swab <- 1+lm_swab$coefficients[2]
 
 log_hosp_plot2223 <- ggplot(log_season) +
   theme_ipsum() +
-  geom_line(lwd = 1.5, aes(week, log_hosp, color = 'Hospital')) +
-  geom_line(lwd = 1.5, aes(week, log_gp, color = 'GP')) +
-  geom_line(lwd = 1.5, aes(week, log_swab, color = 'Swab')) +
+  geom_line(lwd = 1.5, alpha = 0.6, aes(week, log_hosp, color = 'Hospital')) +
+  geom_line(lwd = 1.5, alpha = 0.6, aes(week, log_gp, color = 'GP')) +
+  geom_line(lwd = 1.5, alpha = 0.6, aes(week, log_swab, color = 'Swab')) +
   geom_line(data = hosp_predict, aes(week, hosp_line)) +
-  geom_line(data = gp_predict, aes(week, gp_line)) + 
+  geom_line(data = gp_predict, aes(3:10, gp_line)) + 
   geom_line(data = swab_predict, aes(week, gp_line))+
   # guides(color = guide_legend("Data source")) +
-  # ylab("Log rate") +
+  ylab("Log rate") +
   # # xlim(-12, 20)+
   ggtitle("Log tranformed influenza cases 2022-23 \n per different data sources") +
   scale_x_continuous(breaks = seq(0, 34, 2),
@@ -308,6 +285,9 @@ log_hosp_plot2223 <- ggplot(log_season) +
                                     fill = NA,
                                     size = 0.1)) +
   coord_cartesian(ylim = c(-4, 4), expand = FALSE) +
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
+  scale_color_manual('Season', values= palette_flu)
 
 log_hosp_plot2223
+
+
+

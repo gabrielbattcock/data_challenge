@@ -28,9 +28,9 @@ names(season_201819) <- c("week", "hospital", "gp", "swab")
 
 plot_201819 <- ggplot(season_201819) +
   theme_ipsum() +
-  geom_line(lwd = 1.5, aes(week, hospital, color = 'Hospital')) +
-  geom_line(lwd = 1.5, aes(week, gp, color = 'GP')) +
-  geom_line(lwd = 1.5, aes(week, swab, color = 'Swabbing data')) +
+  geom_line(lwd = 1.5, alpha = 0.7,aes(week, hospital, color = 'Hospital')) +
+  geom_line(lwd = 1.5, alpha = 0.7, aes(week, gp, color = 'GP')) +
+  geom_line(lwd = 1.5, alpha = 0.7, aes(week, swab, color = 'Swabbing data')) +
   guides(color = guide_legend("Data source")) +
   ylab("Influenza rate (per 100,000)") +
   # xlim(-12, 20)+
@@ -47,7 +47,7 @@ plot_201819 <- ggplot(season_201819) +
                                     fill = NA,
                                     size = 0.1)) +
   coord_cartesian(ylim = c(-1, 25), expand = FALSE) +
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
+  scale_color_manual('Season', values= palette_flu)
 
 plot_201819
 

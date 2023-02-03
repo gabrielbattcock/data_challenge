@@ -31,9 +31,9 @@ season_201920[23:33,3] <- (as.double(age1920$age_all[23:33]))/10
 
 plot_201920 <- ggplot(season_201920) +
   theme_ipsum() +
-  geom_line(lwd = 1.5, aes(week, hospital, color = 'Hospital')) +
-  geom_line(lwd = 1.5, aes(week, gp, color = 'GP')) +
-  geom_line(lwd = 1.5, aes(week, swab, color = 'Swabbing data')) +
+  geom_line(lwd = 1.5, alpha = 0.6, aes(week, hospital, color = 'Hospital')) +
+  geom_line(lwd = 1.5, alpha = 0.6, aes(week, gp, color = 'GP')) +
+  geom_line(lwd = 1.5, alpha = 0.6, aes(week, swab, color = 'Swabbing data')) +
   guides(color = guide_legend("Data source")) +
   ylab("Influenza rate (per 100,000)") +
   # xlim(-12, 20)+
