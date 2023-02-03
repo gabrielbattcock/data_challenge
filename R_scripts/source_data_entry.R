@@ -449,6 +449,10 @@ gt_theme_538 <- function(data,...) {
     )
 }
 
+# Specify the global palette to be used for plotting all of our figures
+palette_flu <- c("#00425A", "#1F8A70", "#BFDB38", "#FC7300")
+
+
 # REMOVE IRRELEVANT VARS #################################################################
 # 
 # suppressWarnings({

@@ -45,7 +45,7 @@ hospital_plot <- ggplot(hosp_seasons_melted, aes(week, value) ) +
   geom_ribbon(aes(ymin=2.65,ymax=7.87,fill='#CE8282'), alpha=0.25)+
   geom_ribbon(aes(ymin=7.87,ymax=12.73,fill="#F7B27E"),alpha=0.25)+
   geom_ribbon(aes(ymin=12.73,ymax=16,fill="#FEFF67"), alpha=0.25)+
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4)) +
+  scale_color_manual('Season', values= palette_flu) +
   coord_cartesian(ylim = c(-0.5, 16), expand = F) +
   scale_y_continuous(breaks = seq(0, 15, 5),
                      minor_breaks = seq(0, 15, 2.5)) +
