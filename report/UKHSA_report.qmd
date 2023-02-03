@@ -2,6 +2,7 @@
 title: "UKHSA report"
 format: html
 bibliography: ../bibliography/UKHSA_bibliography.bib
+csl: ../bibliography/bmj.csl
 ---
 
 ```{r setup, include=FALSE}
@@ -38,7 +39,7 @@ Understanding the data of how flu is spread can help assist in planning vaccinat
 
 In the UK there are three main ways that influenza is reported: through primary care data, hospitalisation and through swabbing programmes. Having three separate data sources is a valuable to compare whether the peak in the seasonal spread is in the same week or whether any of the data sources lag the others - identifying a possible prediction of a peak in hospitalisations for example. It also may be beneficial to know which strains are in circulation at which and what age group is being affected most. If there is a lag between age groups or strains, hosopitals may be able to prepare better for an oncoming wave of influenza cases.
 
-### Research question and hypothesis
+### Aims
 
 We defined our main research question to address the issues descirbed above.
 
@@ -99,7 +100,7 @@ hospital_plot
 
 :::
 
-**Figure x1 and x2**: FIgure x1 shows RCGP RSC reports of Influenze Like Illnesses in participating GP practices per 100,000 people across 4 flu seasons from 2017-2018 to 2022-23 with 2020-2021 and 2021-2022 removed. FIgure x2 shows flu cases reported by SARI watch and USISS Sentinel data for hospitalisations of patients with influenza per 100,000 people
+**Figure 3 and 4**: FIgure 3 shows RCGP RSC reports of Influenze Like Illnesses in participating GP practices per 100,000 people across 4 flu seasons from 2017-2018 to 2022-23 with 2020-2021 and 2021-2022 removed. FIgure 4 shows flu cases reported by SARI watch and USISS Sentinel data for hospitalisations of patients with influenza per 100,000 people
 
 ::: grid
 
@@ -120,9 +121,9 @@ combined_plot
 
 :::
 
-**Figure x**: Lab-confirmed cases of influenza, stratified by influenza strain (A and B). Data reported from PHE/UKHSA lab confirmed cases of influenza over the same time period.
+**Figure 5**: Lab-confirmed cases of influenza, stratified by influenza strain (A and B). Data reported from PHE/UKHSA lab confirmed cases of influenza over the same time period.
 
-In figures x1 and x2, we represent the Moving Epidemic Model thresholds against trends of primary and secondary care cases in the background. 
+In figures 3 and 4, we represent the Moving Epidemic Model thresholds against trends of primary and secondary care cases in the background. 
 
 We expected to see that over different seasons, peaks appear at different weeks. This is due to the complex nature of flu spread, the dynamics do not replicate every season. The size of the peaks however do indicate differing levels of severity in flu each season. 
 
@@ -130,9 +131,11 @@ This initial presentation of our results shows similarity in temporal characteri
 
 In the primary care data, the peaks for the 2019-20 and 22-23 season occur in the previous year at 52 and 50 weeks respectively. In secondary care data and lab confirmed cases of influenza A, the peaks for seasons 2019-20 and 2022-23 again occur in the previous year at week 52. 
 
-Lab confirmed cases of influenza B 
-  
-- Mention how the data for the 2022-23 data is inconclusive
+Lab confirmed cases of influenza A (Figure 5a) reinforce the backshift we see between the 2017-18/2018-19 seasons and the 2019-20/2022-23 seasons. The peak for the 2017-18 and 2018-19 season occur at week 7, similar to our finding s for secondary care and for reported primary care cases in the  2018-19 season. The peak for both 2019-20 and 2022-23 seasons occur at week 52, in line with the secondary care cases for both seasons, and primary care data for 2022-23. 
+
+Lab confirmed cases of infleunza B only appear to increase notable for the 2017-18 outbreak, with the cases for subsequent seasons not increasing to the same scale.
+
+Its difficult to be confident in our post-covid analysis as the only data that we have available is the 2022-23 season, which at time of report writing is ongoing. The relationships observed on the breif analysis done amay not hold should the 2022-23 outbreak change in characteristic.
 
 ### Season
 
@@ -220,7 +223,12 @@ To estimate the effective reproduction number between each of the data sources, 
 
 The estimated $R_{eff}$ for each year and data source is detailed below. As expected at the beginning of a flu season, the R numbers are all above 1. It is noted that a higher reproduction number calculated for the data from hospitalisations than from GP consultations.
 
-### Stratified by Flu strain type
+``` {r echo=FALSE}
+source("../R_scripts/log_graphs.R")
+effective_r_values
+```
+
+### Stratifying by age group
 
 ::: grid
 ::: g-col-6
@@ -240,7 +248,9 @@ age1822
 
 :::
 
-Lab confirmed cases stratified by flu strain:
+
+### Stratified by Flu strain type
+
 
 ::: grid
 
@@ -256,7 +266,7 @@ strains18_19_swabs_plot
 ```
 :::
 :::
-
+ 
 ::: grid
 ::: g-col-6
 ``` {r echo=FALSE}
@@ -272,10 +282,7 @@ strains22_23_swabs_plot
 
 :::
 
-``` {r echo=FALSE}
-source("../R_scripts/log_graphs.R")
-effective_r_values
-```
+
 
 
 
@@ -283,6 +290,6 @@ effective_r_values
 
 ## Discussion
 
-## Conclusion
+## Executive summary
 
 ## References
