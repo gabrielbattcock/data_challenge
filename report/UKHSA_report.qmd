@@ -211,7 +211,8 @@ plot_202223
 :::
 
 ```{r echo=FALSE, warning=FALSE}
-# max_table
+source("../R_scripts/Season_data/peak_table.R")
+max_table
 
 ```
 
