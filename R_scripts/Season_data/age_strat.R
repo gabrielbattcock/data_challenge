@@ -126,7 +126,7 @@ plot_age2223 <- ggplot(age2223, aes(Week, value)) +
   theme_ipsum() +
   geom_line(lwd = 1.5 , alpha = 0.6, aes(color = series)) +
   ylab("Influenza rate (per 100,000) ") +
-  xlim(1, 33)+
+  # xlim(1, 12)+
   ggtitle("UK influenza cases 2022-23 \n per age group") +
   scale_x_continuous(breaks = seq(0, 34, 2),
                      minor_breaks = seq(0, 34, 1),
