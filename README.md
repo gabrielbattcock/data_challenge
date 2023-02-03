@@ -36,3 +36,9 @@ knitr, kableExtra, mada, magrittr,
 - READING FILES
 - DATA MANIPULATION
   - [RcppRoll](https://cran.r-project.org/web/packages/RcppRoll/index.html)
+  
+### 3. Running the codes
+
+With in the directory "R_scripts", there is a script called "source_data_entry.R" which inputs all data from the various csv and xlsx files that we have collected and outputs data frames which are used throughout the rest of the project. 
+
+The remainder of the code are saved under either "Season_data", for plots and analysis comparing each source over a season or in "source", which compares the seasons for a given source, such as GP data. Once "source_data_entry.R" has been run and all data frames are within your environment, all other scripts should run. 
