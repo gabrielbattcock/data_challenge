@@ -28,13 +28,13 @@ names(season_201718) <- c("week", "hospital", "gp", "swab")
 
 plot_201718 <- ggplot(season_201718) +
   theme_ipsum() +
-  geom_line(lwd = 1.5, aes(week, hospital, color = 'Hospital')) +
-  geom_line(lwd = 1.5, aes(week, gp, color = 'GP')) +
-  geom_line(lwd = 1.5, aes(week, swab, color = 'Swabbing data')) +
+  geom_line(lwd = 1.5, alpha = 0.6, aes(week, hospital, color = 'Hospital')) +
+  geom_line(lwd = 1.5, alpha = 0.6, aes(week, gp, color = 'GP')) +
+  geom_line(lwd = 1.5, alpha = 0.6,aes(week, swab, color = 'Swabbing data')) +
   guides(color = guide_legend("Data source")) +
   ylab("Influenza rate (per 100,000)") +
   # xlim(-12, 20)+
-  ggtitle("UK influenza cases 2017-18 for each data source") +
+  ggtitle("UK influenza cases 2017-18 \n for each data source") +
   scale_x_continuous(breaks = seq(0, 34, 2), 
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
@@ -47,7 +47,7 @@ plot_201718 <- ggplot(season_201718) +
                                     fill = NA,
                                     size = 0.1)) +
   coord_cartesian(ylim = c(-1, 60), expand = FALSE) +
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
+  scale_color_manual('Season', values= palette_flu)
 
 plot_201718
 #normalising it so all the peaks are the same heigh (swab data is in number not rate)

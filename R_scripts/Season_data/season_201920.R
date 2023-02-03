@@ -28,9 +28,9 @@ names(season_201920) <- c("week", "hospital", "gp", "swab")
 
 plot_201920 <- ggplot(season_201920) +
   theme_ipsum() +
-  geom_line(lwd = 1.5, aes(week, hospital, color = 'Hospital')) +
-  geom_line(lwd = 1.5, aes(week, gp, color = 'GP')) +
-  geom_line(lwd = 1.5, aes(week, swab, color = 'Swabbing data')) +
+  geom_line(lwd = 1.5, alpha = 0.6, aes(week, hospital, color = 'Hospital')) +
+  geom_line(lwd = 1.5, alpha =0.6, aes(week, gp, color = 'GP')) +
+  geom_line(lwd = 1.5, alpha = 0.6, aes(week, swab, color = 'Swabbing data')) +
   guides(color = guide_legend("Data source")) +
   ylab("Influenza rate (per 100,000)") +
   # xlim(-12, 20)+
@@ -47,7 +47,7 @@ plot_201920 <- ggplot(season_201920) +
                                     fill = NA,
                                     size = 0.1)) +
   coord_cartesian(ylim = c(-1, 25), expand = FALSE) +
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 3))
+  scale_color_manual('Season', values=palette_flu)
 
 plot_201920
 #normalising it so all the peaks are the same heigh (swab data is in number not rate)
