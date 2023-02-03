@@ -289,6 +289,21 @@ plot_age1819
 ```
 :::
 
+::: g-col-6
+```{r echo = FALSE}
+
+plot_age1920
+```
+:::
+
+::: g-col-6
+```{r echo = FALSE}
+
+plot_age2223
+```
+:::
+
+
 :::
 
 Using data provided by the RCGP, flu data has been plotted stratified by age. This has been reported as ILI rate per 100,000, and broken down in to three age groups: \\\<15 years, 15-64 years and 65+ years.
