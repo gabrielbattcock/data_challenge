@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,6 +73,7 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -82,11 +83,42 @@ div.csl-indent {
 <div class="cell">
 
 </div>
+<section id="executive-summary" class="level2">
+<h2 class="anchored" data-anchor-id="executive-summary">Executive Summary</h2>
+<blockquote class="blockquote">
+<p>you guys can move any sentence into the introduction. I wonder if they have too much detail.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>should we introduce <code>flu (disease)</code> or <code>influenza (virus)</code> first?</p>
+</blockquote>
+<p>Influenza is a highly infectious disease caused by a family of virus under the same name. Up to 650,000 deaths yearly can be directly attributed to seasonal outbreaks of influenza worldwide. The virus (family <em>Orthomyxoviridae</em>) has multiple species, with type A and type B being predominant in spreading among human. ==They can be further classified by the H (as in Hemagglutinin) and N (as in neuraminidase) antigen present on the virus.==</p>
+<p>Progression of flu is usually self-limiting. For most, symptoms last for 2~7 days. Severe cases might require hospitalisation, or even deaths, particularly for at-risk groups (children &lt;2 yo, pregnant, elderly &gt;65yo, and people with underlying conditions).</p>
+<blockquote class="blockquote">
+<p>Should I insert here something about UKHSA with less detail?</p>
+</blockquote>
+<p>The UK’s flu surveillance system comprises of numerous different input points. For example, weekly % of GP consultations presenting with influenza-like illnesses (ILI), or death registrations where the leading cause is flu. To better understand and compare these data sources, we defined our research question as follows:</p>
+<blockquote class="blockquote">
+<p>What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/23 compared to the pre-pandemic years 2016-2019?</p>
+</blockquote>
+<p>We hypothesise that there is a measurable lag between one source of surveillance and another. Statistical tools can then be applied to predict the timing and scale of a ‘later’ data source using an ‘earlier’ source. Additionally, different age groups can manifest at different time and scale, and one might be predictive of another. Also, changes in reporting procedures on respiratory infections in the recent years (post-covid) is also suspected to be causing some variations in data.</p>
+<section id="data-processing" class="level4">
+<h4 class="anchored" data-anchor-id="data-processing">Data Processing</h4>
+<p>Constrained by time <del>and bureaucracy</del>, all data used in this project were publicly available on various governmental websites. Primary care data was reported by the RCGP Research and Surveillance Centre in the communicable and respiratory disease reports, published weekly. Swabs data is reported weekly by PHE. Secondary care data is extracted from the UKHSA Severe Acute Respiratory Infection Watch (SARI Watch) system, updated weekly during the flu season (week 40 - week 20 next year). Mortality data is reported weekly by the ONS. All cleaning and processing are done using the R language.</p>
+</section>
+<section id="analysis" class="level4">
+<h4 class="anchored" data-anchor-id="analysis">Analysis</h4>
+<p>At first glimpse, the peak for each data source does not differ much from each other in a given year.</p>
+<em>–page break–</em>
+<div style="page-break-after: always">
+
+</div>
+</section>
+</section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Influenza is a highly infectious and rapidly evolving respiratory virus circulating seasonally around the world <span class="citation" data-cites="cope2018">[<a href="#ref-cope2018" role="doc-biblioref">1</a>]</span>. The World Health Organisation (WHO) estimates that between 290000-650000 deaths occur due to the respiratory virus, not including deaths not due to secondary infections caused by influenza <span class="citation" data-cites="WHO2022">[<a href="#ref-WHO2022" role="doc-biblioref"><strong>WHO2022?</strong></a>]</span>. Like most viruses, influenza is highly mutable. It can change on its own (<em>i.e.</em> antigenic drift), or cross with other strains (<em>i.e.</em> antigenic shift) <span class="citation" data-cites="CDC2022">[<a href="#ref-CDC2022" role="doc-biblioref">2</a>]</span>, possibly leading to uncontrolled extensive spreads causing an epidemic (e.g.&nbsp;1918-2009) <span class="citation" data-cites="cope2018">[<a href="#ref-cope2018" role="doc-biblioref">1</a>]</span></p>
 <p>Seasonal influenza appear in two types, classified as A and B. A types can are further broken down into subtypes H1N1 and H3N2 <span class="citation" data-cites="CDC2022">[<a href="#ref-CDC2022" role="doc-biblioref">2</a>]</span>. Each year, a combination of the A subtypes and B type influenza circulate throughout the population with different proportions. There is some evidence to suggest that H3N2 subtype is more severe than H1N1, leading to higher hospitalisation rates.</p>
-<p>Serious progression of the virus may lead to deaths in at risk groups such as children &lt;2 y.o., pregnant women, people &gt;65 y.o. and people with underlying medical conditions, <span class="citation" data-cites="zarocostas2009">[<a href="#ref-zarocostas2009" role="doc-biblioref">3</a>]</span>. In a UK context, seasonal influenza circulation puts a burden on NHS especially hospital beds and GP services <span class="citation" data-cites="cope2018">[<a href="#ref-cope2018" role="doc-biblioref">1</a>]</span>. Having more data to help plan for seasonal peaks can help alleviate pressure on vital services.</p>
+<p>After an incubation period, usually 1~3 days, the progression of the disease is self-limiting and symptoms might last 2~7 days [cite::green book]. Serious progression of the virus may lead to deaths in at-risk groups such as children (&lt;2 y.o.), pregnant women, the elderly (&gt;65 y.o.) and people with underlying medical conditions, <span class="citation" data-cites="zarocostas2009">[<a href="#ref-zarocostas2009" role="doc-biblioref">3</a>]</span>. In a UK context, seasonal influenza circulation burdens the NHS in terms of availability of hospital beds and GP services <span class="citation" data-cites="cope2018">[<a href="#ref-cope2018" role="doc-biblioref">1</a>]</span>. Having more data to help plan for seasonal peaks can help alleviate pressure on vital services.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/fig-intro.png" class="img-fluid figure-img"></p>
@@ -103,7 +135,7 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="aims">Aims</h3>
 <p>We defined our main research question to address the issues descirbed above.</p>
 <p><em>Question:</em> What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/23 compared to the pre-pandemic years 2016-2019?</p>
-<p><em>Hypothesis:</em> We suspect that there is a time delay between one source of surveillance and another and the scale of the one that peaks earlier might be predictive of the later ones (GP consultations being greater than hospitalisations for example). Secondly we believe there could be changes in reporting procedures for resp infections post-covid (swabbing increases). As children have more interactions in schools and nurseries, we would expect a larger peak for children before a peak in the older population.</p>
+<p><em>Hypothesis:</em> We suspect that there is a time delay between one source of surveillance and another and the scale of the one that peaks earlier might be predictive of the later ones (GP consultations being greater than hospitalisations for example). Secondly we believe there could be changes in reporting procedures for respiratory infections post-covid (swabbing increases). As children have more interactions in schools and nurseries, we would expect a larger peak for children before a peak in the older population.</p>
 </section>
 </section>
 <section id="methods" class="level2">
@@ -120,18 +152,25 @@ div.csl-indent {
 <p>Secondary care data is extracted from the UKHSA Severe Acute Respiratory Infection Watch system.</p>
 <p>Mortality data is extracted from the UK Office for National Statistics (ONS) weekly bulletin of death registrations (England and Wales). The variable of interest is <code>Deaths due to influenza and pneumonia (ICD J09-J18)</code>, and from 2020 onwards, <code>Deaths involving to influenza and pneumonia (ICD J09-J18)</code>. These are defined by the occurrence of said phrase on either the first cause of death, or anywhere in the <code>cause of death</code> field.</p>
 </section>
-<section id="cross-correlation" class="level3">
-<h3 class="anchored" data-anchor-id="cross-correlation">Cross-correlation</h3>
+<section id="data-processing-1" class="level3">
+<h3 class="anchored" data-anchor-id="data-processing-1">Data Processing</h3>
+<p>aa</p>
+</section>
+<section id="statistical-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-analysis">Statistical Analysis</h3>
+<section id="cross-correlation" class="level4">
+<h4 class="anchored" data-anchor-id="cross-correlation">Cross-correlation</h4>
 <p>Spearman’s non-parametric test of correlation (denoted <span class="math inline">\(ρ\)</span>) is more suitable than Pearson’s in this situation, since the latter requires all variable to be normally distributed. Spearman’s <span class="math inline">\(ρ\)</span> uses the ranks to replace the actual values within each variable. It runs as long as the variables are equal in length. The measurement of cross-correlation between pairs of variables should be as follows. One variable, denoted <span class="math inline">\(x_{t}\)</span>, is pinned to the present. A lag of positive integer <span class="math inline">\(k\)</span> is applied to the other variable <span class="math inline">\(y\)</span> to generate $y_{t},; y_{t+1},; y_{t+k} $ . For a given flu season, Spearman’s test is run repeatedly between <span class="math inline">\(x\)</span> and each version of <span class="math inline">\(y\)</span>. The lag that gives the best correlation, denoted <span class="math inline">\(\arg\underset{k}\max \,\rho(x,y_{t+k})\)</span>, is reported for each year for each pair of variables.</p>
 </section>
-<section id="moving-epidemic-method" class="level3">
-<h3 class="anchored" data-anchor-id="moving-epidemic-method">Moving Epidemic Method</h3>
+<section id="moving-epidemic-method" class="level4">
+<h4 class="anchored" data-anchor-id="moving-epidemic-method">Moving Epidemic Method</h4>
 <p>PHE and the UKHSA use the Moving Epidemic Method (MEM) to describe the severity of the epidemic season. This is calculated using through using previous epidemic activity <span class="citation" data-cites="Rachovic">[<a href="#ref-Rachovic" role="doc-biblioref"><strong>Rachovic?</strong></a>]</span>. From for each of the data sources presented, we have used the MEM calculated and published by PHE and the UKHSA respectively in their weekly national flu reports.</p>
 </section>
-<section id="r_0-calculation" class="level3">
-<h3 class="anchored" data-anchor-id="r_0-calculation"><span class="math inline">\(R_0\)</span> calculation</h3>
+<section id="r_0-calculation" class="level4">
+<h4 class="anchored" data-anchor-id="r_0-calculation"><span class="math inline">\(R_0\)</span> calculation</h4>
 <p>To further investgate the temporal relationships between the data sources, an effective reproduction number has been calculated. This can be inferred from the observed exponential growth rate seen at the beginning of a flu epidemic. The observed reproduction number <span class="math inline">\(R\)</span> can be found through the linear equation <span class="math inline">\(R = 1 + \dfrac{r}{b}\)</span> , where <span class="math inline">\(r\)</span> is the rate of exponential growth and <span class="math inline">\(b\)</span> is the rate of leaving the infectious stage <span class="citation" data-cites="lipsitch2003">[<a href="#ref-lipsitch2003" role="doc-biblioref">6</a>]</span>. By approximating the beginning of the growth curves as <span class="math inline">\(N=ke^{\frac{rt}{b}}\)</span> (where <span class="math inline">\(k\)</span> is a constant), the value <span class="math inline">\(\dfrac {r}{b}\)</span> can be found from the gradient when plotting <span class="math inline">\(\log (N)\)</span> against <span class="math inline">\(t\)</span>.</p>
 <p>In practice, log graphs were plotted and a linear model was fitted to the points at the beginning of the epidemic. Using the gradient, the <span class="math inline">\(R_{\text{eff}}\)</span> was calculated for each data source, each season.</p>
+</section>
 </section>
 </section>
 <section id="results" class="level2">
@@ -217,7 +256,12 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>– Jack matrix on correlation –</p>
+<div class="cell">
+
+</div>
+<p>For each season, cases of ILI reported by primary care sources dominate secondary care and lab confirmed case reporting. For 2017-18, the peak for primary care cases reported by the RCGP was 54.1 cases per 100,000. This was the greatest extent of the flu epidemic as reflected by primary care data. The subsequent 2018-19 and 2019-20 seasons saw more modest peaks of 23.1 and 19.4 cases per 100,000 respectively. For the post-COVID flu season, of data included at time of report writing, the current peak of primary care cases exists at 31.3 cases per 100,000. This is larger than the two pre-COVID flu season data.</p>
+<p>Secondary care and lab confirmed case rates mirror each other closely across pre-pandemic flu seasons. The magnitude of impact between hospitalisation and lab-confirmed cases also appear to be similar in pre-pandemic data.</p>
+<p>However, post-COVID, the peak for secondary care data reached 14.8 per 100,000 cases in week 12, whereas the maximum reported rate for lab confirmed cases reached 5.43 per 100,000 in the same week of data available. In pre-pandemic flu seasons, the peaks for secondary care cases occured during weeks 15 (8.86 per 100,000 in 2017-18), 19 (6.87 per 100,000 in 2018-19) and 12 (7.50 per 100,000 in 2019-20). Lab confirmed cases peaked during weeks 17 (6.55 per 100,000 in 2017-18), 19 (6.19 per 100,000 in 2018-19) and 12 (6.64 per 100,000 in 2019-20). Its too early to determine whether this years flu season pattern amongst secondary care and lab confirmed cases matches patterns of 2017-18 and 2018-19 or of 2019-20. – Jack matrix on correlation –</p>
 </section>
 <section id="log-graphs-and-r_0-value" class="level3">
 <h3 class="anchored" data-anchor-id="log-graphs-and-r_0-value">Log graphs and <span class="math inline">\(R_0\)</span> value</h3>
@@ -228,14 +272,14 @@ div.csl-indent {
 <div class="g-col-6">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="UKHSA_report_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="UKHSA_report_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
 <div class="g-col-6">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="UKHSA_report_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<p><img src="UKHSA_report_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
@@ -244,484 +288,20 @@ div.csl-indent {
 <div class="g-col-6">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="UKHSA_report_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="UKHSA_report_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
 <div class="g-col-6">
 <div class="cell">
-<div class="cell-output-display">
-<p><img src="UKHSA_report_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
-</div>
+
 </div>
 </div>
 </div>
 <p>To estimate the effective reproduction number between each of the data sources, the case rate per 100,000 was transformed using a natural logarithm and plotted against epidemiological week. The log plot resulted in a straight line during the initial exponential growth period and a tail after the peak of infections, as was expected from theory. The plots were evaluated to find which weeks to fit a linear model to. Using the linear model function in R, a line was overlaid on the log plots and coefficients of gradients for each of the lines were extracted. Using <span class="math inline">\(R = 1 + \frac{r}{b}\)</span>, as detailed above, the <span class="math inline">\(R_{eff}\)</span> was calculated.</p>
 <p>The estimated <span class="math inline">\(R_{eff}\)</span> for each year and data source is detailed below. As expected at the beginning of a flu season, the R numbers are all above 1. It is noted that a higher reproduction number calculated for the data from hospitalisations than from GP consultations.</p>
 <div class="cell">
-<div class="cell-output-display">
 
-<div id="asvxhxppkt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-html {
-  font-family: Chivo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-:where(#asvxhxppkt) .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 3px;
-  border-top-color: rgba(0, 0, 0, 0);
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 3px;
-  border-bottom-color: rgba(0, 0, 0, 0);
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-:where(#asvxhxppkt) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: left;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#asvxhxppkt) .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-:where(#asvxhxppkt) .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-:where(#asvxhxppkt) .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-:where(#asvxhxppkt) .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#asvxhxppkt) .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 3px;
-  border-top-color: rgba(0, 0, 0, 0);
-  border-bottom-style: solid;
-  border-bottom-width: 3px;
-  border-bottom-color: #000000;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#asvxhxppkt) .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-:where(#asvxhxppkt) .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-:where(#asvxhxppkt) .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-:where(#asvxhxppkt) .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-:where(#asvxhxppkt) .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 3px;
-  border-bottom-color: #000000;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-:where(#asvxhxppkt) .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-:where(#asvxhxppkt) .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-:where(#asvxhxppkt) .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-:where(#asvxhxppkt) .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-:where(#asvxhxppkt) .gt_row {
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-:where(#asvxhxppkt) .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#asvxhxppkt) .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-:where(#asvxhxppkt) .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-:where(#asvxhxppkt) .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#asvxhxppkt) .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-:where(#asvxhxppkt) .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-:where(#asvxhxppkt) .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#asvxhxppkt) .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#asvxhxppkt) .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-:where(#asvxhxppkt) .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-:where(#asvxhxppkt) .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#asvxhxppkt) .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#asvxhxppkt) .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#asvxhxppkt) .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#asvxhxppkt) .gt_sourcenote {
-  font-size: 12px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#asvxhxppkt) .gt_left {
-  text-align: left;
-}
-
-:where(#asvxhxppkt) .gt_center {
-  text-align: center;
-}
-
-:where(#asvxhxppkt) .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-:where(#asvxhxppkt) .gt_font_normal {
-  font-weight: normal;
-}
-
-:where(#asvxhxppkt) .gt_font_bold {
-  font-weight: bold;
-}
-
-:where(#asvxhxppkt) .gt_font_italic {
-  font-style: italic;
-}
-
-:where(#asvxhxppkt) .gt_super {
-  font-size: 65%;
-}
-
-:where(#asvxhxppkt) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-:where(#asvxhxppkt) .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-:where(#asvxhxppkt) .gt_indent_1 {
-  text-indent: 5px;
-}
-
-:where(#asvxhxppkt) .gt_indent_2 {
-  text-indent: 10px;
-}
-
-:where(#asvxhxppkt) .gt_indent_3 {
-  text-indent: 15px;
-}
-
-:where(#asvxhxppkt) .gt_indent_4 {
-  text-indent: 20px;
-}
-
-:where(#asvxhxppkt) .gt_indent_5 {
-  text-indent: 25px;
-}
-</style>
-<table class="gt_table">
-  <thead class="gt_header">
-    <tr>
-      <td colspan="4" class="gt_heading gt_title gt_font_normal" style="">Effective R values</td>
-    </tr>
-    <tr>
-      <td colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Across flu seasons between 2017-18 and 2022-23</td>
-    </tr>
-  </thead>
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col" id="<strong>Flu season</strong>"><strong>Flu season</strong></th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="<strong>Sources of flu data</strong>">
-        <span class="gt_column_spanner"><strong>Sources of flu data</strong></span>
-      </th>
-    </tr>
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="<strong>Primary care</strong>"><strong>Primary care</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="<strong>Secondary care</strong>"><strong>Secondary care</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="<strong>Lab confirmed cases</strong>"><strong>Lab confirmed cases</strong></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="index_log_dat" class="gt_row gt_right">2017-18</td>
-<td headers="gp_log_dat" class="gt_row gt_right">1.3</td>
-<td headers="hosp_log_dat" class="gt_row gt_right">1.5</td>
-<td headers="swabs_log_dat" class="gt_row gt_right">1.5</td></tr>
-    <tr><td headers="index_log_dat" class="gt_row gt_right">2018-19</td>
-<td headers="gp_log_dat" class="gt_row gt_right">1.1</td>
-<td headers="hosp_log_dat" class="gt_row gt_right">1.4</td>
-<td headers="swabs_log_dat" class="gt_row gt_right">1.4</td></tr>
-    <tr><td headers="index_log_dat" class="gt_row gt_right">2019-20</td>
-<td headers="gp_log_dat" class="gt_row gt_right">1.2</td>
-<td headers="hosp_log_dat" class="gt_row gt_right">1.4</td>
-<td headers="swabs_log_dat" class="gt_row gt_right">1.4</td></tr>
-    <tr><td headers="index_log_dat" class="gt_row gt_right" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #00000000;">2022-23</td>
-<td headers="gp_log_dat" class="gt_row gt_right" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #00000000;">1.2</td>
-<td headers="hosp_log_dat" class="gt_row gt_right" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #00000000;">1.4</td>
-<td headers="swabs_log_dat" class="gt_row gt_right" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #00000000;">1.3</td></tr>
-  </tbody>
-  <tfoot class="gt_sourcenotes">
-    <tr>
-      <td class="gt_sourcenote" colspan="4">Note: Data removed for 2021-22 flu season due to effect of Covid-19 pandemic on flu cases</td>
-    </tr>
-  </tfoot>
-  
-</table>
-</div>
-</div>
 </div>
 </section>
 <section id="stratifying-by-age-group" class="level3">
@@ -730,22 +310,10 @@ html {
 <div class="g-col-6">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="UKHSA_report_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</div>
-<div class="g-col-6">
-<div class="cell">
-<div class="cell-output-display">
 <p><img src="UKHSA_report_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
-</div>
-</section>
-<section id="stratified-by-flu-strain-type" class="level3">
-<h3 class="anchored" data-anchor-id="stratified-by-flu-strain-type">Stratified by Flu strain type</h3>
-<div class="grid">
 <div class="g-col-6">
 <div class="cell">
 <div class="cell-output-display">
@@ -753,10 +321,24 @@ html {
 </div>
 </div>
 </div>
+</div>
+<p>Using data provided by the RCGP, flu data has been plotted stratified by age. This has been reported as ILI rate per 100,000, and broken down in to three age groups: \&lt;15 years, 15-64 years and 65+ years.</p>
+<p>For the season 2017-18, there is a lag between the peaks of adults older than 15 years and children. The large growth of the epidemic this season begins at week 50 and peaks at week 3 for all ages except \&lt;15 years which peak at week 5. This may be due to the timing of the epidemic overlapping with UK school holidays, leading children to having less social interaction, therefore delaying their peak by two weeks.</p>
+<p>For the season 2018-19 there appears to be a minor peak followed by a larger peak a few weeks later. This year, the second peak among the 65+ age group lags behind all other age groups by a week. This may be due to less socialising among the older age group.</p>
+<p>The season 2019-20 shows multiple peaks with the expected dip over the holiday period (between weeks 51-1). As with the 2018-19 season, the 65+ age group lag behind the other age groups, with the largest peak for this age group two weeks after all other ages. There is also an evident spike at week 12 for this year. As this data is recording “Influenza <em>like</em> illness”, it can be assumed that this peak is due to the COVID-19 pandemic.</p>
+<p>The current flu season also shows a lag in growth among the 65+ group. The data however does not go up show where the peaks are, so we do not know the full picture. It is also shown that the under 15 years have a lower gradient after week 51 around the winter holidays begin. ### Stratified by Flu strain type</p>
+<div class="grid">
 <div class="g-col-6">
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="UKHSA_report_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div class="g-col-6">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="UKHSA_report_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
@@ -765,25 +347,26 @@ html {
 <div class="g-col-6">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="UKHSA_report_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+<p><img src="UKHSA_report_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
 <div class="g-col-6">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="UKHSA_report_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+<p><img src="UKHSA_report_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
 </div>
+<p>This figure (A) plots total recorded flu cases by week in the flu season (defined as the 40th week of the previous year to the 20th week of the subsequent), separated by strain of influenza for each included flu season as recorded by Datamart scheme. Starting with the first studied season (2017-2018), it was clearly dominated by the type B influenza. The earliest rise in cases was observed in the A H3 subtype cases, starting around week 46, whilst the other strains present a delay of approximately one week. Moving forward in the season, week 49 brings increase in growth of the number of cases for type B and A H3 subtype. This was the key significant period for both A H3 subtype and B type, which went onto reach their peaks in week 2 and 3 respectively. Peak number of cases for A H3 subtype reached almost 350 and more than 600 cases for type B. Immediately after its peak, cases of type B influenza started decreasing gradually, with occasional increases in week 8, reaching 400 cases and in week 11 reaching approximately 250 cases. A similar trend was observed in the incidence of the A H3 subtype influenza which decreased in week 6 to 200 cases and fluctuated between 250-170 for the next six weeks. An important point is that the H1N1 type A starts to plateau around week 2 of 2018, reaching a point of approximately 50 cases daily, a threshold that was never surpassed again throughout the season. The unknown A type reaches its peak of 150 cases in week 6 to later fluctuate between 50-100 cases until week 15, when it gradually started to drop.</p>
+<p>In the next figure (B) observed data covers the period from 2018 to 2019. For this particular season available data was strafed only by two types - A (unknown subtype) and B. During this season incidence of type B influenza reached a maximum of 11 cases in 45th week and did not pass the threshold of 10 after. Growth in incidence of type A influenza started at week 44 and continued, with a steeper rise starting in week 51 when over 300 new cases were recorded. This strain has dominated the season soaring at nearly 800 cases in week 3. After a slight dip during the next week, incidence of the unknown type A influenza peaked during week 7 with almost 1250 of new cases. It started plummeting until week 10 and gradually decreased until the end of the season.</p>
+<p>During the season 2019 - 2020, cases of A H1N1, unknown type A and type B caused only minor burden in comparison to the A H3 subtype as seen in the figure C. All of the analysed strains apart from A H3 seem to be fluctuating around 10-30 cases between week 43 of 2019 and week 9 of 2020. Incidence of A H3 started to rise during the week 43 of the season and peaked in week 52. After its peak it has dropped rapidly to eventually level off during week 5 and fluctuate around the same incidence.</p>
+<p>Post-pandemic season 2022 - 2023 is represented by figure D. We can observe that both type B flu and the A H1N1 subtype represented only a fraction of all incidence, reaching approximately 50 cases each during 52nd week. The most dominant strain of the season was unknown type A flu, which was on the rise since the first week of the season. During 50th week cases started soaring until incidence of the type A flu reached its peak of almost 2300 new cases in week 52 of 2022. Second most dominant strain of the season - A H3 presented slower rise, starting in week 46 and peaking at 1250 new cases at the same time as type A - week 52. Data in the graph only represents incidence until week 5 of the year 2023 and that’s when we can observe a decline in all of the cases.</p>
 </section>
 </section>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
-</section>
-<section id="executive-summary" class="level2">
-<h2 class="anchored" data-anchor-id="executive-summary">Executive summary</h2>
 </section>
 <section id="references" class="level2 unnumbered">
 
@@ -852,7 +435,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -888,24 +488,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
