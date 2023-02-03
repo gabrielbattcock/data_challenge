@@ -411,6 +411,7 @@ vacc_rate <- select(vaccine_vis,
 age_strat_df1 <- read_csv(here("allData", "gp", "ili-by-age-201718.csv"))
 age_strat_df2 <- read_csv(here("allData", "gp", "ili-by-age-201822.csv"))
 
+
 # manually written from PDFs, so needs to have correct decimal point
 age_strat_df1$age_15 <- age_strat_df1$age_15/100
 age_strat_df1$age_adult <- age_strat_df1$age_adult/100
@@ -421,6 +422,24 @@ age_strat_df2$age_15 <- as.numeric(age_strat_df2$age_15)/10
 age_strat_df2$age_adult <- as.numeric(age_strat_df2$age_adult)/10
 age_strat_df2$age_65 <- as.numeric(age_strat_df2$age_65)/10
 age_strat_df2$age_all <- as.numeric(age_strat_df2$age_all)/10
+
+age1718 <- age_strat_df1
+age1718$Week <- 1:33
+
+
+age1819 <- age_strat_df2[1:33, ]
+age1819$Week <- 1:33
+
+
+age1920 <- age_strat_df2[53:85,]
+age1920$Week <- 1:33
+
+
+age2223 <- age_strat_df2[210:221, ]
+age2223$Week <- 1:nrow(age2223)
+
+
+
 
 #Table theme
 gt_theme_538 <- function(data,...) {

@@ -211,16 +211,16 @@ plot_202223
 :::
 
 ```{r echo=FALSE, warning=FALSE}
+source("../R_scripts/Season_data/peak_table.R")
 max_table
 
 ```
 
-For each season, cases of ILI reported by primary care sources dominate secondary care and lab confirmed case reporting. For 2017-18, 
-
-However, post-pandemic, the peak for secondary care data reached 14.8 per 100,000 cases in week 12, whereas the maximum reported rate for lab confirmed cases reached 5.43 per 100,000 in the same week of data available. In pre-pandemic flu seasons, the peaks for secondary care cases occured during weeks 15 (8.86 per 100,000 in 2017-18), 19 (6.87 per 100,000 in 2018-19) and 12 (7.50 per 100,000 in 2019-20). Lab confirmed cases peaked during weeks 17 (6.55 per 100,000 in 2017-18), 19 (6.19 per 100,000 in 2018-19) and 12 (6.64 per 100,000 in 2019-20). Its too early to determine whether this years flu season pattern amongst secondary care and lab confirmed cases matches patterns of 2017-18 and 2018-19 or of 2019-20.
+For each season, cases of ILI reported by primary care sources dominate secondary care and lab confirmed case reporting. For 2017-18, the peak for primary care cases reported by the RCGP was 54.1 cases per 100,000. This was the greatest extent of the flu epidemic as reflected by primary care data. The subsequent 2018-19 and 2019-20 seasons saw more modest peaks of 23.1 and 19.4 cases per 100,000 respectively. For the post-COVID flu season, of data included at time of report writing, the current peak of primary care cases exists at 31.3 cases per 100,000. This is larger than the two pre-COVID flu season data.  
 
 Secondary care and lab confirmed case rates mirror each other closely across pre-pandemic flu seasons. The magnitude of impact between hospitalisation and lab-confirmed cases also appear to be similar in pre-pandemic data. 
 
+However, post-COVID, the peak for secondary care data reached 14.8 per 100,000 cases in week 12, whereas the maximum reported rate for lab confirmed cases reached 5.43 per 100,000 in the same week of data available. In pre-pandemic flu seasons, the peaks for secondary care cases occured during weeks 15 (8.86 per 100,000 in 2017-18), 19 (6.87 per 100,000 in 2018-19) and 12 (7.50 per 100,000 in 2019-20). Lab confirmed cases peaked during weeks 17 (6.55 per 100,000 in 2017-18), 19 (6.19 per 100,000 in 2018-19) and 12 (6.64 per 100,000 in 2019-20). Its too early to determine whether this years flu season pattern amongst secondary care and lab confirmed cases matches patterns of 2017-18 and 2018-19 or of 2019-20.
 -- Jack matrix on correlation --
 
 ### Log graphs and $R_0$ value
@@ -268,7 +268,7 @@ To estimate the effective reproduction number between each of the data sources, 
 The estimated $R_{eff}$ for each year and data source is detailed below. As expected at the beginning of a flu season, the R numbers are all above 1. It is noted that a higher reproduction number calculated for the data from hospitalisations than from GP consultations.
 
 ``` {r echo=FALSE}
-source("../R_scripts/log_graphs.R")
+
 effective_r_values
 ```
 
@@ -279,16 +279,31 @@ effective_r_values
 ```{r echo = FALSE}
 
 source("../R_scripts/Season_data/age_strat.R")
-age1718
+plot_age1718
 ```
 
 :::
 ::: g-col-6
 ```{r echo = FALSE}
 
-age1822
+plot_age1819
 ```
 :::
+
+::: g-col-6
+```{r echo = FALSE}
+
+plot_age1920
+```
+:::
+
+::: g-col-6
+```{r echo = FALSE}
+
+plot_age2223
+```
+:::
+
 
 :::
 
@@ -334,6 +349,16 @@ strains22_23_swabs_plot
 
 :::
 
+This figure (A) plots total recorded flu cases by week in the flu season (defined as the 40th week of the previous year to the 20th week of the subsequent), separated by strain of influenza for each included flu season as recorded by Datamart scheme. Starting with the first studied season (2017-2018), it was clearly dominated by the type B influenza. The earliest rise in cases was observed in the A H3 subtype cases, starting around week 46, whilst the other strains present a delay of approximately one week. Moving forward in the season, week 49 brings increase in growth of the number of cases for type B and A H3 subtype. This was the key significant period for both A H3 subtype and B type, which went onto reach their peaks in week 2 and 3 respectively. Peak number of cases for A H3 subtype reached almost 350 and more than 600 cases for type B. Immediately after its peak, cases of type B influenza started decreasing gradually, with occasional increases in week 8, reaching 400 cases and in week 11 reaching approximately 250 cases. A similar trend was observed in the incidence of the A H3 subtype influenza which decreased in week 6 to 200 cases and fluctuated between 250-170 for the next six weeks. An important point is that the H1N1 type A starts to plateau around week 2 of 2018, reaching a point of approximately 50 cases daily, a threshold that was never surpassed again throughout the season. The unknown A type reaches its peak of 150 cases in week 6 to later fluctuate between 50-100 cases until week 15, when it gradually started to drop.
+
+
+In the next figure (B) observed data covers the period from 2018 to 2019. For this particular season available data was strafed only by two types - A (unknown subtype) and B. During this season incidence of type B influenza reached a maximum of 11 cases in 45th week and did not  pass the threshold of 10 after. Growth in incidence of type A influenza started at week 44 and continued, with a steeper rise starting in week 51 when over 300 new cases were recorded. This strain has dominated the season soaring at nearly 800 cases in week 3. After a slight dip during the next week, incidence of the unknown type A influenza peaked during week 7 with almost 1250 of new cases. It started plummeting until week 10 and gradually decreased until the end of the season. 
+
+
+During the season 2019 - 2020, cases of A H1N1, unknown type A and type B caused only minor burden in comparison to the A H3 subtype as seen in the figure C. All of the analysed strains apart from A H3 seem to be fluctuating around 10-30 cases between week 43 of 2019 and week 9 of 2020. Incidence of  A H3 started to rise during the week 43 of the season and peaked in week 52. After its peak it has dropped rapidly to eventually level off during week 5 and fluctuate around the same incidence. 
+
+
+Post-pandemic season 2022 - 2023 is represented by figure D. We can observe that both type B flu and the A H1N1 subtype represented only a fraction of all incidence, reaching approximately 50 cases each during 52nd week. The most dominant strain of the season was unknown type A flu, which was on the rise since the first week of the season. During 50th week cases started soaring until incidence of the type A flu reached its peak of almost 2300 new cases in week 52 of 2022. Second most dominant strain of the season - A H3 presented slower rise, starting in week 46 and peaking at 1250 new cases at the same time as type A  -  week 52. Data in the graph only represents incidence until week 5 of the year 2023 and that’s when we can observe a decline in all of the cases.
 
 
 ## Discussion

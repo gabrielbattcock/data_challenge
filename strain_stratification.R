@@ -1,8 +1,8 @@
 # Szymon Jakobsze
 # Strain stratified data for swab testing schemes and hospitalisations 
 
-source("R_scripts/source_data_entry.R")
-here::i_am("source_data_entry.r")
+# source("R_scripts/source_data_entry.R")
+# here::i_am("source_data_entry.r")
 
 ###################################SWAB DATA####################################
 
@@ -101,9 +101,9 @@ strains17_18_hosp_plot<- ggplot(strains17_18_hosp, aes(id, value)) +
                                 "18", "20", "22")) +
   scale_y_continuous(breaks = seq(0, 500, 100)) +
   coord_cartesian(ylim = c(0,500)) +
-  theme(panel.border = element_rect(color = "dark grey",
-                                    fill = NA,
-                                    linewidth = 0.1)) +
+  # theme(panel.border = element_rect(color = "dark grey",
+  #                                   fill = NA,
+  #                                   linewidth = 0.1)) +
   scale_color_manual('Strain', values = palette_flu)
 
 
