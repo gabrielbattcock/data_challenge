@@ -22,7 +22,7 @@ source("../R_scripts/source/vacc_plot.R")
 
 ## Introduction
 
-Influenza is a highly infectious and rapidly evolving respiratory virus circulating seasonally around the world [@cope2018]. The World Health Organisation (WHO) estimates that between 290000-650000 deaths occur due to the respiratory virus, not including deaths not due to secondary infections caused by influenza [@WHO2022]. Antigenic shifts in the virus may result in uncontrolled extensive spread causing an epidemic (e.g. 1918-2009) [@cope2018]
+Influenza is a highly infectious and rapidly evolving respiratory virus circulating seasonally around the world [@cope2018]. The World Health Organisation (WHO) estimates that between 290000-650000 deaths occur due to the respiratory virus, not including deaths not due to secondary infections caused by influenza [@WHO2022]. Like most viruses, influenza is highly mutable. It can change on its own (*i.e.* antigenic drift), or cross with other strains (*i.e.* antigenic shift) [@CDC2022], possibly leading to uncontrolled extensive spreads causing an epidemic (e.g. 1918-2009) [@cope2018]
 
 Seasonal influenza appear in two types, classified as A and B. A types can are further broken down into subtypes H1N1 and H3N2 [@CDC2022]. Each year, a combination of the A subtypes and B type influenza circulate throughout the population with different proportions. There is some evidence to suggest that H3N2 subtype is more severe than H1N1, leading to higher hospitalisation rates.
 
@@ -57,29 +57,25 @@ Primary care data was reported by the RCGP Research and Surveillance Centre comm
 Secondary care data is extracted from the UKHSA Severe Acute Respiratory Infection Watch system. 
 
 
+Mortality data is extracted from the UK Office for National Statistics (ONS) weekly bulletin of death registrations (England and Wales). The variable of interest is `Deaths due to influenza and pneumonia (ICD J09-J18)`, and from 2020 onwards, `Deaths involving to influenza and pneumonia (ICD J09-J18)`. These are defined by the occurrence of said phrase on either the first cause of death, or anywhere in the `cause of death` field.
 
-### Time series correlation
+### Cross-correlation
 
-We cases data 
-
--- jack correlation method of peaks
-
+Spearman's non-parametric test of correlation (denoted $ρ$) is more suitable than Pearson's in this situation, since the latter requires all variable to be normally distributed. Spearman's $ρ$ uses the ranks to replace the actual values within each variable. It runs as long as the variables are equal in length. The measurement of cross-correlation between pairs of variables should be as follows. One variable, denoted $x_{t}$, is pinned to the present. A lag of positive integer $k$ is applied to the other variable $y$ to generate $y_{t},\; y_{t+1},\; \ldots y_{t+k} $ . For a given flu season, Spearman's test is run repeatedly between $x$ and each version of $y$.  The lag that gives the best correlation, denoted $\arg\underset{k}\max \,\rho(x,y_{t+k})$, is reported for each year for each pair of variables. 
 
 ### Moving Epidemic Method
 
 PHE and the UKHSA use the Moving Epidemic Method (MEM) to describe the severity of the epidemic season. This is calculated using through using previous epidemic activity [@Rachovic].
 
-### $R-0$ calculation
+### $R_0$ calculation
 
-To further investgate the temporal relationships between the data sources, an effective reproduction number has been calculated. This can be inferred from the observed exponential growth rate seen at the beginning of a flu epidemic. The observed reproduction number $R$ can be found through the linear equation $R = 1 + \frac{r}{b}$ , where $r$ is the rate of exponential growth and $b$ is the rate of leaving the infectious stage [@lipsitch2003]. By approximating the beginning of the growth curves as $N=ke^{ \frac{rt}{b}}$ (where $k$ a constant),  the value $\frac {r}{b}$ can be found from the gradient when plotting $\log (N)$ against $t$. 
+To further investgate the temporal relationships between the data sources, an effective reproduction number has been calculated. This can be inferred from the observed exponential growth rate seen at the beginning of a flu epidemic. The observed reproduction number $R$ can be found through the linear equation $R = 1 + \dfrac{r}{b}$ , where $r$ is the rate of exponential growth and $b$ is the rate of leaving the infectious stage [@lipsitch2003]. By approximating the beginning of the growth curves as $N=ke^{\frac{rt}{b}}$ (where $k$ is a constant), the value $\dfrac {r}{b}$ can be found from the gradient when plotting $\log (N)$ against $t$.
 
-In practice, log graphs were plotted and a linear model was fitted to the points at the beginning of the epidemic. Using the gradient, the $R_{eff}$ was calculated for each data source, each season.   .
-
-
+In practice, log graphs were plotted and a linear model was fitted to the points at the beginning of the epidemic. Using the gradient, the $R_{\text{eff}}$ was calculated for each data source, each season.
 
 ## Results
 
-To see view the trends in the data and to first explore it, case rate per 100,000 people was ploted against epidemic week. Lines for each season have been represented on of the same plot, each for a different data source. 
+To see view the trends in the data and to first explore it, case rate per 100,000 people was ploted against epidemic week. Lines for each season have been represented on of the same plot, each for a different data source.
 
 ### Source
 
