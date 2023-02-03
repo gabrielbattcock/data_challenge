@@ -61,7 +61,7 @@ plot_age1718 <- ggplot(age1718, aes(Week, value)) +
   geom_line(lwd = 1.5 , alpha = 0.6, aes(color = series)) +
   ylab("Influenza rate (per 100,000) ") +
   # xlim(33+52*3, 33+52*4)+
-  ggtitle("UK influenza cases 2018-10 \n per age group") +
+  ggtitle("UK influenza cases 2017-18 \n per age group") +
   scale_x_continuous(breaks = seq(0, 34, 2),
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
@@ -84,7 +84,7 @@ plot_age1819 <- ggplot(age1819, aes(Week, value)) +
   geom_line(lwd = 1.5 , alpha = 0.6, aes(color = series)) +
   ylab("Influenza rate (per 100,000) ") +
   # xlim(33+52*3, 33+52*4)+
-  ggtitle("UK influenza cases 2018-10 \n per age group") +
+  ggtitle("UK influenza cases 2018-19 \n per age group") +
   scale_x_continuous(breaks = seq(0, 34, 2),
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
@@ -98,7 +98,7 @@ plot_age1819 <- ggplot(age1819, aes(Week, value)) +
                                     size = 0.1)) +
   coord_cartesian(ylim = c(-1, 30), expand = FALSE) +
   scale_color_manual("Age", values= palette_flu)
-
+#------------------------------------------------------------------------------
 
 plot_age1920 <- ggplot(age1920, aes(Week, value)) +
   theme_ipsum() +

@@ -218,7 +218,7 @@ log_hosp_plot1920
 :::
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
-log_hosp_plot2223
+# log_hosp_plot2223
 ```
 :::
 :::
@@ -228,8 +228,8 @@ To estimate the effective reproduction number between each of the data sources, 
 The estimated $R_{eff}$ for each year and data source is detailed below. As expected at the beginning of a flu season, the R numbers are all above 1. It is noted that a higher reproduction number calculated for the data from hospitalisations than from GP consultations.
 
 ``` {r echo=FALSE}
-source("../R_scripts/log_graphs.R")
-effective_r_values
+# source("../R_scripts/Season_data/log_graphs.R")
+# effective_r_values
 ```
 
 ### Stratifying by age group
@@ -239,14 +239,14 @@ effective_r_values
 ```{r echo = FALSE}
 
 source("../R_scripts/Season_data/age_strat.R")
-age1718
+plot_age1718
 ```
 
 :::
 ::: g-col-6
 ```{r echo = FALSE}
 
-age1822
+plot_age1819
 ```
 :::
 
