@@ -91,7 +91,6 @@ We defined our main research question to address the issues described above.
 
 ![The data being used comes from various places and has been sourced through difference resources.](images/fig-data-source.png){width="100%"}
 
-<<<<<<< HEAD
 Three main sources of flu case data have been extracted from various places. Firstly, primary care data was reported by the Royal College of General Practitioners (RCGP) Research and Surveillance Centre communicable and respiratory disease reports. Cases of Influenza Like Illnesses (ILI) that present in participating GP practices  are collected and reported for England and Wales [@RCGP]. 
 
 Secondary care data was extracted from the UKHSA Severe Acute Respiratory Infection Watch system. 
@@ -113,7 +112,7 @@ MEM is widely used by disease control agencies (incl. PHE and UKHSA) to model ep
 
 #### Reproduction Number $R_0$
 
-To further investgate the temporal relationships between the data sources, an effective reproduction number $R_\text{eff}$ has been calculated. This can be inferred from the observed exponential growth rate seen at the beginning of a flu epidemic. The observed reproduction number $R$ can be found through the linear equation $R = 1 + \dfrac{r}{b}$ , where $r$ is the rate of exponential growth and $b$ is the rate of leaving the infectious stage [@lipsitch2003]. By approximating the beginning of the growth curves as $N=ke^{\frac{rt}{b}}$ (where $k$ is a constant), the value $\dfrac {r}{b}$ can be found from the gradient when plotting $\log (N)$ against $t$.
+Reproduction numbers have been used to calculate how much a disease will spread. The number represents the number of new infections one positive case can reproduce. If $R_0$ is greater than 1, the disease is growing, while if it is below 1, the spread is slowing. While $R_0$ is used at the beginning of the spread of a new virus to a completely susceptible popultaion, an effective reproduction number can be calculated for a population that contains some immuninity, such as for an influenza virus. This can be inferred from the observed exponential growth rate seen at the beginning of a flu epidemic. The observed reproduction number $R$ can be found through the linear equation $R = 1 + \dfrac{r}{b}$ , where $r$ is the rate of exponential growth and $b$ is the rate of leaving the infectious stage [@lipsitch2003]. By approximating the beginning of the growth curves as $N=ke^{\frac{rt}{b}}$ (where $k$ is a constant), the value $\dfrac {r}{b}$ can be found from the gradient when plotting $\log (N)$ against $t$.
 
 In practice, log graphs were plotted and a linear model was fitted to the points at the beginning of the epidemic. Using the gradient, the $R_{\text{eff}}$ was calculated for each data source, each season.
 
@@ -139,7 +138,7 @@ hospital_plot
 :::
 :::
 
-**Figure 3 and 4**: FIgure 3 shows RCGP RSC reports of Influenze Like Illnesses in participating GP practices per 100,000 people across 4 flu seasons from 2017-2018 to 2022-23 with 2020-2021 and 2021-2022 removed. FIgure 4 shows flu cases reported by SARI watch and USISS Sentinel data for hospitalisations of patients with influenza per 100,000 people
+**Figure 3 and 4**: FIgure 3 shows RCGP RSC reports of Influenze Like Illnesses in participating GP practices per 100,000 people across 4 flu seasons from 2017-2018 to 2022-23 with 2020-2021 and 2021-2022 removed. FIgure 4 shows flu cases reported by SARI watch and USISS Sentinel data for hospitalisations of patients with influenza per 100,000 people.
 
 ::: grid
 ::: g-col-3
@@ -262,7 +261,7 @@ log_hosp_plot2223
 :::
 :::
 
-To estimate the effective reproduction number between each of the data sources, the case rate per 100,000 was transformed using a natural logarithm and plotted against epidemiological week. The log plot resulted in a straight line during the initial exponential growth period and a tail after the peak of infections, as was expected from theory. The plots were evaluated to find which weeks to fit a linear model to. Using the linear model function in R, a line was overlaid on the log plots and coefficients of gradients for each of the lines were extracted. Using $R = 1 + \frac{r}{b}$, as detailed above, the $R_{eff}$ was calculated.
+To further investgate the temporal relationships between the data sources, effective reproduction numbers $R_\text{eff}$ were  calculated to evaluate the difference in the rate of spread between data sources. The case rate per 100,000 was transformed using a natural logarithm and plotted against epidemiological week. The log plot resulted in a straight line during the initial exponential growth period and a tail after the peak of infections, as was expected from theory. The plots were evaluated to find which weeks to fit a linear model to. Using the linear model function in R, a line was overlaid on the log plots and coefficients of gradients for each of the lines were extracted. Using $R = 1 + \frac{r}{b}$, as detailed above, the $R_{eff}$ was calculated.
 
 The estimated $R_{eff}$ for each year and data source is detailed below. As expected at the beginning of a flu season, the R numbers are all above 1. It is noted that a higher reproduction number calculated for the data from hospitalisations than from GP consultations.
 

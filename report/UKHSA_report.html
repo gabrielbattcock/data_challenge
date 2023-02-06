@@ -83,15 +83,12 @@ div.csl-indent {
 <div class="cell">
 
 </div>
-<section id="executive-summary" class="level2">
-<h2 class="anchored" data-anchor-id="executive-summary">Executive Summary</h2>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
 <blockquote class="blockquote">
 <p>you guys can move any sentence into the introduction. I wonder if they have too much detail.</p>
 </blockquote>
-<blockquote class="blockquote">
-<p>should we introduce <code>flu (disease)</code> or <code>influenza (virus)</code> first?</p>
-</blockquote>
-<p>Influenza is a highly infectious disease caused by a family of virus under the same name. Up to 650,000 deaths yearly can be directly attributed to seasonal outbreaks of influenza worldwide. The virus (family <em>Orthomyxoviridae</em>) has multiple species, with type A and type B being predominant in spreading among human. ==They can be further classified by the H (as in Hemagglutinin) and N (as in neuraminidase) antigen present on the virus.==</p>
+<p>Influenza is a highly infectious disease caused by a family of virus under the same name. Up to 650,000 deaths yearly can be directly attributed to seasonal outbreaks of influenza worldwide. The virus (family <em>Orthomyxoviridae</em>) has multiple species, with type A and type B being predominant in spreading among human.</p>
 <p>Progression of flu is usually self-limiting. For most, symptoms last for 2~7 days. Severe cases might require hospitalisation, or even deaths, particularly for at-risk groups (children &lt;2 yo, pregnant, elderly &gt;65yo, and people with underlying conditions).</p>
 <blockquote class="blockquote">
 <p>Should I insert here something about UKHSA with less detail?</p>
@@ -103,12 +100,13 @@ div.csl-indent {
 <p>We hypothesise that there is a measurable lag between one source of surveillance and another. Statistical tools can then be applied to predict the timing and scale of a ‘later’ data source using an ‘earlier’ source. Additionally, different age groups can manifest at different time and scale, and one might be predictive of another. Also, changes in reporting procedures on respiratory infections in the recent years (post-covid) is also suspected to be causing some variations in data.</p>
 <section id="data-processing" class="level4">
 <h4 class="anchored" data-anchor-id="data-processing">Data Processing</h4>
-<p>Constrained by time <del>and bureaucracy</del>, all data used in this project were publicly available on various governmental websites. Primary care data was reported by the RCGP Research and Surveillance Centre in the communicable and respiratory disease reports, published weekly. Swabs data is reported weekly by PHE. Secondary care data is extracted from the UKHSA Severe Acute Respiratory Infection Watch (SARI Watch) system, updated weekly during the flu season (week 40 - week 20 next year). Mortality data is reported weekly by the ONS. All cleaning and processing are done using the R language.</p>
+<p>The data used in this project were publicly available on various governmental websites. Primary care data was reported by the RCGP Research and Surveillance Centre in the communicable and respiratory disease reports, published weekly. Swabs data is reported weekly by PHE. Secondary care data is extracted from the UKHSA Severe Acute Respiratory Infection Watch (SARI Watch) system, updated weekly during the flu season (week 40 - week 20 next year). Mortality data is reported weekly by the ONS. All cleaning and processing are done using the R language.</p>
 </section>
 <section id="analysis" class="level4">
 <h4 class="anchored" data-anchor-id="analysis">Analysis</h4>
 <p>At first glimpse, the peak for each data source does not differ much from each other in a given year.</p>
-<em>–page break–</em>
+<p>Cross-correlation between two data sources can be measured using Spearman’s <span class="math inline">\(ρ\)</span>, a non-parametric test of correlation. To ascertain the pairwise time lag (if any), Spearman’s test is run repeatedly with a gradually increasing lag. The lag value associated with the best <span class="math inline">\(ρ\)</span> is reported as the lag between given sources for a given year.</p>
+<p><em>–page break–</em></p>
 <div style="page-break-after: always">
 
 </div>
@@ -116,26 +114,26 @@ div.csl-indent {
 </section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Influenza is a highly infectious and rapidly evolving respiratory virus circulating seasonally around the world <span class="citation" data-cites="cope2018">[<a href="#ref-cope2018" role="doc-biblioref">1</a>]</span>. The World Health Organisation (WHO) estimates that between 290000-650000 deaths occur due to the respiratory virus, not including deaths not due to secondary infections caused by influenza <span class="citation" data-cites="WHO2022">[<a href="#ref-WHO2022" role="doc-biblioref"><strong>WHO2022?</strong></a>]</span>. Like most viruses, influenza is highly mutable. It can change on its own (<em>i.e.</em> antigenic drift), or cross with other strains (<em>i.e.</em> antigenic shift) <span class="citation" data-cites="CDC2022">[<a href="#ref-CDC2022" role="doc-biblioref">2</a>]</span>, possibly leading to uncontrolled extensive spreads causing an epidemic (e.g.&nbsp;1918-2009) <span class="citation" data-cites="cope2018">[<a href="#ref-cope2018" role="doc-biblioref">1</a>]</span></p>
-<p>Seasonal influenza appear in two types, classified as A and B. A types can are further broken down into subtypes H1N1 and H3N2 <span class="citation" data-cites="CDC2022">[<a href="#ref-CDC2022" role="doc-biblioref">2</a>]</span>. Each year, a combination of the A subtypes and B type influenza circulate throughout the population with different proportions. There is some evidence to suggest that H3N2 subtype is more severe than H1N1, leading to higher hospitalisation rates.</p>
-<p>After an incubation period, usually 1~3 days, the progression of the disease is self-limiting and symptoms might last 2~7 days [cite::green book]. Serious progression of the virus may lead to deaths in at-risk groups such as children (&lt;2 y.o.), pregnant women, the elderly (&gt;65 y.o.) and people with underlying medical conditions, <span class="citation" data-cites="zarocostas2009">[<a href="#ref-zarocostas2009" role="doc-biblioref">3</a>]</span>. In a UK context, seasonal influenza circulation burdens the NHS in terms of availability of hospital beds and GP services <span class="citation" data-cites="cope2018">[<a href="#ref-cope2018" role="doc-biblioref">1</a>]</span>. Having more data to help plan for seasonal peaks can help alleviate pressure on vital services.</p>
+<p>Influenza is a highly infectious and rapidly evolving respiratory virus circulating seasonally around the world <span class="citation" data-cites="cope2018">[<a href="#ref-cope2018" role="doc-biblioref">1</a>]</span>. The World Health Organisation (WHO) estimates that between 290000-650000 deaths occur due to the respiratory virus, not including deaths not due to secondary infections caused by influenza <span class="citation" data-cites="WHO2022">[<a href="#ref-WHO2022" role="doc-biblioref"><strong>WHO2022?</strong></a>]</span>. Like most viruses, influenza is highly mutable. It can change on its own (<em>i.e.</em> antigenic drift), or cross with other strains (<em>i.e.</em> antigenic shift) <span class="citation" data-cites="CDC2022">[<a href="#ref-CDC2022" role="doc-biblioref">2</a>]</span>, possibly leading to uncontrolled extensive spreads causing an epidemic, such as the 2009 H1N1 pandemic <span class="citation" data-cites="cope2018">[<a href="#ref-cope2018" role="doc-biblioref">1</a>]</span>.</p>
+<p>The virus (family <em>Orthomyxoviridae</em>) has multiple species, with type A and type B being predominant in spreading among human <span class="citation" data-cites="CDC2022">[<a href="#ref-CDC2022" role="doc-biblioref">2</a>]</span>. They can be further classified by the H (as in Hemagglutinin) and N (as in neuraminidase) antigen present on the virus. Each year, a combination of the A subtypes and B type influenza circulates throughout the population at different proportions. Some evidence to suggest that H3N2 subtype is more severe than H1N1, leading to higher hospitalisation rates [cite]</p>
+<p>After an incubation period, usually 1~3 days, the progression of the disease is self-limiting and symptoms might last 2~7 days [cite::green book]. Serious progression of the virus may lead to deaths in at-risk groups such as children (&lt;2 y.o.), pregnant women, the elderly (&gt;65 y.o.) and people with underlying medical conditions <span class="citation" data-cites="zarocostas2009">[<a href="#ref-zarocostas2009" role="doc-biblioref">3</a>]</span>. In a UK context, seasonal influenza circulation burdens the NHS in terms of availability of hospital beds and GP services <span class="citation" data-cites="cope2018">[<a href="#ref-cope2018" role="doc-biblioref">1</a>]</span>. Having more data to help plan for seasonal peaks can help alleviate pressure on vital services.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/fig-intro.png" class="img-fluid figure-img"></p>
+<p><img src="images/fig-intro.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <p></p><figcaption class="figure-caption">An infographic summarising the key points addressed in this report.</figcaption><p></p>
 </figure>
 </div>
-<section id="who-is-ukhsa-and-why-are-they-interested" class="level3">
-<h3 class="anchored" data-anchor-id="who-is-ukhsa-and-why-are-they-interested">Who is UKHSA and why are they interested</h3>
-<p>UK Health Security Agency (UKHSA) was created as a successor to Public Health England in April 2021 cite. Set up during the height of the COVID-19 pandemic, the UKHSA’s main priority is to tackle national health threats through the use of data analytics and developing vaccines cite.</p>
-<p>Understanding the data of how flu is spread can help assist in planning vaccination roll-out. Vaccination is greatly beneficial as it averts between 180,000 and 626,000 cases of influenza per year in England, helping prevent between 5,678 and 8,800 premature deaths <span class="citation" data-cites="franklin2018">[<a href="#ref-franklin2018" role="doc-biblioref">4</a>]</span>. Furthermore, every death averted due to vaccination is estimated to save the NHS £50,610 <span class="citation" data-cites="franklin2018">[<a href="#ref-franklin2018" role="doc-biblioref">4</a>]</span>.</p>
-<p>In the UK there are three main ways that influenza is reported: through primary care data, hospitalisation and through swabbing programmes. Having three separate data sources is a valuable to compare whether the peak in the seasonal spread is in the same week or whether any of the data sources lag the others - identifying a possible prediction of a peak in hospitalisations for example. It also may be beneficial to know which strains are in circulation at which and what age group is being affected most. If there is a lag between age groups or strains, hosopitals may be able to prepare better for an oncoming wave of influenza cases.</p>
+<section id="who-is-the-ukhsa-and-why-are-they-interested" class="level3">
+<h3 class="anchored" data-anchor-id="who-is-the-ukhsa-and-why-are-they-interested">Who is the UKHSA and why are they interested</h3>
+<p>The UK Health Security Agency (UKHSA) was created as a successor to Public Health England in April 2021. Set up during the height of the COVID-19 pandemic, the UKHSA’s main priority is to tackle national health threats. They are responsible for the surveillance of diseases including influenza and manage the country’s vaccine programme.</p>
+<p>Through studying the temporal nature of the data reporting of influenza, the UKHSA can better plan for the height of the flu season within hospitals and plan the vaccination roll out. Vaccination is greatly beneficial as it averts between 180,000 and 626,000 cases of influenza per year in England, helping prevent between 5,678 and 8,800 premature deaths <span class="citation" data-cites="franklin2018">[<a href="#ref-franklin2018" role="doc-biblioref">4</a>]</span>. Furthermore, every death averted due to vaccination is estimated to save the NHS £50,610 <span class="citation" data-cites="franklin2018">[<a href="#ref-franklin2018" role="doc-biblioref">4</a>]</span>.</p>
+<p>In the UK, influenza data is reported by three main sources: through primary care data, hospitalisation data and through swabbing programmes. Having three separate data sources is a valuable to compare whether the peak in the seasonal spread is in the same week or whether any of the data sources lag the others - identifying a possible prediction of a peak in hospitalisations for example. Throguh the studying the swabbing data, it will aslo be beneficial to know what relationship the strain of flu has on hospitalisation rate. Knowing the temporal nature of which age groups are beign affected when may help hosopitals be better prepareed for an oncoming wave of influenza cases.</p>
 </section>
 <section id="aims" class="level3">
 <h3 class="anchored" data-anchor-id="aims">Aims</h3>
-<p>We defined our main research question to address the issues descirbed above.</p>
+<p>We defined our main research question to address the issues described above.</p>
 <p><em>Question:</em> What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/23 compared to the pre-pandemic years 2016-2019?</p>
-<p><em>Hypothesis:</em> We suspect that there is a time delay between one source of surveillance and another and the scale of the one that peaks earlier might be predictive of the later ones (GP consultations being greater than hospitalisations for example). Secondly we believe there could be changes in reporting procedures for respiratory infections post-covid (swabbing increases). As children have more interactions in schools and nurseries, we would expect a larger peak for children before a peak in the older population.</p>
+<p><em>Hypothesis:</em> We suspect that there is a time delay between one source of surveillance and another and the scale of the one that peaks earlier might be predictive of the later ones (GP consultations being greater than hospitalisations for example). Secondly we believe there could be changes in reporting procedures for respiratory infections post-COVID, such as an increase in swabbing. As children have more interactions in schools and nurseries, we would expect a larger peak for children before a peak in the older population. Finally, we expect the hospitalisation rate to change depending on which flu strain is mainly in circulation during the season.</p>
 </section>
 </section>
 <section id="methods" class="level2">
@@ -144,17 +142,16 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="data-sources-and-extraction">Data sources and extraction</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/fig-data-source.png" class="img-fluid figure-img"></p>
+<p><img src="images/fig-data-source.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <p></p><figcaption class="figure-caption">The data being used comes from various places and has been sourced through difference resources.</figcaption><p></p>
 </figure>
 </div>
-<p>Primary care data was reported by the RCGP Research and Surveillance Centre communicable and respiratory disease reports, where cases of Influenza Like Illnesses that present in GP practices participating in the scheme are collected and reported for England and Wales <span class="citation" data-cites="RCGP">[<a href="#ref-RCGP" role="doc-biblioref">5</a>]</span>.</p>
-<p>Secondary care data is extracted from the UKHSA Severe Acute Respiratory Infection Watch system.</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD Three main sources of flu case data have been extracted from various places. Firstly, primary care data was reported by the Royal College of General Practitioners (RCGP) Research and Surveillance Centre communicable and respiratory disease reports. Cases of Influenza Like Illnesses (ILI) that present in participating GP practices are collected and reported for England and Wales <span class="citation" data-cites="RCGP">[<a href="#ref-RCGP" role="doc-biblioref">5</a>]</span>.</p>
+<p>Secondary care data was extracted from the UKHSA Severe Acute Respiratory Infection Watch system.</p>
 <p>Mortality data is extracted from the UK Office for National Statistics (ONS) weekly bulletin of death registrations (England and Wales). The variable of interest is <code>Deaths due to influenza and pneumonia (ICD J09-J18)</code>, and from 2020 onwards, <code>Deaths involving to influenza and pneumonia (ICD J09-J18)</code>. These are defined by the occurrence of said phrase on either the first cause of death, or anywhere in the <code>cause of death</code> field.</p>
 </section>
 <section id="data-processing-1" class="level3">
 <h3 class="anchored" data-anchor-id="data-processing-1">Data Processing</h3>
-<p>aa</p>
 </section>
 <section id="statistical-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="statistical-analysis">Statistical Analysis</h3>
@@ -162,13 +159,13 @@ div.csl-indent {
 <h4 class="anchored" data-anchor-id="cross-correlation">Cross-correlation</h4>
 <p>Spearman’s non-parametric test of correlation (denoted <span class="math inline">\(ρ\)</span>) is more suitable than Pearson’s in this situation, since the latter requires all variable to be normally distributed. Spearman’s <span class="math inline">\(ρ\)</span> uses the ranks to replace the actual values within each variable. It runs as long as the variables are equal in length. The measurement of cross-correlation between pairs of variables should be as follows. One variable, denoted <span class="math inline">\(x_{t}\)</span>, is pinned to the present. A lag of positive integer <span class="math inline">\(k\)</span> is applied to the other variable <span class="math inline">\(y\)</span> to generate $y_{t},; y_{t+1},; y_{t+k} $ . For a given flu season, Spearman’s test is run repeatedly between <span class="math inline">\(x\)</span> and each version of <span class="math inline">\(y\)</span>. The lag that gives the best correlation, denoted <span class="math inline">\(\arg\underset{k}\max \,\rho(x,y_{t+k})\)</span>, is reported for each year for each pair of variables.</p>
 </section>
-<section id="moving-epidemic-method" class="level4">
-<h4 class="anchored" data-anchor-id="moving-epidemic-method">Moving Epidemic Method</h4>
-<p>PHE and the UKHSA use the Moving Epidemic Method (MEM) to describe the severity of the epidemic season. This is calculated using through using previous epidemic activity <span class="citation" data-cites="Rachovic">[<a href="#ref-Rachovic" role="doc-biblioref"><strong>Rachovic?</strong></a>]</span>. From for each of the data sources presented, we have used the MEM calculated and published by PHE and the UKHSA respectively in their weekly national flu reports.</p>
+<section id="moving-epidemic-method-mem" class="level4">
+<h4 class="anchored" data-anchor-id="moving-epidemic-method-mem">Moving Epidemic Method (MEM)</h4>
+<p>MEM is widely used by disease control agencies (incl.&nbsp;PHE and UKHSA) to model epidemics and generate threshold levels from historical data. First, the epidemic period in a season is identified as the minimum number of consecutive weeks with the maximum accumulated rates percentage (MAP). The season can then be split into pre-epidemic, epidemic, and post-epidemic periods. Within each, a given number of data points will be sampled. The number of sample remains at 30 regardless of availability. Assuming these fit into a normal distribution, their geometric mean will have confidence intervals. The upper bounds of <span class="math inline">\(\text{CI}_{50},\; \text{CI}_{90},\; \text{CI}_{95}\)</span> act as the threshold values. Along with the cutoff for entering the epidemic period, these four values give us five bands: not-epidemic, baseline, and low, moderate, high, very high threat to the public. In this report, the plots for GP and hospitalisation use the values as-is from UKHSA publications for the respective seasons.</p>
 </section>
-<section id="r_0-calculation" class="level4">
-<h4 class="anchored" data-anchor-id="r_0-calculation"><span class="math inline">\(R_0\)</span> calculation</h4>
-<p>To further investgate the temporal relationships between the data sources, an effective reproduction number has been calculated. This can be inferred from the observed exponential growth rate seen at the beginning of a flu epidemic. The observed reproduction number <span class="math inline">\(R\)</span> can be found through the linear equation <span class="math inline">\(R = 1 + \dfrac{r}{b}\)</span> , where <span class="math inline">\(r\)</span> is the rate of exponential growth and <span class="math inline">\(b\)</span> is the rate of leaving the infectious stage <span class="citation" data-cites="lipsitch2003">[<a href="#ref-lipsitch2003" role="doc-biblioref">6</a>]</span>. By approximating the beginning of the growth curves as <span class="math inline">\(N=ke^{\frac{rt}{b}}\)</span> (where <span class="math inline">\(k\)</span> is a constant), the value <span class="math inline">\(\dfrac {r}{b}\)</span> can be found from the gradient when plotting <span class="math inline">\(\log (N)\)</span> against <span class="math inline">\(t\)</span>.</p>
+<section id="reproduction-number-r_0" class="level4">
+<h4 class="anchored" data-anchor-id="reproduction-number-r_0">Reproduction Number <span class="math inline">\(R_0\)</span></h4>
+<p>To further investgate the temporal relationships between the data sources, an effective reproduction number <span class="math inline">\(R_\text{eff}\)</span> has been calculated. This can be inferred from the observed exponential growth rate seen at the beginning of a flu epidemic. The observed reproduction number <span class="math inline">\(R\)</span> can be found through the linear equation <span class="math inline">\(R = 1 + \dfrac{r}{b}\)</span> , where <span class="math inline">\(r\)</span> is the rate of exponential growth and <span class="math inline">\(b\)</span> is the rate of leaving the infectious stage <span class="citation" data-cites="lipsitch2003">[<a href="#ref-lipsitch2003" role="doc-biblioref">6</a>]</span>. By approximating the beginning of the growth curves as <span class="math inline">\(N=ke^{\frac{rt}{b}}\)</span> (where <span class="math inline">\(k\)</span> is a constant), the value <span class="math inline">\(\dfrac {r}{b}\)</span> can be found from the gradient when plotting <span class="math inline">\(\log (N)\)</span> against <span class="math inline">\(t\)</span>.</p>
 <p>In practice, log graphs were plotted and a linear model was fitted to the points at the beginning of the epidemic. Using the gradient, the <span class="math inline">\(R_{\text{eff}}\)</span> was calculated for each data source, each season.</p>
 </section>
 </section>
@@ -259,13 +256,13 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="hniogfaejx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xdwpoemixv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html {
   font-family: Chivo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#hniogfaejx) .gt_table {
+:where(#xdwpoemixv) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -290,7 +287,7 @@ html {
   border-left-color: #D3D3D3;
 }
 
-:where(#hniogfaejx) .gt_heading {
+:where(#xdwpoemixv) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -302,12 +299,12 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#hniogfaejx) .gt_caption {
+:where(#xdwpoemixv) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#hniogfaejx) .gt_title {
+:where(#xdwpoemixv) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -319,7 +316,7 @@ html {
   border-bottom-width: 0;
 }
 
-:where(#hniogfaejx) .gt_subtitle {
+:where(#xdwpoemixv) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -331,13 +328,13 @@ html {
   border-top-width: 0;
 }
 
-:where(#hniogfaejx) .gt_bottom_border {
+:where(#xdwpoemixv) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#hniogfaejx) .gt_col_headings {
+:where(#xdwpoemixv) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: rgba(0, 0, 0, 0);
@@ -352,7 +349,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#hniogfaejx) .gt_col_heading {
+:where(#xdwpoemixv) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -372,7 +369,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#hniogfaejx) .gt_column_spanner_outer {
+:where(#xdwpoemixv) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -384,15 +381,15 @@ html {
   padding-right: 4px;
 }
 
-:where(#hniogfaejx) .gt_column_spanner_outer:first-child {
+:where(#xdwpoemixv) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#hniogfaejx) .gt_column_spanner_outer:last-child {
+:where(#xdwpoemixv) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#hniogfaejx) .gt_column_spanner {
+:where(#xdwpoemixv) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -404,7 +401,7 @@ html {
   width: 100%;
 }
 
-:where(#hniogfaejx) .gt_group_heading {
+:where(#xdwpoemixv) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -430,7 +427,7 @@ html {
   text-align: left;
 }
 
-:where(#hniogfaejx) .gt_empty_group_heading {
+:where(#xdwpoemixv) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -445,15 +442,15 @@ html {
   vertical-align: middle;
 }
 
-:where(#hniogfaejx) .gt_from_md > :first-child {
+:where(#xdwpoemixv) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#hniogfaejx) .gt_from_md > :last-child {
+:where(#xdwpoemixv) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#hniogfaejx) .gt_row {
+:where(#xdwpoemixv) .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -472,7 +469,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#hniogfaejx) .gt_stub {
+:where(#xdwpoemixv) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -485,7 +482,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#hniogfaejx) .gt_stub_row_group {
+:where(#xdwpoemixv) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -499,11 +496,11 @@ html {
   vertical-align: top;
 }
 
-:where(#hniogfaejx) .gt_row_group_first td {
+:where(#xdwpoemixv) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#hniogfaejx) .gt_summary_row {
+:where(#xdwpoemixv) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -513,16 +510,16 @@ html {
   padding-right: 5px;
 }
 
-:where(#hniogfaejx) .gt_first_summary_row {
+:where(#xdwpoemixv) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#hniogfaejx) .gt_first_summary_row.thick {
+:where(#xdwpoemixv) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#hniogfaejx) .gt_last_summary_row {
+:where(#xdwpoemixv) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -532,7 +529,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#hniogfaejx) .gt_grand_summary_row {
+:where(#xdwpoemixv) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -542,7 +539,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#hniogfaejx) .gt_first_grand_summary_row {
+:where(#xdwpoemixv) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -552,11 +549,11 @@ html {
   border-top-color: #D3D3D3;
 }
 
-:where(#hniogfaejx) .gt_striped {
+:where(#xdwpoemixv) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#hniogfaejx) .gt_table_body {
+:where(#xdwpoemixv) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -565,7 +562,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#hniogfaejx) .gt_footnotes {
+:where(#xdwpoemixv) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -579,7 +576,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#hniogfaejx) .gt_footnote {
+:where(#xdwpoemixv) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -588,7 +585,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#hniogfaejx) .gt_sourcenotes {
+:where(#xdwpoemixv) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -602,7 +599,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#hniogfaejx) .gt_sourcenote {
+:where(#xdwpoemixv) .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -610,64 +607,64 @@ html {
   padding-right: 5px;
 }
 
-:where(#hniogfaejx) .gt_left {
+:where(#xdwpoemixv) .gt_left {
   text-align: left;
 }
 
-:where(#hniogfaejx) .gt_center {
+:where(#xdwpoemixv) .gt_center {
   text-align: center;
 }
 
-:where(#hniogfaejx) .gt_right {
+:where(#xdwpoemixv) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#hniogfaejx) .gt_font_normal {
+:where(#xdwpoemixv) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#hniogfaejx) .gt_font_bold {
+:where(#xdwpoemixv) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#hniogfaejx) .gt_font_italic {
+:where(#xdwpoemixv) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#hniogfaejx) .gt_super {
+:where(#xdwpoemixv) .gt_super {
   font-size: 65%;
 }
 
-:where(#hniogfaejx) .gt_footnote_marks {
+:where(#xdwpoemixv) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#hniogfaejx) .gt_asterisk {
+:where(#xdwpoemixv) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#hniogfaejx) .gt_indent_1 {
+:where(#xdwpoemixv) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#hniogfaejx) .gt_indent_2 {
+:where(#xdwpoemixv) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#hniogfaejx) .gt_indent_3 {
+:where(#xdwpoemixv) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#hniogfaejx) .gt_indent_4 {
+:where(#xdwpoemixv) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#hniogfaejx) .gt_indent_5 {
+:where(#xdwpoemixv) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -761,469 +758,7 @@ html {
 <p>To estimate the effective reproduction number between each of the data sources, the case rate per 100,000 was transformed using a natural logarithm and plotted against epidemiological week. The log plot resulted in a straight line during the initial exponential growth period and a tail after the peak of infections, as was expected from theory. The plots were evaluated to find which weeks to fit a linear model to. Using the linear model function in R, a line was overlaid on the log plots and coefficients of gradients for each of the lines were extracted. Using <span class="math inline">\(R = 1 + \frac{r}{b}\)</span>, as detailed above, the <span class="math inline">\(R_{eff}\)</span> was calculated.</p>
 <p>The estimated <span class="math inline">\(R_{eff}\)</span> for each year and data source is detailed below. As expected at the beginning of a flu season, the R numbers are all above 1. It is noted that a higher reproduction number calculated for the data from hospitalisations than from GP consultations.</p>
 <div class="cell">
-<div class="cell-output-display">
 
-<div id="cnzfkkkuji" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-html {
-  font-family: Chivo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-:where(#cnzfkkkuji) .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 3px;
-  border-top-color: rgba(0, 0, 0, 0);
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 3px;
-  border-bottom-color: rgba(0, 0, 0, 0);
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-:where(#cnzfkkkuji) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: left;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#cnzfkkkuji) .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-:where(#cnzfkkkuji) .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-:where(#cnzfkkkuji) .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-:where(#cnzfkkkuji) .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#cnzfkkkuji) .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 3px;
-  border-top-color: rgba(0, 0, 0, 0);
-  border-bottom-style: solid;
-  border-bottom-width: 3px;
-  border-bottom-color: #000000;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#cnzfkkkuji) .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-:where(#cnzfkkkuji) .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-:where(#cnzfkkkuji) .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-:where(#cnzfkkkuji) .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-:where(#cnzfkkkuji) .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 3px;
-  border-bottom-color: #000000;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-:where(#cnzfkkkuji) .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-:where(#cnzfkkkuji) .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-:where(#cnzfkkkuji) .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-:where(#cnzfkkkuji) .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-:where(#cnzfkkkuji) .gt_row {
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-:where(#cnzfkkkuji) .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#cnzfkkkuji) .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-:where(#cnzfkkkuji) .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-:where(#cnzfkkkuji) .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#cnzfkkkuji) .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-:where(#cnzfkkkuji) .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-:where(#cnzfkkkuji) .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#cnzfkkkuji) .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#cnzfkkkuji) .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-:where(#cnzfkkkuji) .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-:where(#cnzfkkkuji) .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#cnzfkkkuji) .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#cnzfkkkuji) .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#cnzfkkkuji) .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#cnzfkkkuji) .gt_sourcenote {
-  font-size: 12px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#cnzfkkkuji) .gt_left {
-  text-align: left;
-}
-
-:where(#cnzfkkkuji) .gt_center {
-  text-align: center;
-}
-
-:where(#cnzfkkkuji) .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-:where(#cnzfkkkuji) .gt_font_normal {
-  font-weight: normal;
-}
-
-:where(#cnzfkkkuji) .gt_font_bold {
-  font-weight: bold;
-}
-
-:where(#cnzfkkkuji) .gt_font_italic {
-  font-style: italic;
-}
-
-:where(#cnzfkkkuji) .gt_super {
-  font-size: 65%;
-}
-
-:where(#cnzfkkkuji) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-:where(#cnzfkkkuji) .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-:where(#cnzfkkkuji) .gt_indent_1 {
-  text-indent: 5px;
-}
-
-:where(#cnzfkkkuji) .gt_indent_2 {
-  text-indent: 10px;
-}
-
-:where(#cnzfkkkuji) .gt_indent_3 {
-  text-indent: 15px;
-}
-
-:where(#cnzfkkkuji) .gt_indent_4 {
-  text-indent: 20px;
-}
-
-:where(#cnzfkkkuji) .gt_indent_5 {
-  text-indent: 25px;
-}
-</style>
-<table class="gt_table">
-  <thead class="gt_header">
-    <tr>
-      <td colspan="4" class="gt_heading gt_title gt_font_normal" style="">Effective R values</td>
-    </tr>
-    <tr>
-      <td colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Across flu seasons between 2017-18 and 2022-23</td>
-    </tr>
-  </thead>
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col" id="<strong>Flu season</strong>"><strong>Flu season</strong></th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="<strong>Sources of flu data</strong>">
-        <span class="gt_column_spanner"><strong>Sources of flu data</strong></span>
-      </th>
-    </tr>
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="<strong>Primary care</strong>"><strong>Primary care</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="<strong>Secondary care</strong>"><strong>Secondary care</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="<strong>Lab confirmed cases</strong>"><strong>Lab confirmed cases</strong></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="index_log_dat" class="gt_row gt_right">2017-18</td>
-<td headers="gp_log_dat" class="gt_row gt_right">1.3</td>
-<td headers="hosp_log_dat" class="gt_row gt_right">1.5</td>
-<td headers="swabs_log_dat" class="gt_row gt_right">1.5</td></tr>
-    <tr><td headers="index_log_dat" class="gt_row gt_right">2018-19</td>
-<td headers="gp_log_dat" class="gt_row gt_right">1.1</td>
-<td headers="hosp_log_dat" class="gt_row gt_right">1.4</td>
-<td headers="swabs_log_dat" class="gt_row gt_right">1.4</td></tr>
-    <tr><td headers="index_log_dat" class="gt_row gt_right">2019-20</td>
-<td headers="gp_log_dat" class="gt_row gt_right">1.2</td>
-<td headers="hosp_log_dat" class="gt_row gt_right">1.4</td>
-<td headers="swabs_log_dat" class="gt_row gt_right">1.4</td></tr>
-    <tr><td headers="index_log_dat" class="gt_row gt_right" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #00000000;">2022-23</td>
-<td headers="gp_log_dat" class="gt_row gt_right" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #00000000;">1.3</td>
-<td headers="hosp_log_dat" class="gt_row gt_right" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #00000000;">1.4</td>
-<td headers="swabs_log_dat" class="gt_row gt_right" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #00000000;">1.3</td></tr>
-  </tbody>
-  <tfoot class="gt_sourcenotes">
-    <tr>
-      <td class="gt_sourcenote" colspan="4">Note: Data removed for 2021-22 flu season due to effect of Covid-19 pandemic on flu cases</td>
-    </tr>
-  </tfoot>
-  
-</table>
-</div>
-</div>
 </div>
 </section>
 <section id="stratifying-by-age-group" class="level3">
@@ -1303,13 +838,28 @@ html {
 </section>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<section id="granularity-of-data" class="level4">
+<h4 class="anchored" data-anchor-id="granularity-of-data">Granularity of Data</h4>
 </section>
-<section id="references" class="level2 unnumbered">
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p><span class="citation" data-cites="jack">[<a href="#ref-jack" role="doc-biblioref"><strong>jack?</strong></a>]</span> will generate it as a whole once all the in-text citations are sorted.</p>
+</section>
+<section id="appendix-a---team-statement" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-a---team-statement">Appendix A - Team Statement</h2>
+<p>I hereby declare and confirm with my signature that this report, along with the code and graphics in this project, is the combined effort of our group. Everyone has made significant contributions in their own ways, based on their expertise in one speciality or another. I acknowledge that this report is submitted as coursework to be assessed, and the team members are equally responsible for the success or failure of any one part. This report is my own work, except where the use of other people’s works are cited.</p>
+<p>Team Member: GB, AC, SJ, HL</p>
+</section>
+<section id="appendix-b---variables-and-data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-b---variables-and-data-sources"><strong>Appendix B - Variables and Data Sources</strong></h2>
+</section>
+<section id="appendix-c---summary-of-missing-data" class="level2 unnumbered">
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">Appendix C - Summary of Missing Data</h2><div id="refs" class="references csl-bib-body" role="doc-bibliography">
 <div id="ref-cope2018" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">1 </div><div class="csl-right-inline">Cope JVAC Robert C. AND Ross. Characterising seasonal influenza epidemiology using primary care surveillance data. <em>PLOS Computational Biology</em> 2018;<strong>14</strong>:1–21. doi:<a href="https://doi.org/10.1371/journal.pcbi.1006377">10.1371/journal.pcbi.1006377</a></div>
 </div>
