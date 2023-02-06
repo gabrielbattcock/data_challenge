@@ -21,43 +21,53 @@ source("../R_scripts/source/hospitalisation_plots.R")
 source("../R_scripts/source/vacc_plot.R")
 ```
 
+
 ## Abstract
 
->  you guys can move any sentence into the introduction. I wonder if they have too much detail.
 
-> should we introduce `flu (disease)` or `influenza (virus)` first?
+> you guys can move any sentence into the introduction. I wonder if they have too much detail.
 
-Influenza is a highly infectious disease caused by a family of virus under the same name. Up to 650,000 deaths yearly can be directly attributed to seasonal outbreaks of influenza worldwide. The virus (family *Orthomyxoviridae*) has multiple species, with type A and type B being predominant in spreading among human. ==They can be further classified by the H (as in Hemagglutinin) and N (as in neuraminidase) antigen present on the virus.== 
+Influenza is a highly infectious disease caused by a family of virus under the same name. Up to 650,000 deaths yearly can be directly attributed to seasonal outbreaks of influenza worldwide. The virus (family *Orthomyxoviridae*) has multiple species, with type A and type B being predominant in spreading among human.
 
-Progression of flu is usually self-limiting. For most, symptoms last for 2~7 days. Severe cases might require hospitalisation, or even deaths, particularly for at-risk groups (children <2 yo, pregnant, elderly >65yo, and people with underlying conditions). 
+Progression of flu is usually self-limiting. For most, symptoms last for 2\~7 days. Severe cases might require hospitalisation, or even deaths, particularly for at-risk groups (children \<2 yo, pregnant, elderly \>65yo, and people with underlying conditions).
 
 > Should I insert here something about UKHSA with less detail?
 
-The UK's flu surveillance system comprises of numerous different input points. For example, weekly % of  GP consultations  presenting with influenza-like illnesses (ILI), or death registrations where the leading cause is flu. To better understand and compare these data sources, we defined our research question as follows:
+The UK's flu surveillance system comprises of numerous different input points. For example, weekly % of GP consultations presenting with influenza-like illnesses (ILI), or death registrations where the leading cause is flu. To better understand and compare these data sources, we defined our research question as follows:
 
 > What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/23 compared to the pre-pandemic years 2016-2019?
 
-We hypothesise that there is a measurable lag between one source of surveillance and another. Statistical tools can then be applied to predict the timing and scale of a 'later' data source using an 'earlier' source. Additionally, different age groups can manifest at different time and scale, and one might be predictive of another. Also, changes in reporting procedures on respiratory infections in the recent years (post-covid) is also suspected to be causing some variations in data. 
+We hypothesise that there is a measurable lag between one source of surveillance and another. Statistical tools can then be applied to predict the timing and scale of a 'later' data source using an 'earlier' source. Additionally, different age groups can manifest at different time and scale, and one might be predictive of another. Also, changes in reporting procedures on respiratory infections in the recent years (post-covid) is also suspected to be causing some variations in data.
 
 #### Data Processing
 
-The data used in this project were publicly available from various governmental websites. Primary care data was reported by the RCGP Research and Surveillance Centre in the communicable and respiratory disease reports, published weekly. Swabs data is reported weekly by PHE. Secondary care data is extracted from the UKHSA Severe Acute Respiratory Infection Watch (SARI Watch) system, updated weekly during the flu season (week 40 - week 20 next year). Mortality data is reported weekly by the ONS. All cleaning and processing are done using the R language. 
+
+The data used in this project were publicly available on various governmental websites. Primary care data was reported by the RCGP Research and Surveillance Centre in the communicable and respiratory disease reports, published weekly. Swabs data is reported weekly by PHE. Secondary care data is extracted from the UKHSA Severe Acute Respiratory Infection Watch (SARI Watch) system, updated weekly during the flu season (week 40 - week 20 next year). Mortality data is reported weekly by the ONS. All cleaning and processing are done using the R language.
+
 
 #### Analysis
 
-At first glimpse, the peak for each data source does not differ much from each other in a given year. 
+At first glimpse, the peak for each data source does not differ much from each other in a given year.
 
-*--page break--* <div style="page-break-after: always"></div> 
+Cross-correlation between two data sources can be measured using Spearman's $ρ$, a non-parametric test of correlation. To ascertain the pairwise time lag (if any), Spearman's test is run repeatedly with a gradually increasing lag. The lag value associated with the best $ρ$ is reported as the lag between given sources for a given year.
+
+*--page break--*
+
+::: {style="page-break-after: always"}
+:::
 
 ## Introduction
 
 Influenza is a highly infectious and rapidly evolving respiratory virus circulating seasonally around the world [@cope2018]. The World Health Organisation (WHO) estimates that between 290000-650000 deaths occur due to the respiratory virus, not including deaths not due to secondary infections caused by influenza [@WHO2022]. Like most viruses, influenza is highly mutable. It can change on its own (*i.e.* antigenic drift), or cross with other strains (*i.e.* antigenic shift) [@CDC2022], possibly leading to uncontrolled extensive spreads causing an epidemic, such as the 2009 H1N1 pandemic [@cope2018].
 
-Seasonal influenza appear in two types, classified as A and B, with A types further broken down into subtypes H1N1 and H3N2 [@CDC2022]. Each year, a combination of the A subtypes and B type influenza circulate throughout the population with different proportions. There is some evidence to suggest that H3N2 subtype is more severe than H1N1, leading to higher hospitalisation rates.
 
-After an incubation period, usually 1~3 days, the progression of the disease is self-limiting and symptoms might last 2~7 days [cite::green book]. Serious progression of the virus may lead to deaths in at-risk groups such as children (\<2 y.o.), pregnant women, the elderly (\>65 y.o.) and people with underlying medical conditions, [@zarocostas2009]. In a UK context, seasonal influenza circulation burdens the NHS in terms of availability of hospital beds and GP services [@cope2018]. Having more data to help plan for seasonal peaks can help alleviate pressure on vital services.
+The virus (family *Orthomyxoviridae*) has multiple species, with type A and type B being predominant in spreading among human [@CDC2022]. They can be further classified by the H (as in Hemagglutinin) and N (as in neuraminidase) antigen present on the virus. Each year, a combination of the A subtypes and B type influenza circulates throughout the population at different proportions. Some evidence to suggest that H3N2 subtype is more severe than H1N1, leading to higher hospitalisation rates \[cite\]
 
-![An infographic summarising the key points addressed in this report.](images/fig-intro.png)
+
+After an incubation period, usually 1\~3 days, the progression of the disease is self-limiting and symptoms might last 2\~7 days \[cite::green book\]. Serious progression of the virus may lead to deaths in at-risk groups such as children (\<2 y.o.), pregnant women, the elderly (\>65 y.o.) and people with underlying medical conditions [@zarocostas2009]. In a UK context, seasonal influenza circulation burdens the NHS in terms of availability of hospital beds and GP services [@cope2018]. Having more data to help plan for seasonal peaks can help alleviate pressure on vital services.
+
+![An infographic summarising the key points addressed in this report.](images/fig-intro.png){width="100%"}
+
 
 ### Who is the UKHSA and why are they interested
 
@@ -79,8 +89,9 @@ We defined our main research question to address the issues described above.
 
 ### Data sources and extraction
 
-![The data being used comes from various places and has been sourced through difference resources.](images/fig-data-source.png)
+![The data being used comes from various places and has been sourced through difference resources.](images/fig-data-source.png){width="100%"}
 
+<<<<<<< HEAD
 Three main sources of flu case data have been extracted from various places. Firstly, primary care data was reported by the Royal College of General Practitioners (RCGP) Research and Surveillance Centre communicable and respiratory disease reports. Cases of Influenza Like Illnesses (ILI) that present in participating GP practices  are collected and reported for England and Wales [@RCGP]. 
 
 Secondary care data was extracted from the UKHSA Severe Acute Respiratory Infection Watch system. 
@@ -94,16 +105,15 @@ Mortality data is extracted from the UK Office for National Statistics (ONS) wee
 
 #### Cross-correlation
 
-Spearman's non-parametric test of correlation (denoted $ρ$) is more suitable than Pearson's in this situation, since the latter requires all variable to be normally distributed. Spearman's $ρ$ uses the ranks to replace the actual values within each variable. It runs as long as the variables are equal in length. The measurement of cross-correlation between pairs of variables should be as follows. One variable, denoted $x_{t}$, is pinned to the present. A lag of positive integer $k$ is applied to the other variable $y$ to generate $y_{t},\; y_{t+1},\; \ldots y_{t+k} $ . For a given flu season, Spearman's test is run repeatedly between $x$ and each version of $y$.  The lag that gives the best correlation, denoted $\arg\underset{k}\max \,\rho(x,y_{t+k})$, is reported for each year for each pair of variables. 
+Spearman's non-parametric test of correlation (denoted $ρ$) is more suitable than Pearson's in this situation, since the latter requires all variable to be normally distributed. Spearman's $ρ$ uses the ranks to replace the actual values within each variable. It runs as long as the variables are equal in length. The measurement of cross-correlation between pairs of variables should be as follows. One variable, denoted $x_{t}$, is pinned to the present. A lag of positive integer $k$ is applied to the other variable $y$ to generate \$y\_{t},; y\_{t+1},; \ldots y\_{t+k} \$ . For a given flu season, Spearman's test is run repeatedly between $x$ and each version of $y$. The lag that gives the best correlation, denoted $\arg\underset{k}\max \,\rho(x,y_{t+k})$, is reported for each year for each pair of variables.
 
-#### Moving Epidemic Method
+#### Moving Epidemic Method (MEM)
 
-PHE and the UKHSA use the Moving Epidemic Method (MEM) to describe the severity of the epidemic season. This is calculated using through using previous epidemic activity [@Rachovic].
-From for each of the data sources presented, we have used the MEM calculated and published by PHE and the UKHSA respectively in their weekly national flu reports.
+MEM is widely used by disease control agencies (incl. PHE and UKHSA) to model epidemics and generate threshold levels from historical data. First, the epidemic period in a season is identified as the minimum number of consecutive weeks with the maximum accumulated rates percentage (MAP). The season can then be split into pre-epidemic, epidemic, and post-epidemic periods. Within each, a given number of data points will be sampled. The number of sample remains at 30 regardless of availability. Assuming these fit into a normal distribution, their geometric mean will have confidence intervals. The upper bounds of $\text{CI}_{50},\; \text{CI}_{90},\; \text{CI}_{95}$ act as the threshold values. Along with the cutoff for entering the epidemic period, these four values give us five bands: not-epidemic, baseline, and low, moderate, high, very high threat to the public. In this report, the plots for GP and hospitalisation use the values as-is from UKHSA publications for the respective seasons.
 
-#### $R_0$ calculation
+#### Reproduction Number $R_0$
 
-To further investgate the temporal relationships between the data sources, an effective reproduction number has been calculated. This can be inferred from the observed exponential growth rate seen at the beginning of a flu epidemic. The observed reproduction number $R$ can be found through the linear equation $R = 1 + \dfrac{r}{b}$ , where $r$ is the rate of exponential growth and $b$ is the rate of leaving the infectious stage [@lipsitch2003]. By approximating the beginning of the growth curves as $N=ke^{\frac{rt}{b}}$ (where $k$ is a constant), the value $\dfrac {r}{b}$ can be found from the gradient when plotting $\log (N)$ against $t$.
+To further investgate the temporal relationships between the data sources, an effective reproduction number $R_\text{eff}$ has been calculated. This can be inferred from the observed exponential growth rate seen at the beginning of a flu epidemic. The observed reproduction number $R$ can be found through the linear equation $R = 1 + \dfrac{r}{b}$ , where $r$ is the rate of exponential growth and $b$ is the rate of leaving the infectious stage [@lipsitch2003]. By approximating the beginning of the growth curves as $N=ke^{\frac{rt}{b}}$ (where $k$ is a constant), the value $\dfrac {r}{b}$ can be found from the gradient when plotting $\log (N)$ against $t$.
 
 In practice, log graphs were plotted and a linear model was fitted to the points at the beginning of the epidemic. Using the gradient, the $R_{\text{eff}}$ was calculated for each data source, each season.
 
@@ -113,9 +123,7 @@ To see view the trends in the data and to first explore it, case rate per 100,00
 
 ### Source
 
-
 ::: grid
-
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
 gp_cases
@@ -129,15 +137,12 @@ hospital_plot
 
 ```
 :::
-
 :::
 
 **Figure 3 and 4**: FIgure 3 shows RCGP RSC reports of Influenze Like Illnesses in participating GP practices per 100,000 people across 4 flu seasons from 2017-2018 to 2022-23 with 2020-2021 and 2021-2022 removed. FIgure 4 shows flu cases reported by SARI watch and USISS Sentinel data for hospitalisations of patients with influenza per 100,000 people
 
 ::: grid
-
 ::: g-col-3
-
 :::
 
 ::: g-col-6
@@ -148,22 +153,20 @@ combined_plot
 :::
 
 ::: g-col-3
-
 :::
-
 :::
 
 **Figure 5**: Lab-confirmed cases of influenza, stratified by influenza strain (A and B). Data reported from PHE/UKHSA lab confirmed cases of influenza over the same time period.
 
-In figures 3 and 4, we represent the Moving Epidemic Model thresholds against trends of primary and secondary care cases in the background. 
+In figures 3 and 4, we represent the Moving Epidemic Model thresholds against trends of primary and secondary care cases in the background.
 
-We expected to see that over different seasons, peaks appear at different weeks. This is due to the complex nature of flu spread, the dynamics do not replicate every season. The size of the peaks however do indicate differing levels of severity in flu each season. 
+We expected to see that over different seasons, peaks appear at different weeks. This is due to the complex nature of flu spread, the dynamics do not replicate every season. The size of the peaks however do indicate differing levels of severity in flu each season.
 
 This initial presentation of our results shows similarity in temporal characterisitcs between the 2017-18 and 2018-19 flu seasons; and the 2019-20/2022-23 flu seasons. In primary care data, the peaks for the 2017-18 and 2018-19 flu seasons occur at 4 weeks (with a subsequent peak in 2018-19 at 7 weeks). We see a similar split in secondary care data. Secondary cases in 2017-18 peak at week 3, with a smaller peak across week 8-9. For 2018-19 it peaks at week 7. In lab confirmed cases of influenza A, both 2017-18 and 2018-19 flu seasons peak at week 7.
 
-In the primary care data, the peaks for the 2019-20 and 22-23 season occur in the previous year at 52 and 50 weeks respectively. In secondary care data and lab confirmed cases of influenza A, the peaks for seasons 2019-20 and 2022-23 again occur in the previous year at week 52. 
+In the primary care data, the peaks for the 2019-20 and 22-23 season occur in the previous year at 52 and 50 weeks respectively. In secondary care data and lab confirmed cases of influenza A, the peaks for seasons 2019-20 and 2022-23 again occur in the previous year at week 52.
 
-Lab confirmed cases of influenza A (Figure 5a) reinforce the backshift we see between the 2017-18/2018-19 seasons and the 2019-20/2022-23 seasons. The peak for the 2017-18 and 2018-19 season occur at week 7, similar to our finding s for secondary care and for reported primary care cases in the  2018-19 season. The peak for both 2019-20 and 2022-23 seasons occur at week 52, in line with the secondary care cases for both seasons, and primary care data for 2022-23. 
+Lab confirmed cases of influenza A (Figure 5a) reinforce the backshift we see between the 2017-18/2018-19 seasons and the 2019-20/2022-23 seasons. The peak for the 2017-18 and 2018-19 season occur at week 7, similar to our finding s for secondary care and for reported primary care cases in the 2018-19 season. The peak for both 2019-20 and 2022-23 seasons occur at week 52, in line with the secondary care cases for both seasons, and primary care data for 2022-23.
 
 Lab confirmed cases of infleunza B only appear to increase notable for the 2017-18 outbreak, with the cases for subsequent seasons not increasing to the same scale.
 
@@ -180,7 +183,6 @@ source("../R_scripts/Season_data/season_202223.R")
 ```
 
 ::: grid
-
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
 plot_201718
@@ -206,7 +208,6 @@ plot_201920
 plot_202223
 ```
 :::
-
 :::
 
 ```{r echo=FALSE, warning=FALSE}
@@ -215,12 +216,11 @@ max_table
 
 ```
 
-For each season, cases of ILI reported by primary care sources dominate secondary care and lab confirmed case reporting. For 2017-18, the peak for primary care cases reported by the RCGP was 54.1 cases per 100,000. This was the greatest extent of the flu epidemic as reflected by primary care data. The subsequent 2018-19 and 2019-20 seasons saw more modest peaks of 23.1 and 19.4 cases per 100,000 respectively. For the post-COVID flu season, of data included at time of report writing, the current peak of primary care cases exists at 31.3 cases per 100,000. This is larger than the two pre-COVID flu season data.  
+For each season, cases of ILI reported by primary care sources dominate secondary care and lab confirmed case reporting. For 2017-18, the peak for primary care cases reported by the RCGP was 54.1 cases per 100,000. This was the greatest extent of the flu epidemic as reflected by primary care data. The subsequent 2018-19 and 2019-20 seasons saw more modest peaks of 23.1 and 19.4 cases per 100,000 respectively. For the post-COVID flu season, of data included at time of report writing, the current peak of primary care cases exists at 31.3 cases per 100,000. This is larger than the two pre-COVID flu season data.
 
-Secondary care and lab confirmed case rates mirror each other closely across pre-pandemic flu seasons. The magnitude of impact between hospitalisation and lab-confirmed cases also appear to be similar in pre-pandemic data. 
+Secondary care and lab confirmed case rates mirror each other closely across pre-pandemic flu seasons. The magnitude of impact between hospitalisation and lab-confirmed cases also appear to be similar in pre-pandemic data.
 
-However, post-COVID, the peak for secondary care data reached 14.8 per 100,000 cases in week 12, whereas the maximum reported rate for lab confirmed cases reached 5.43 per 100,000 in the same week of data available. In pre-pandemic flu seasons, the peaks for secondary care cases occured during weeks 15 (8.86 per 100,000 in 2017-18), 19 (6.87 per 100,000 in 2018-19) and 12 (7.50 per 100,000 in 2019-20). Lab confirmed cases peaked during weeks 17 (6.55 per 100,000 in 2017-18), 19 (6.19 per 100,000 in 2018-19) and 12 (6.64 per 100,000 in 2019-20). Its too early to determine whether this years flu season pattern amongst secondary care and lab confirmed cases matches patterns of 2017-18 and 2018-19 or of 2019-20.
--- Jack matrix on correlation --
+However, post-COVID, the peak for secondary care data reached 14.8 per 100,000 cases in week 12, whereas the maximum reported rate for lab confirmed cases reached 5.43 per 100,000 in the same week of data available. In pre-pandemic flu seasons, the peaks for secondary care cases occured during weeks 15 (8.86 per 100,000 in 2017-18), 19 (6.87 per 100,000 in 2018-19) and 12 (7.50 per 100,000 in 2019-20). Lab confirmed cases peaked during weeks 17 (6.55 per 100,000 in 2017-18), 19 (6.19 per 100,000 in 2018-19) and 12 (6.64 per 100,000 in 2019-20). Its too early to determine whether this years flu season pattern amongst secondary care and lab confirmed cases matches patterns of 2017-18 and 2018-19 or of 2019-20. -- Jack matrix on correlation --
 
 ### Log graphs and $R_0$ value
 
@@ -229,8 +229,6 @@ source("../R_scripts/Season_data/log_graphs.R")
 
 ```
 
-
-
 ::: grid
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
@@ -238,6 +236,7 @@ log_hosp_plot1718
 
 ```
 :::
+
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
 
@@ -255,6 +254,7 @@ log_hosp_plot1920
 
 ```
 :::
+
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
 log_hosp_plot2223
@@ -266,9 +266,10 @@ To estimate the effective reproduction number between each of the data sources, 
 
 The estimated $R_{eff}$ for each year and data source is detailed below. As expected at the beginning of a flu season, the R numbers are all above 1. It is noted that a higher reproduction number calculated for the data from hospitalisations than from GP consultations.
 
-``` {r echo=FALSE}
 
-effective_r_values
+```{r echo=FALSE}
+# source("../R_scripts/Season_data/log_graphs.R")
+# effective_r_values
 ```
 
 ### Stratifying by age group
@@ -280,8 +281,8 @@ effective_r_values
 source("../R_scripts/Season_data/age_strat.R")
 plot_age1718
 ```
-
 :::
+
 ::: g-col-6
 ```{r echo = FALSE}
 
@@ -302,8 +303,6 @@ plot_age1920
 plot_age2223
 ```
 :::
-
-
 :::
 
 Using data provided by the RCGP, flu data has been plotted stratified by age. This has been reported as ILI rate per 100,000, and broken down in to three age groups: \\\<15 years, 15-64 years and 65+ years.
@@ -314,20 +313,18 @@ For the season 2018-19 there appears to be a minor peak followed by a larger pea
 
 The season 2019-20 shows multiple peaks with the expected dip over the holiday period (between weeks 51-1). As with the 2018-19 season, the 65+ age group lag behind the other age groups, with the largest peak for this age group two weeks after all other ages. There is also an evident spike at week 12 for this year. As this data is recording "Influenza *like* illness", it can be assumed that this peak is due to the COVID-19 pandemic.
 
-The current flu season also shows a lag in growth among the 65+ group. The data however does not go up show where the peaks are, so we do not know the full picture. It is also shown that the under 15 years have a lower gradient after week 51 around the winter holidays begin.
-### Stratified by Flu strain type
-
+The current flu season also shows a lag in growth among the 65+ group. The data however does not go up show where the peaks are, so we do not know the full picture. It is also shown that the under 15 years have a lower gradient after week 51 around the winter holidays begin. \### Stratified by Flu strain type
 
 ::: grid
-
 ::: g-col-6
-``` {r echo=FALSE}
+```{r echo=FALSE}
 source("../strain_stratification.R")
 strains17_18_swabs_plot
 ```
 :::
+
 ::: g-col-6
-``` {r echo=FALSE}
+```{r echo=FALSE}
 strains18_19_swabs_plot
 ```
 :::
@@ -335,31 +332,40 @@ strains18_19_swabs_plot
 
 ::: grid
 ::: g-col-6
-``` {r echo=FALSE}
+```{r echo=FALSE}
 strains19_20_swabs_plot
 ```
 :::
 
 ::: g-col-6
-``` {r echo=FALSE}
+```{r echo=FALSE}
 strains22_23_swabs_plot
 ```
 :::
-
 :::
 
 This figure (A) plots total recorded flu cases by week in the flu season (defined as the 40th week of the previous year to the 20th week of the subsequent), separated by strain of influenza for each included flu season as recorded by Datamart scheme. Starting with the first studied season (2017-2018), it was clearly dominated by the type B influenza. The earliest rise in cases was observed in the A H3 subtype cases, starting around week 46, whilst the other strains present a delay of approximately one week. Moving forward in the season, week 49 brings increase in growth of the number of cases for type B and A H3 subtype. This was the key significant period for both A H3 subtype and B type, which went onto reach their peaks in week 2 and 3 respectively. Peak number of cases for A H3 subtype reached almost 350 and more than 600 cases for type B. Immediately after its peak, cases of type B influenza started decreasing gradually, with occasional increases in week 8, reaching 400 cases and in week 11 reaching approximately 250 cases. A similar trend was observed in the incidence of the A H3 subtype influenza which decreased in week 6 to 200 cases and fluctuated between 250-170 for the next six weeks. An important point is that the H1N1 type A starts to plateau around week 2 of 2018, reaching a point of approximately 50 cases daily, a threshold that was never surpassed again throughout the season. The unknown A type reaches its peak of 150 cases in week 6 to later fluctuate between 50-100 cases until week 15, when it gradually started to drop.
 
+In the next figure (B) observed data covers the period from 2018 to 2019. For this particular season available data was strafed only by two types - A (unknown subtype) and B. During this season incidence of type B influenza reached a maximum of 11 cases in 45th week and did not pass the threshold of 10 after. Growth in incidence of type A influenza started at week 44 and continued, with a steeper rise starting in week 51 when over 300 new cases were recorded. This strain has dominated the season soaring at nearly 800 cases in week 3. After a slight dip during the next week, incidence of the unknown type A influenza peaked during week 7 with almost 1250 of new cases. It started plummeting until week 10 and gradually decreased until the end of the season.
 
-In the next figure (B) observed data covers the period from 2018 to 2019. For this particular season available data was strafed only by two types - A (unknown subtype) and B. During this season incidence of type B influenza reached a maximum of 11 cases in 45th week and did not  pass the threshold of 10 after. Growth in incidence of type A influenza started at week 44 and continued, with a steeper rise starting in week 51 when over 300 new cases were recorded. This strain has dominated the season soaring at nearly 800 cases in week 3. After a slight dip during the next week, incidence of the unknown type A influenza peaked during week 7 with almost 1250 of new cases. It started plummeting until week 10 and gradually decreased until the end of the season. 
+During the season 2019 - 2020, cases of A H1N1, unknown type A and type B caused only minor burden in comparison to the A H3 subtype as seen in the figure C. All of the analysed strains apart from A H3 seem to be fluctuating around 10-30 cases between week 43 of 2019 and week 9 of 2020. Incidence of A H3 started to rise during the week 43 of the season and peaked in week 52. After its peak it has dropped rapidly to eventually level off during week 5 and fluctuate around the same incidence.
 
-
-During the season 2019 - 2020, cases of A H1N1, unknown type A and type B caused only minor burden in comparison to the A H3 subtype as seen in the figure C. All of the analysed strains apart from A H3 seem to be fluctuating around 10-30 cases between week 43 of 2019 and week 9 of 2020. Incidence of  A H3 started to rise during the week 43 of the season and peaked in week 52. After its peak it has dropped rapidly to eventually level off during week 5 and fluctuate around the same incidence. 
-
-
-Post-pandemic season 2022 - 2023 is represented by figure D. We can observe that both type B flu and the A H1N1 subtype represented only a fraction of all incidence, reaching approximately 50 cases each during 52nd week. The most dominant strain of the season was unknown type A flu, which was on the rise since the first week of the season. During 50th week cases started soaring until incidence of the type A flu reached its peak of almost 2300 new cases in week 52 of 2022. Second most dominant strain of the season - A H3 presented slower rise, starting in week 46 and peaking at 1250 new cases at the same time as type A  -  week 52. Data in the graph only represents incidence until week 5 of the year 2023 and that’s when we can observe a decline in all of the cases.
-
+Post-pandemic season 2022 - 2023 is represented by figure D. We can observe that both type B flu and the A H1N1 subtype represented only a fraction of all incidence, reaching approximately 50 cases each during 52nd week. The most dominant strain of the season was unknown type A flu, which was on the rise since the first week of the season. During 50th week cases started soaring until incidence of the type A flu reached its peak of almost 2300 new cases in week 52 of 2022. Second most dominant strain of the season - A H3 presented slower rise, starting in week 46 and peaking at 1250 new cases at the same time as type A - week 52. Data in the graph only represents incidence until week 5 of the year 2023 and that's when we can observe a decline in all of the cases.
 
 ## Discussion
 
+#### Granularity of Data
+
 ## References
+
+@jack will generate it as a whole once all the in-text citations are sorted.
+
+## Appendix A - Team Statement
+
+I hereby declare and confirm with my signature that this report, along with the code and graphics in this project, is the combined effort of our group. Everyone has made significant contributions in their own ways, based on their expertise in one speciality or another. I acknowledge that this report is submitted as coursework to be assessed, and the team members are equally responsible for the success or failure of any one part. This report is my own work, except where the use of other people's works are cited.
+
+Team Member: GB, AC, SJ, HL
+
+## **Appendix B - Variables and Data Sources**
+
+## Appendix C - Summary of Missing Data 
