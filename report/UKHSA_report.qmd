@@ -368,6 +368,8 @@ While it may help throughout the report to have more granularity of data, it may
 
 ## Appendix A - Team Statement
 
+I think we should each note down which R scripts we've worked on, even if they overlap. Obviously we've all worked on this document, the presentation and the source data file but we could break it down even further. 
+
 I hereby declare and confirm with my signature that this report, along with the code and graphics in this project, is the combined effort of our group. Everyone has made significant contributions in their own ways, based on their expertise in one speciality or another. I acknowledge that this report is submitted as coursework to be assessed, and the team members are equally responsible for the success or failure of any one part. This report is my own work, except where the use of other people's works are cited.
 
 Team Member: GB, AC, SJ, HL
