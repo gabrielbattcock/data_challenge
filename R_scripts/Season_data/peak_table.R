@@ -10,7 +10,7 @@ p_load(ggrepel, ggpubr, gt, gtsummary, hrbrthemes,
 #Generating the max rates table for our three data sources
 max_table_tibble <- tibble(
   seasons_table = c(
-    "2017-2018",
+    "2017-18",
     "2018-19",
     "2019-20",
     "2022-23"
