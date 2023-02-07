@@ -340,12 +340,9 @@ Post-pandemic season 2022 - 2023 is represented by figure D. We can observe that
 
 ## Discussion
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
 From analysis of the plots for each season stratified by the source of data, there is no apparent temporal difference in the peaks for rate of influenza cases. Although our sample size of four season is small, this appears to suggest that there is no temporal relation between different influenza data sources. While we see no visible lag between peaks in the population as a whole, the data was probed further to try to discover any other temporal relationship.interpretation of the corr The reproduction number has been estimated for each of the seasons and each of the data sources. Through the use of a linear model, the gradient has been extracted to then be used to calculate the effective \$R\$ number. From the results calculated, it is clear that the estimate is larger for both hospitalisation data and swab data than for the GP data. The calculation here is a simplistic approximation for the reproduction number but does show that the spread of cases is slower for GP consultations which is more indicative of the general population as not everyone who goes to a GP for flu symptoms will be referred to hospital. This also gives some evidence towards a temporal relationship between GP consultations and hospitalisations, as knowing when there is a rise in the cases in GPs infers that there will be a large rise in hospitalisation following. As the calculation is not a complex model to estimate the reproduction number for influenza but does give a good estimate to be used in the report. Estimating the reproduction number for a virus such as influenza can be difficult due as it is uncertain the level of immunity among the population. While it may help throughout the report to have more granularity of data, it may not give a better estimate of the reproduction number. The results have assisted in showing a temporal relationship between GP cases and hospitalisations.
-=======
-=======
->>>>>>> Stashed changes
+
 ### First paragraph
 
 Essential interpretation based on key findings
@@ -364,6 +361,8 @@ While it may help throughout the report to have more granularity of data, it may
 
 
 ### Strain stratified data discussion - SJ
+
+
 
 ### Main piece of supporting evidence
   
@@ -426,57 +425,6 @@ Potential future research
 #### Take home/conclusion
 
 Influenza is a very difficult disease to study and predict due to reasons include the different strains, antigenic shift and the unknown level of immunity in a given season. While data for previous seasons can be studied, the complex nature and changes from season to season mean it is difficult to give a firm prediction of what could happen in the future. While the data shows that there no noticeable lag in peaks between any of the data sources, there is a lag in GP cases among different age groups. There is also a noticeable difference also in the rate of spread reported between GP cases and hopsitalisation cases.
-
-
-
-### Comparison and contrast to previous studies
-
-###SJ
-
-According to literature review, as of today research on the exact same topic has not been conducted. However, there are a number of sources which try to understand the relations between influenza metrics from before and after the COVID-19 pandemic. One of the most interesting comparisons would be the one with the Canadian article studying the effect of COV-19 pandemic on ILI related hospitalization and mortality in children [1]. Main findings conclude there was a significant drop in the number of cases in pediatric  influenza hospitalisations post-pandemic. Similarly to our findings the report also mentions no AI related data for the period of the pandemic. This seems to be also a trend in different countries such as Italy, China and USA where barely any cases have been reported [2]. Although the exact explanation is not available, it is suspected that during that period ILI was underreported due to the main focus being COVID. This hypothesis however does not explain observations in China where incidence was low, despite the fact that type A and B influenza tests were conducted for patients with the  suspicion of COVID-19 [3]. Another possible explanation apart from under-reporting is change in contact patterns as well as seasonal immunity perturbations that happened throughout 2019-2020. 
-
-Seasonality is a result of a complex interplay between previously mentioned contact patterns, host immunity as well as virus survival [4]. In terms of the post-pandemic period sources indicate that the coming season carries multiple unpredictable factors such as shadow of the COVID-19 pandemic, decreasing population immunity as well drop in genetic variability of influenza viruses [5]. Inconsistent COVID vaccination patterns i.e. varied coverage depending on a country, group age and time window, caused a general neglect in the rollout of other vaccines [6]. This shows some similarities with our findings, as seen in the appendix (Fig. Vacc) uptake rate in most of the groups dropped in 2020 compared to 2019, with only only risk group - pregnant women remaining at the same uptake rate. Previously mentioned disruptive patterns were described in South Africa during 2021, when season peaked unusually late during winter [7]. However, regular seasonality was restored in the following season, both dominated by A/H1N1.
-
-###SJ
-
-Strengths
-  What did we cover well in comparison to similar reports?
-  How does this contribute to currently available knowledge? In general and from the client’s     perspective?
-  Implications of the study based on literature
-	
-Limitations
- What questions could not be answered and why?(age? Data missing? Limited access?)
- Methods we could not use but considered? (arima? Forecast? Granger test? [violation of the       assumptions - what assumptions and why is it violated])
-
-Unexpected findings
-  What things have come up that we did not expect?
-  Counter intuitive patterns?
-  Maybe an unexpected season in terms of strain dominance?
-  Lack of delay between the sources?
-
-### Last paragraph
-
-Hypothesis and purpose of the study summary
-  Proved or disproved?
-  What might be the reasons?
-  What can be learned for the results?
-
-Study significance
-  Again on how UKHSA could use the result for the good of the public
-  New questions that emerged
-  Expanded way of looking at the initial question?
-
-Questions that could not be answered
-  Limitations of methods/data? (age?, different reporting patterns)
-
-Potential future research
-  Ways of taking the project further if time was not an issue
-  Also consequences of unhalted burden on NHS
-  How can research build on our findings? 
-
-Take-home message
-
-
 
 
 #### Granularity of Data
