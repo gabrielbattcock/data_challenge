@@ -350,6 +350,10 @@ As mentioned above, this calculation is not a complex model to estimate the repr
 
 While it may help throughout the report to have more granularity of data, it may not give a better estimate of the reproduction number. The results have assisted in showing a temporal relationship between GP cases and hospitalisations.
 
+### Hypothesis and purpose of study
+
+The hypothesis to the main research question was that we expected there to be a temporal difference between peaks from different data sources, specifically that hospitalisations may lag behind GP cases. From the plots for each season stratified by the source, other than in 2022-23, there is no clear change in the timing of the peaks. The maximum rate of cases occurs on the same week for each of the remaining seasons investigated in this report. Our hypothesis was on the basis that influenza symptoms take time to become severe enough to result in hospitalisation, leading to a lag. However, it is known that the incubation period of influenza is between 0.6 and 1.4 days and most people will recover within a week [@Lancet2022]. Due to this, it is not so surprising that there is no obvious lag between data sources as the time frame may not small enough to capture any differences between peaks. Any delay in reporting cases from any of the sources would add to this opacity. Therefore, there is no temporal relationship present in the data presented in this report for a population as a whole. GP consultations are not considered to be a good predictor of hospitalisation cases for influenza.
+
 #### Granularity of Data
 
 ## Appendix A - Team Statement
