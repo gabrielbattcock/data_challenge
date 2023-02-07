@@ -46,9 +46,9 @@ The season 2019-20 shows multiple peaks with the expected dip over the holiday p
 
 The current flu season also shows a lag in growth among the 65+ group. The data however does not go up show where the peaks are, so we do not know the full picture. It is also shown that the under 15 years have a lower gradient after week 51 around the winter holidays begin.
 
-## Discussion 
+## Discussion
 
-### $R_0$ and log graphs 
+### $R_0$ and log graphs
 
 The reproduction number has been estimated for each of the seasons and each of the data sources. Through the use of a linear model, the gradient has been extracted to then be used to calculate the effective $R$ number. From the results calculated, it is clear that the estimate is larger for both hospitalisation data and swab data than for the GP data.
 
