@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,7 +73,6 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
-  
     
   </div>
   
@@ -146,7 +145,7 @@ div.csl-indent {
 <p></p><figcaption class="figure-caption">The data being used comes from various places and has been sourced through difference resources.</figcaption><p></p>
 </figure>
 </div>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD Three main sources of flu case data have been extracted from various places. Firstly, primary care data was reported by the Royal College of General Practitioners (RCGP) Research and Surveillance Centre communicable and respiratory disease reports. Cases of Influenza Like Illnesses (ILI) that present in participating GP practices are collected and reported for England and Wales <span class="citation" data-cites="RCGP">[<a href="#ref-RCGP" role="doc-biblioref">5</a>]</span>.</p>
+<p>Three main sources of flu case data have been extracted from various places. Firstly, primary care data was reported by the Royal College of General Practitioners (RCGP) Research and Surveillance Centre communicable and respiratory disease reports. Cases of Influenza Like Illnesses (ILI) that present in participating GP practices are collected and reported for England and Wales <span class="citation" data-cites="RCGP">[<a href="#ref-RCGP" role="doc-biblioref">5</a>]</span>.</p>
 <p>Secondary care data was extracted from the UKHSA Severe Acute Respiratory Infection Watch system.</p>
 <p>Mortality data is extracted from the UK Office for National Statistics (ONS) weekly bulletin of death registrations (England and Wales). The variable of interest is <code>Deaths due to influenza and pneumonia (ICD J09-J18)</code>, and from 2020 onwards, <code>Deaths involving to influenza and pneumonia (ICD J09-J18)</code>. These are defined by the occurrence of said phrase on either the first cause of death, or anywhere in the <code>cause of death</code> field.</p>
 </section>
@@ -165,7 +164,7 @@ div.csl-indent {
 </section>
 <section id="reproduction-number-r_0" class="level4">
 <h4 class="anchored" data-anchor-id="reproduction-number-r_0">Reproduction Number <span class="math inline">\(R_0\)</span></h4>
-<p>To further investgate the temporal relationships between the data sources, an effective reproduction number <span class="math inline">\(R_\text{eff}\)</span> has been calculated. This can be inferred from the observed exponential growth rate seen at the beginning of a flu epidemic. The observed reproduction number <span class="math inline">\(R\)</span> can be found through the linear equation <span class="math inline">\(R = 1 + \dfrac{r}{b}\)</span> , where <span class="math inline">\(r\)</span> is the rate of exponential growth and <span class="math inline">\(b\)</span> is the rate of leaving the infectious stage <span class="citation" data-cites="lipsitch2003">[<a href="#ref-lipsitch2003" role="doc-biblioref">6</a>]</span>. By approximating the beginning of the growth curves as <span class="math inline">\(N=ke^{\frac{rt}{b}}\)</span> (where <span class="math inline">\(k\)</span> is a constant), the value <span class="math inline">\(\dfrac {r}{b}\)</span> can be found from the gradient when plotting <span class="math inline">\(\log (N)\)</span> against <span class="math inline">\(t\)</span>.</p>
+<p>Reproduction numbers have been used to calculate how much a disease will spread. The number represents the number of new infections one positive case can reproduce. If <span class="math inline">\(R_0\)</span> is greater than 1, the disease is growing, while if it is below 1, the spread is slowing. While <span class="math inline">\(R_0\)</span> is used at the beginning of the spread of a new virus to a completely susceptible popultaion, an effective reproduction number can be calculated for a population that contains some immuninity, such as for an influenza virus. This can be inferred from the observed exponential growth rate seen at the beginning of a flu epidemic. The observed reproduction number <span class="math inline">\(R\)</span> can be found through the linear equation <span class="math inline">\(R = 1 + \dfrac{r}{b}\)</span> , where <span class="math inline">\(r\)</span> is the rate of exponential growth and <span class="math inline">\(b\)</span> is the rate of leaving the infectious stage <span class="citation" data-cites="lipsitch2003">[<a href="#ref-lipsitch2003" role="doc-biblioref">6</a>]</span>. By approximating the beginning of the growth curves as <span class="math inline">\(N=ke^{\frac{rt}{b}}\)</span> (where <span class="math inline">\(k\)</span> is a constant), the value <span class="math inline">\(\dfrac {r}{b}\)</span> can be found from the gradient when plotting <span class="math inline">\(\log (N)\)</span> against <span class="math inline">\(t\)</span>.</p>
 <p>In practice, log graphs were plotted and a linear model was fitted to the points at the beginning of the epidemic. Using the gradient, the <span class="math inline">\(R_{\text{eff}}\)</span> was calculated for each data source, each season.</p>
 </section>
 </section>
@@ -191,7 +190,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p><strong>Figure 3 and 4</strong>: FIgure 3 shows RCGP RSC reports of Influenze Like Illnesses in participating GP practices per 100,000 people across 4 flu seasons from 2017-2018 to 2022-23 with 2020-2021 and 2021-2022 removed. FIgure 4 shows flu cases reported by SARI watch and USISS Sentinel data for hospitalisations of patients with influenza per 100,000 people</p>
+<p><strong>Figure 3 and 4</strong>: FIgure 3 shows RCGP RSC reports of Influenze Like Illnesses in participating GP practices per 100,000 people across 4 flu seasons from 2017-2018 to 2022-23 with 2020-2021 and 2021-2022 removed. FIgure 4 shows flu cases reported by SARI watch and USISS Sentinel data for hospitalisations of patients with influenza per 100,000 people.</p>
 <div class="grid">
 <div class="g-col-3">
 
@@ -256,13 +255,13 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="xdwpoemixv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="tywxwbrhll" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html {
   font-family: Chivo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#xdwpoemixv) .gt_table {
+:where(#tywxwbrhll) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -287,7 +286,7 @@ html {
   border-left-color: #D3D3D3;
 }
 
-:where(#xdwpoemixv) .gt_heading {
+:where(#tywxwbrhll) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -299,12 +298,12 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#xdwpoemixv) .gt_caption {
+:where(#tywxwbrhll) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#xdwpoemixv) .gt_title {
+:where(#tywxwbrhll) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -316,7 +315,7 @@ html {
   border-bottom-width: 0;
 }
 
-:where(#xdwpoemixv) .gt_subtitle {
+:where(#tywxwbrhll) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -328,13 +327,13 @@ html {
   border-top-width: 0;
 }
 
-:where(#xdwpoemixv) .gt_bottom_border {
+:where(#tywxwbrhll) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#xdwpoemixv) .gt_col_headings {
+:where(#tywxwbrhll) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: rgba(0, 0, 0, 0);
@@ -349,7 +348,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#xdwpoemixv) .gt_col_heading {
+:where(#tywxwbrhll) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -369,7 +368,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#xdwpoemixv) .gt_column_spanner_outer {
+:where(#tywxwbrhll) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -381,15 +380,15 @@ html {
   padding-right: 4px;
 }
 
-:where(#xdwpoemixv) .gt_column_spanner_outer:first-child {
+:where(#tywxwbrhll) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#xdwpoemixv) .gt_column_spanner_outer:last-child {
+:where(#tywxwbrhll) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#xdwpoemixv) .gt_column_spanner {
+:where(#tywxwbrhll) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -401,7 +400,7 @@ html {
   width: 100%;
 }
 
-:where(#xdwpoemixv) .gt_group_heading {
+:where(#tywxwbrhll) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -427,7 +426,7 @@ html {
   text-align: left;
 }
 
-:where(#xdwpoemixv) .gt_empty_group_heading {
+:where(#tywxwbrhll) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -442,15 +441,15 @@ html {
   vertical-align: middle;
 }
 
-:where(#xdwpoemixv) .gt_from_md > :first-child {
+:where(#tywxwbrhll) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#xdwpoemixv) .gt_from_md > :last-child {
+:where(#tywxwbrhll) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#xdwpoemixv) .gt_row {
+:where(#tywxwbrhll) .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -469,7 +468,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#xdwpoemixv) .gt_stub {
+:where(#tywxwbrhll) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -482,7 +481,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#xdwpoemixv) .gt_stub_row_group {
+:where(#tywxwbrhll) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -496,11 +495,11 @@ html {
   vertical-align: top;
 }
 
-:where(#xdwpoemixv) .gt_row_group_first td {
+:where(#tywxwbrhll) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#xdwpoemixv) .gt_summary_row {
+:where(#tywxwbrhll) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -510,16 +509,16 @@ html {
   padding-right: 5px;
 }
 
-:where(#xdwpoemixv) .gt_first_summary_row {
+:where(#tywxwbrhll) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#xdwpoemixv) .gt_first_summary_row.thick {
+:where(#tywxwbrhll) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#xdwpoemixv) .gt_last_summary_row {
+:where(#tywxwbrhll) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -529,7 +528,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#xdwpoemixv) .gt_grand_summary_row {
+:where(#tywxwbrhll) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -539,7 +538,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#xdwpoemixv) .gt_first_grand_summary_row {
+:where(#tywxwbrhll) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -549,11 +548,11 @@ html {
   border-top-color: #D3D3D3;
 }
 
-:where(#xdwpoemixv) .gt_striped {
+:where(#tywxwbrhll) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#xdwpoemixv) .gt_table_body {
+:where(#tywxwbrhll) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -562,7 +561,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#xdwpoemixv) .gt_footnotes {
+:where(#tywxwbrhll) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -576,7 +575,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#xdwpoemixv) .gt_footnote {
+:where(#tywxwbrhll) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -585,7 +584,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#xdwpoemixv) .gt_sourcenotes {
+:where(#tywxwbrhll) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -599,7 +598,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#xdwpoemixv) .gt_sourcenote {
+:where(#tywxwbrhll) .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -607,64 +606,64 @@ html {
   padding-right: 5px;
 }
 
-:where(#xdwpoemixv) .gt_left {
+:where(#tywxwbrhll) .gt_left {
   text-align: left;
 }
 
-:where(#xdwpoemixv) .gt_center {
+:where(#tywxwbrhll) .gt_center {
   text-align: center;
 }
 
-:where(#xdwpoemixv) .gt_right {
+:where(#tywxwbrhll) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#xdwpoemixv) .gt_font_normal {
+:where(#tywxwbrhll) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#xdwpoemixv) .gt_font_bold {
+:where(#tywxwbrhll) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#xdwpoemixv) .gt_font_italic {
+:where(#tywxwbrhll) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#xdwpoemixv) .gt_super {
+:where(#tywxwbrhll) .gt_super {
   font-size: 65%;
 }
 
-:where(#xdwpoemixv) .gt_footnote_marks {
+:where(#tywxwbrhll) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#xdwpoemixv) .gt_asterisk {
+:where(#tywxwbrhll) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#xdwpoemixv) .gt_indent_1 {
+:where(#tywxwbrhll) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#xdwpoemixv) .gt_indent_2 {
+:where(#tywxwbrhll) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#xdwpoemixv) .gt_indent_3 {
+:where(#tywxwbrhll) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#xdwpoemixv) .gt_indent_4 {
+:where(#tywxwbrhll) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#xdwpoemixv) .gt_indent_5 {
+:where(#tywxwbrhll) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -691,7 +690,7 @@ html {
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td headers="seasons_table" class="gt_row gt_right">2017-2018</td>
+    <tr><td headers="seasons_table" class="gt_row gt_right">2017-18</td>
 <td headers="max_gp" class="gt_row gt_right">54.10</td>
 <td headers="max_hosp" class="gt_row gt_right">8.86</td>
 <td headers="max_swabs" class="gt_row gt_right">6.55</td></tr>
@@ -755,7 +754,7 @@ html {
 </div>
 </div>
 </div>
-<p>To estimate the effective reproduction number between each of the data sources, the case rate per 100,000 was transformed using a natural logarithm and plotted against epidemiological week. The log plot resulted in a straight line during the initial exponential growth period and a tail after the peak of infections, as was expected from theory. The plots were evaluated to find which weeks to fit a linear model to. Using the linear model function in R, a line was overlaid on the log plots and coefficients of gradients for each of the lines were extracted. Using <span class="math inline">\(R = 1 + \frac{r}{b}\)</span>, as detailed above, the <span class="math inline">\(R_{eff}\)</span> was calculated.</p>
+<p>To further investgate the temporal relationships between the data sources, effective reproduction numbers <span class="math inline">\(R_\text{eff}\)</span> were calculated to evaluate the difference in the rate of spread between data sources. The case rate per 100,000 was transformed using a natural logarithm and plotted against epidemiological week. The log plot resulted in a straight line during the initial exponential growth period and a tail after the peak of infections, as was expected from theory. The plots were evaluated to find which weeks to fit a linear model to. Using the linear model function in R, a line was overlaid on the log plots and coefficients of gradients for each of the lines were extracted. Using <span class="math inline">\(R = 1 + \frac{r}{b}\)</span>, as detailed above, the <span class="math inline">\(R_{eff}\)</span> was calculated.</p>
 <p>The estimated <span class="math inline">\(R_{eff}\)</span> for each year and data source is detailed below. As expected at the beginning of a flu season, the R numbers are all above 1. It is noted that a higher reproduction number calculated for the data from hospitalisations than from GP consultations.</p>
 <div class="cell">
 
@@ -921,24 +920,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
     setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -974,42 +956,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
       });
-    }
+      return popup.innerHTML;
+    });
   }
 });
 </script>
