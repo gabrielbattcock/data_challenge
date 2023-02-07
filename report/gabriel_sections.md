@@ -1,3 +1,25 @@
+## Abstract
+
+
+
+Influenza is a group of viruses that circulates seasonally throughout the world. Severe cases might require hospitalisation and can progress to death. This is a particular concern for at-risk groups, which include children \\\<2 years of age; pregnant women; the elderly \\\>65yo; and patients with comorbidities. The UK's influenza surveillance system is multi-faceted with the main influenza reporting sources being GP consultations of Influenza like Illness, hopsitalisations and through a national swabbing report. Throughout this report, we investigate whether there is a temporal relationship between these data sources. By plotting and using stastical analysis on the data
+
+
+We hypothesise that there exists a temporal relationship between sources of surveillance. Statistical tools can then be applied to predict the timing and scale of a 'later' data source using an 'earlier' source. Additionally, different age groups can manifest at different time and scale, and one might be predictive of another. Additionally, we suspect changes in reporting procedures of respiratory infections post-covid may cause differences with pre-pandemic data
+
+#### Data Processing
+
+The data used in this project is publicly available on various governmental websites. Primary care data is published weekly by the RCGP Research and Surveillance Centre in the communicable and respiratory disease reports. Laboratory confirmed cases are reported weekly by UKHSA. Secondary care data is extracted from the UKHSA Severe Acute Respiratory Infection Watch (SARI Watch) system, updated weekly during the influenza season (week 40 - week 20 next year). Mortality data is reported weekly by the ONS. All cleaning and processing are done using the R language.
+
+#### Analysis
+
+At first glimpse, the peak for each data source does not differ much from each other in a given year.
+
+Cross-correlation between two data sources can be measured using Spearman's \$ρ\$, a non-parametric test of correlation. To ascertain the pairwise time lag (if any), Spearman's test is run repeatedly with a gradually increasing lag. The lag value associated with the best \$ρ\$ is reported as the lag between given sources for a given year.
+
+
+\*\--page break\--\*
+
 ## Methods of analysis
 
 ### $R_\text{eff}$ation
