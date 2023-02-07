@@ -356,6 +356,12 @@ The hypothesis to the main research question was that we expected there to be a 
 
 With regards to the secondary research questions and hypotheses, the data gives more insight. When RP consultations are stratified by age group, there is a clear lag between the 65+ years and the remaining age groups in all years other than the season 2017-18. However, the one season where \\\<15 years lag behind the other age groups can be explained due the peak of infections happening over the holiday period when schools are closed. When schools are closed, younger people have fewer social contacts and are therefore less likely to spread influenza. A delayed peak occurring after the return to school, as shown in the plots, is to be expected. Referring back to the seasons 2018-19, 2019-20 and 2022-23, the lag of the age group 65+ is also to be expected. For a similar reasoning, 65+ age group will tend to have fewer social interactions than children, so will have a slower spread of influenza. Therefore, knowing that cases are rising among \<15 years can help predict a peak in the 65+ age group, who also would tend to be more severely affected by influenza
 
+It has been reported in the past that different strains of influenza may have a different distribution between different age groups [@Age2015]. It could be useful in the future to have cases reported by both strain and age group so that any differences can be studied. This may also contribute to a temporal difference and could help prepare for rise in cases as some strains have a higher hospitalisation rate than others.
+
+#### Take home/conclusion
+
+Influenza is a very difficult disease to study and predict due to reasons include the different strains, antigenic shift and the unknown level of immunity in a given season. While data for previous seasons can be studied, the complex nature and changes from season to season mean it is difficult to give a firm prediction of what could happen in the future. While the data shows that there no noticeable lag in peaks between any of the data sources, there is a lag in GP cases among different age groups. There is also a noticeable difference also in the rate of spread reported between GP cases and hopsitalisation cases.
+
 #### Granularity of Data
 
 ## Appendix A - Team Statement
@@ -367,6 +373,8 @@ I hereby declare and confirm with my signature that this report, along with the 
 Team Member: GB, AC, SJ, HL
 
 ## **Appendix B - Variables and Data Sources**
+
+All data sources and scripts can be found in our shared github : <https://github.com/gabrielbattcock/data_challenge>.
 
 ## Appendix C - Summary of Missing Data
 
