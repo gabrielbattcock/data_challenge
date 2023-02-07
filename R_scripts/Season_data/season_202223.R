@@ -42,7 +42,7 @@ plot_202223 <- ggplot(season_202223) +
   guides(color = guide_legend("Data source")) +
   ylab("Influenza cases (cases per 100,000)") +
   # xlim(-12, 20)+
-  ggtitle("UK influenza cases 2022-23 \n per different data sources") +
+  ggtitle("2022-23") +
   scale_x_continuous(breaks = seq(0, 34, 2), 
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
@@ -61,4 +61,6 @@ plot_202223
 # hospital_norm <- hospital/mean(hospital), rm.na = T)
 
 
-
+combined_seasonal_plot <- ggarrange(plot_201718,plot_201819,plot_201920,plot_202223,
+                                    ncol = 2, nrow = 2,
+                                    common.legend = TRUE, legend="bottom")

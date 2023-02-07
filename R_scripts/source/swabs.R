@@ -9,9 +9,7 @@
 plotA <-  ggplot(typeA, aes(id, value)) +
   geom_line(lwd = 1.5, aes(colour = series)) +
   labs(x="Week", y="Number of cases",
-       title="UK influenza cases per year",
-       subtitle = "(Swabs for type A)",
-       caption="As collected by the PHE lab reports") +
+       title="Type A")+
   theme_ipsum() +
   scale_x_continuous(breaks = seq(0, 34, 2), 
                      minor_breaks = seq(0, 34, 1),
@@ -26,7 +24,7 @@ plotA <-  ggplot(typeA, aes(id, value)) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4)) +
+  scale_color_manual('Season', values = palette_flu) +
   theme(plot.margin = margin(t = 5,
                              r = 3,  
                              b = 5, 
@@ -37,8 +35,7 @@ plotA <-  ggplot(typeA, aes(id, value)) +
 plotB <- ggplot(typeB, aes(id, value)) +
   geom_line(lwd = 1.5, aes(colour = series)) +
   labs(x="Week", y="Number of cases",
-       title="UK influenza cases per year",
-       subtitle = "(Swabs for type B)",
+       title="Type B",
        caption="As collected by the PHE lab reports") +
   theme_ipsum() +
   scale_x_continuous(breaks = seq(0, 34, 2), 
@@ -54,15 +51,19 @@ plotB <- ggplot(typeB, aes(id, value)) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
                                     size = 0.1)) +
-  scale_color_manual('Season', values= wes_palette("Moonrise1", n = 4)) +
+  scale_color_manual('Season', values = palette_flu) +
   theme(plot.margin = margin(t = 5,
                        r = 3,  
                        b = 5, 
                        l = 3))
 
-combined_plot <- ggarrange(plotA, plotB, 
-                           ncol = 1, nrow = 2)
 
-combined_plot
 
+
+
+# combined_plot <- ggarrange(plotA, plotB, 
+#                            ncol = 1, nrow = 2)
+# 
+# combined_plot
+# 
 
