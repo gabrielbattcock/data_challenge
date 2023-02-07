@@ -268,7 +268,7 @@ The estimated $R_{eff}$ for each year and data source is detailed below. As expe
 
 ```{r echo=FALSE}
 # source("../R_scripts/Season_data/log_graphs.R")
-# effective_r_values
+effective_r_values
 ```
 
 ### Stratifying by age group
