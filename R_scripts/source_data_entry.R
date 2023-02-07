@@ -120,18 +120,18 @@ swab_season22_23$id <- 1:nrow(swab_season22_23)
 
 ## create 2 df for flu type A and B ----
 typeA1 <- tibble(id = swab_season17_18$id,
-                 '17-18' = swab_season17_18$flu_A,
-                 '18-19' = swab_season18_19$flu_A,
-                 '19-20' = swab_season19_20$flu_A,
-                 '22-23' = swab_season22_23$flu_A)
+                 '2017-18' = swab_season17_18$flu_A,
+                 '2018-19' = swab_season18_19$flu_A,
+                 '2019-20' = swab_season19_20$flu_A,
+                 '2022-23' = swab_season22_23$flu_A)
 
 typeA <- melt(typeA1, id.vars = 'id', variable.name = 'series')
 
 typeB1 <- tibble(id = swab_season17_18$id,
-                 '17-18' = swab_season17_18$flu_B,
-                 '18-19' = swab_season18_19$flu_B,
-                 '19-20' = swab_season19_20$flu_B,
-                 '22-23' = swab_season22_23$flu_B)
+                 '2017-18' = swab_season17_18$flu_B,
+                 '2018-19' = swab_season18_19$flu_B,
+                 '2019-20' = swab_season19_20$flu_B,
+                 '2022-23' = swab_season22_23$flu_B)
 
 typeB <- melt(typeB1, id.vars = 'id', variable.name = 'series')
 

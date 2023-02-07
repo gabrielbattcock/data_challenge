@@ -23,11 +23,10 @@ hosp_seasons_melted <- melt(hosp_vis,  id.vars = 'week', variable.name = 'series
   
 #Szymon's plot
 hospital_plot <- ggplot(hosp_seasons_melted, aes(week, value) ) +
-  geom_line(lwd = 1.5, aes(colour = series)) +
-  labs(x="Week", y="Influenza cases UK (cases per 100,000)",
-       title="UK influenza cases by year", 
-       subtitle = "(Hospitalisation)",
-       caption="As reported by UKHSA/PHE") +
+  geom_line(lwd = 1.5, aes(colour = series), alpha = 0.8) +
+  labs(x="Week", y="Rate of hospitalisations (cases per 100,000)",
+        title = "Hospitalisations per 100,000",
+        caption="As reported by UKHSA/PHE") +
   theme_ipsum() +
   scale_x_continuous(breaks = seq(0, 34, 2), 
                      minor_breaks = seq(0, 34, 1),
@@ -45,7 +44,7 @@ hospital_plot <- ggplot(hosp_seasons_melted, aes(week, value) ) +
   geom_ribbon(aes(ymin=2.65,ymax=7.87,fill='#CE8282'), alpha=0.25)+
   geom_ribbon(aes(ymin=7.87,ymax=12.73,fill="#F7B27E"),alpha=0.25)+
   geom_ribbon(aes(ymin=12.73,ymax=16,fill="#FEFF67"), alpha=0.25)+
-  scale_color_manual('Season', values= palette_flu) +
+  scale_color_manual('Season', values = palette_flu) +
   coord_cartesian(ylim = c(-0.5, 16), expand = F) +
   scale_y_continuous(breaks = seq(0, 15, 5),
                      minor_breaks = seq(0, 15, 2.5)) +
@@ -53,11 +52,7 @@ hospital_plot <- ggplot(hosp_seasons_melted, aes(week, value) ) +
                             "#CE8282",'#A55E5E' ), name="The MEM threshold",
                     labels = c("Baseline threshold", "Low", "Moderate", 
                                "High", "Very high"),
-                    guide = guide_legend(reverse = T))
-
-
-
-
+                    guide = guide_legend(reverse = F, order = 2))
 
 hospital_plot
 

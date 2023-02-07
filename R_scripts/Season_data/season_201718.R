@@ -34,7 +34,7 @@ plot_201718 <- ggplot(season_201718) +
   guides(color = guide_legend("Data source")) +
   ylab("Influenza rate (per 100,000)") +
   # xlim(-12, 20)+
-  ggtitle("UK influenza cases 2017-18 \n for each data source") +
+  ggtitle("2017-18") +
   scale_x_continuous(breaks = seq(0, 34, 2), 
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
