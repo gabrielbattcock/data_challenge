@@ -50,7 +50,7 @@ age1718 <- age1718 %>% select(Week,
 ## 2017-18
 plot_age1718 <- ggplot(age1718, aes(Week, value)) +
   theme_ipsum() +
-  geom_line(lwd = 1.5 , alpha = 0.6, aes(color = series)) +
+  geom_line(lwd = 1.5 , alpha = 0.9, aes(color = series)) +
   ylab("Influenza rate (per 100,000) ") +
   # xlim(33+52*3, 33+52*4)+
   ggtitle("UK influenza cases 2017-18 \n per age group") +
@@ -73,7 +73,7 @@ plot_age1718 <- ggplot(age1718, aes(Week, value)) +
 ## 2018-19
 plot_age1819 <- ggplot(age1819, aes(Week, value)) +
   theme_ipsum() +
-  geom_line(lwd = 1.5 , alpha = 0.6, aes(color = series)) +
+  geom_line(lwd = 1.5 , alpha = 0.9, aes(color = series)) +
   ylab("Influenza rate (per 100,000) ") +
   # xlim(33+52*3, 33+52*4)+
   ggtitle("UK influenza cases 2018-19 \n per age group") +
@@ -94,7 +94,7 @@ plot_age1819 <- ggplot(age1819, aes(Week, value)) +
 
 plot_age1920 <- ggplot(age1920, aes(Week, value)) +
   theme_ipsum() +
-  geom_line(lwd = 1.5 , alpha = 0.6, aes(color = series)) +
+  geom_line(lwd = 1.5 , alpha = 0.9, aes(color = series)) +
   ylab("Influenza rate (per 100,000) ") +
   # xlim(33+52*3, 33+52*4)+
   ggtitle("UK influenza cases 2019-20 \n per age group") +
@@ -116,7 +116,7 @@ plot_age1920 <- ggplot(age1920, aes(Week, value)) +
 ## 2022-23
 plot_age2223 <- ggplot(age2223, aes(Week, value)) +
   theme_ipsum() +
-  geom_line(lwd = 1.5 , alpha = 0.6, aes(color = series)) +
+  geom_line(lwd = 1.5 , alpha = 0.9, aes(color = series)) +
   ylab("Influenza rate (per 100,000) ") +
   # xlim(1, 12)+
   ggtitle("UK influenza cases 2022-23 \n per age group") +

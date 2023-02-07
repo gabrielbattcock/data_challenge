@@ -1,3 +1,25 @@
+## Abstract
+
+
+
+Influenza is a group of viruses that circulates seasonally throughout the world. Severe cases might require hospitalisation and can progress to death. This is a particular concern for at-risk groups, which include children \\\<2 years of age; pregnant women; the elderly \\\>65yo; and patients with comorbidities. The UK's influenza surveillance system is multi-faceted with the main influenza reporting sources being GP consultations of Influenza like Illness, hopsitalisations and through a national swabbing report. Throughout this report, we investigate whether there is a temporal relationship between these data sources. By plotting and using stastical analysis on the data
+
+
+We hypothesise that there exists a temporal relationship between sources of surveillance. Statistical tools can then be applied to predict the timing and scale of a 'later' data source using an 'earlier' source. Additionally, different age groups can manifest at different time and scale, and one might be predictive of another. Additionally, we suspect changes in reporting procedures of respiratory infections post-covid may cause differences with pre-pandemic data
+
+#### Data Processing
+
+The data used in this project is publicly available on various governmental websites. Primary care data is published weekly by the RCGP Research and Surveillance Centre in the communicable and respiratory disease reports. Laboratory confirmed cases are reported weekly by UKHSA. Secondary care data is extracted from the UKHSA Severe Acute Respiratory Infection Watch (SARI Watch) system, updated weekly during the influenza season (week 40 - week 20 next year). Mortality data is reported weekly by the ONS. All cleaning and processing are done using the R language.
+
+#### Analysis
+
+At first glimpse, the peak for each data source does not differ much from each other in a given year.
+
+Cross-correlation between two data sources can be measured using Spearman's \$ρ\$, a non-parametric test of correlation. To ascertain the pairwise time lag (if any), Spearman's test is run repeatedly with a gradually increasing lag. The lag value associated with the best \$ρ\$ is reported as the lag between given sources for a given year.
+
+
+\*\--page break\--\*
+
 ## Methods of analysis
 
 ### $R_\text{eff}$ation
@@ -60,10 +82,24 @@ The hypothesis to the main research question was that we expected there to be a 
 
 With regards to the secondary research questions and hypotheses, the data gives more insight. When RP consultations are stratified by age group, there is a clear lag between the 65+ years and the remaining age groups in all years other than the season 2017-18. However, the one season where \<15 years lag behind the other age groups can be explained due the peak of infections happening over the holiday period when schools are closed. When schools are closed, younger people have fewer social contacts and are therefore less likely to spread influenza. A delayed peak occurring after the return to school, as shown in the plots, is to be expected. Referring back to the seasons 2018-19, 2019-20 and 2022-23, the lag of the age group 65+ is also to be expected. For a similar reasoning, 65+ age group will tend to have fewer social interactions than children, so will have a slower spread of influenza. Therefore, knowing that cases are rising among \<15 years can help predict a peak in the 65+ age group, who also would tend to be more severely affected by influenza.
 
-The data presented in this report should help the UKHSA
+The data presented in this report should help the UKHSA plan for oncoming influenza peaks. While we cannot say that looking at GP data will help show an oncoming peak in hospitalisations, looking at stratified age group data may help predict a peak in older age groups.
+
+Future work
 
 It has been reported in the past that different strains of influenza may have a different distribution between different age groups [@Age2015]. It could be useful in the future to have cases reported by both strain and age group so that any differences can be studied. This may also contribute to a temporal difference and could help prepare for rise in cases as some strains have a higher hospitalisation rate than others.
+
+As COVID-19 becomes endemic within the population, it will be important for the UKHSA to know the temporal relationship between both diseases. COVID combined with influenza has potential to cause many hospistalisations. Therefore, studying a temporal relationship of influenza and COVID-19 for each data source could help preparedness.
+
+Due to the UKHSA being a UK based agency, the data used within this report is from England. Influenza circulates around the world and is tracked by many governmental bodies. While acknowledging the different structure of the UK health system (with primary care referrals), it may also be worth studying temporal differences between influenza data sources in other countries.
 
 #### take home/conclusion
 
 Influenza is a very difficult disease to study and predict due to reasons include the different strains, antigenic shift and the unknown level of immunity in a given season. While data for previous seasons can be studied, the complex nature and changes from season to season mean it is difficult to give a firm prediction of what could happen in the future. While the data shows that there no noticeable lag in peaks between any of the data sources, there is a lag in GP cases among different age groups. There is also a noticeable difference also in the rate of spread reported between GP cases and hopsitalisation cases.
+
+\-\-\-\-\-\--
+
+From analysis of the plots for each season stratified by the source of data, there is no apparent temporal difference in the peaks for rate of influenza cases. Although our sample size of four season is small, this appears to suggest that there is no temporal relation between different influenza data sources. While we see no visible lag between peaks in the population as a whole, the data was probed further to try to discover any other temporal relationship.
+interpretation of the corr
+The reproduction number has been estimated for each of the seasons and each of the data sources. Through the
+
+use of a linear model, the gradient has been extracted to then be used to calculate the effective \$R\$ number. From the results calculated, it is clear that the estimate is larger for both hospitalisation data and swab data than for the GP data. The calculation here is a simplistic approximation for the reproduction number but does show that the spread of cases is slower for GP consultations which is more indicative of the general population as not everyone who goes to a GP for flu symptoms will be referred to hospital. This also gives some evidence towards a temporal relationship between GP consultations and hospitalisations, as knowing when there is a rise in the cases in GPs infers that there will be a large rise in hospitalisation following. As the calculation is not a complex model to estimate the reproduction number for influenza but does give a good estimate to be used in the report. Estimating the reproduction number for a virus such as influenza can be difficult due as it is uncertain the level of immunity among the population. While it may help throughout the report to have more granularity of data, it may not give a better estimate of the reproduction number. The results have assisted in showing a temporal relationship between GP cases and hospitalisations.
