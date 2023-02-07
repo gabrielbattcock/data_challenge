@@ -259,16 +259,13 @@ log_hosp_plot2223
 
 To further investgate the temporal relationships between the data sources, effective reproduction numbers $R$ were  calculated to evaluate the difference in the rate of spread between data sources. The case rate per 100,000 was transformed using a natural logarithm and plotted against epidemiological week. The log plot resulted in a straight line during the initial exponential growth period and a tail after the peak of infections, as was expected from theory. The plots were evaluated to find which weeks to fit a linear model to. Using the linear model function in R, a line was overlaid on the log plots and coefficients of gradients for each of the lines were extracted. Using $R = 1 + \frac{r}{b}$, as detailed above, the $R$ was calculated.
 
-<<<<<<< HEAD
 The estimated $R$ for each year and data source is detailed below. As expected at the beginning of a flu season, the R numbers are all above 1. It is noted that a higher reproduction number calculated for the data from hospitalisations than from GP consultations.
-=======
-The estimated $R_{eff}$ for each year and data source is detailed below. As expected at the beginning of a influenza season, the R numbers are all above 1. It is noted that a higher reproduction number calculated for the data from hospitalisations than from GP consultations.
->>>>>>> 550840ae9b06fc5ff26ba01e201a053cc2316f45
+
 
 
 ```{r echo=FALSE}
 # source("../R_scripts/Season_data/log_graphs.R")
-# effective_r_values
+effective_r_values
 ```
 
 ### Stratifying by age group
