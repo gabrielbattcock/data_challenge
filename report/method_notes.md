@@ -1,6 +1,6 @@
 ## Methods of analysis
 
-### $$R_{eff} $$ation
+### $R_\text{eff}$ation
 
 To further investgate the temporal relationships between the data sources, an effective reproduction number has been calculated. This can be inferred from the observed exponential growth rate seen at the beginning of a flu epidemic. The observed reproduction number $R$ can be found through the linear equation:
 
@@ -45,3 +45,15 @@ For the season 2018-19 there appears to be a minor peak followed by a larger pea
 The season 2019-20 shows multiple peaks with the expected dip over the holiday period (between weeks 51-1). As with the 2018-19 season, the 65+ age group lag behind the other age groups, with the largest peak for this age group two weeks after all other ages. There is also an evident spike at week 12 for this year. As this data is recording "Influenza *like* illness", it can be assumed that this peak is due to the COVID-19 pandemic.
 
 The current flu season also shows a lag in growth among the 65+ group. The data however does not go up show where the peaks are, so we do not know the full picture. It is also shown that the under 15 years have a lower gradient after week 51 around the winter holidays begin.
+
+## Discussion 
+
+### $R_0$ and log graphs 
+
+The reproduction number has been estimated for each of the seasons and each of the data sources. Through the use of a linear model, the gradient has been extracted to then be used to calculate the effective $R$ number. From the results calculated, it is clear that the estimate is larger for both hospitalisation data and swab data than for the GP data.
+
+The calculation here is a simplistic approximation for the reproduction number but does show that the spread of cases is slower for GP consultations which is more indicative of the general population as not everyone who goes to a GP for flu symptoms will be referred to hospital. This also gives some evidence towards a temporal relationship between GP consultations and hospitalisations, as knowing when there is a rise in the cases in GPs infers that there will be a large rise in hospitalisation following.
+
+As mentioned above, this calculation is not a complex model to estimate the reproduction number for influenza but does give a good estimate to be used in the report. Estimating the reproduction number for a virus such as influenza can be difficult due as it is uncertain the level of immunity among the population.
+
+While it may help throughout the report to have more granularity of data, it may not give a better estimate of the reproduction number. The results have assisted in showing a temporal relationship between GP cases and hospitalisations.

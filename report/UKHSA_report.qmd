@@ -261,9 +261,9 @@ log_hosp_plot2223
 :::
 :::
 
-To further investgate the temporal relationships between the data sources, effective reproduction numbers $R_\text{eff}$ were  calculated to evaluate the difference in the rate of spread between data sources. The case rate per 100,000 was transformed using a natural logarithm and plotted against epidemiological week. The log plot resulted in a straight line during the initial exponential growth period and a tail after the peak of infections, as was expected from theory. The plots were evaluated to find which weeks to fit a linear model to. Using the linear model function in R, a line was overlaid on the log plots and coefficients of gradients for each of the lines were extracted. Using $R = 1 + \frac{r}{b}$, as detailed above, the $R_{eff}$ was calculated.
+To further investgate the temporal relationships between the data sources, effective reproduction numbers $R$ were  calculated to evaluate the difference in the rate of spread between data sources. The case rate per 100,000 was transformed using a natural logarithm and plotted against epidemiological week. The log plot resulted in a straight line during the initial exponential growth period and a tail after the peak of infections, as was expected from theory. The plots were evaluated to find which weeks to fit a linear model to. Using the linear model function in R, a line was overlaid on the log plots and coefficients of gradients for each of the lines were extracted. Using $R = 1 + \frac{r}{b}$, as detailed above, the $R$ was calculated.
 
-The estimated $R_{eff}$ for each year and data source is detailed below. As expected at the beginning of a flu season, the R numbers are all above 1. It is noted that a higher reproduction number calculated for the data from hospitalisations than from GP consultations.
+The estimated $R$ for each year and data source is detailed below. As expected at the beginning of a flu season, the R numbers are all above 1. It is noted that a higher reproduction number calculated for the data from hospitalisations than from GP consultations.
 
 
 ```{r echo=FALSE}
@@ -352,6 +352,16 @@ During the season 2019 - 2020, cases of A H1N1, unknown type A and type B caused
 Post-pandemic season 2022 - 2023 is represented by figure D. We can observe that both type B flu and the A H1N1 subtype represented only a fraction of all incidence, reaching approximately 50 cases each during 52nd week. The most dominant strain of the season was unknown type A flu, which was on the rise since the first week of the season. During 50th week cases started soaring until incidence of the type A flu reached its peak of almost 2300 new cases in week 52 of 2022. Second most dominant strain of the season - A H3 presented slower rise, starting in week 46 and peaking at 1250 new cases at the same time as type A - week 52. Data in the graph only represents incidence until week 5 of the year 2023 and that's when we can observe a decline in all of the cases.
 
 ## Discussion
+
+### Log graphs and $R_0$ value
+
+The reproduction number has been estimated for each of the seasons and each of the data sources. Through the use of a linear model, the gradient has been extracted to then be used to calculate the effective $R$ number. From the results calculated, it is clear that the estimate is larger for both hospitalisation data and swab data than for the GP data. 
+
+The calculation here is a simplistic approximation for the reproduction number but does show that the spread of cases is slower for GP consultations which is more indicative of the general population as not everyone who goes to a GP for flu symptoms will be referred to hospital. This also gives some evidence towards a temporal relationship between GP consultations and hospitalisations, as knowing when there is a rise in the cases in GPs infers that there will be a large rise in hospitalisation following. 
+
+As mentioned above, this calculation is not a complex model to estimate the reproduction number for influenza but does give a good estimate to be used in the report. Estimating the reproduction number for a virus such as influenza can be difficult due as it is uncertain the level of immunity among the population. 
+
+While it may help throughout the report to have more granularity of data, it may not give a better estimate of the reproduction number. The results have assisted in showing a temporal relationship between GP cases and hospitalisations. 
 
 #### Granularity of Data
 
