@@ -61,9 +61,9 @@ plotB <- ggplot(typeB, aes(id, value)) +
 
 
 
-# combined_plot <- ggarrange(plotA, plotB, 
-#                            ncol = 1, nrow = 2)
-# 
-# combined_plot
-# 
+combined_plot <- ggarrange(plotA, plotB,
+                           ncol = 1, nrow = 2)
+
+combined_plot
+
 

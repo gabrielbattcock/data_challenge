@@ -56,7 +56,7 @@ The virus (family *Orthomyxoviridae*) has multiple species, with type A and type
 
 After an incubation period, usually 1\~3 days, the progression of the disease is self-limiting and symptoms might last 2\~7 days \[cite::green book\]. Serious progression of the virus may lead to deaths in at-risk groups such as children (\<2 y.o.), pregnant women, the elderly (\>65 y.o.) and people with underlying medical conditions [@zarocostas2009]. In a UK context, seasonal influenza circulation burdens the NHS in terms of availability of hospital beds and GP services [@cope2018]. Having more data to help plan for seasonal peaks can help alleviate pressure on vital services.
 
-![An infographic summarising the key points addressed in this report.](images/fig-intro.png){width="100%"}
+![An infographic summarising the key points addressed in this report.](images/fig-intro.png){width="92%"}
 
 ### Who is the UKHSA and why are they interested
 
@@ -78,11 +78,13 @@ We defined our main research question to address the issues described above.
 
 ### Data sources and extraction
 
-![The data being used comes from various places and has been sourced through difference resources.](images/fig-data-source.png){width="100%"}
+
 
 Three main sources of influenza case data have been extracted from various places. Firstly, primary care data was reported by the Royal College of General Practitioners (RCGP) Research and Surveillance Centre communicable and respiratory disease reports. Cases of Influenza Like Illnesses (ILI) that present in participating GP practices are collected and reported for England and Wales [@RCGP].
 
-Secondary care data was extracted from the UKHSA Severe Acute Respiratory Infection Watch system.
+Secondary care data was extracted from the UKHSA Severe Acute Respiratory Infection (SARI) Watch system from 2022 onwards and from the UK Severe Influenza Surveillance Schemes (USISS) prior. Swabbing data has been extracted from Public Health England reports on respiratory infections. 
+
+![The data being used comes from various places and has been sourced through difference resources.](images/fig-data-source.png){width="100%"}
 
 Mortality data is extracted from the UK Office for National Statistics (ONS) weekly bulletin of death registrations (England and Wales). The variable of interest is `Deaths due to influenza and pneumonia (ICD J09-J18)`, and from 2020 onwards, `Deaths involving to influenza and pneumonia (ICD J09-J18)`. These are defined by the occurrence of said phrase on either the first cause of death, or anywhere in the `cause of death` field.
 
