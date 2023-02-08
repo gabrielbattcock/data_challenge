@@ -581,59 +581,60 @@ strains22_23_swabs_plot
 :::
 :::
 
-These figures plot total recorded influenza cases by week in the season
+Figure x1 plots total recorded influenza cases by week in the season
 (defined as the 40th week of the previous year to the 20th week of the
-subsequent), separated by strain as recorded by Datamart scheme
-[@Datamart]. 2017-18 shows a type B influenza dominant season. The
-earliest rise in cases was observed in the A H3 subtype, whilst the
+subsequent), separated by the strain as recorded by the Datamart scheme.
+The 2017-18 season was dominated by type B influenza. The earliest rise
+in cases was observed in A (H3), starting around week 46, whilst the
 other strains present a delay of approximately one week. Moving forward
-, week 49 brings increase in growth of the number of cases for type B
-and A H3 subtype. This was the key significant period for both the A H3
-subtype and B type, which went on to reach their peaks in week 2 and 3
-respectively. Peak number of cases for the A H3 subtype and reached
-almost 350 cases and more than 600 cases for type B. Immediately after
-its peak, cases of type B influenza started decreasing gradually, with
-occasional increases in week 8, reaching 400 cases and in week 11
-reaching approximately 250 cases. A similar trend was observed in the
-incidence of the A H3 subtype influenza which decreased in week 6 to 200
-cases and fluctuated between 250-170 for the next six weeks. An
-important point is that the H1N1 type A starts to plateau around week 2
-of 2018, reaching a point of approximately 50 cases daily, a threshold
-that was never surpassed again throughout the season. The unknown A type
-reaches its peak of 150 cases in week 6 to later fluctuate between
-50-100 cases until week 15, when it gradually started to drop.
+in the season, week 49 brings an increase in the growth of number of
+cases for type B and A (H3). This was the key significant period for
+both A (H3) and B type, which went on to reach their peaks in weeks 2
+and 3 respectively. The peak number of cases for A (H3) and type B
+reached almost 350 and more than 600 cases respectively. Immediately
+after its peak, cases of type B influenza started gradually decreasing,
+with occasional spikes in weeks 8 and 11, reaching 400 and approximately
+250 cases respectively.
 
-For the season 2018 -19 the available data was strafed only by two
-types - A (unknown subtype) and B. During this season incidence of type
-B influenza reached a maximum of 11 cases in 45th week and did not pass
-the threshold of 10 after. Growth in incidence of type A influenza
-started at week 44 and continued, with a steeper rise starting in week
-51 when over 300 new cases were recorded. This strain has dominated the
-season soaring at nearly 800 cases in week 3. After a slight dip during
-the next week, incidence of the unknown type A influenza peaked during
-week 7 with almost 1250 of new cases. It started plummeting until week
-10 and gradually decreased until the end of the season.
+A similar trend was observed in the incidence of A (H3) which decreased
+in week 6 to 200 cases and fluctuated between 170-250 for the next six
+weeks. A (H1N1) starts to plateau around week 2 of 2018, reaching a
+point of approximately 50 cases daily. This threshold was not surpassed
+for the remainder of the season. The unknown A type reached its peak of
+150 cases in week 6. It later fluctuated between 50-100 cases until week
+15 when it gradually started to drop.
 
-Cases of A H1N1, unknown type A and type B caused only minor burden in
-season 2019-20 in comparison to the A H3 subtype. All of the analysed
-strains apart from A H3 seem to be fluctuating around 10-30 cases
-between week 43 of 2019 and week 9 of 2020. Incidence of A H3 started to
-rise during the week 43 of the season and peaked in week 52. After its
-peak it has dropped rapidly to eventually level off during week 5 and
-fluctuate around the same incidence.
+Figure x2 presents observed data for the 2018-19 season. The data for
+this season only recorded two types of influenza: A (unknown) and B
+(unknown). Incidence of type B reached a maximum of 11 cases in the 45th
+week and did not pass the threshold of 10 cases thereafter. Growth in
+the incidence of A (unknown) started at week 44 and continued, with a
+steeper rise starting in week 51 when over 300 new cases were recorded.
+This strain dominated the season soaring at nearly 800 cases in week 3.
+After a slight dip during the next week, the incidence of the A
+(unknown) peaked during week 7 with almost 1250 new cases. It started
+plummeting until week 10 and gradually decreased until the end of the
+season.
 
-In the only season after the COVID-19 pandemic, season 2022 - 2023, we
-can observe that both type B influenza and the A H1N1 subtype
-represented only a fraction of all incidence, reaching approximately 50
-cases each during 52nd week. The most dominant strain of the season was
-unknown type A influenza, which was on the rise since the first week of
-the season. During 50th week cases started soaring until incidence of
-the type A influenza reached its peak of almost 2300 new cases in week
-52 of 2022. Second most dominant strain of the season - A H3 presented
-slower rise, starting in week 46 and peaking at 1250 new cases at the
-same time as type A - week 52. Data in the graph only represents
-incidence until week 5 of the year 2023 and that's when we can observe a
-decline in all of the cases.
+During the 2019-20, cases of A (H1N1), A (unknown) and B (unknown)
+caused only a minor burden in comparison to A (H3) as seen in figure x3.
+All of the analysed strains apart from A (H3) fluctuate around 10-30
+cases between weeks 43 of 2019 and 9 of 2020. The incidence of A (H3)
+started to rise during week 43 of the season and peaked in week 52.
+After its peak, it dropped rapidly to eventually level off during week 5
+and fluctuated around the same incidence.
+
+Figure x4 represents the post pandemic season of 2022-23. We can observe
+that both type B and A (H1N1) represented only a fraction of all
+incidence, reaching approximately 50 cases each during the 52nd week.
+The most dominant strain was A (unknown), which was on the rise since
+the first week of the season. During the 50th week, cases started
+soaring until the incidence of the type of influenza reached its peak of
+almost 2300 new cases in week 52 of 2022. A (H3) was the second most
+dominant strain. It presented a slower rise, starting in week 46 and
+peaking at 1250 new cases. Type A (unknown) also peaked at week 52. Data
+in the graph only represents incidence until week 5 of the year 2023 and
+that is when we can observe a decline in all of the cases.
 
 ## Discussion
 
@@ -706,10 +707,10 @@ on the contrary was not prevalent in northern Europe, which has seen the
 activity of the unknown type A as well unknown type B influenzas. Peak
 of the season was delayed in comparison to the A/H1N1 and cumulative
 peak for northern Europe. Worth noting is that it has lined up with the
-peak for the A/H3 and type B influenza for the same region. Incidence of
-A/H3 and type B influenza in UK was delayed compared to the A/H1N1,
-however general incidence of A/H3 and B was minimal throughout the whole
-season.
+peak for the A (H3) and type B influenza for the same region. Incidence
+of A (H3) and type B influenza in UK was delayed compared to the A/H1N1,
+however general incidence of A/(H3) and B was minimal throughout the
+whole season.
 
 2022-23
 
