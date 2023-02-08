@@ -10,6 +10,7 @@
 path_swabs <- here("allData","swab","swabs_strains_2017_2019.csv")
 
 strains17_19_swabs <- path_swabs %>% read_csv()
+palette_flu <- c("#00425A", "#1F8A70", "#BFDB38", "#FC7300")
 
 # Data cleaning
 
