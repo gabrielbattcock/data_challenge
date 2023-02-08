@@ -10,7 +10,7 @@ gp_cases <- ggplot(primary_care_melted, aes(x = id, y = value) ) +
 
   geom_line(lwd = 1.5, aes(colour = `series`), alpha = 0.8) +
   labs(x="Week", y="Rate of consultations (cases per 100,000)",
-        title="GP consultations per 100,000",
+        title="Primary care",
        caption="As collected by the RCGP in England") +
   theme_ipsum() +
   scale_x_continuous(breaks = seq(0, 34, 2), 

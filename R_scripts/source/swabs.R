@@ -7,7 +7,7 @@
 
 # Create initial plots
 plotA <-  ggplot(typeA, aes(id, value)) +
-  geom_line(lwd = 1.5, aes(colour = series)) +
+  geom_line(lwd = 1.5, aes(colour = series), alpha = 0.7) +
   labs(x="Week", y="Number of cases",
        title="Type A")+
   theme_ipsum() +
@@ -33,7 +33,7 @@ plotA <-  ggplot(typeA, aes(id, value)) +
 
 
 plotB <- ggplot(typeB, aes(id, value)) +
-  geom_line(lwd = 1.5, aes(colour = series)) +
+  geom_line(lwd = 1.5, aes(colour = series), alpha =0.7) +
   labs(x="Week", y="Number of cases",
        title="Type B",
        caption="As collected by the PHE lab reports") +
