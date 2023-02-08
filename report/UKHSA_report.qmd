@@ -786,6 +786,13 @@ Unexpected findings What things have come up that we did not expect?
 Counter intuitive patterns? Maybe an unexpected season in terms of
 strain dominance? Lack of delay between the sources?
 
+#### Granularity of Data (as a limitation)
+
+While it may help throughout the report to have more granularity of
+data, it may not give a better estimate of the reproduction number. The
+results have assisted in showing a temporal relationship between GP
+cases and hospitalisations.
+
 ### Hypothesis and purpose of study -- GB
 
 Proved or disproved? What might be the reasons? What can be learned for
@@ -851,19 +858,12 @@ between influenza data sources in other countries.
 Influenza is a very difficult disease to predict due to reasons
 including the different strains, antigenic shift and the unknown level
 of immunity in a given season. While data for previous seasons can be
-studied, the complex nature and changes from season to season mean it is
+studied, the complex nature and season to season variability mean it is
 difficult to give a firm prediction of what could happen in the future.
 Although we see no noticeable lag in peaks between any of the data
-sources, there is a lag in GP cases among different age groups. There is
-also a noticeable difference also in the rate of spread reported between
-GP cases and hopsitalisation cases.
-
-#### Granularity of Data
-
-While it may help throughout the report to have more granularity of
-data, it may not give a better estimate of the reproduction number. The
-results have assisted in showing a temporal relationship between GP
-cases and hospitalisations.
+sources, there is a lag in primary care cases among different age
+groups. There is also a noticeable difference in the rate of spread
+reported between primary and secondary care cases.
 
 ## Appendix A - Team Statement
 
