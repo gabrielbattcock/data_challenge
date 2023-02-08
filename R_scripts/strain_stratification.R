@@ -1,17 +1,6 @@
 # Szymon Jakobsze
 # Strain stratified data for swab testing schemes and hospitalisations 
 
-# source("R_scripts/source_data_entry.R")
-# here::i_am("source_data_entry.r")
-
-###################################SWAB DATA####################################
-
-# Load scraped data for seasons 2017-19
-path_swabs <- here("allData","swab","swabs_strains_2017_2019.csv")
-
-strains17_19_swabs <- path_swabs %>% read_csv()
-palette_flu <- c("#00425A", "#1F8A70", "#BFDB38", "#FC7300")
-
 # Data cleaning
 
 # Swabs data 17-18 season
