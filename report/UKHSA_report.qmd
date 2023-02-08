@@ -158,20 +158,23 @@ hospitalisations) in the UK, and have these changed in 2022/23 compared
 to the pre-pandemic years 2017-2020?
 
 *Hypothesis:* We suspect that there is a temporal relationship between
-one source of surveillance and another. Additionally, we suspect there
-is also a relationship between the scale of the peaks between sources of
-influenza data.
+one source of surveillance and another. Secondly, we suspect there is
+also a relationship between the scale of the peaks between sources of
+influenza data. Additionally, we believe there could be changes in
+reporting patterns for Influenza-Like-Illnesses (ILI) post COVID.
 
-*Secondary research questions* :
+*Secondary research questions addressed* :
 
--   
+• Does age influence any of the conclusions?
 
-Secondly we believe there could be changes in reporting patterns for
-Influenza-Like-Illnesses (ILI) post COVID. As children have more
-interactions, we would expect both a larger and earlier peak as compared
-with that of the older population. Finally, we expect the
-hospitalisation rate to change depending on which influenza strain is
-dominant during the season.
+As children have more interactions, we would expect both a larger and
+earlier peak as compared with that of the older population.
+
+• What is the impact of different influenza subtypes on
+hospitalisations?
+
+We would expect the hospitalisation rate to change depending on which
+influenza strain is dominant during the season.
 
 ## Methods
 
