@@ -160,10 +160,16 @@ to the pre-pandemic years 2017-2020?
 *Hypothesis:* We suspect that there is a temporal relationship between
 one source of surveillance and another. Additionally, we suspect there
 is also a relationship between the scale of the peaks between sources of
-influenza data. Secondly we believe there could be changes in reporting
-patterns for Influenza-Like-Illnesses (ILI) post COVID. As children have
-more interactions, we would expect both a larger and earlier peak as
-compared with that of the older population. Finally, we expect the
+influenza data.
+
+*Secondary research questions* :
+
+-   
+
+Secondly we believe there could be changes in reporting patterns for
+Influenza-Like-Illnesses (ILI) post COVID. As children have more
+interactions, we would expect both a larger and earlier peak as compared
+with that of the older population. Finally, we expect the
 hospitalisation rate to change depending on which influenza strain is
 dominant during the season.
 
@@ -789,36 +795,34 @@ Our hypothesis was that we expected there to be a temporal difference
 between peaks from different data sources. We suspected that
 hospitalisations may lag behind GP cases. When stratifying results by
 season according to the source, there is no clear change in the timing
-of the peaks with the exception of 2022-23. The maximum rate of cases
-occurs on the same week for each of the remaining seasons investigated
-in this report. Our hypothesis was on the basis that influenza symptoms
-take time to become severe enough to result in hospitalisation, leading
-to a lag. However, it is known that the incubation period of influenza
-is between 0.6 and 1.4 days and most people will recover within a week
-[@Lancet2022]. Due to this, it is not so surprising that there is no
-obvious lag between data sources as the time frame may not small enough
-to capture any differences between peaks. Any delay in reporting cases
-from any of the sources would add to this opacity. Therefore, there is
-no temporal relationship present in the data presented in this report
-for a population as a whole. GP consultations are not considered to be a
-good predictor of hospitalisation cases for influenza.
+of the peaks with the exception of 2022-23. Within the same season, the
+maximum rate of cases occur in the same week. We hypothesised a lag
+leading to hospitalisation on the basis that influenza takes time to
+develop severe symptoms. It is known that the incubation period of
+influenza is between 0.6 and 1.4 days and most people will recover
+within a week [@Lancet2022]. Due to this, it is not surprising that
+there is no obvious lag between data sources as the time frame is not
+small enough to capture any differences between peaks. Any delay in
+reporting cases from any of the sources would make it more difficult to
+distinguish any differences in peaks. Therefore, we cannot say there is
+a temporal relationship present in the data. GP consultations for ILI
+are not appropriate for forecasting subsequent hospitalisation cases.
 
-With regards to the secondary research questions and hypotheses, the
-data gives more insight. When RP consultations are stratified by age
-group, there is a clear lag between the 65+ years and the remaining age
-groups in all years other than the season 2017-18. However, the one
-season where \<15 years lag behind the other age groups can be explained
-due the peak of infections happening over the holiday period when
-schools are closed. When schools are closed, younger people have fewer
-social contacts and are therefore less likely to spread influenza. A
-delayed peak occurring after the return to school, as shown in the
-plots, is to be expected. Referring back to the seasons 2018-19, 2019-20
-and 2022-23, the lag of the age group 65+ is also to be expected. For a
-similar reasoning, 65+ age group will tend to have fewer social
-interactions than children, so will have a slower spread of influenza.
-Therefore, knowing that cases are rising among \<15 years can help
-predict a peak in the 65+ age group, who also would tend to be more
-severely affected by influenza.
+With regards to the secondary research questions, the data gives more
+insight. When GP consultations are stratified by age group, there is a
+clear lag between the 65+ group and the remaining age groups in all
+seasons except 2017-18. The one season where \<15 group lags behind the
+other age groups can be explained as the peak of infections happening
+after the holiday period when schools are closed. When schools are
+closed, younger people have fewer social contacts and are therefore less
+likely to spread influenza. A delayed peak occurring after the return to
+school, as shown in the plots, is to be expected. Referring back to the
+2018-19, 2019-20 and 2022-23 seasons, the lag of the age group 65+ is
+also to be expected. For a similar reasoning, 65+ age group will tend to
+have fewer social interactions than children, so will have a slower
+spread of influenza. Therefore, knowing that cases are rising among \<15
+years can help predict a peak in the 65+ age group, who also would tend
+to be more severely affected by influenza.
 
 #### Future work
 
@@ -830,36 +834,29 @@ contribute to a temporal difference and could help prepare for rise in
 cases as some strains have a higher hospitalisation rate than others.
 
 As COVID-19 becomes endemic within the population, it will be important
-for the UKHSA to know the temporal relationship between both diseases.
-COVID combined with influenza has potential to cause many
-hospistalisations. Therefore, studying a temporal relationship of
-influenza and COVID-19 for each data source could help preparedness.
+for the UKHSA to know the temporal relationship of both diseases. COVID
+concominant with influenza has the potential to increase secondary care
+burden. Therefore, studying a temporal relationship of influenza and
+COVID-19 for each data source could help epidemic preparedness.
 
-Due to the UKHSA being a UK based agency, the data used within this
-report is from England. Influenza circulates around the world and is
-tracked by many governmental bodies. While acknowledging the different
-structure of the UK health system (with primary care referrals), it may
-also be worth studying temporal differences between influenza data
-sources in other countries.
-
-Study significance --GB Again on how UKHSA could use the result for the
-good of the public New questions that emerged Expanded way of looking at
-the initial question?
-
-Questions that could not be answered --GB Limitations of methods/data?
-(age?, different reporting patterns)
+Due to our data sources being collated by the UKHSA, the data used
+within this report is predominantly from England. Influenza circulates
+around the world and is tracked by many international bodies. While
+acknowledging the different structure of the UK public health
+infrastructure, it may also be worth studying temporal differences
+between influenza data sources in other countries.
 
 #### Take home/conclusion
 
-Influenza is a very difficult disease topredict due to reasons include
-the different strains, antigenic shift and the unknown level of immunity
-in a given season. While data for previous seasons can be studied, the
-complex nature and changes from season to season mean it is difficult to
-give a firm prediction of what could happen in the future. Although we
-see no noticeable lag in peaks between any of the data sources, there is
-a lag in GP cases among different age groups. There is also a noticeable
-difference also in the rate of spread reported between GP cases and
-hopsitalisation cases.
+Influenza is a very difficult disease to predict due to reasons
+including the different strains, antigenic shift and the unknown level
+of immunity in a given season. While data for previous seasons can be
+studied, the complex nature and changes from season to season mean it is
+difficult to give a firm prediction of what could happen in the future.
+Although we see no noticeable lag in peaks between any of the data
+sources, there is a lag in GP cases among different age groups. There is
+also a noticeable difference also in the rate of spread reported between
+GP cases and hopsitalisation cases.
 
 #### Granularity of Data
 
