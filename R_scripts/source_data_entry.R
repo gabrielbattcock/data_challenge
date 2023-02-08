@@ -436,7 +436,16 @@ age1920$Week <- 1:33
 
 
 age2223 <- age_strat_df2[210:221, ]
-age2223$Week <- 1:nrow(age2223)
+added_rows <- data.frame(
+  Year = c(rep(2022,21)),
+  Week = c(rep(NA, 21)),
+  age_15 =c(rep(NA, 21)),
+  age_adult = c(rep(NA, 21)),
+  age_65  = c(rep(NA, 21)),
+  age_all = c(rep(NA, 21))
+)
+age2223 <- rbind(age2223, added_rows)
+age2223$Week <- 1:33
 
 
 
