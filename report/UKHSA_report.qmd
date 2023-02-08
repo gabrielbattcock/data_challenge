@@ -655,7 +655,7 @@ different influenza data sources. While we see no visible lag between
 peaks in the population as a whole, the data was probed further to try
 to discover any other causal inference.
 
-**interpretation of the corr**
+From cross-correlation test, we find out that 
 
 From the results calculated, it is clear that the estimate is larger for
 both hospitalisation data and swab data than for the GP data. The
