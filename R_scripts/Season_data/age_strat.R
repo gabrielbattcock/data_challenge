@@ -2,22 +2,12 @@
 
 ### looking at influnza like illness by age
 
+# source("R_scripts/source_data_entry.R") #used to get all data frames 
 
-library(readxl)
-library(pacman)
-library(dplyr)
-library(stringr)
-library(scales)
-library(ggrepel)
-p_load(tidyverse, knitr, RColorBrewer, kableExtra, ggpubr, ggplot2)
-library(pacman)
-p_load(tidyverse, here, viridis, hrbrthemes, reshape2, ggpubr, wesanderson)
-
-
-
-names(age_strat_df1)
 #------------------------------------------------------------------------------
 # configuring data into correct frames
+#Once this has been run once, this section should be commented out or you should run source_data_entry.R again
+# as it will not allow you to reallocate the names once more.
 age2223 <- age2223 %>% select(Week,
                               "<15 years" = age_15,
                               "15-64 years" = age_adult,
@@ -53,7 +43,7 @@ plot_age1718 <- ggplot(age1718, aes(Week, value)) +
   geom_line(lwd = 1.5 , alpha = 0.9, aes(color = series)) +
   ylab("Influenza rate (per 100,000) ") +
   # xlim(33+52*3, 33+52*4)+
-  ggtitle("UK influenza cases 2017-18 \n per age group") +
+  ggtitle("2017-18") +
   scale_x_continuous(breaks = seq(0, 34, 2),
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
@@ -76,7 +66,7 @@ plot_age1819 <- ggplot(age1819, aes(Week, value)) +
   geom_line(lwd = 1.5 , alpha = 0.9, aes(color = series)) +
   ylab("Influenza rate (per 100,000) ") +
   # xlim(33+52*3, 33+52*4)+
-  ggtitle("UK influenza cases 2018-19 \n per age group") +
+  ggtitle("2018-19") +
   scale_x_continuous(breaks = seq(0, 34, 2),
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
@@ -97,7 +87,7 @@ plot_age1920 <- ggplot(age1920, aes(Week, value)) +
   geom_line(lwd = 1.5 , alpha = 0.9, aes(color = series)) +
   ylab("Influenza rate (per 100,000) ") +
   # xlim(33+52*3, 33+52*4)+
-  ggtitle("UK influenza cases 2019-20 \n per age group") +
+  ggtitle("2019-20") +
   scale_x_continuous(breaks = seq(0, 34, 2),
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
@@ -118,8 +108,8 @@ plot_age2223 <- ggplot(age2223, aes(Week, value)) +
   theme_ipsum() +
   geom_line(lwd = 1.5 , alpha = 0.9, aes(color = series)) +
   ylab("Influenza rate (per 100,000) ") +
-  # xlim(1, 12)+
-  ggtitle("UK influenza cases 2022-23 \n per age group") +
+  # xlim(0, 33)+
+  ggtitle("2022-23") +
   scale_x_continuous(breaks = seq(0, 34, 2),
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
