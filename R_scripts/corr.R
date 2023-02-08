@@ -13,6 +13,12 @@ p_load(tidyverse, magrittr, here, lmtest)
 here::i_am("R_scripts/corr.r")
 suppressMessages(source(here("R_scripts", "source_data_entry.R")))
 
+if(!file.exists('/System/Volumes/Data/Applications/Google Chrome.app')) {
+  print("WARNING: gtsave() needs a chromium-based browser to work.")
+  browser <- readline("Enter the name of a chromium-based browser installed on your machine: ")  
+  Sys.setenv(CHROMOTE_CHROME = paste0("/Applications/",browser, ".app/Contents/MacOS/", browser))
+}  
+
 # CLEANING #####################################################################
 
 swab_cor <- (typeA1 + typeB1) %>% select(-1)
