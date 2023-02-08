@@ -108,7 +108,8 @@ div.csl-indent {
 </section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Influenza is a highly infectious and rapidly evolving respiratory virus circulating seasonally around the world <span class="citation" data-cites="cope2018">[<a href="#ref-cope2018" role="doc-biblioref">1</a>]</span>. The World Health Organisation (WHO) estimates that between 290000-650000 deaths occur due to the respiratory virus, not including deaths not due to secondary infections caused by influenza <span class="citation" data-cites="WHO2022">[<a href="#ref-WHO2022" role="doc-biblioref"><strong>WHO2022?</strong></a>]</span>. Like most viruses, influenza is highly mutable. It can change on its own (<em>i.e.</em> antigenic drift), or cross with other strains (<em>i.e.</em> antigenic shift) <span class="citation" data-cites="CDC2022">[<a href="#ref-CDC2022" role="doc-biblioref">2</a>]</span>, possibly leading to uncontrolled extensive spreads causing an epidemic, such as the 2009 H1N1 pandemic <span class="citation" data-cites="cope2018">[<a href="#ref-cope2018" role="doc-biblioref">1</a>]</span>.</p>
+<p>Progression of influenza is usually self-limiting. For most, symptoms last for 2~7 days. Severe cases might require hospitalisation, or can progress to death. This is a particular concern for at-risk groups, which include children &lt;2 years of age; pregnant women; the elderly &gt;65yo; and patients with comorbidities. <span class="citation" data-cites="cope2018">[<a href="#ref-cope2018" role="doc-biblioref">1</a>]</span>.</p>
+<p>Influenza is a highly infectious disease caused by a virus of the <em>Orthomyxoviridae</em> family. The virus (has multiple species, with type A and type B being predominant in humans. The World Health Organisation (WHO) estimates that between 290,000-650,000 deaths occur due to the respiratory virus, not including deaths not due to secondary infections caused by influenza <span class="citation" data-cites="WHO2022">[<a href="#ref-WHO2022" role="doc-biblioref"><strong>WHO2022?</strong></a>]</span>. Like most viruses, influenza is highly mutable. It can change on its own (antigenic drift), or cross with other strains (antigenic shift) <span class="citation" data-cites="CDC2022">[<a href="#ref-CDC2022" role="doc-biblioref">2</a>]</span>, possibly leading to uncontrolled extensive spreads causing an epidemic, such as the 2009 H1N1 pandemic <span class="citation" data-cites="cope2018">[<a href="#ref-cope2018" role="doc-biblioref">1</a>]</span>.</p>
 <p>The virus (family <em>Orthomyxoviridae</em>) has multiple species, with type A and type B being predominant in spreading among human <span class="citation" data-cites="CDC2022">[<a href="#ref-CDC2022" role="doc-biblioref">2</a>]</span>. They can be further classified by the H (as in Hemagglutinin) and N (as in neuraminidase) antigen present on the virus. Each year, a combination of the A subtypes and B type influenza circulates throughout the population at different proportions. Some evidence to suggest that H3N2 subtype is more severe than H1N1, leading to higher hospitalisation rates [cite]</p>
 <p>After an incubation period, usually 1~3 days, the progression of the disease is self-limiting and symptoms might last 2~7 days [cite::green book]. Serious progression of the virus may lead to deaths in at-risk groups such as children (&lt;2 y.o.), pregnant women, the elderly (&gt;65 y.o.) and people with underlying medical conditions <span class="citation" data-cites="zarocostas2009">[<a href="#ref-zarocostas2009" role="doc-biblioref">3</a>]</span>. In a UK context, seasonal influenza circulation burdens the NHS in terms of availability of hospital beds and GP services <span class="citation" data-cites="cope2018">[<a href="#ref-cope2018" role="doc-biblioref">1</a>]</span>. Having more data to help plan for seasonal peaks can help alleviate pressure on vital services.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -121,7 +122,7 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="who-is-the-ukhsa-and-why-are-they-interested">Who is the UKHSA and why are they interested</h3>
 <p>The UK Health Security Agency (UKHSA) was created as a successor to Public Health England in April 2021. Set up during the height of the COVID-19 pandemic, the UKHSA’s main priority is to tackle national health threats. They are responsible for the surveillance of diseases including influenza and manage the country’s vaccine programme.</p>
 <p>Through studying the temporal nature of the data reporting of influenza, the UKHSA can better plan for the height of the influenza season within hospitals and plan the vaccination roll out. Vaccination is greatly beneficial as it averts between 180,000 and 626,000 cases of influenza per year in England, helping prevent between 5,678 and 8,800 premature deaths <span class="citation" data-cites="franklin2018">[<a href="#ref-franklin2018" role="doc-biblioref">4</a>]</span>. Furthermore, every death averted due to vaccination is estimated to save the NHS £50,610 <span class="citation" data-cites="franklin2018">[<a href="#ref-franklin2018" role="doc-biblioref">4</a>]</span>.</p>
-<p>In the UK, influenza data is reported by three main sources: through primary care data, hospitalisation data and through swabbing programmes. Having three separate data sources is a valuable to compare whether the peak in the seasonal spread is in the same week or whether any of the data sources lag the others - identifying a possible prediction of a peak in hospitalisations for example. Throguh the studying the swabbing data, it will aslo be beneficial to know what relationship the strain of influenza has on hospitalisation rate. Knowing the temporal nature of which age groups are beign affected when may help hosopitals be better prepareed for an oncoming wave of influenza cases.</p>
+<p>In the UK, influenza data is reported by three main sources: through primary care data, hospitalisation data and through swabbing programmes. Having three separate data sources is a valuable to compare whether the peak in the seasonal spread is in the same week or whether any of the data sources lag the others - identifying a possible prediction of a peak in hospitalisations for example. Through the studying the swabbing data, it will aslo be beneficial to know what relationship the strain of influenza has on hospitalisation rate. Knowing the temporal nature of which age groups are beign affected when may help hospitals be better prepared for an oncoming wave of influenza cases.</p>
 </section>
 <section id="aims" class="level3">
 <h3 class="anchored" data-anchor-id="aims">Aims</h3>
@@ -151,7 +152,8 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="statistical-analysis">Statistical Analysis</h3>
 <section id="cross-correlation" class="level4">
 <h4 class="anchored" data-anchor-id="cross-correlation">Cross-correlation</h4>
-<p>To study the temporal relationship between peaks in the influenza data, a cross-correlation method was chosen. Spearman’s non-parametric test of correlation (denoted <span class="math inline">\(ρ\)</span>) is more suitable than Pearson’s in this situation, since the latter requires all variable to be normally distributed. Spearman’s <span class="math inline">\(ρ\)</span> uses the ranks (ranks of what??) to replace the actual values within each variable. It runs as long as the variables are equal in length. The measurement of cross-correlation between pairs of variables should be as follows. One variable, denoted <span class="math inline">\(x_{t}\)</span>, is pinned to the present. A lag of positive integer <span class="math inline">\(k\)</span> is applied to the other variable <span class="math inline">\(y\)</span> to generate <span class="math inline">\(y_{t}\)</span>,; <span class="math inline">\(y\_{t+1}\)</span>,; <span class="math inline">\(\ldots y\_{t+k}\)</span> . For a given influenza season, Spearman’s test is run repeatedly between <span class="math inline">\(x\)</span> and each version of <span class="math inline">\(y\)</span>. The lag that gives the best correlation, denoted <span class="math inline">\(\arg\underset{k}\max \,\rho(x,y_{t+k})\)</span>, is reported for each year for each pair of variables.</p>
+<p>To study the temporal relationship between peaks in the influenza data, a cross-correlation method was chosen. Cross-correlation can be used to see if there two signals align. The method artificially shifts (or lags) one signal relative to another and calculates its correlation value. If there is a lag between signals, the cross-correlation will show a higher correlation for a signal that has been artificially shifted than for the original signal. This has been used as another way to measure whether or not the peak in influenza cases align, other than using sight of the plots alone.</p>
+<p>To perform cross correlation, Spearman’s non-parametric test of correlation (denoted <span class="math inline">\(ρ\)</span>) is more suitable than Pearson’s in this situation, since the latter requires all variable to be normally distributed. Spearman’s <span class="math inline">\(ρ\)</span> uses the ranks (ranks of what??) to replace the actual values within each variable. It runs as long as the variables are equal in length. The measurement of cross-correlation between pairs of variables should be as follows. One variable, denoted <span class="math inline">\(x_{t}\)</span>, is pinned to the present. A lag of positive integer <span class="math inline">\(k\)</span> is applied to the other variable <span class="math inline">\(y\)</span> to generate <span class="math inline">\(y_{t}\)</span>,; <span class="math inline">\(y\_{t+1}\)</span>,; <span class="math inline">\(\ldots y\_{t+k}\)</span> . For a given influenza season, Spearman’s test is run repeatedly between <span class="math inline">\(x\)</span> and each version of <span class="math inline">\(y\)</span>. The lag that gives the best correlation, denoted <span class="math inline">\(\arg\underset{k}\max \,\rho(x,y_{t+k})\)</span>, is reported for each year for each pair of variables.</p>
 </section>
 <section id="moving-epidemic-method-mem" class="level4">
 <h4 class="anchored" data-anchor-id="moving-epidemic-method-mem">Moving Epidemic Method (MEM)</h4>
@@ -250,13 +252,13 @@ div.csl-indent {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="pdeefsamss" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="qqjiujmbgf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html {
   font-family: Chivo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#pdeefsamss) .gt_table {
+:where(#qqjiujmbgf) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -281,7 +283,7 @@ html {
   border-left-color: #D3D3D3;
 }
 
-:where(#pdeefsamss) .gt_heading {
+:where(#qqjiujmbgf) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -293,12 +295,12 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#pdeefsamss) .gt_caption {
+:where(#qqjiujmbgf) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#pdeefsamss) .gt_title {
+:where(#qqjiujmbgf) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -310,7 +312,7 @@ html {
   border-bottom-width: 0;
 }
 
-:where(#pdeefsamss) .gt_subtitle {
+:where(#qqjiujmbgf) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -322,13 +324,13 @@ html {
   border-top-width: 0;
 }
 
-:where(#pdeefsamss) .gt_bottom_border {
+:where(#qqjiujmbgf) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pdeefsamss) .gt_col_headings {
+:where(#qqjiujmbgf) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: rgba(0, 0, 0, 0);
@@ -343,7 +345,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#pdeefsamss) .gt_col_heading {
+:where(#qqjiujmbgf) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -363,7 +365,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#pdeefsamss) .gt_column_spanner_outer {
+:where(#qqjiujmbgf) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -375,15 +377,15 @@ html {
   padding-right: 4px;
 }
 
-:where(#pdeefsamss) .gt_column_spanner_outer:first-child {
+:where(#qqjiujmbgf) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#pdeefsamss) .gt_column_spanner_outer:last-child {
+:where(#qqjiujmbgf) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#pdeefsamss) .gt_column_spanner {
+:where(#qqjiujmbgf) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -395,7 +397,7 @@ html {
   width: 100%;
 }
 
-:where(#pdeefsamss) .gt_group_heading {
+:where(#qqjiujmbgf) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -421,7 +423,7 @@ html {
   text-align: left;
 }
 
-:where(#pdeefsamss) .gt_empty_group_heading {
+:where(#qqjiujmbgf) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -436,15 +438,15 @@ html {
   vertical-align: middle;
 }
 
-:where(#pdeefsamss) .gt_from_md > :first-child {
+:where(#qqjiujmbgf) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#pdeefsamss) .gt_from_md > :last-child {
+:where(#qqjiujmbgf) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#pdeefsamss) .gt_row {
+:where(#qqjiujmbgf) .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -463,7 +465,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#pdeefsamss) .gt_stub {
+:where(#qqjiujmbgf) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -476,7 +478,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#pdeefsamss) .gt_stub_row_group {
+:where(#qqjiujmbgf) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -490,11 +492,11 @@ html {
   vertical-align: top;
 }
 
-:where(#pdeefsamss) .gt_row_group_first td {
+:where(#qqjiujmbgf) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#pdeefsamss) .gt_summary_row {
+:where(#qqjiujmbgf) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -504,16 +506,16 @@ html {
   padding-right: 5px;
 }
 
-:where(#pdeefsamss) .gt_first_summary_row {
+:where(#qqjiujmbgf) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#pdeefsamss) .gt_first_summary_row.thick {
+:where(#qqjiujmbgf) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#pdeefsamss) .gt_last_summary_row {
+:where(#qqjiujmbgf) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -523,7 +525,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pdeefsamss) .gt_grand_summary_row {
+:where(#qqjiujmbgf) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -533,7 +535,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#pdeefsamss) .gt_first_grand_summary_row {
+:where(#qqjiujmbgf) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -543,11 +545,11 @@ html {
   border-top-color: #D3D3D3;
 }
 
-:where(#pdeefsamss) .gt_striped {
+:where(#qqjiujmbgf) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#pdeefsamss) .gt_table_body {
+:where(#qqjiujmbgf) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -556,7 +558,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#pdeefsamss) .gt_footnotes {
+:where(#qqjiujmbgf) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -570,7 +572,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#pdeefsamss) .gt_footnote {
+:where(#qqjiujmbgf) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -579,7 +581,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#pdeefsamss) .gt_sourcenotes {
+:where(#qqjiujmbgf) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -593,7 +595,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#pdeefsamss) .gt_sourcenote {
+:where(#qqjiujmbgf) .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -601,64 +603,64 @@ html {
   padding-right: 5px;
 }
 
-:where(#pdeefsamss) .gt_left {
+:where(#qqjiujmbgf) .gt_left {
   text-align: left;
 }
 
-:where(#pdeefsamss) .gt_center {
+:where(#qqjiujmbgf) .gt_center {
   text-align: center;
 }
 
-:where(#pdeefsamss) .gt_right {
+:where(#qqjiujmbgf) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#pdeefsamss) .gt_font_normal {
+:where(#qqjiujmbgf) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#pdeefsamss) .gt_font_bold {
+:where(#qqjiujmbgf) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#pdeefsamss) .gt_font_italic {
+:where(#qqjiujmbgf) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#pdeefsamss) .gt_super {
+:where(#qqjiujmbgf) .gt_super {
   font-size: 65%;
 }
 
-:where(#pdeefsamss) .gt_footnote_marks {
+:where(#qqjiujmbgf) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#pdeefsamss) .gt_asterisk {
+:where(#qqjiujmbgf) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#pdeefsamss) .gt_indent_1 {
+:where(#qqjiujmbgf) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#pdeefsamss) .gt_indent_2 {
+:where(#qqjiujmbgf) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#pdeefsamss) .gt_indent_3 {
+:where(#qqjiujmbgf) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#pdeefsamss) .gt_indent_4 {
+:where(#qqjiujmbgf) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#pdeefsamss) .gt_indent_5 {
+:where(#qqjiujmbgf) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -754,13 +756,13 @@ html {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="mwtftikest" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="apgjmdjuor" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html {
   font-family: Chivo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#mwtftikest) .gt_table {
+:where(#apgjmdjuor) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -785,7 +787,7 @@ html {
   border-left-color: #D3D3D3;
 }
 
-:where(#mwtftikest) .gt_heading {
+:where(#apgjmdjuor) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -797,12 +799,12 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#mwtftikest) .gt_caption {
+:where(#apgjmdjuor) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#mwtftikest) .gt_title {
+:where(#apgjmdjuor) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -814,7 +816,7 @@ html {
   border-bottom-width: 0;
 }
 
-:where(#mwtftikest) .gt_subtitle {
+:where(#apgjmdjuor) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -826,13 +828,13 @@ html {
   border-top-width: 0;
 }
 
-:where(#mwtftikest) .gt_bottom_border {
+:where(#apgjmdjuor) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#mwtftikest) .gt_col_headings {
+:where(#apgjmdjuor) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: rgba(0, 0, 0, 0);
@@ -847,7 +849,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#mwtftikest) .gt_col_heading {
+:where(#apgjmdjuor) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -867,7 +869,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#mwtftikest) .gt_column_spanner_outer {
+:where(#apgjmdjuor) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -879,15 +881,15 @@ html {
   padding-right: 4px;
 }
 
-:where(#mwtftikest) .gt_column_spanner_outer:first-child {
+:where(#apgjmdjuor) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#mwtftikest) .gt_column_spanner_outer:last-child {
+:where(#apgjmdjuor) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#mwtftikest) .gt_column_spanner {
+:where(#apgjmdjuor) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -899,7 +901,7 @@ html {
   width: 100%;
 }
 
-:where(#mwtftikest) .gt_group_heading {
+:where(#apgjmdjuor) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -925,7 +927,7 @@ html {
   text-align: left;
 }
 
-:where(#mwtftikest) .gt_empty_group_heading {
+:where(#apgjmdjuor) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -940,15 +942,15 @@ html {
   vertical-align: middle;
 }
 
-:where(#mwtftikest) .gt_from_md > :first-child {
+:where(#apgjmdjuor) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#mwtftikest) .gt_from_md > :last-child {
+:where(#apgjmdjuor) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#mwtftikest) .gt_row {
+:where(#apgjmdjuor) .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -967,7 +969,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#mwtftikest) .gt_stub {
+:where(#apgjmdjuor) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -980,7 +982,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#mwtftikest) .gt_stub_row_group {
+:where(#apgjmdjuor) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -994,11 +996,11 @@ html {
   vertical-align: top;
 }
 
-:where(#mwtftikest) .gt_row_group_first td {
+:where(#apgjmdjuor) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#mwtftikest) .gt_summary_row {
+:where(#apgjmdjuor) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1008,16 +1010,16 @@ html {
   padding-right: 5px;
 }
 
-:where(#mwtftikest) .gt_first_summary_row {
+:where(#apgjmdjuor) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#mwtftikest) .gt_first_summary_row.thick {
+:where(#apgjmdjuor) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#mwtftikest) .gt_last_summary_row {
+:where(#apgjmdjuor) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1027,7 +1029,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#mwtftikest) .gt_grand_summary_row {
+:where(#apgjmdjuor) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1037,7 +1039,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#mwtftikest) .gt_first_grand_summary_row {
+:where(#apgjmdjuor) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1047,11 +1049,11 @@ html {
   border-top-color: #D3D3D3;
 }
 
-:where(#mwtftikest) .gt_striped {
+:where(#apgjmdjuor) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#mwtftikest) .gt_table_body {
+:where(#apgjmdjuor) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1060,7 +1062,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#mwtftikest) .gt_footnotes {
+:where(#apgjmdjuor) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1074,7 +1076,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#mwtftikest) .gt_footnote {
+:where(#apgjmdjuor) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1083,7 +1085,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#mwtftikest) .gt_sourcenotes {
+:where(#apgjmdjuor) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1097,7 +1099,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#mwtftikest) .gt_sourcenote {
+:where(#apgjmdjuor) .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1105,64 +1107,64 @@ html {
   padding-right: 5px;
 }
 
-:where(#mwtftikest) .gt_left {
+:where(#apgjmdjuor) .gt_left {
   text-align: left;
 }
 
-:where(#mwtftikest) .gt_center {
+:where(#apgjmdjuor) .gt_center {
   text-align: center;
 }
 
-:where(#mwtftikest) .gt_right {
+:where(#apgjmdjuor) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#mwtftikest) .gt_font_normal {
+:where(#apgjmdjuor) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#mwtftikest) .gt_font_bold {
+:where(#apgjmdjuor) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#mwtftikest) .gt_font_italic {
+:where(#apgjmdjuor) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#mwtftikest) .gt_super {
+:where(#apgjmdjuor) .gt_super {
   font-size: 65%;
 }
 
-:where(#mwtftikest) .gt_footnote_marks {
+:where(#apgjmdjuor) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#mwtftikest) .gt_asterisk {
+:where(#apgjmdjuor) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#mwtftikest) .gt_indent_1 {
+:where(#apgjmdjuor) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#mwtftikest) .gt_indent_2 {
+:where(#apgjmdjuor) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#mwtftikest) .gt_indent_3 {
+:where(#apgjmdjuor) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#mwtftikest) .gt_indent_4 {
+:where(#apgjmdjuor) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#mwtftikest) .gt_indent_5 {
+:where(#apgjmdjuor) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1249,11 +1251,14 @@ html {
 </div>
 </div>
 </div>
-<p>Using data provided by the RCGP, influenza data has been plotted stratified by age. This has been reported as ILI rate per 100,000, and broken down in to three age groups: \&lt;15 years, 15-64 years and 65+ years.</p>
-<p>For the season 2017-18, there is a lag between the peaks of adults older than 15 years and children. The large growth of the epidemic this season begins at week 50 and peaks at week 3 for all ages except \&lt;15 years which peak at week 5. This may be due to the timing of the epidemic overlapping with UK school holidays, leading children to having less social interaction, therefore delaying their peak by two weeks.</p>
+<p>Using data provided by the RCGP, influenza data has been plotted stratified by age. This has been reported as ILI rate per 100,000, and broken down in to three age groups: &lt;15 years, 15-64 years and 65+ years.</p>
+<p>For the season 2017-18, there is a lag between the peaks of adults older than 15 years and children. The large growth of the epidemic this season begins at week 50 and peaks at week 3 for all ages except &lt;15 years which peak at week 5. This may be due to the timing of the epidemic overlapping with UK school holidays, leading children to having less social interaction, therefore delaying their peak by two weeks.</p>
 <p>For the season 2018-19 there appears to be a minor peak followed by a larger peak a few weeks later. This year, the second peak among the 65+ age group lags behind all other age groups by a week. This may be due to less socialising among the older age group.</p>
 <p>The season 2019-20 shows multiple peaks with the expected dip over the holiday period (between weeks 51-1). As with the 2018-19 season, the 65+ age group lag behind the other age groups, with the largest peak for this age group two weeks after all other ages. There is also an evident spike at week 12 for this year. As this data is recording “Influenza <em>like</em> illness”, it can be assumed that this peak is due to the COVID-19 pandemic.</p>
-<p>The current influenza season also shows a lag in growth among the 65+ group. The data however does not go up show where the peaks are, so we do not know the full picture. It is also shown that the under 15 years have a lower gradient after week 51 around the winter holidays begin. ### Stratified by influenza strain type</p>
+<p>The current influenza season also shows a lag in growth among the 65+ group. The data however does not go up show where the peaks are, so we do not know the full picture. It is also shown that the under 15 years have a lower gradient after week 51 around the winter holidays begin.</p>
+</section>
+<section id="stratified-by-influenza-strain-type" class="level3">
+<h3 class="anchored" data-anchor-id="stratified-by-influenza-strain-type">Stratified by influenza strain type</h3>
 <div class="grid">
 <div class="g-col-6">
 <div class="cell">
@@ -1294,67 +1299,60 @@ html {
 </section>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
-<p>From analysis of the plots for each season stratified by the source of data, there is no apparent temporal difference in the peaks for rate of influenza cases. Although our sample size of four season is small, this appears to suggest that there is no temporal relation between different influenza data sources. While we see no visible lag between peaks in the population as a whole, the data was probed further to try to discover any other temporal relationship. interpretation of the corr The reproduction number has been estimated for each of the seasons and each of the data sources. Through the use of a linear model, the gradient has been extracted to then be used to calculate the effective <span class="math inline">\(R\)</span> number. From the results calculated, it is clear that the estimate is larger for both hospitalisation data and swab data than for the GP data. The calculation here is a simplistic approximation for the reproduction number but does show that the spread of cases is slower for GP consultations which is more indicative of the general population as not everyone who goes to a GP for flu symptoms will be referred to hospital. This also gives some evidence towards a temporal relationship between GP consultations and hospitalisations, as knowing when there is a rise in the cases in GPs infers that there will be a large rise in hospitalisation following. As the calculation is not a complex model to estimate the reproduction number for influenza but does give a good estimate to be used in the report. Estimating the reproduction number for a virus such as influenza can be difficult due as it is uncertain the level of immunity among the population. While it may help throughout the report to have more granularity of data, it may not give a better estimate of the reproduction number. The results have assisted in showing a temporal relationship between GP cases and hospitalisations.</p>
-<section id="first-paragraph" class="level3">
-<h3 class="anchored" data-anchor-id="first-paragraph">First paragraph</h3>
-<p>Essential interpretation based on key findings Brief for produced figures Possibly to most salient points</p>
-</section>
-<section id="log-graphs-and-r_0-value-1" class="level3">
-<h3 class="anchored" data-anchor-id="log-graphs-and-r_0-value-1">Log graphs and <span class="math inline">\(R_0\)</span> value</h3>
-<p>The reproduction number has been estimated for each of the seasons and each of the data sources. Through the use of a linear model, the gradient has been extracted to then be used to calculate the effective <span class="math inline">\(R\)</span> number. From the results calculated, it is clear that the estimate is larger for both hospitalisation data and swab data than for the GP data.</p>
-<p>The calculation here is a simplistic approximation for the reproduction number but does show that the spread of cases is slower for GP consultations which is more indicative of the general population as not everyone who goes to a GP for flu symptoms will be referred to hospital. This also gives some evidence towards a temporal relationship between GP consultations and hospitalisations, as knowing when there is a rise in the cases in GPs infers that there will be a large rise in hospitalisation following.</p>
-<p>As mentioned above, this calculation is not a complex model to estimate the reproduction number for influenza but does give a good estimate to be used in the report. Estimating the reproduction number for a virus such as influenza can be difficult due as it is uncertain the level of immunity among the population.</p>
-<p>While it may help throughout the report to have more granularity of data, it may not give a better estimate of the reproduction number. The results have assisted in showing a temporal relationship between GP cases and hospitalisations.</p>
-</section>
-<section id="strain-stratified-data-discussion---sj" class="level3">
-<h3 class="anchored" data-anchor-id="strain-stratified-data-discussion---sj">Strain stratified data discussion - SJ</h3>
+<p>** First paragraph **</p>
+<p>Essential interpretation based on key findings –GB Brief for produced figures Possibly to most salient points</p>
+<p>From analysis of the plots for each season stratified by the source of data, there is no apparent temporal difference in the peaks for rate of influenza cases. Although our sample size of four season is small, this appears to suggest that there is no temporal relation between different influenza data sources. While we see no visible lag between peaks in the population as a whole, the data was probed further to try to discover any other temporal relationship.</p>
+<p><strong>interpretation of the corr</strong></p>
+<p>The reproduction number has been estimated for each of the seasons and each of the data sources. Through the use of a linear model, the gradient has been extracted to then be used to calculate the effective <span class="math inline">\(R\)</span> number. From the results calculated, it is clear that the estimate is larger for both hospitalisation data and swab data than for the GP data. The calculation here is a simplistic approximation for the reproduction number but does show that the spread of cases is slower for GP consultations which is more indicative of the general population as not everyone who goes to a GP for flu symptoms will be referred to hospital. This also gives some evidence towards a temporal relationship between GP consultations and hospitalisations, as knowing when there is a rise in the cases in GPs infers that there will be a large rise in hospitalisation following. As the calculation is not a complex model to estimate the reproduction number for influenza but does give a good estimate to be used in the report. Estimating the reproduction number for a virus such as influenza can be difficult due as it is uncertain the level of immunity among the population. While it may help throughout the report to have more granularity of data, it may not give a better estimate of the reproduction number. The results have assisted in showing a temporal relationship between GP cases and hospitalisations.</p>
+<section id="strain-stratified-data-discussion-sj" class="level3">
+<h3 class="anchored" data-anchor-id="strain-stratified-data-discussion-sj">Strain stratified data discussion – SJ</h3>
+<p>ref:https://www.who.int/tools/flunet</p>
+<p>2017-18</p>
+<p>Stratification of the results by different strains has brought some interesting intel into our study. The 2017-2018 season was dominated by the B/ influenza. This finding is interesting in particular because according to WHO [7], the northern hemisphere has recorded increased incidence of the A/H1N1, which in the UK was only a secondary strain. Another interesting point is that peak incidence of type B influenza was delayed in the other countries of the northern hemisphere during the 2017 season. Within the UK, we have noted slight time advantage in the peak of A/H1N1 compared to type B.</p>
+<p>2018-19</p>
+<p>During the season 2018-2019, available to us data from Datamart was only stratified by type and not the subtype. According to the WHO, these years in the northern hemisphere have been dominated by strains A/H1N1. The most prevalent type B in the same area was of unknown lineage. Compared to the data from northern europe, we can see similarities in the shape distribution of the signal as well as we can see that throughout that season other strains of influenza were barely present.</p>
+<p>2019-20</p>
+<p>In the following season we could observe domination of the A/H1N1 which on the contrary was not prevalent in northern Europe, which has seen the activity of the unknown type A as well unknown type B influenzas. Peak of the season was delayed in comparison to the A/H1N1 and cumulative peak for northern Europe. Worth noting is that it has lined up with the peak for the A/H3 and type B influenza for the same region. Incidence of A/H3 and type B influenza in UK was delayed compared to the A/H1N1, however general incidence of A/H3 and B was minimal throughout the whole season.</p>
+<p>2022-23</p>
+<p>Season 2022-23 has started early, with the incidence of unknown type A leading the rising trend. Results correspond with data for northern Europe, sharing shape of distribution and dominating strain. It is worth noting that this is the first season in the analysis where UK data is consistent with data for northern Europe. In comparison with data for the countries of the whole northern hemisphere, incidence in the UK seems to plummet with slight delay.</p>
 </section>
 <section id="main-piece-of-supporting-evidence" class="level3">
 <h3 class="anchored" data-anchor-id="main-piece-of-supporting-evidence">Main piece of supporting evidence</h3>
 <p>How do these result fit within our question Ensure we’re writing to meet clients expectations</p>
 </section>
-<section id="comparison-and-contrast-to-previous-studies" class="level3">
-<h3 class="anchored" data-anchor-id="comparison-and-contrast-to-previous-studies">Comparison and contrast to previous studies</h3>
-<p>###SJ</p>
+<section id="comparison-and-contrast-to-previous-studies-sj" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-and-contrast-to-previous-studies-sj">Comparison and contrast to previous studies – SJ</h3>
 <p>According to literature review, as of today research on the exact same topic has not been conducted. However, there are a number of sources which try to understand the relations between influenza metrics from before and after the COVID-19 pandemic. One of the most interesting comparisons would be the one with the Canadian article studying the effect of COV-19 pandemic on ILI related hospitalization and mortality in children [1]. Main findings conclude there was a significant drop in the number of cases in pediatric influenza hospitalisations post-pandemic. Similarly to our findings the report also mentions no AI related data for the period of the pandemic. This seems to be also a trend in different countries such as Italy, China and USA where barely any cases have been reported [2]. Although the exact explanation is not available, it is suspected that during that period ILI was underreported due to the main focus being COVID. This hypothesis however does not explain observations in China where incidence was low, despite the fact that type A and B influenza tests were conducted for patients with the suspicion of COVID-19 [3]. Another possible explanation apart from under-reporting is change in contact patterns as well as seasonal immunity perturbations that happened throughout 2019-2020.</p>
 <p>Seasonality is a result of a complex interplay between previously mentioned contact patterns, host immunity as well as virus survival [4]. In terms of the post-pandemic period sources indicate that the coming season carries multiple unpredictable factors such as shadow of the COVID-19 pandemic, decreasing population immunity as well drop in genetic variability of influenza viruses [5]. Inconsistent COVID vaccination patterns i.e.&nbsp;varied coverage depending on a country, group age and time window, caused a general neglect in the rollout of other vaccines [6]. This shows some similarities with our findings, as seen in the appendix (Fig. Vacc) uptake rate in most of the groups dropped in 2020 compared to 2019, with only only risk group - pregnant women remaining at the same uptake rate. Previously mentioned disruptive patterns were described in South Africa during 2021, when season peaked unusually late during winter [7]. However, regular seasonality was restored in the following season, both dominated by A/H1N1.</p>
-<p>###SJ</p>
-<p>Strengths What did we cover well in comparison to similar reports? How does this contribute to currently available knowledge? In general and from the client’s perspective? Implications of the study based on literature</p>
+<p>Strengths – SJ What did we cover well in comparison to similar reports? How does this contribute to currently available knowledge? In general and from the client’s perspective? Implications of the study based on literature</p>
+</section>
+<section id="strengths-really-not-sure-about-this-one-so-please-editadd-if-you-have-some-ideas" class="level3">
+<h3 class="anchored" data-anchor-id="strengths-really-not-sure-about-this-one-so-please-editadd-if-you-have-some-ideas">Strengths – really not sure about this one so please edit/add if you have some ideas</h3>
+<p>One of the strong points of our report was the availability of multiple data sources. As opposed to similar literature, we have gathered data covering separate statistics (positive tests, primary and secondary care) in order to establish temporal relations between them. Our report contributes to currently available knowledge by presenting insight on the nature of post-COVID seasonality of influenza. Utilised methods (R0 of the log transformation) allowed to visualise and compare the rates of epidemic growth between different data sources. Allong with the stratification by risk groups we get a better picture which can be used as decision rationale for more allocation of public resources.</p>
 <p>Limitations What questions could not be answered and why?(age? Data missing? Limited access?) Methods we could not use but considered? (arima? Forecast? Granger test? [violation of the assumptions - what assumptions and why is it violated])</p>
+</section>
+<section id="limitations" class="level3">
+<h3 class="anchored" data-anchor-id="limitations">Limitations</h3>
 <p>Unexpected findings What things have come up that we did not expect? Counter intuitive patterns? Maybe an unexpected season in terms of strain dominance? Lack of delay between the sources?</p>
 </section>
 <section id="last-paragraph" class="level3">
 <h3 class="anchored" data-anchor-id="last-paragraph">Last paragraph</h3>
-<p>Hypothesis and purpose of the study summary Proved or disproved? What might be the reasons? What can be learned for the results?</p>
-<p>Study significance Again on how UKHSA could use the result for the good of the public New questions that emerged Expanded way of looking at the initial question?</p>
-<p>Questions that could not be answered Limitations of methods/data? (age?, different reporting patterns)</p>
-<p>Potential future research Ways of taking the project further if time was not an issue Also consequences of unhalted burden on NHS How can research build on our findings?</p>
-</section>
-<section id="comparison-and-contrast-to-previous-studies-1" class="level3">
-<h3 class="anchored" data-anchor-id="comparison-and-contrast-to-previous-studies-1">Comparison and contrast to previous studies</h3>
-</section>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section"></h3>
-<p>According to literature review, as of today research on the exact same topic has not been conducted. However, there are a number of sources which try to understand the relations between influenza metrics from before and after the COVID-19 pandemic. One of the most interesting comparisons would be the one with the Canadian article studying the effect of COV-19 pandemic on ILI related hospitalization and mortality in children [1]. Main findings conclude there was a significant drop in the number of cases in pediatric influenza hospitalisations post-pandemic. Similarly to our findings the report also mentions no AI related data for the period of the pandemic. This seems to be also a trend in different countries such as Italy, China and USA where barely any cases have been reported [2]. Although the exact explanation is not available, it is suspected that during that period ILI was underreported due to the main focus being COVID. This hypothesis however does not explain observations in China where incidence was low, despite the fact that type A and B influenza tests were conducted for patients with the suspicion of COVID-19 [3]. Another possible explanation apart from under-reporting is change in contact patterns as well as seasonal immunity perturbations that happened throughout 2019-2020.</p>
-<p>Seasonality is a result of a complex interplay between previously mentioned contact patterns, host immunity as well as virus survival [4]. In terms of the post-pandemic period sources indicate that the coming season carries multiple unpredictable factors such as shadow of the COVID-19 pandemic, decreasing population immunity as well drop in genetic variability of influenza viruses [5]. Inconsistent COVID vaccination patterns i.e.&nbsp;varied coverage depending on a country, group age and time window, caused a general neglect in the rollout of other vaccines [6]. This shows some similarities with our findings, as seen in the appendix (Fig. Vacc) uptake rate in most of the groups dropped in 2020 compared to 2019, with only only risk group - pregnant women remaining at the same uptake rate. Previously mentioned disruptive patterns were described in South Africa during 2021, when season peaked unusually late during winter [7]. However, regular seasonality was restored in the following season, both dominated by A/H1N1.</p>
-<p>###SJ</p>
-<p>Strengths What did we cover well in comparison to similar reports? How does this contribute to currently available knowledge? In general and from the client’s perspective? Implications of the study based on literature</p>
-<p>Limitations What questions could not be answered and why?(age? Data missing? Limited access?) Methods we could not use but considered? (arima? Forecast? Granger test? [violation of the assumptions - what assumptions and why is it violated])</p>
-<p>Unexpected findings What things have come up that we did not expect? Counter intuitive patterns? Maybe an unexpected season in terms of strain dominance? Lack of delay between the sources?</p>
-</section>
-<section id="last-paragraph-1" class="level3">
-<h3 class="anchored" data-anchor-id="last-paragraph-1">Last paragraph</h3>
 <p>Hypothesis and purpose of the study summary</p>
 </section>
 <section id="hypothesis-and-purpose-of-study-gb" class="level3">
 <h3 class="anchored" data-anchor-id="hypothesis-and-purpose-of-study-gb">Hypothesis and purpose of study – GB</h3>
 <p>Proved or disproved? What might be the reasons? What can be learned for the results?</p>
 <p>The hypothesis to the main research question was that we expected there to be a temporal difference between peaks from different data sources, specifically that hospitalisations may lag behind GP cases. From the plots for each season stratified by the source, other than in 2022-23, there is no clear change in the timing of the peaks. The maximum rate of cases occurs on the same week for each of the remaining seasons investigated in this report. Our hypothesis was on the basis that influenza symptoms take time to become severe enough to result in hospitalisation, leading to a lag. However, it is known that the incubation period of influenza is between 0.6 and 1.4 days and most people will recover within a week <span class="citation" data-cites="Lancet2022">[<a href="#ref-Lancet2022" role="doc-biblioref">7</a>]</span>. Due to this, it is not so surprising that there is no obvious lag between data sources as the time frame may not small enough to capture any differences between peaks. Any delay in reporting cases from any of the sources would add to this opacity. Therefore, there is no temporal relationship present in the data presented in this report for a population as a whole. GP consultations are not considered to be a good predictor of hospitalisation cases for influenza.</p>
-<p>With regards to the secondary research questions and hypotheses, the data gives more insight. When RP consultations are stratified by age group, there is a clear lag between the 65+ years and the remaining age groups in all years other than the season 2017-18. However, the one season where \&lt;15 years lag behind the other age groups can be explained due the peak of infections happening over the holiday period when schools are closed. When schools are closed, younger people have fewer social contacts and are therefore less likely to spread influenza. A delayed peak occurring after the return to school, as shown in the plots, is to be expected. Referring back to the seasons 2018-19, 2019-20 and 2022-23, the lag of the age group 65+ is also to be expected. For a similar reasoning, 65+ age group will tend to have fewer social interactions than children, so will have a slower spread of influenza. Therefore, knowing that cases are rising among &lt;15 years can help predict a peak in the 65+ age group, who also would tend to be more severely affected by influenza.</p>
-<p>It has been reported in the past that different strains of influenza may have a different distribution between different age groups <span class="citation" data-cites="Age2015">[<a href="#ref-Age2015" role="doc-biblioref">8</a>]</span>. It could be useful in the future to have cases reported by both strain and age group so that any differences can be studied. Reporting this stratification could be a useful research direction, although it must be appreciated that such fine grained data may not have a great cost-benefit ration. This may also contribute to a temporal difference and could help prepare for rise in cases as some strains have a higher hospitalisation rate than others.</p>
+<p>With regards to the secondary research questions and hypotheses, the data gives more insight. When RP consultations are stratified by age group, there is a clear lag between the 65+ years and the remaining age groups in all years other than the season 2017-18. However, the one season where &lt;15 years lag behind the other age groups can be explained due the peak of infections happening over the holiday period when schools are closed. When schools are closed, younger people have fewer social contacts and are therefore less likely to spread influenza. A delayed peak occurring after the return to school, as shown in the plots, is to be expected. Referring back to the seasons 2018-19, 2019-20 and 2022-23, the lag of the age group 65+ is also to be expected. For a similar reasoning, 65+ age group will tend to have fewer social interactions than children, so will have a slower spread of influenza. Therefore, knowing that cases are rising among &lt;15 years can help predict a peak in the 65+ age group, who also would tend to be more severely affected by influenza.</p>
+<section id="future-work" class="level4">
+<h4 class="anchored" data-anchor-id="future-work">Future work</h4>
+<p>It has been reported in the past that different strains of influenza may have a different distribution between different age groups <span class="citation" data-cites="Age2015">[<a href="#ref-Age2015" role="doc-biblioref">8</a>]</span>. It could be useful in the future to have cases reported by both strain and age group so that any differences can be studied. This may also contribute to a temporal difference and could help prepare for rise in cases as some strains have a higher hospitalisation rate than others.</p>
+<p>As COVID-19 becomes endemic within the population, it will be important for the UKHSA to know the temporal relationship between both diseases. COVID combined with influenza has potential to cause many hospistalisations. Therefore, studying a temporal relationship of influenza and COVID-19 for each data source could help preparedness.</p>
+<p>Due to the UKHSA being a UK based agency, the data used within this report is from England. Influenza circulates around the world and is tracked by many governmental bodies. While acknowledging the different structure of the UK health system (with primary care referrals), it may also be worth studying temporal differences between influenza data sources in other countries.</p>
 <p>Study significance –GB Again on how UKHSA could use the result for the good of the public New questions that emerged Expanded way of looking at the initial question?</p>
 <p>Questions that could not be answered –GB Limitations of methods/data? (age?, different reporting patterns)</p>
 <p>Potential future research Ways of taking the project further if time was not an issue Also consequences of unhalted burden on NHS How can research build on our findings?</p>
+</section>
 <section id="take-homeconclusion" class="level4">
 <h4 class="anchored" data-anchor-id="take-homeconclusion">Take home/conclusion</h4>
 <p>Influenza is a very difficult disease to study and predict due to reasons include the different strains, antigenic shift and the unknown level of immunity in a given season. While data for previous seasons can be studied, the complex nature and changes from season to season mean it is difficult to give a firm prediction of what could happen in the future. Although we see no noticeable lag in peaks between any of the data sources, there is a lag in GP cases among different age groups. There is also a noticeable difference also in the rate of spread reported between GP cases and hopsitalisation cases.</p>
