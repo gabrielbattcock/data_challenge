@@ -114,11 +114,7 @@ provision of influenza vaccination programmes and temporary bed
 expansions to be concordant with the peak of subsequent influenza
 seasons, as we'll expand on later.
 
-<<<<<<< Updated upstream
 ![**Figure 1:** An infographic summarising the key points addressed in
-=======
-**Figure 1:** ![ An infographic summarising the key points addressed in
->>>>>>> Stashed changes
 this report.](images/fig-intro.png){width="92%"}
 
 ### Who is the UKHSA and why are they interested
@@ -196,11 +192,7 @@ UK Severe Influenza Surveillance Schemes (USISS) prior to that.
 Lab-confirmed data has been extracted from PHE/UKHSA reports on
 respiratory infections.
 
-<<<<<<< Updated upstream
 ![**Figure 2:** The data being used comes from various places and has
-=======
-**Figure 2:**![ The data being used comes from various places and has
->>>>>>> Stashed changes
 been sourced through difference
 resources.](images/fig-data-source.png){width="100%"}
 
@@ -276,15 +268,9 @@ growth curves as $N=ke^{\frac{rt}{b}}$ (where $k$ is a constant), the
 value $\dfrac {r}{b}$ can be found from the gradient when plotting
 $\log (N)$ against $t$.
 
-<<<<<<< Updated upstream
 In the analysis, log graphs were plotted and a linear model was fitted
 to the points at the beginning of the epidemic. Using the gradient, the
 $R$ was calculated for each data source and season.
-=======
-In the analysis, log graphs were plotted and a linear model was fitted to
-the points at the beginning of the epidemic. Using the gradient, the $R$
-was calculated for each data source and season.
->>>>>>> Stashed changes
 
 ## Results
 
@@ -317,24 +303,13 @@ seasons from 2017-2018 to 2022-23 with 2020-2021 and 2021-2022 removed.
 Figure 4 show influenza cases reported by SARI watch and USISS Sentinel
 data for hospitalisations of patients with influenza per 100,000 people.
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 ```{r echo= FALSE, warning = FALSE}
 combined_plot
 ```
 
-<<<<<<< Updated upstream
 **Figure 5 and 6**: Lab-confirmed cases of influenza, stratified by
 influenza strain (A and B). Data reported from PHE/UKHSA lab confirmed
 cases of influenza.
-=======
-
-**Figure 5 and 6**: Lab-confirmed cases of influenza, stratified by influenza
-strain (A and B). Data reported from PHE/UKHSA lab confirmed cases of
-influenza.
->>>>>>> Stashed changes
 
 In figures 3 and 4, we represent the MEM thresholds against trends of
 primary and secondary care cases.
@@ -414,20 +389,15 @@ plot_202223
 :::
 :::
 
-<<<<<<< Updated upstream
 **Figure 7:** Influenza rates per 100.000, stratified by different
 surveillance sources and presented for separate seasons. Data is
 combined from RCGP, Datamart scheme and SARI.
-=======
-**Figure 7** Influenza rates per 100.000, stratified by different surveillance sources and presented for separate seasons. Data is combined from RCGP, Datamart scheme and SARI.
->>>>>>> Stashed changes
 
 ```{r echo=FALSE, warning=FALSE}
 source("../R_scripts/Season_data/peak_table.R")
 max_table
 
 ```
-
 
 For each season, cases of ILI reported by primary care sources surpass
 secondary care and lab confirmed case reports. For 2017-18, the peak
@@ -496,7 +466,9 @@ log_hosp_plot2223
 ```
 :::
 :::
-**Figure 8** Log-transformed influenza rates stratified by different data sources. Results reported for consecutive years.
+
+**Figure 8** Log-transformed influenza rates stratified by different
+data sources. Results reported for consecutive years.
 
 **Figure 8:** Log-transformed influenza rates stratified by different
 data sources. Results reported for consecutive years.
@@ -529,6 +501,7 @@ effective_r_values
 source("../R_scripts/Season_data/age_strat.R")
 combined_age_plot
 ```
+
 **Figure 9** Influenza rates per 100.000, stratified by different age
 groups.
 
@@ -568,6 +541,7 @@ the winter holidays begin.
 source("../strain_stratification.R")
 combined_strain_plot
 ```
+
 **Figure 10** Total weekly recorded influenza cases, stratified the
 strain as recorded by the Datamart scheme. Presented for consecutive
 seasons.
@@ -592,36 +566,36 @@ for the remainder of the season. The unknown A type reached its peak of
 150 cases in week 6. It later fluctuated between 50-100 cases until week
 15 when it gradually started to drop.
 
-The data for 2018-19 season only recorded two types of influenza: A (unknown) and B
-(unknown). Incidence of type B reached a maximum of 11 cases in the 45th
-week and did not pass the threshold of 10 cases thereafter. Growth in
-the incidence of A (unknown) started at week 44 and continued, with a
-steeper rise starting in week 51 when over 300 new cases were recorded.
-This strain dominated the season soaring at nearly 800 cases in week 3.
-After a slight dip during the next week, the incidence of the A
-(unknown) peaked during week 7 with almost 1250 new cases. It started
-plummeting until week 10 and gradually decreased until the end of the
-season.
+The data for 2018-19 season only recorded two types of influenza: A
+(unknown) and B (unknown). Incidence of type B reached a maximum of 11
+cases in the 45th week and did not pass the threshold of 10 cases
+thereafter. Growth in the incidence of A (unknown) started at week 44
+and continued, with a steeper rise starting in week 51 when over 300 new
+cases were recorded. This strain dominated the season soaring at nearly
+800 cases in week 3. After a slight dip during the next week, the
+incidence of the A (unknown) peaked during week 7 with almost 1250 new
+cases. It started plummeting until week 10 and gradually decreased until
+the end of the season.
 
 During the 2019-20, cases of A (H1N1), A (unknown) and B (unknown)
-caused only a minor burden in comparison to A (H3).
-All of the analysed strains apart from A (H3) fluctuate around 10-30
-cases between weeks 43 of 2019 and 9 of 2020. The incidence of A (H3)
-started to rise during week 43 of the season and peaked in week 52.
-After its peak, it dropped rapidly to eventually level off during week 5
-and fluctuated around the same incidence.
+caused only a minor burden in comparison to A (H3). All of the analysed
+strains apart from A (H3) fluctuate around 10-30 cases between weeks 43
+of 2019 and 9 of 2020. The incidence of A (H3) started to rise during
+week 43 of the season and peaked in week 52. After its peak, it dropped
+rapidly to eventually level off during week 5 and fluctuated around the
+same incidence.
 
-For the 2022-23 season we can observe
-that both type B and A (H1N1) represented only a fraction of all
-incidence, reaching approximately 50 cases each during the 52nd week.
-The most dominant strain was A (unknown), which was on the rise since
-the first week of the season. During the 50th week, cases started
-soaring until the incidence of the type of influenza reached its peak of
-almost 2300 new cases in week 52 of 2022. A (H3) was the second most
-dominant strain. It presented a slower rise, starting in week 46 and
-peaking at 1250 new cases. Type A (unknown) also peaked at week 52. Data
-in the graph only represents incidence until week 5 of the year 2023 and
-that is when we can observe a decline in all of the cases.
+For the 2022-23 season we can observe that both type B and A (H1N1)
+represented only a fraction of all incidence, reaching approximately 50
+cases each during the 52nd week. The most dominant strain was A
+(unknown), which was on the rise since the first week of the season.
+During the 50th week, cases started soaring until the incidence of the
+type of influenza reached its peak of almost 2300 new cases in week 52
+of 2022. A (H3) was the second most dominant strain. It presented a
+slower rise, starting in week 46 and peaking at 1250 new cases. Type A
+(unknown) also peaked at week 52. Data in the graph only represents
+incidence until week 5 of the year 2023 and that is when we can observe
+a decline in all of the cases.
 
 ## Discussion
 
@@ -634,9 +608,7 @@ different influenza data sources. While we see no visible lag between
 peaks in the population as a whole, the data was probed further to try
 to discover any other causal inference.
 
-
 ### **Interpretation of the corr**
-
 
 From the results calculated, it is clear that the estimate is larger for
 both hospitalisation data and swab data than for the GP data. The
@@ -829,35 +801,15 @@ reported between primary and secondary care cases.
 
 ## Appendix A - Team Statement
 
-**Contributions:**
+-   Data extraction and cleaning: GB, AC, SJ, HL
 
--   Data extraction and cleaning
+-   Scripting: GB, AC, SJ, HL
 
-    -   GB - 2014-2021 swab data (using provided script), 2017-18
-        hospitalisations (with Szymon)
-    -   AC -
-    -   SJ -
-    -   HL - Mortality and Vaccine
+-   Statistical Analysis: GB, HL
 
--   Scripting
+-   Visualisation: GB, AC, SJ, HL
 
-    -   GB - season 2017-2022, log_graphs, age_strat, hospitalisation
-        plots
-    -   AC -
-    -   SJ -
-    -   HL - cross-correlation,
-
--   Visualisation
-
-    -   the quick brown fox jumps over the lazy dog
-    -   the quick brown fox jumps over the lazy dog
-
--   Writing-Up
-
-    -   GB - most of it
-    -   AC -
-    -   SJ -
-
+-   Writing-Up: GB, AC, SJ, HL
 
 
 I hereby declare and confirm with my signature that this report, along

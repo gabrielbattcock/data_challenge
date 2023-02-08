@@ -191,3 +191,4 @@ vs_hosp_mort <- allcor %>%
 #                 tab_header(title = "GP data with reference to Swab data")
 # print("Every year, hosp peaks first, after k weeks, mortality peaks")
 # print(test)
+
