@@ -87,6 +87,7 @@ reported as the lag between given sources for a given year.
 
 ## Introduction
 
+
 Influenza is a highly infectious disease caused by a virus of the
 *Orthomyxoviridae* family. The virus has multiple species, with type A
 and type B being predominant in humans. The World Health Organisation
@@ -113,6 +114,7 @@ service provision for the future. For example, it would help the
 provision of influenza vaccination programmes and temporary bed
 expansions to be concordant with the peak of subsequent influenza
 seasons, as we'll expand on later.
+
 
 ![An infographic summarising the key points addressed in this
 report.](images/fig-intro.png){width="92%"}
@@ -201,6 +203,7 @@ stratified by at risk groups, for the entire season.
 
 #### Cross-correlation
 
+
 To study the temporal relationship between peaks in the influenza data,
 a cross-correlation method was chosen. Cross-correlation can be used to
 see if two peaks align. The method lags one signal relative to another
@@ -208,6 +211,7 @@ and calculates its correlation value. If there is a lag between peaks,
 the cross-correlation will result in a higher correlation value for a
 peak that has been shifted than for the original peak. This has been
 used in addition to rudimentary visual analysis.
+
 
 To perform this, Spearman's non-parametric test of correlation (denoted
 $ρ$) is used. Spearman's $ρ$ uses the ranks of case rate per week to
@@ -263,10 +267,7 @@ was calculated for each data source and season.
 
 ## Results
 
-To see view the trends in the data and to first explore it, case rate
-per 100,000 people was plotted against epidemic week. Lines for each
-season have been represented on of the same plot, each for a different
-data source.
+To get an initial understanding of the trends case rate per 100,000 people was plotted against epidemic week. Lines representing each season were overlaid on the same plot, MEM thresholds values were visualised where appropriate.
 
 ### Source
 
@@ -286,12 +287,7 @@ hospital_plot
 :::
 :::
 
-**Figure 3 and 4**: Figure 3 shows RCGP RSC reports of Influenza Like
-Illnesses in participating GP practices per 100,000 people across 4
-influenza seasons from 2017-2018 to 2022-23 with 2020-2021 and 2021-2022
-removed. Figure 4 show influenza cases reported by SARI watch and USISS
-Sentinel data for hospitalisations of patients with influenza per
-100,000 people.
+**Figure 3 and 4**: Figure 3 shows RCGP RSC reports of ILI in participating GP practices per 100,000 people across four influenza seasons from 2017-2018 to 2022-23 with 2020-2021 and 2021-2022 removed. Figure 4 show influenza cases reported by SARI watch and USISS Sentinel data for hospitalisations of patients with influenza per 100,000 people.
 
 ::: grid
 ::: g-col-3
@@ -312,47 +308,19 @@ combined_plot
 strain (A and B). Data reported from PHE/UKHSA lab confirmed cases of
 influenza.
 
-In figures 3 and 4, we represent the Moving Epidemic Model thresholds
-against trends of primary and secondary care cases in the background.
+In figures 3 and 4, we represent the MEM thresholds against trends of primary and secondary care cases.
 
-We expected to see that over different seasons, peaks appear at
-different weeks. This is due to the complex dynamics of influenza spread
-which do not replicate every season. The magnitude of the peaks case
-rates however do indicate differing levels of severity in influenza
-between seasons.
+We expected to see that over different seasons, peaks appear at different weeks. This is due to the complex dynamics of influenza spread which vary by season. The magnitude of the peaks case rates however indicates differing levels of severity in influenza between seasons.
 
-This visualisation shows similarity in temporal characterisitcs between
-the 2017-18/2018-19 influenza seasons; and between the 2019-20/2022-23
-influenza seasons. In primary care data, the peaks for the 2017-18 and
-2018-19 influenza seasons occur at week 4 (with a subsequent peak in
-2018-19 at week 7). We see a similar split in secondary care data.
-Secondary cases in 2017-18 peak at week 3, with a smaller peak across
-weeks 8-9. For 2018-19 the case rate peaks at week 7. In lab confirmed
-cases of influenza A, both 2017-18 and 2018-19 influenza seasons peak at
-week 7.
+This visualisation shows similarity in temporal characteristics between the 2017-18/2018-19 influenza seasons; and between the 2019-20/2022-23 influenza seasons. In primary care data, the peaks for the 2017-18 and 2018-19 influenza seasons occur at week 4 (with a subsequent one in 2018-19 at week 7). We see a similar split in secondary care data. Case rate in 2017-18 peaked at week 3, with a smaller one across weeks 8-9. For 2018-19 the case rate peaks at week 7. In lab confirmed cases data for influenza A, both 2017-18 and 2018-19 influenza seasons peak at week 7.
 
-In the primary care data, the peaks for the 2019-20 and 2022-23 season
-occur in the previous year at 52 and 50 weeks respectively. In secondary
-care data and lab confirmed cases of influenza A, the peaks for seasons
-2019-20 and 2022-23 occur in the previous year at week 52.
+In primary care data, the peaks for the 2019-20 and 2022-23 season occur in the previous year at week 52 and week 50 respectively. In secondary care data and lab data of influenza A, the peaks for seasons 2019-20 and 2022-23 occur in the previous year at week 52.
 
-Lab confirmed cases of influenza A (Figure 5a) reinforce the backshift
-we see between the 2017-18/2018-19 seasons and the 2019-20/2022-23
-seasons. The peak for the 2017-18 and 2018-19 season occur at week 7,
-similar to our finding s for secondary care and for reported primary
-care cases in the 2018-19 season. The peak case rate for both 2019-20
-and 2022-23 seasons occur at week 52, in line with the secondary care
-cases for both seasons, and primary care data for 2022-23.
+Lab confirmed cases of influenza A (Figure 5a) reinforce the back-shift we see between the 2017-18/2018-19 seasons and the 2019-20/2022-23 seasons. The peak for the 2017-18 and 2018-19 season occur at week 7, similar to our findings for secondary care and for reported primary care case rates in the 2018-19 season. The peak case rate for both 2019-20 and 2022-23 seasons occur at week 52, in line with the secondary care cases for both seasons, and primary care data for 2022-23.
 
-Lab confirmed cases of influenza B only appear to increase notable for
-the 2017-18 outbreak, with the cases for subsequent seasons not
-increasing to the same magnitude.
+Lab confirmed cases of influenza B only appear to increase notably for the 2017-18 outbreak, with the cases for subsequent seasons not increasing to the same magnitude.
 
-Its difficult to be confident in our post-covid analysis as the only
-data that we have available is the 2022-23 season, which at time of
-report writing is ongoing. The relationships observed on the brief
-analysis done amay not hold should the 2022-23 outbreak change in
-characteristic.
+It is difficult to be confident in our post-covid analysis as the only data available covers 2022-23 season, which is still incomplete at time of reporting. The relationships observed on the brief analysis done may not hold should the characteristic of 2022-23 season change.
 
 ### Season
 
@@ -398,32 +366,14 @@ max_table
 
 ```
 
-For each season, cases of ILI reported by primary care sources dominate
-secondary care and lab confirmed case reporting. For 2017-18, the peak
-for primary care cases reported by the RCGP was 54.1 cases per 100,000.
-This was the greatest extent of the influenza epidemic as reflected by
-primary care data. The subsequent 2018-19 and 2019-20 seasons saw more
-modest peaks of 23.1 and 19.4 cases per 100,000 respectively. For the
-post-COVID influenza season, of data included at time of report writing,
-the current peak of primary care cases exists at 31.3 cases per 100,000.
-This is larger than the two pre-COVID influenza season data.
+For each season, cases of ILI reported by primary care sources surpass secondary care and lab confirmed case reports. For 2017-18, the peak value for primary care cases reported by the RCGP was 54.1 cases per 100,000. This was the greatest extent of the influenza epidemic as reflected by primary care data. The subsequent 2018-19 and 2019-20 seasons saw more modest peaks of 23.1 and 19.4 cases per 100,000 respectively. For the post-COVID influenza season, of data included at time of reporting, the current peak of primary care cases remains at 31.3 cases per 100,000. This is larger than the two pre-COVID influenza season data.
 
 Secondary care and lab confirmed case rates mirror each other closely
 across pre-pandemic influenza seasons. The magnitude of impact between
 hospitalisation and lab-confirmed cases also appear to be similar in
 pre-pandemic data.
 
-However, post-COVID, the peak for secondary care data reached 14.8 per
-100,000 cases in week 12, whereas the maximum reported rate for lab
-confirmed cases reached 5.43 per 100,000 in the same week of data
-available. In pre-pandemic influenza seasons, the peaks for secondary
-care cases occured during weeks 15 (8.86 per 100,000 in 2017-18), 19
-(6.87 per 100,000 in 2018-19) and 12 (7.50 per 100,000 in 2019-20). Lab
-confirmed cases peaked during weeks 17 (6.55 per 100,000 in 2017-18), 19
-(6.19 per 100,000 in 2018-19) and 12 (6.64 per 100,000 in 2019-20). Its
-too early to determine whether this years influenza season pattern
-amongst secondary care and lab confirmed cases matches patterns of
-2017-18 and 2018-19 or of 2019-20.
+However, post-COVID, the peak for secondary care data reached 14.8 per 100,000 cases in week 12, whereas the maximum reported rate for lab confirmed cases reached 5.43 per 100,000 in the same week of data available. In pre-pandemic influenza seasons, the peaks for secondary care cases occured during weeks 15 (8.86 per 100,000 in 2017-18), 19 (6.87 per 100,000 in 2018-19) and 12 (7.50 per 100,000 in 2019-20). Lab confirmed cases peaked during weeks 17 (6.55 per 100,000 in 2017-18), 19 (6.19 per 100,000 in 2018-19) and 12 (6.64 per 100,000 in 2019-20). Its too early to determine whether this year's influenza season pattern amongst secondary care and lab confirmed cases matches historical patterns .
 
 ### Log graphs and $R_0$ value
 
@@ -465,22 +415,10 @@ log_hosp_plot2223
 :::
 :::
 
-To further investigate the temporal relationships between the data
-sources, effective reproduction numbers $R$ were calculated to evaluate
-the difference in the rate of spread between data sources. The case rate
-per 100,000 was transformed using a natural logarithm and plotted
-against epidemiological week. The log plot resulted in a straight line
-during the initial exponential growth period and a tail after the peak
-of infections, as was expected from theory. The plots were evaluated to
-find which weeks to fit a linear model to. Using the linear model
-function in R, a line was overlaid on the log plots and coefficients of
-gradients for each of the lines were extracted. Using
-$R = 1 + \frac{r}{b}$, as detailed above, the $R$ was calculated.
 
-The estimated $R$ for each year and data source is detailed below. As
-expected at the beginning of a flu season, the R numbers are all
-above 1. It is noted that a higher reproduction number calculated for
-the data from hospitalisations than from GP consultations.
+To further investigate the temporal relationships between the data sources, effective reproduction numbers $R$ were calculated to evaluate the difference in the rate of spread between data sources. The case rate per 100,000 was transformed using the natural logarithm and plotted against epidemiological weeks. The log plot resulted in a straight line during the initial exponential growth period and a tail after the peak of infections, as was expected from theory. The plots were visually examined to find which weeks to fit a linear model to. Using the model, a line was overlaid on the log plots and coefficients of gradients for each of the lines were calculated. The $R$ value was obtained from the formula $R = 1 + \frac{r}{b}$ as detailed above.
+
+The estimated $R$ for each year and data source is detailed below. As expected at the beginning of a flu season, the R numbers are all above 1. It is noted R value derived from the hospitalisation data is higher than that of primary care data.
 
 ```{r echo=FALSE}
 # source("../R_scripts/Season_data/log_graphs.R")
@@ -520,35 +458,15 @@ plot_age2223
 :::
 :::
 
-Using data provided by the RCGP, influenza data has been plotted
-stratified by age. This has been reported as ILI rate per 100,000, and
-broken down in to three age groups: \<15 years, 15-64 years and 65+
-years.
+Using data provided by the RCGP, age stratified rates were plotted against each other. The unit of measurement is ILI rate per 100,000, results are broken down into three age groups: \<15 years, 15-64 years and 65+ years.
 
-For the season 2017-18, there is a lag between the peaks of adults older
-than 15 years and children. The large growth of the epidemic this season
-begins at week 50 and peaks at week 3 for all ages except \<15 years
-which peak at week 5. This can be explained by the timing of the
-epidemic overlapping with UK school holidays, leading children to having
-less social interaction, therefore delaying their peak by two weeks.
+For 2017-18, there is a lag between the peaks of adults over 15 years and children. The rapid growth period of this season begins at week 50 and peaks at week 3 for all ages except \<15 years which peaks later, at week 5. **This may be due to the timing of the epidemic overlapping with UK school holidays, leading to children having less social interaction, therefore delaying the peak for this group by two weeks.**
 
-For the season 2018-19 there is a minor peak followed by a larger peak a
-few weeks later. This year, the second peak among the 65+ age group lags
-behind all other age groups by one week. This may be due to less
-socialising among the older age group.
+For 2018-19 there appears to be a minor peak followed by a larger peak a few weeks later. This year, the second peak among the 65+ age group lags behind all other age groups by a week. **This may be due to less socialising among the older age group.**
 
-The season 2019-20 shows multiple peaks with an expected dip over the
-holiday period (between weeks 51-1). As with the 2018-19 season, the 65+
-age group lag behind the other age groups, with the largest peak for
-this age group two weeks after all other ages. There is also an evident
-spike at week 12 for this year. As this data is recording "Influenza
-*like* illness", it can be assumed that this peak is due to the COVID-19
-pandemic.
+The season 2019-20 shows multiple peaks with the expected dip over the holiday period (between weeks 51 and 1). As with the 2018-19 season, the major peak for 65+ age group lags two weeks behind the other age groups. There is also an evident spike at week 12 for this year. **As this data is recording "Influenza like illness", it can be assumed that this peak is due to the COVID-19 pandemic.**
 
-The current influenza season also shows a lag in growth among the 65+
-group. The data however does not go up show where the peaks are, so we
-do not know the full picture. It is also shown that the under 15 years
-have a lower gradient after week 51 around the winter holidays begin.
+The current influenza season also shows a lag in growth among the 65+ group. Full season results cannot be presented at the time of reporting, due to data still being recorded. From the available data we can infer that the under 15 years have a lower gradient after week 51 around when the winter holidays begin.
 
 ### Stratified by influenza strain type
 
@@ -636,6 +554,7 @@ peaking at 1250 new cases. Type A (unknown) also peaked at week 52. Data
 in the graph only represents incidence until week 5 of the year 2023 and
 that is when we can observe a decline in all of the cases.
 
+
 ## Discussion
 
 \*\* First paragraph \*\*
@@ -673,6 +592,7 @@ the level of immunity among the population. While it may help throughout
 the report to have more granularity of data, it may not give a better
 estimate of the reproduction number. The results have assisted in
 showing a temporal relationship between GP cases and hospitalisations.
+
 
 ### Strain stratified data discussion -- SJ
 
@@ -794,14 +714,17 @@ Unexpected findings What things have come up that we did not expect?
 Counter intuitive patterns? Maybe an unexpected season in terms of
 strain dominance? Lack of delay between the sources?
 
+
 ### Last paragraph
 
 Hypothesis and purpose of the study summary
 
 ### Hypothesis and purpose of study -- GB
 
+
 Proved or disproved? What might be the reasons? What can be learned for
 the results?
+
 
 The hypothesis to the main research question was that we expected there
 to be a temporal difference between peaks from different data sources,
@@ -822,6 +745,7 @@ the data presented in this report for a population as a whole. GP
 consultations are not considered to be a good predictor of
 hospitalisation cases for influenza.
 
+
 With regards to the secondary research questions and hypotheses, the
 data gives more insight. When RP consultations are stratified by age
 group, there is a clear lag between the 65+ years and the remaining age
@@ -838,6 +762,7 @@ interactions than children, so will have a slower spread of influenza.
 Therefore, knowing that cases are rising among \<15 years can help
 predict a peak in the 65+ age group, who also would tend to be more
 severely affected by influenza.
+
 
 #### Future work
 
@@ -872,6 +797,7 @@ Potential future research Ways of taking the project further if time was
 not an issue Also consequences of unhalted burden on NHS How can
 research build on our findings?
 
+
 #### Take home/conclusion
 
 Influenza is a very difficult disease topredict due to reasons include
@@ -887,6 +813,7 @@ hopsitalisation cases.
 #### Granularity of Data
 
 ## Appendix A - Team Statement
+
 
 I think we should each note down which R scripts we've worked on, even
 if they overlap. Obviously we've all worked on this document, the
