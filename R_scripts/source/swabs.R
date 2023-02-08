@@ -35,8 +35,7 @@ plotA <-  ggplot(typeA, aes(id, value)) +
 plotB <- ggplot(typeB, aes(id, value)) +
   geom_line(lwd = 1.5, aes(colour = series), alpha =0.7) +
   labs(x="Week", y="Number of cases",
-       title="Type B",
-       caption="As collected by the PHE lab reports") +
+       title="Type B")+
   theme_ipsum() +
   scale_x_continuous(breaks = seq(0, 34, 2), 
                      minor_breaks = seq(0, 34, 1),
@@ -62,7 +61,9 @@ plotB <- ggplot(typeB, aes(id, value)) +
 
 
 combined_plot <- ggarrange(plotA, plotB,
-                           ncol = 1, nrow = 2)
+                           ncol = 2, nrow = 1,
+                           common.legend = TRUE,
+                           legend = "bottom")
 
 combined_plot
 

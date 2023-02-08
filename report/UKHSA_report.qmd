@@ -114,8 +114,12 @@ provision of influenza vaccination programmes and temporary bed
 expansions to be concordant with the peak of subsequent influenza
 seasons, as we'll expand on later.
 
-![An infographic summarising the key points addressed in this
-report.](images/fig-intro.png){width="92%"}
+<<<<<<< Updated upstream
+![**Figure 1:** An infographic summarising the key points addressed in
+=======
+**Figure 1:** ![ An infographic summarising the key points addressed in
+>>>>>>> Stashed changes
+this report.](images/fig-intro.png){width="92%"}
 
 ### Who is the UKHSA and why are they interested
 
@@ -192,8 +196,13 @@ UK Severe Influenza Surveillance Schemes (USISS) prior to that.
 Lab-confirmed data has been extracted from PHE/UKHSA reports on
 respiratory infections.
 
-![The data being used comes from various places and has been sourced
-through difference resources.](images/fig-data-source.png){width="100%"}
+<<<<<<< Updated upstream
+![**Figure 2:** The data being used comes from various places and has
+=======
+**Figure 2:**![ The data being used comes from various places and has
+>>>>>>> Stashed changes
+been sourced through difference
+resources.](images/fig-data-source.png){width="100%"}
 
 Mortality data was extracted from the UK Office for National Statistics
 (ONS) weekly bulletin of death registrations. Data extracted was defined
@@ -208,7 +217,7 @@ stratified by at risk groups, for the entire season.
 
 ### Statistical Analysis
 
-#### Cross-correlation
+#### Cross-correlation {#cross-correlation}
 
 To study the temporal relationship between peaks in the influenza data,
 a cross-correlation method was chosen. Cross-correlation can be used to
@@ -221,12 +230,15 @@ used in addition to rudimentary visual analysis.
 To perform this, Spearman's non-parametric test of correlation (denoted
 $ρ$) is used. Spearman's $ρ$ uses the ranks of case rate per week to
 replace the actual values within each variable. It runs as long as the
-variables are equal in length. As seen in Qin *et al.* 2019 [@Qin2019] The measurement of cross-correlation between pairs of variables should be as follows. One variable, denoted
-$x_{t}$, is pinned to the present. A lag of positive integer $k$ is
-applied to the other variable $y$ to generate $y_{t},\; y_{t+1},\;\ldots y_{t+k}$ . For a given influenza season, Spearman's test is run
-repeatedly between $x$ and each version of $y$. The lag that gives the
-best correlation, denoted $\arg\underset{k}\max \,\rho(x,y_{t+k})$, is
-reported for each year for each pair of variables.
+variables are equal in length. As seen in Qin *et al.* 2019 [@Qin2019]
+The measurement of cross-correlation between pairs of variables should
+be as follows. One variable, denoted $x_{t}$, is pinned to the present.
+A lag of positive integer $k$ is applied to the other variable $y$ to
+generate $y_{t},\; y_{t+1},\;\ldots y_{t+k}$ . For a given influenza
+season, Spearman's test is run repeatedly between $x$ and each version
+of $y$. The lag that gives the best correlation, denoted
+$\arg\underset{k}\max \,\rho(x,y_{t+k})$, is reported for each year for
+each pair of variables.
 
 #### Moving Epidemic Method
 
@@ -235,12 +247,12 @@ agencies (including PHE/UKHSA) to model epidemics and generate threshold
 severity levels from historical data. The epidemic period in a season is
 the minimum number of consecutive weeks with the maximum accumulated
 rates percentage (MAP). The season can then be split into pre-epidemic,
-epidemic, and post-epidemic periods [@Vega2013]. Within each, a given number of data
-points will be sampled. The number of sample remains at 30 regardless of
-availability. Assuming these fit into a normal distribution, their
-geometric mean will have confidence intervals. The upper bounds of
-$\text{CI}_{50},\; \text{CI}_{90},\; \text{CI}_{95}$ act as the
-threshold values. Along with the cutoff for entering the epidemic
+epidemic, and post-epidemic periods [@Vega2013]. Within each, a given
+number of data points will be sampled. The number of sample remains at
+30 regardless of availability. Assuming these fit into a normal
+distribution, their geometric mean will have confidence intervals. The
+upper bounds of $\text{CI}_{50},\; \text{CI}_{90},\; \text{CI}_{95}$ act
+as the threshold values. Along with the cutoff for entering the epidemic
 period, these four values give us five bands: not-epidemic, baseline,
 and low, moderate, high, very high threat to the public. In this report,
 the plots for GP and hospitalisation use the values from UKHSA
@@ -264,9 +276,15 @@ growth curves as $N=ke^{\frac{rt}{b}}$ (where $k$ is a constant), the
 value $\dfrac {r}{b}$ can be found from the gradient when plotting
 $\log (N)$ against $t$.
 
-In the analyis, log graphs were plotted and a linear model was fitted to
+<<<<<<< Updated upstream
+In the analysis, log graphs were plotted and a linear model was fitted
+to the points at the beginning of the epidemic. Using the gradient, the
+$R$ was calculated for each data source and season.
+=======
+In the analysis, log graphs were plotted and a linear model was fitted to
 the points at the beginning of the epidemic. Using the gradient, the $R$
 was calculated for each data source and season.
+>>>>>>> Stashed changes
 
 ## Results
 
@@ -299,24 +317,24 @@ seasons from 2017-2018 to 2022-23 with 2020-2021 and 2021-2022 removed.
 Figure 4 show influenza cases reported by SARI watch and USISS Sentinel
 data for hospitalisations of patients with influenza per 100,000 people.
 
-::: grid
-::: g-col-3
-:::
+<<<<<<< Updated upstream
+=======
 
-::: g-col-6
+>>>>>>> Stashed changes
 ```{r echo= FALSE, warning = FALSE}
-
 combined_plot
 ```
-:::
 
-::: g-col-3
-:::
-:::
+<<<<<<< Updated upstream
+**Figure 5 and 6**: Lab-confirmed cases of influenza, stratified by
+influenza strain (A and B). Data reported from PHE/UKHSA lab confirmed
+cases of influenza.
+=======
 
-**Figure 5**: Lab-confirmed cases of influenza, stratified by influenza
+**Figure 5 and 6**: Lab-confirmed cases of influenza, stratified by influenza
 strain (A and B). Data reported from PHE/UKHSA lab confirmed cases of
 influenza.
+>>>>>>> Stashed changes
 
 In figures 3 and 4, we represent the MEM thresholds against trends of
 primary and secondary care cases.
@@ -396,11 +414,20 @@ plot_202223
 :::
 :::
 
+<<<<<<< Updated upstream
+**Figure 7:** Influenza rates per 100.000, stratified by different
+surveillance sources and presented for separate seasons. Data is
+combined from RCGP, Datamart scheme and SARI.
+=======
+**Figure 7** Influenza rates per 100.000, stratified by different surveillance sources and presented for separate seasons. Data is combined from RCGP, Datamart scheme and SARI.
+>>>>>>> Stashed changes
+
 ```{r echo=FALSE, warning=FALSE}
 source("../R_scripts/Season_data/peak_table.R")
 max_table
 
 ```
+
 
 For each season, cases of ILI reported by primary care sources surpass
 secondary care and lab confirmed case reports. For 2017-18, the peak
@@ -469,6 +496,10 @@ log_hosp_plot2223
 ```
 :::
 :::
+**Figure 8** Log-transformed influenza rates stratified by different data sources. Results reported for consecutive years.
+
+**Figure 8:** Log-transformed influenza rates stratified by different
+data sources. Results reported for consecutive years.
 
 The reproduction number has been estimated for each of the seasons and
 each of the data sources. The case rate per 100,000 was transformed
@@ -493,36 +524,13 @@ effective_r_values
 
 ### Stratifying by age group
 
-::: grid
-::: g-col-6
 ```{r echo = FALSE}
 
 source("../R_scripts/Season_data/age_strat.R")
-plot_age1718
+combined_age_plot
 ```
-:::
-
-::: g-col-6
-```{r echo = FALSE}
-
-plot_age1819
-```
-:::
-
-::: g-col-6
-```{r echo = FALSE}
-
-plot_age1920
-```
-:::
-
-::: g-col-6
-```{r echo = FALSE}
-
-plot_age2223
-```
-:::
-:::
+**Figure 9** Influenza rates per 100.000, stratified by different age
+groups.
 
 Using data provided by the RCGP, age stratified rates were plotted
 against each other. The unit of measurement is ILI rate per 100,000,
@@ -556,39 +564,14 @@ the winter holidays begin.
 
 ### Stratified by influenza strain type
 
-::: grid
-::: g-col-6
 ```{r echo=FALSE}
 source("../strain_stratification.R")
-strains17_18_swabs_plot
+combined_strain_plot
 ```
-:::
+**Figure 10** Total weekly recorded influenza cases, stratified the
+strain as recorded by the Datamart scheme. Presented for consecutive
+seasons.
 
-::: g-col-6
-```{r echo=FALSE}
-strains18_19_swabs_plot
-```
-:::
-:::
-
-::: grid
-::: g-col-6
-
-```{r echo=FALSE}
-strains19_20_swabs_plot
-```
-:::
-
-::: g-col-6
-```{r echo=FALSE}
-strains22_23_swabs_plot
-```
-:::
-:::
-
-Figure x1 plots total recorded influenza cases by week in the season
-(defined as the 40th week of the previous year to the 20th week of the
-subsequent), separated by the strain as recorded by the Datamart scheme.
 The 2017-18 season was dominated by type B influenza. The earliest rise
 in cases was observed in A (H3), starting around week 46, whilst the
 other strains present a delay of approximately one week. Moving forward
@@ -609,8 +592,7 @@ for the remainder of the season. The unknown A type reached its peak of
 150 cases in week 6. It later fluctuated between 50-100 cases until week
 15 when it gradually started to drop.
 
-Figure x2 presents observed data for the 2018-19 season. The data for
-this season only recorded two types of influenza: A (unknown) and B
+The data for 2018-19 season only recorded two types of influenza: A (unknown) and B
 (unknown). Incidence of type B reached a maximum of 11 cases in the 45th
 week and did not pass the threshold of 10 cases thereafter. Growth in
 the incidence of A (unknown) started at week 44 and continued, with a
@@ -622,14 +604,14 @@ plummeting until week 10 and gradually decreased until the end of the
 season.
 
 During the 2019-20, cases of A (H1N1), A (unknown) and B (unknown)
-caused only a minor burden in comparison to A (H3) as seen in figure x3.
+caused only a minor burden in comparison to A (H3).
 All of the analysed strains apart from A (H3) fluctuate around 10-30
 cases between weeks 43 of 2019 and 9 of 2020. The incidence of A (H3)
 started to rise during week 43 of the season and peaked in week 52.
 After its peak, it dropped rapidly to eventually level off during week 5
 and fluctuated around the same incidence.
 
-Figure x4 represents the post pandemic season of 2022-23. We can observe
+For the 2022-23 season we can observe
 that both type B and A (H1N1) represented only a fraction of all
 incidence, reaching approximately 50 cases each during the 52nd week.
 The most dominant strain was A (unknown), which was on the rise since
@@ -643,10 +625,7 @@ that is when we can observe a decline in all of the cases.
 
 ## Discussion
 
-\*\* First paragraph \*\*
-
-Essential interpretation based on key findings --GB Brief for produced
-figures Possibly to most salient points
+## Main piece of supporting evidence
 
 From analysis of the plots for each season stratified by surveillance
 source, the peaks for rate of cases line up. The sample size of four
@@ -655,7 +634,9 @@ different influenza data sources. While we see no visible lag between
 peaks in the population as a whole, the data was probed further to try
 to discover any other causal inference.
 
-From cross-correlation test, we find out that 
+
+### **Interpretation of the corr**
+
 
 From the results calculated, it is clear that the estimate is larger for
 both hospitalisation data and swab data than for the GP data. The
@@ -672,11 +653,7 @@ Estimating the reproduction number for a virus such as influenza can be
 difficult due to uncertainty in the level of immunity among the
 population.
 
-### Strain stratified data discussion -- SJ
-
-ref:https://www.who.int/tools/flunet
-
-2017-18
+### Strain stratified data discussion
 
 Stratification of the results by different strains has brought some
 interesting insights into our study. The 2017-18 season was dominated by
@@ -686,30 +663,19 @@ incidence of A (H1N1), which in the UK was only a secondary strain.
 Another interesting point is that the peak incidence of type B influenza
 was delayed in the other countries of the northern hemisphere during the
 2017 season. Within the UK, we have noted an earlier peak of A (H1N1)
-compared to type B.
-
-2018-19
-
-During the season 2018-19, data was only stratified by type and not
-subtype. According to the WHO, this season have been dominated by A
-(H1N1) in the northern hemisphere. Compared to the data from northern
-Europe, we can see similarities in the shape distribution of
-lab-confirmed cases. Other strains of influenza were not noticeably
-present.
-
-2019-20
-
-In the 2019-20 season, we observed dominance of A (H1N1). Contrast this
-with the rest of northern Europe, where the most prevalent strains were
-type A and B of unknown lineages. The peak in the UK for A (H1N1) was
-delayed in comparison to the cumulative peak for northern Europe. It
-should be noted that the UK peak lined up with the peak for the A (H3)
-and type B for northern Europe. Incidence of A (H3) and type B in the UK
-was delayed compared to A (H1N1). However, the general incidence of A
-(H3) and B was minimal throughout the whole season.
-
-2022-23
-
+compared to type B. During the season 2018-19, data was only stratified
+by type and not subtype. According to the WHO, this season have been
+dominated by A (H1N1) in the northern hemisphere. Compared to the data
+from northern Europe, we can see similarities in the shape distribution
+of lab-confirmed cases. Other strains of influenza were not noticeably
+present. In the 2019-20 season, we observed dominance of A (H1N1).
+Contrast this with the rest of northern Europe, where the most prevalent
+strains were type A and B of unknown lineages. The peak in the UK for A
+(H1N1) was delayed in comparison to the cumulative peak for northern
+Europe. It should be noted that the UK peak lined up with the peak for
+the A (H3) and type B for northern Europe. Incidence of A (H3) and type
+B in the UK was delayed compared to A (H1N1). However, the general
+incidence of A (H3) and B was minimal throughout the whole season.
 Season 2022-23 started early, with the incidence of A (unknown) leading
 the rising trend. Results correspond with data for northern Europe,
 sharing the shape of the distribution and dominating strain. It is noted
@@ -718,29 +684,25 @@ consistent with data for northern Europe. In comparison with data for
 the countries of the whole northern hemisphere, the incidence in the UK
 seems to plummet with a slight delay.
 
-### Main piece of supporting evidence
+### Comparison and contrast to previous studies
 
-How do these result fit within our question Ensure we're writing to meet
-clients expectations
-
-### Comparison and contrast to previous studies -- SJ
-
-Few studies have been done on this topic, and none on UK data. However, there are several sources which try to understand the
-relationship of influenza before and after the COVID-19 pandemic. One of
-the most interesting comparisons would be with the work by \[1\]
-studying the effect of the COVID-19 pandemic on ILI-related
-hospitalization and mortality in children \[1\]. The main findings
-conclude there was a statistically significant drop in the number of
-cases in pediatric influenza hospitalisations post pandemic. The report
-highlights the lack of ILI-related data for the COVID-19 pandemic
-period, in line with our findings. A similar phenomenon is seen in
-Italy, China and the USA \[2\]. It is suspected that during that period,
-ILI was under-reported due to the main focus being COVID testing. This
-hypothesis however does not explain observations in China where
-incidence was low, even though type A and B influenza tests were
-conducted for patients with suspicion of COVID-19 \[3\]. Another
-possible explanation is the change in contact patterns which caused
-immunity perturbations that happened throughout 2019-20.
+Few studies have been done on this topic, and none on UK data. However,
+there are several sources which try to understand the relationship of
+influenza before and after the COVID-19 pandemic. One of the most
+interesting comparisons would be with the work by \[1\] studying the
+effect of the COVID-19 pandemic on ILI-related hospitalization and
+mortality in children \[1\]. The main findings conclude there was a
+statistically significant drop in the number of cases in pediatric
+influenza hospitalisations post pandemic. The report highlights the lack
+of ILI-related data for the COVID-19 pandemic period, in line with our
+findings. A similar phenomenon is seen in Italy, China and the USA
+\[2\]. It is suspected that during that period, ILI was under-reported
+due to the main focus being COVID testing. This hypothesis however does
+not explain observations in China where incidence was low, even though
+type A and B influenza tests were conducted for patients with suspicion
+of COVID-19 \[3\]. Another possible explanation is the change in contact
+patterns which caused immunity perturbations that happened throughout
+2019-20.
 
 Seasonality is a result of a complex interplay between previously
 mentioned contact patterns, host immunity and survival of the virus
@@ -758,12 +720,7 @@ Africa when the 2021-22 season peaked unusually late during the winter
 \[7\]. However, regular seasonality was restored in the following
 season, both dominated by A (H1N1).
 
-Strengths -- SJ What did we cover well in comparison to similar reports?
-How does this contribute to currently available knowledge? In general
-and from the client's perspective? Implications of the study based on
-literature
-
-### Strengths -- really not sure about this one so please edit/add if you have some ideas
+### Strengths
 
 One of the strong points of our report was the availability of multiple
 data sources. As opposed to similar literature, we have gathered data
@@ -778,18 +735,30 @@ rationale for better allocation of public resources.
 
 ### Limitations
 
-Inevitably our research is limited by only using publicly available data. Our data did not have the quantity and quality needed for more in-depth statistical analysis. For example, Pearson Correlation test would require the data to be normally distributed, and Granger Causality needs prerequisite tests to prove stationarity. We resorted to use Spearman Correlation with manual lag ([#](#Cross-correlation)), which would result in `NA`s in the first few or last few observations. The test has to be run on two series of equal length, meaning that a considerable amount is trimmed off to match them. Lack of more granular data is another drawback. While it does not impact the calculation of $R_0$ values, having measurements only on a weekly scale made it impossible to compare peaks that might come a few days after one another. From what is available, we concluded counter-intuitively that the peak younger group did not lead that of the elderly group, reasons unclear. 
+Inevitably our research is limited by only using publicly available
+data. Our data did not have the quantity and quality needed for more
+in-depth statistical analysis. For example, Pearson Correlation test
+would require the data to be normally distributed, and Granger Causality
+needs prerequisite tests to prove stationarity. We resorted to use
+Spearman Correlation with manual lag ([\#](#Cross-correlation)), which
+would result in `NA`s in the first few or last few observations. The
+test has to be run on two series of equal length, meaning that a
+considerable amount is trimmed off to match them. Lack of more granular
+data is another drawback. While it does not impact the calculation of
+$R_0$ values, having measurements only on a weekly scale made it
+impossible to compare peaks that might come a few days after one
+another. From what is available, we concluded counter-intuitively that
+the peak younger group did not lead that of the elderly group, reasons
+unclear.
 
-Throughout this project, we have not attempted, nor it is part of the agenda to forecast flu. While there exists machine learning methods (e.g. ARIMA) to make reasonable forecasts, in-depth understanding of infection dynamics is needed to build a suitable *A Priori* model. 
+Throughout this project, we have not attempted, nor it is part of the
+agenda to forecast flu. While there exists machine learning methods
+(e.g. ARIMA) to make reasonable forecasts, in-depth understanding of
+infection dynamics is needed to build a suitable *A Priori* model.
+Considering all the above, we can state that there is room for
+improvement with future research on this topic.
 
-Considering all the above, we can state that there is room for improvement with further research on this topic. 
-
-
-
-### Hypothesis and purpose of study -- GB
-
-Proved or disproved? What might be the reasons? What can be learned for
-the results?
+### Hypothesis and purpose of study
 
 Our hypothesis was that we expected there to be a temporal difference
 between peaks from different data sources. We suspected that
@@ -862,26 +831,34 @@ reported between primary and secondary care cases.
 
 **Contributions:**
 
-- Data extraction and cleaning
-  - GB - 2014-2021 swab data (using provided script),
-    2017-18 hospitalisations (with Szymon) 
-  - AC - 
-  - SJ - 
-  - HL - Mortality and Vaccine
-- Scripting
-  - GB - season 2017-2022, log_graphs, age_strat,
-    hospitalisation plots 
-  - AC - 
-  - SJ - 
-  - HL - cross-correlation, 
-- Visualisation
-  - the quick brown fox jumps over the lazy dog
-  - the quick brown fox jumps over the lazy dog
-- Writing-Up
-  - GB - most of it
-  - AC - 
-  - SJ - 
-  - HL - Abstract, Methods-correlation, Methods-MEM, Discussion-limitations
+-   Data extraction and cleaning
+
+    -   GB - 2014-2021 swab data (using provided script), 2017-18
+        hospitalisations (with Szymon)
+    -   AC -
+    -   SJ -
+    -   HL - Mortality and Vaccine
+
+-   Scripting
+
+    -   GB - season 2017-2022, log_graphs, age_strat, hospitalisation
+        plots
+    -   AC -
+    -   SJ -
+    -   HL - cross-correlation,
+
+-   Visualisation
+
+    -   the quick brown fox jumps over the lazy dog
+    -   the quick brown fox jumps over the lazy dog
+
+-   Writing-Up
+
+    -   GB - most of it
+    -   AC -
+    -   SJ -
+
+
 
 I hereby declare and confirm with my signature that this report, along
 with the code and graphics in this project, is the combined effort of
