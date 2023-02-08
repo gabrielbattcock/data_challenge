@@ -65,7 +65,7 @@ log_hosp_plot1920 <- ggplot(log_season) +
   # guides(color = guide_legend("Data source")) +
   ylab("Log rate") +
   # # xlim(-12, 20)+
-  ggtitle("Log tranformed influenza cases 2019-20 \n per different data sources") +
+  ggtitle("2019-20") +
   scale_x_continuous(breaks = seq(0, 34, 2),
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
@@ -140,7 +140,7 @@ log_hosp_plot1819 <- ggplot(log_season) +
   # guides(color = guide_legend("Data source")) +
   ylab("Log rate") +
   # # xlim(-12, 20)+
-  ggtitle("Log tranformed influenza cases 2018-19 \n per different data sources") +
+  ggtitle("2018-19") +
   scale_x_continuous(breaks = seq(0, 34, 2),
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
@@ -206,7 +206,7 @@ log_hosp_plot1718 <- ggplot(log_season) +
   # guides(color = guide_legend("Data source")) +
   ylab("Log rate") +
   # # xlim(-12, 20)+
-  ggtitle("Log tranformed influenza cases 2017-18 \n per different data sources") +
+  ggtitle("2017-18") +
   scale_x_continuous(breaks = seq(0, 34, 2),
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
@@ -272,7 +272,7 @@ log_hosp_plot2223 <- ggplot(log_season) +
   # guides(color = guide_legend("Data source")) +
   ylab("Log rate") +
   # # xlim(-12, 20)+
-  ggtitle("Log tranformed influenza cases 2022-23 \n per different data sources") +
+  ggtitle("2022-23") +
   scale_x_continuous(breaks = seq(0, 34, 2),
                      minor_breaks = seq(0, 34, 1),
                      labels = c("40", "42", "44",
