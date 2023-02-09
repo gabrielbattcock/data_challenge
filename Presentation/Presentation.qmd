@@ -51,8 +51,9 @@ What is the temporal relationship between different influenza data sources (lab-
 
 ### Hypothesis
 
--   We expect there to be a time delay between reporting of different data sources.
--   We expect a difference between of reporting between prior to COVID-19 pandemic and after.
+-   There is a temporal relationship between one source of surveillance and another.
+-   There is also a relationship between the scale of the peaks between sources of influenza data.
+-   There are changes in reporting patterns for Influenza-Like-Illnesses (ILI) post COVID
 
 ::: notes
 We defined our Qs to address these issues. \\Szymon Hypothesis - There could be a time delay betw one source of surveillance and another. And the scale of the one that peaks earlier might be predictive of the later ones. \\Jack There are changes in reporting procedures for resp infections post-covid.
@@ -153,7 +154,26 @@ We defined our Qs to address these issues. \\Szymon Hypothesis - There could be 
 
 ![](images/log.png)
 
-<!-- # ```{r echo= FALSE, warning = FALSE} --> <!-- # source("../R_scripts/Season_data/log_graphs.R")  --> <!-- # combined_log_plot <- ggarrange(log_hosp_plot1718 , log_hosp_plot1819, --> <!-- #                                log_hosp_plot1920, log_hosp_plot2223, --> <!-- #                                ncol = 2, nrow = 2,  --> <!-- #                                heights = c(2, 2,2,2),  --> <!-- #                                binwidth = 1, --> <!-- #                                common.legend = T, legend="bottom") --> <!-- # combined_log_plot --> <!-- # ``` --> \# \##
+<!-- # ```{r echo= FALSE, warning = FALSE} -->
+
+<!-- # source("../R_scripts/Season_data/log_graphs.R")  -->
+
+<!-- # combined_log_plot <- ggarrange(log_hosp_plot1718 , log_hosp_plot1819, -->
+
+<!-- #                                log_hosp_plot1920, log_hosp_plot2223, -->
+
+<!-- #                                ncol = 2, nrow = 2,  -->
+
+<!-- #                                heights = c(2, 2,2,2),  -->
+
+<!-- #                                binwidth = 1, -->
+
+<!-- #                                common.legend = T, legend="bottom") -->
+
+<!-- # combined_log_plot -->
+
+<!-- # ``` -->
+
 
 ```{r}
 source("../R_scripts/Season_data/log_graphs.R")
@@ -170,6 +190,7 @@ effective_r_values
 ![](images/strain.png)
 
 # Discussion
+
 
 ## Strengths and limitations
 
@@ -189,14 +210,32 @@ effective_r_values
 
 ## Our hypothesis revisited
 
-No observable: - temporal relationship between data sources - relationship between scale of peaks - changes in reporting patterns post-COVID
+::: panel-tabset
 
-## Next steps/ Future work
+### Main
 
--   Calculating $R_0$ values
--   Calculating time of peaks
--   Calculating delay between onset of season and peaks
--   Stratifying results by age
+No observable:
+
+-   Temporal relationship between data sources
+
+-   Relationship between scale of peaks
+
+-   Changes in reporting patterns post-COVID
+
+### Secondary questions
+
+When stratifying by age group:
+
+-   Lag between 65+ and other age groups in post 2017-18 seasons
+
+-   Case rate amongst \<15s can be used to infer rate amongst 65+s
+:::
+
+## Recommendations
+
+-  Flu reports should be straitified by strain and age
+-  Study the relationship between COVID-19 and influenza
+-  Study influenza epidemics in a global context
 
 ## Conclusion
 
