@@ -84,102 +84,112 @@ We defined our Qs to address these issues. \\Szymon Hypothesis - There could be 
 <!-- ## Exploring our main data sources -->
 
 <!-- ::: panel-tabset -->
+
 <!-- ### Primary care -->
 
 <!-- ```{r} -->
+
 <!-- source("../R_scripts/source/primary_care_vis.R") -->
+
 <!-- gp_cases -->
+
 <!-- ``` -->
 
 <!-- ### Secondary Care -->
 
 <!-- ```{r} -->
+
 <!-- source("../R_scripts/source/hospitalisation_plots.R") -->
+
 <!-- hospital_plot -->
+
 <!-- ``` -->
 
 <!-- ### Lab confirmed cases -->
 
 <!-- ```{r} -->
+
 <!-- source("../R_scripts/source/swabs.R") -->
+
 <!-- combined_plot -->
+
 <!-- ``` -->
+
 <!-- ::: -->
 
 <!-- ## Vaccine data -->
 
 <!-- ```{r} -->
+
 <!-- vacc_plot -->
+
 <!-- ``` -->
 
 ## Per flu seasons
 
-::: panel-tabset
+<!-- ```{r} -->
+
+<!-- source("../R_scripts/Season_data/season_201718.R") -->
+
+<!-- source("../R_scripts/Season_data/season_201819.R") -->
+
+<!-- source("../R_scripts/Season_data/season_201920.R") -->
+
+<!-- source("../R_scripts/Season_data/season_202223.R") -->
+
+<!-- combined_season_plot <- ggarrange(plot_201718, plot_201819, -->
+
+<!--                                plot_201920, plot_202223, -->
+
+<!--                                ncol = 2, nrow = 2,  -->
+
+<!--                                common.legend = T, legend="bottom") -->
+
+<!-- combined_season_plot -->
+
+<!-- ``` -->
+
+## Rate of infection
+
+![](images/log.png)
+
+<!-- # ```{r echo= FALSE, warning = FALSE} --> <!-- # source("../R_scripts/Season_data/log_graphs.R")  --> <!-- # combined_log_plot <- ggarrange(log_hosp_plot1718 , log_hosp_plot1819, --> <!-- #                                log_hosp_plot1920, log_hosp_plot2223, --> <!-- #                                ncol = 2, nrow = 2,  --> <!-- #                                heights = c(2, 2,2,2),  --> <!-- #                                binwidth = 1, --> <!-- #                                common.legend = T, legend="bottom") --> <!-- # combined_log_plot --> <!-- # ``` --> \# \##
 
 ```{r}
-source("../R_scripts/Season_data/season_201718.R")
-source("../R_scripts/Season_data/season_201819.R")
-source("../R_scripts/Season_data/season_201920.R")
-source("../R_scripts/Season_data/season_202223.R")
-combined_season_plot <- ggarrange(plot_201718, plot_201819,
-                               plot_201920, plot_202223,
-                               ncol = 2, nrow = 2, 
-                               
-                               common.legend = T, legend="bottom")
-combined_season_plot
-
-```
-
-## Rate of infection 
-
-
-```{r echo= FALSE, warning = FALSE}
-source("../R_scripts/Season_data/log_graphs.R") 
-combined_log_plot <- ggarrange(log_hosp_plot1718 , log_hosp_plot1819,
-                               log_hosp_plot1920, log_hosp_plot2223,
-                               ncol = 2, nrow = 2, 
-                               heights = c(2, 2,2,2), 
-                               binwidth = 1,
-                               common.legend = T, legend="bottom")
-combined_log_plot
-```
-## 
-
-```{r}
+source("../R_scripts/Season_data/log_graphs.R")
 effective_r_values
 
 ```
 
-## Age stratification
+## Age stratification {.smaller}
+
+![](images/age.png)
 
 ## Subtype stratification
+
+![](images/strain.png)
 
 # Discussion
 
 ## Strengths and limitations
 
 ::: panel-tabset
-
 ### Strengths
 
-- Availability of multiple data sources
-- Statistical methodology
-- Stratification along age groups
+-   Availability of multiple data sources
+-   Statistical methodology
+-   Stratification along age groups
 
 ### Limitations
 
-- Limited to publicly available data
-- Limited scope for statistical analysis
-- Lack of granularity of data
-
+-   Limited to publicly available data
+-   Limited scope for statistical analysis
+-   Lack of granularity of data
 :::
 
 ## Our hypothesis revisited
 
-No observable:
-  - temporal relationship between data sources
-  - relationship between scale of peaks
-  - changes in reporting patterns post-COVID
+No observable: - temporal relationship between data sources - relationship between scale of peaks - changes in reporting patterns post-COVID
 
 ## Next steps/ Future work
 
