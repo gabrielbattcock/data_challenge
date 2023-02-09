@@ -99,8 +99,7 @@ which include children \<2 years of age; pregnant women; the elderly
 \>65yo; and patients with comorbidities. [@cope2018, @zarocostas2009].
 
 After an incubation period, usually 1\~3 days, the progression of the
-disease is self-limiting and symptoms might last 2\~7 days. In the UK, seasonal influenza circulation is a burden to the NHS
-by increasing demand of hospital beds and GP services [@cope2018].
+disease is self-limiting and symptoms might last 2\~7 days. In the UK, seasonal influenza circulation is a burden to the NHS by increasing demand of hospital beds and GP services [@cope2018].
 Analysis of previous influenza seasons can help with the planning of
 service provision for the future. For example, it would help the
 provision of influenza vaccination programmes and temporary bed
@@ -311,6 +310,7 @@ plotB
 
 :::
 
+
 **Figure 5 and 6**: Lab-confirmed cases of influenza, stratified by
 influenza strain (A and B). Data reported from PHE/UKHSA lab confirmed
 cases of influenza.
@@ -363,18 +363,21 @@ source("../R_scripts/Season_data/season_201819.R")
 source("../R_scripts/Season_data/season_201920.R") 
 source("../R_scripts/Season_data/season_202223.R") 
 
+
 ```
 
 ::: grid
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
 plot_201718 
+
 ```
 :::
 
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
 plot_201819 
+
 ```
 :::
 :::
@@ -383,12 +386,14 @@ plot_201819
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
 plot_201920 
+
 ```
 :::
 
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
 plot_202223 
+
 ```
 :::
 :::
@@ -400,6 +405,7 @@ combined from RCGP, Datamart scheme and SARI.
 ```{r echo=FALSE, warning=FALSE}
 source("../R_scripts/Season_data/peak_table.R") 
 max_table
+
 ```
 
 For each season, cases of ILI reported by primary care sources surpass
@@ -448,12 +454,14 @@ detailed above.
 ```{r echo= FALSE, warning = FALSE}
 source("../R_scripts/Season_data/log_graphs.R") 
 
+
 ```
 
 ::: grid
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
 log_hosp_plot1718 
+
 
 ```
 :::
@@ -462,6 +470,7 @@ log_hosp_plot1718
 ```{r echo= FALSE, warning = FALSE}
 
 log_hosp_plot1819 
+
 
 ```
 :::
@@ -473,18 +482,21 @@ log_hosp_plot1819
 
 log_hosp_plot1920 
 
+
 ```
 :::
 
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
 log_hosp_plot2223 
+
 ```
 :::
 :::
 
 **Figure 8** Log-transformed influenza rates stratified by different
 data sources. Results reported for consecutive years.
+
 
 The estimated $R$ for each year and data source is detailed below. As
 expected at the beginning of a flu season, the R numbers are all
@@ -494,6 +506,7 @@ higher than that of primary care data.
 ```{r echo=FALSE}
 source("../R_scripts/Season_data/log_graphs.R") 
 effective_r_values 
+
 ```
 
 ### Stratifying by age group
@@ -531,6 +544,7 @@ plot_age2223
 ```
 :::
 :::
+
 **Figure 9** Influenza rates per 100.000, stratified by different age
 groups.
 
@@ -548,10 +562,12 @@ For 2018-19 there appears to be a minor peak followed by a larger peak a
 few weeks later. This year, the second peak among the 65+ age group lags
 behind all other age groups by a week.
 
+
 The season 2019-20 shows multiple peaks with the expected dip over the
 holiday period (between weeks 51 and 1). As with the 2018-19 season, the
 major peak for 65+ age group lags two weeks behind the other age groups.
 There is also an evident spike at week 12 for this year.
+
 
 The current influenza season also shows a lag in growth among the 65+
 group. Full season results cannot be presented at the time of reporting,
@@ -593,6 +609,7 @@ strains22_23_swabs_plot
 ```
 :::
 :::
+
 
 
 **Figure 10** Total weekly recorded influenza cases, stratified the
@@ -676,6 +693,7 @@ approximation. Estimating the reproduction number for a virus such as
 influenza can be difficult due to uncertainty in the level of immunity
 among the population.
 
+
 ### Strain stratified data discussion
 
 Stratification of the results by different strains has brought some
@@ -706,6 +724,7 @@ is noted that this is the first season in our observed timeframe where
 UK data is consistent with data for northern Europe. In comparison with
 data for the countries of the whole northern hemisphere, the incidence
 in the UK seems to plummet with a slight delay.
+
 
 ### Comparison and contrast to previous studies
 
@@ -744,6 +763,7 @@ unusually late during the winter [@whoupdate]. However, regular
 seasonality was restored in the following season, both dominated by A
 (H1N1).
 
+
 ### Strengths
 
 One of the strong points of our report was the availability of multiple
@@ -764,7 +784,9 @@ data. Our data did not have the quantity and quality needed for more
 in-depth statistical analysis. For example, Pearson Correlation test
 would require the data to be normally distributed, and Granger Causality
 needs prerequisite tests to prove stationarity. We resorted to use
+
 Spearman Correlation with manual lag, which
+
 would result in `NA`s in the first few or last few observations. The
 test has to be run on two series of equal length, meaning that a
 considerable amount is trimmed off to match them. Lack of more granular
@@ -851,9 +873,11 @@ sources, there is a lag in primary care cases among different age
 groups. There is also a noticeable difference in the rate of spread
 reported between primary and secondary care cases.
 
+
 ::: {style="page-break-after: always"}
 
 :::
+
 ## Appendix A - Team Statement
 
 -   Data extraction and cleaning: GB, AC, SJ, HL
@@ -865,6 +889,8 @@ reported between primary and secondary care cases.
 -   Visualisation: GB, AC, SJ, HL
 
 -   Writing-Up: GB, AC, SJ, HL
+
+
 
 I hereby declare and confirm with my signature that this report, along
 with the code and graphics in this project, is the combined effort of
@@ -879,6 +905,7 @@ Team Member: GB, AC, SJ, HL
 
 ## Appendix B - Variables and Data Sources
 
+
 All data sources and scripts can be found in our shared github :
 <https://github.com/gabrielbattcock/data_challenge>.
 
@@ -889,5 +916,6 @@ source("../R_scripts/source/vacc_plot.R")
 
 vacc_plot
 ```
+
 
 ## References
