@@ -227,7 +227,7 @@ log_hosp_plot1718
 #season 2022-23
 
 
-hospital22 <- hosp_vis[5]$`2022-23`
+hospital22 <- hosp_vis[5]$hosp_22_23
 gp22 =  primary_care_total$`2022-23`
 swab_df <- swab_season22_23
 swab_df$total = swab_df$flu_A+swab_df$flu_B

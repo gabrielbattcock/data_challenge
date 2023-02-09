@@ -1,5 +1,8 @@
 ---
 title: "Mid Module Presentation - UK Health Security Agency"
+execute:
+  echo: false
+  warning: false
 format: 
   revealjs:
     incremental: true
@@ -8,7 +11,7 @@ format:
       width: third
 editor: visual
 bibliography: ../bibliography/UKHSA_bibliography.bib
-csl: bmj.csl
+csl: ../bibliography/bmj.csl
 ---
 
 # Introduction
@@ -17,9 +20,9 @@ csl: bmj.csl
 #Loading the presentation stuff
 
 source("../R_scripts/source_data_entry.R")
-source("../R_scripts/source/swabs.R")
-#For the vaccine plot
-source("../R_scripts/source/vacc_plot.R")
+# source("../R_scripts/source/swabs.R")
+# #For the vaccine plot
+# source("../R_scripts/source/vacc_plot.R")
 ```
 
 ## Background {.scrollable}
@@ -55,6 +58,8 @@ What is the temporal relationship between different influenza data sources (lab-
 We defined our Qs to address these issues. \\Szymon Hypothesis - There could be a time delay betw one source of surveillance and another. And the scale of the one that peaks earlier might be predictive of the later ones. \\Jack There are changes in reporting procedures for resp infections post-covid.
 :::
 
+# Methods
+
 ## Data Sources
 
 ![infographic for data sources](images/fig-data-source.png)
@@ -67,113 +72,122 @@ We defined our Qs to address these issues. \\Szymon Hypothesis - There could be 
 -   **Laboratory confirmed**: Reports of respiratory infections made to PHE from PHE and NHS laboratories in England and Wales
 :::
 
-# Methods
-
-## Data acquisition
-
--   Various methods of converting data to a usable form have been used:
-    -   UKHSA provided OpenDocument spreadsheets (.ODS) for all flu data (RCGP, USISS and SARI) from 2018-23
-    -   PDF scraping (use of R script provided to us) - swabs
-    -   2017-18 data for hospitalisation and GP consultations was manually entered from weekly published reports.
-
 ## Analysis
 
 -   Time series plots
 -   $R_0$ value for early spread
--   Calculate delay of peak/initial spread of flu between different data sources
+    -   $R = 1 +\dfrac{r}{b}$
+-   Cross-correlation with Spearman's $\rho$
 
 # Results
 
-## Exploring our main data sources
-
-::: panel-tabset
-### Primary care
-
-```{r}
-source("../R_scripts/source/primary_care_vis.R")
-gp_cases
-```
-
-### Secondary Care
-
-```{r}
-source("../R_scripts/source/hospitalisation_plots.R")
-hospital_plot
-```
-
-### Lab confirmed cases
-
-```{r}
-source("../R_scripts/source/swabs.R")
-combined_plot
-```
-:::
-
-<!-- ## Lab confirmed influenza cases -->
+<!-- ## Exploring our main data sources -->
 
 <!-- ::: panel-tabset -->
-
-<!-- ### Influenza A subtype -->
-
-<!-- ```{r} -->
-
-<!-- plotA -->
-
-<!-- ``` -->
-
-<!-- ### Influenza B subtype -->
+<!-- ### Primary care -->
 
 <!-- ```{r} -->
-
-<!-- plotB -->
-
+<!-- source("../R_scripts/source/primary_care_vis.R") -->
+<!-- gp_cases -->
 <!-- ``` -->
 
+<!-- ### Secondary Care -->
+
+<!-- ```{r} -->
+<!-- source("../R_scripts/source/hospitalisation_plots.R") -->
+<!-- hospital_plot -->
+<!-- ``` -->
+
+<!-- ### Lab confirmed cases -->
+
+<!-- ```{r} -->
+<!-- source("../R_scripts/source/swabs.R") -->
+<!-- combined_plot -->
+<!-- ``` -->
 <!-- ::: -->
 
-## Vaccine data
+<!-- ## Vaccine data -->
 
-```{r}
-vacc_plot
-```
+<!-- ```{r} -->
+<!-- vacc_plot -->
+<!-- ``` -->
 
 ## Per flu seasons
 
 ::: panel-tabset
-### 2017-18
 
 ```{r}
 source("../R_scripts/Season_data/season_201718.R")
-plot_201718
-```
-
-### 2018-19
-
-```{r}
 source("../R_scripts/Season_data/season_201819.R")
-plot_201819
-```
-
-### 2019-20
-
-```{r}
 source("../R_scripts/Season_data/season_201920.R")
-plot_201920
+source("../R_scripts/Season_data/season_202223.R")
+combined_season_plot <- ggarrange(plot_201718, plot_201819,
+                               plot_201920, plot_202223,
+                               ncol = 2, nrow = 2, 
+                               
+                               common.legend = T, legend="bottom")
+combined_season_plot
+
 ```
 
-### 2022-23
+## Rate of infection 
+
+
+```{r echo= FALSE, warning = FALSE}
+source("../R_scripts/Season_data/log_graphs.R") 
+combined_log_plot <- ggarrange(log_hosp_plot1718 , log_hosp_plot1819,
+                               log_hosp_plot1920, log_hosp_plot2223,
+                               ncol = 2, nrow = 2, 
+                               heights = c(2, 2,2,2), 
+                               binwidth = 1,
+                               common.legend = T, legend="bottom")
+combined_log_plot
+```
+## 
 
 ```{r}
-source("../R_scripts/Season_data/season_202223.R")
-plot_202223
+effective_r_values
+
 ```
+
+## Age stratification
+
+## Subtype stratification
+
+# Discussion
+
+## Strengths and limitations
+
+::: panel-tabset
+
+### Strengths
+
+- Availability of multiple data sources
+- Statistical methodology
+- Stratification along age groups
+
+### Limitations
+
+- Limited to publicly available data
+- Limited scope for statistical analysis
+- Lack of granularity of data
+
 :::
 
-## Next steps
+## Our hypothesis revisited
+
+No observable:
+  - temporal relationship between data sources
+  - relationship between scale of peaks
+  - changes in reporting patterns post-COVID
+
+## Next steps/ Future work
 
 -   Calculating $R_0$ values
 -   Calculating time of peaks
 -   Calculating delay between onset of season and peaks
 -   Stratifying results by age
+
+## Conclusion
 
 ## References
