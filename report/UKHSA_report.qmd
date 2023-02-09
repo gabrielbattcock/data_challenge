@@ -147,7 +147,7 @@ an influenza epidemic to disproportionately affect a particular at risk
 group, we can tailor the vaccination programme to prioritise those
 groups.
 
-## Aims
+### Aims
 
 Our research question, set by the UKHSA, aims to address the issues
 outlined above.
@@ -538,7 +538,7 @@ the winter holidays begin.
 ### Stratified by influenza strain type
 
 ```{r echo=FALSE}
-source("../strain_stratification.R")
+source("../R_scripts/strain_stratification.R")
 combined_strain_plot
 ```
 
@@ -599,7 +599,7 @@ a decline in all of the cases.
 
 ## Discussion
 
-## Main piece of supporting evidence
+### Main piece of supporting evidence
 
 From analysis of the plots for each season stratified by surveillance
 source, the peaks for rate of cases line up. The sample size of four
@@ -787,7 +787,7 @@ acknowledging the different structure of the UK public health
 infrastructure, it may also be worth studying temporal differences
 between influenza data sources in other countries.
 
-#### Take home/conclusion
+## Conclusion
 
 Influenza is a very difficult disease to predict due to reasons
 including the different strains, antigenic shift and the unknown level
