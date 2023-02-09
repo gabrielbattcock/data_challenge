@@ -41,7 +41,7 @@ age1718 <- age1718 %>% select(Week,
 plot_age1718 <- ggplot(age1718, aes(Week, value)) +
   theme_ipsum() +
   geom_line(lwd = 1.5 , alpha = 0.9, aes(color = series)) +
-  ylab("Influenza rate (per 100,000) ") +
+  # ylab("Influenza rate (per 100,000) ") +
   # xlim(33+52*3, 33+52*4)+
   ggtitle("2017-18") +
   scale_x_continuous(breaks = seq(0, 34, 2),
@@ -54,9 +54,18 @@ plot_age1718 <- ggplot(age1718, aes(Week, value)) +
                                 "18", "20", "22")) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
-                                    size = 0.1)) +
+                                    size = 0.1),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        # axis.title = element_text(size=20),
+        axis.text=element_text(size=20),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank() ) +
   coord_cartesian(ylim = c(-1, 70), expand = FALSE) +
   scale_color_manual("Age", values= palette_flu)
+  
 
 
 #------------------------------------------------------------------------------
@@ -64,7 +73,7 @@ plot_age1718 <- ggplot(age1718, aes(Week, value)) +
 plot_age1819 <- ggplot(age1819, aes(Week, value)) +
   theme_ipsum() +
   geom_line(lwd = 1.5 , alpha = 0.9, aes(color = series)) +
-  ylab("Influenza rate (per 100,000) ") +
+  # ylab("Influenza rate (per 100,000) ") +
   # xlim(33+52*3, 33+52*4)+
   ggtitle("2018-19") +
   scale_x_continuous(breaks = seq(0, 34, 2),
@@ -77,9 +86,18 @@ plot_age1819 <- ggplot(age1819, aes(Week, value)) +
                                 "18", "20", "22")) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
-                                    size = 0.1)) +
+                                    size = 0.1),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        # axis.title = element_text(size=20),
+        axis.text=element_text(size=20),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank() ) +
   coord_cartesian(ylim = c(-1, 30), expand = FALSE) +
-  scale_color_manual("Age", values= palette_flu)
+  scale_color_manual("Age", values= palette_flu)+ 
+  theme(legend.text = element_text(size = 30))
 #------------------------------------------------------------------------------
 
 plot_age1920 <- ggplot(age1920, aes(Week, value)) +
@@ -98,16 +116,24 @@ plot_age1920 <- ggplot(age1920, aes(Week, value)) +
                                 "18", "20", "22")) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
-                                    size = 0.1)) +
+                                    size = 0.1),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        # axis.title = element_text(size=20),
+        axis.text=element_text(size=20),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank() ) +
   coord_cartesian(ylim = c(-1, 30), expand = FALSE) +
-  scale_color_manual("Age", values= palette_flu)
+  scale_color_manual("Age", values= palette_flu) 
 
 #------------------------------------------------------------------------------
 ## 2022-23
 plot_age2223 <- ggplot(age2223, aes(Week, value)) +
   theme_ipsum() +
   geom_line(lwd = 1.5 , alpha = 0.9, aes(color = series)) +
-  ylab("Influenza rate (per 100,000) ") +
+  ylab("Influenza rate (per 100,000)" ) +
   # xlim(0, 33)+
   ggtitle("2022-23") +
   scale_x_continuous(breaks = seq(0, 34, 2),
@@ -120,18 +146,34 @@ plot_age2223 <- ggplot(age2223, aes(Week, value)) +
                                 "18", "20", "22")) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
-                                    size = 0.1)) +
+                                    size = 0.1),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        # axis.title = element_text(size=20),
+        axis.text=element_text(size=20),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank() ) +
+        
   coord_cartesian(ylim = c(-1, 40), expand = FALSE) +
   scale_color_manual("Age", values= palette_flu)
 
 combined_age_plot <- ggarrange(plot_age1718, plot_age1819,
                                plot_age1920, plot_age2223,
                                ncol = 2, nrow = 2, 
-                               common.legend = TRUE, legend="bottom")
+                               common.legend = TRUE, legend="bottom") 
+                              
+
 
 combined_age_plot
 
+age_plot_annotated <- annotate_figure(combined_age_plot,
+                                     bottom = text_grob("Week",size = 18, vjust = -4),
+                                      left = text_grob("Influenza rate (per 100,000)",  rot = 90, size = 18))
+                        
 
 
+age_plot_annotated 
 
 

@@ -45,7 +45,15 @@ plot_201819 <- ggplot(season_201819) +
                                 "18", "20", "22")) + 
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
-                                    size = 0.1)) +
+                                    size = 0.1),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        # axis.title = element_text(size=20),
+        axis.text=element_text(size=20),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank() )+
   coord_cartesian(ylim = c(-1, 25), expand = FALSE) +
   scale_color_manual('Season', values= palette_flu)
 

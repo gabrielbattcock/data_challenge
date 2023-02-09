@@ -102,6 +102,17 @@ strains17_18_hosp_plot<- ggplot(strains17_18_hosp, aes(id, value)) +
                                 "12","14","16",
                                 "18", "20", "22")) +
   scale_y_continuous(breaks = seq(0, 500, 100)) +
+  theme(panel.border = element_rect(color = "dark grey",
+                                    fill = NA,
+                                    size = 0.1),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        # axis.title = element_text(size=20),
+        axis.text=element_text(size=20),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank() )+
   coord_cartesian(ylim = c(0,500)) +
   scale_color_manual('Strain', values = palette_flu)
 
@@ -123,6 +134,17 @@ strains17_18_swabs_plot<- ggplot((strains17_18_swabs %>% slice(1:132)) ,
                                 "4", "6", "8", "10",
                                 "12","14","16",
                                 "18", "20", "22")) +
+  theme(panel.border = element_rect(color = "dark grey",
+                                    fill = NA,
+                                    size = 0.1),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        # axis.title = element_text(size=20),
+        axis.text=element_text(size=20),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank() )+
   scale_color_manual('Strain', values= palette_flu)
 
 
@@ -141,6 +163,17 @@ strains18_19_swabs_plot <- ggplot((strains18_19_swabs %>% slice(1:132)) ,
                                 "4", "6", "8", "10",
                                 "12","14","16",
                                 "18", "20", "22")) +
+  theme(panel.border = element_rect(color = "dark grey",
+                                    fill = NA,
+                                    size = 0.1),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        # axis.title = element_text(size=20),
+        axis.text=element_text(size=20),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank() )+
   scale_color_manual('Strain', values= palette_flu)
 
 
@@ -160,6 +193,17 @@ strains19_20_swabs_plot <- ggplot((strains19_20_swabs %>% slice(1:132)) ,
                                 "4", "6", "8", "10",
                                 "12","14","16",
                                 "18", "20", "22")) +
+  theme(panel.border = element_rect(color = "dark grey",
+                                    fill = NA,
+                                    size = 0.1),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        # axis.title = element_text(size=20),
+        axis.text=element_text(size=20),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank() )+
   scale_color_manual('Strain', values= palette_flu)
 
 # 2022 - 2023 season 
@@ -177,6 +221,17 @@ strains22_23_swabs_plot <- ggplot((strains22_23_swabs %>% slice(1:132)) ,
                                 "4", "6", "8", "10",
                                 "12","14","16",
                                 "18", "20", "22")) +
+  theme(panel.border = element_rect(color = "dark grey",
+                                    fill = NA,
+                                    size = 0.1),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        # axis.title = element_text(size=20),
+        axis.text=element_text(size=20),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank() )+
   scale_color_manual('Strain', values = palette_flu)
 
 
@@ -187,4 +242,10 @@ combined_strain_plot <- ggarrange(strains17_18_swabs_plot, strains18_19_swabs_pl
                                 labels = c("2017-18", "2018-19", "2019-20", "2022-23"))
 
 combined_strain_plot
+
+strain_annotated <- annotate_figure(combined_strain_plot,
+                                      bottom = text_grob("Week",size = 14, vjust = -4),
+                                      left = text_grob("Count",  rot = 90, size = 14))
+
+strain_annotated
 

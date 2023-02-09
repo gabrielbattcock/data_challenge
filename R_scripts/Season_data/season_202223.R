@@ -53,7 +53,15 @@ plot_202223 <- ggplot(season_202223) +
                                 "18", "20", "22")) + 
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
-                                    size = 0.1)) +
+                                    size = 0.1),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        # axis.title = element_text(size=20),
+        axis.text=element_text(size=20),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank() )+
   scale_color_manual('Season', values= palette_flu)
 
 plot_202223

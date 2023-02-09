@@ -56,9 +56,9 @@ R_eff_19_swab <- 1+lm_swab$coefficients[2]
 
 log_hosp_plot1920 <- ggplot(log_season) +
   theme_ipsum() +
-  geom_line(lwd = 1.5, aes(week, log_hosp, color = 'Hospital')) +
-  geom_line(lwd = 1.5, aes(week, log_gp, color = 'GP')) +
-  geom_line(lwd = 1.5, aes(week, log_swab, color = 'Swab')) +
+  geom_line(lwd = 1.5, alpha = 0.8,aes(week, log_hosp, color = 'Hospital')) +
+  geom_line(lwd = 1.5, alpha = 0.8,aes(week, log_gp, color = 'GP')) +
+  geom_line(lwd = 1.5, alpha = 0.8,aes(week, log_swab, color = 'Swab')) +
   geom_line(data = hosp_predict, aes(week, hosp_line)) +
   geom_line(data = gp_predict, aes(week, gp_line)) + 
   geom_line(data = swab_predict, aes(week, gp_line))+
@@ -76,7 +76,15 @@ log_hosp_plot1920 <- ggplot(log_season) +
                                 "18", "20", "22")) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
-                                    size = 0.1)) +
+                                    size = 0.1),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        # axis.title = element_text(size=20),
+        axis.text=element_text(size=20),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank() )+ 
   coord_cartesian(ylim = c(-4, 4), expand = FALSE) +
   scale_color_manual('Season', values= palette_flu)
 
@@ -131,9 +139,9 @@ R_eff_18_swab <- 1+lm_swab$coefficients[2]
 
 log_hosp_plot1819 <- ggplot(log_season) +
   theme_ipsum() +
-  geom_line(lwd = 1.5, alpha = 0.6,aes(week, log_hosp, color = 'Hospital')) +
-  geom_line(lwd = 1.5, alpha = 0.6,aes(week, log_gp, color = 'GP')) +
-  geom_line(lwd = 1.5, alpha = 0.6,aes(week, log_swab, color = 'Swab')) +
+  geom_line(lwd = 1.5, alpha = 0.8,aes(week, log_hosp, color = 'Hospital')) +
+  geom_line(lwd = 1.5, alpha = 0.8,aes(week, log_gp, color = 'GP')) +
+  geom_line(lwd = 1.5, alpha = 0.8,aes(week, log_swab, color = 'Swab')) +
   geom_line(data = hosp_predict, aes(week, hosp_line)) +
   geom_line(data = gp_predict, aes(week, gp_line)) + 
   geom_line(data = swab_predict, aes(week, gp_line))+
@@ -151,7 +159,15 @@ log_hosp_plot1819 <- ggplot(log_season) +
                                 "18", "20", "22")) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
-                                    size = 0.1)) +
+                                    size = 0.1),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        # axis.title = element_text(size=20),
+        axis.text=element_text(size=20),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank() )+ 
   coord_cartesian(ylim = c(-4, 4), expand = FALSE) +
   scale_color_manual('Season', values= palette_flu)
 
@@ -197,9 +213,9 @@ R_eff_17_swab <- 1+lm_swab$coefficients[2]
 
 log_hosp_plot1718 <- ggplot(log_season) +
   theme_ipsum() +
-  geom_line(lwd = 1.5, alpha = 0.6,aes(week, log_hosp, color = 'Hospital')) +
-  geom_line(lwd = 1.5, alpha = 0.6,aes(week, log_gp, color = 'GP')) +
-  geom_line(lwd = 1.5, alpha = 0.6,aes(week, log_swab, color = 'Swab')) +
+  geom_line(lwd = 1.5, alpha = 0.8,aes(week, log_hosp, color = 'Hospital')) +
+  geom_line(lwd = 1.5, alpha = 0.8,aes(week, log_gp, color = 'GP')) +
+  geom_line(lwd = 1.5, alpha = 0.8,aes(week, log_swab, color = 'Swab')) +
   geom_line(data = hosp_predict, aes(week, hosp_line)) +
   geom_line(data = gp_predict, aes(week, gp_line)) + 
   geom_line(data = swab_predict, aes(week, gp_line))+
@@ -217,7 +233,15 @@ log_hosp_plot1718 <- ggplot(log_season) +
                                 "18", "20", "22")) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
-                                    size = 0.1)) +
+                                    size = 0.1),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        # axis.title = element_text(size=20),
+        axis.text=element_text(size=20),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank() )+ 
   coord_cartesian(ylim = c(-4, 5), expand = FALSE) +
   scale_color_manual('Season', values= palette_flu)
 
@@ -263,9 +287,9 @@ R_eff_22_swab <- 1+lm_swab$coefficients[2]
 
 log_hosp_plot2223 <- ggplot(log_season) +
   theme_ipsum() +
-  geom_line(lwd = 1.5, alpha = 0.6, aes(week, log_hosp, color = 'Hospital')) +
-  geom_line(lwd = 1.5, alpha = 0.6, aes(week, log_gp, color = 'GP')) +
-  geom_line(lwd = 1.5, alpha = 0.6, aes(week, log_swab, color = 'Swab')) +
+  geom_line(lwd = 1.5, alpha = 0.8, aes(week, log_hosp, color = 'Hospital')) +
+  geom_line(lwd = 1.5, alpha = 0.8, aes(week, log_gp, color = 'GP')) +
+  geom_line(lwd = 1.5, alpha = 0.8, aes(week, log_swab, color = 'Swab')) +
   geom_line(data = hosp_predict, aes(week, hosp_line)) +
   geom_line(data = gp_predict, aes(3:10, gp_line)) +
   geom_line(data = swab_predict, aes(week, gp_line))+
@@ -283,20 +307,32 @@ log_hosp_plot2223 <- ggplot(log_season) +
                                 "18", "20", "22")) +
   theme(panel.border = element_rect(color = "dark grey",
                                     fill = NA,
-                                    size = 0.1)) +
-  coord_cartesian(ylim = c(-4, 4), expand = FALSE) +
+                                    size = 0.1),
+        legend.text = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        # axis.title = element_text(size=20),
+        axis.text=element_text(size=20),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank() )+ 
   scale_color_manual('Season', values= palette_flu)
 
 log_hosp_plot2223
 
 # Create a combined log-graph
-combined_log_plot <- ggarrange(log_hosp_plot1718, log_hosp_plot1819,
+
+combined_log_plot <- ggarrange(log_hosp_plot1718,log_hosp_plot1819,
                                log_hosp_plot1920, log_hosp_plot2223,
-                                  ncol = 2, nrow = 2, 
-                                  common.legend = TRUE, legend="bottom")
+                               ncol = 2, nrow = 2, 
+                               common.legend = TRUE, legend="bottom") 
 
-combined_log_plot
 
+log_plot_annotated <- annotate_figure(combined_log_plot,
+                                      bottom = text_grob("Week",size = 14, vjust = -4),
+                                      left = text_grob("Log rate",  rot = 90, size = 14))
+
+log_plot_annotated
 
 
 # 
