@@ -239,4 +239,10 @@ When stratifying by age group:
 
 ## Conclusion
 
+::: {.r-fit-text}
+
+Due to differing strains, antigenic shifting and variability in population immunity, its difficult to make inferences on the pattern of influenza epidemics.
+
+:::
+
 ## References
