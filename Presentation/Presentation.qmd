@@ -45,9 +45,9 @@ source("../R_scripts/source_data_entry.R")
     -   to aid early detection of anomalous seasons
 :::
 
-## Our Question
+## Our Question {.smaller}
 
-What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/3 compared to the pre-pandemic years 2016-2019?
+What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/3 compared to the pre-pandemic years 2017-2020?
 
 ### Hypothesis
 
@@ -192,7 +192,7 @@ effective_r_values
 # Discussion
 
 
-## Strengths and limitations
+# Strengths and limitations
 
 
 ## Strengths
@@ -208,10 +208,10 @@ effective_r_values
 -   Lack of granularity of data
 
 
-## Our hypothesis revisited
+# Our hypothesis revisited
 
 
-## Main
+## Main questions
 
 No observable:
 
