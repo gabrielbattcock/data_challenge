@@ -124,5 +124,14 @@ plot_age2223 <- ggplot(age2223, aes(Week, value)) +
   coord_cartesian(ylim = c(-1, 40), expand = FALSE) +
   scale_color_manual("Age", values= palette_flu)
 
+combined_age_plot <- ggarrange(plot_age1718, plot_age1819,
+                               plot_age1920, plot_age2223,
+                               ncol = 2, nrow = 2, 
+                               common.legend = TRUE, legend="bottom")
+
+combined_age_plot
+
+
+
 
 

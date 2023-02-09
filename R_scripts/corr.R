@@ -13,6 +13,12 @@ p_load(tidyverse, magrittr, here, lmtest)
 here::i_am("R_scripts/corr.r")
 suppressMessages(source(here("R_scripts", "source_data_entry.R")))
 
+if(!file.exists('/System/Volumes/Data/Applications/Google Chrome.app')) {
+  print("WARNING: gtsave() needs a chromium-based browser to work.")
+  browser <- readline("Enter the name of a chromium-based browser installed on your machine: ")  
+  Sys.setenv(CHROMOTE_CHROME = paste0("/Applications/",browser, ".app/Contents/MacOS/", browser))
+}  
+
 # CLEANING #####################################################################
 
 swab_cor <- (typeA1 + typeB1) %>% select(-1)
@@ -70,13 +76,17 @@ for(j in 1:4) {
           drop_na() %>%
           pull(1)
     c <- cor.test(x, y, method = 'spearman', exact = FALSE)
-    allcor %<>% rbind(tibble(year = years[j], lag = i, rho = c$estimate,  p = c$p.value))
-}}
-allcor %>%
-  group_by(year) %>%
-  slice(which.max(rho)) -> vs_swab_gp
-print("Every year, swab peaks first. After k weeks, gp ili% peaks")
-print(vs_swab_gp)
+    allcor %<>% rbind(tibble(year = years[j], lag = i, rho = round(c$estimate,3),  p = c$p.value))
+  }}
+
+allcor$p <- "***"
+vs_swab_gp <- allcor %>%
+              group_by(year) %>%
+              slice(which.max(rho)) %>%
+              ungroup() %>%
+              gt() %>%
+              tab_header(title = "GP data with reference to Swab data") %>%
+              gtsave(here("report", "images", "vs-swab-gp.png"))
 
 ## gpili=y=earlier, hosp=x=later -----------------------------------------------
 allcor <- tibble(year = NA, lag = NA, rho = NA, p = NA)
@@ -91,7 +101,8 @@ for(j in 1:4) {
           select(as.integer(j)) %>%
           drop_na() %>%
           tail(dim(.)[1]-i) %>%
-          pull(1)
+          pull(1) %>%
+          as_vector()
     y <- gp_now %>% 
           select(as.integer(j)) %>%
           drop_na() %>%
@@ -100,13 +111,17 @@ for(j in 1:4) {
           pull(1) %>%
           as_vector()
     c <- cor.test(x, y, method = 'spearman', exact = FALSE)
-    allcor %<>% rbind(tibble(year = years[j], lag = i, rho = c$estimate,  p = c$p.value))
-}}
-allcor %>%
-  group_by(year) %>%
-  slice(which.max(rho)) -> vs_gp_hosp
-print("Every year, GP ili% peaks first. After k weeks, hosp peaks")
-print(vs_gp_hosp)
+    allcor %<>% rbind(tibble(year = years[j], lag = i, rho = round(c$estimate,3),  p = c$p.value))
+  }}
+
+allcor$p <- "***"
+vs_gp_hosp <- allcor %>%
+              group_by(year) %>%
+              slice(which.max(rho)) %>%
+              ungroup() %>%
+              gt() %>%
+              tab_header(title = "Hospitalisation with reference to GP data") %>%
+              gtsave(here("report", "images", "vs-gp-hosp.png"))
 
 ## hosp=y=earlier, mortality=x=later -------------------------------------------
 allcor <- tibble(year = NA, lag = NA, rho = NA, p = NA)
@@ -129,41 +144,51 @@ for(j in 1:3) {
           pull(1) %>%
           as_vector()
     c <- cor.test(x, y, method = 'spearman', exact = FALSE)
-    allcor %<>% rbind(tibble(year = years[j], lag = i, rho = c$estimate,  p = c$p.value))
+    allcor %<>% rbind(tibble(year = years[j], lag = i, rho = round(c$estimate,3),  p = c$p.value))
 }}
-allcor %>%
-  group_by(year) %>%
-  slice(which.max(rho)) -> vs_hosp_mort
-print("Every year, hosp peaks first, after k weeks, mortality peaks")
-print(vs_hosp_mort)
 
-## two way loop ------------------------------------------------------------------
+allcor$p <- "***"
+vs_hosp_mort <- allcor %>%
+                group_by(year) %>%
+                slice(which.max(rho)) %>%
+                ungroup() %>%
+                gt() %>%
+                tab_header(title = "Mortality with reference to Hospitalisation") %>%
+                gtsave(here("report", "images", "vs-hosp-mort.png"))
+
+## two way loop ----------------------------------------------------------------
+## working, but not in use.
 ## hosp=y=earlier, mortality=x=later
-allcor <- tibble(year = NA, lag = NA, rho = NA, p = NA)
-mort_now <- mort_cor
-mort_now[23:33, 3] <- NA
+# allcor <- tibble(year = NA, lag = NA, rho = NA, p = NA)
+# mort_now <- mort_cor
+# mort_now[23:33, 3] <- NA
+# 
+# for(j in 1:3) {
+#   for(i in 0:5) {
+#     x <- mort_now %>%
+#           select(as.integer(j)) %>%
+#           drop_na() %>%
+#           tail(dim(.)[1]-i) %>%
+#           pull(1) %>%
+#           as_vector()
+#     y <- hosp_now %>%
+#           select(as.integer(j)) %>%
+#           drop_na() %>%
+#           mutate(lag(., i)) %>%
+#           drop_na() %>%
+#           pull(1) %>%
+#           as_vector()
+#     c <- cor.test(x, y, method = 'spearman', exact = FALSE)
+#     allcor %<>% rbind(tibble(year = years[j], lag = i, rho = round(c$estimate,3),  p = round(c$p.value,2)))
+# }}
+# 
+# allcor$p <- "***"
+# vs_mort_hosp <- allcor %>%
+#                 group_by(year) %>%
+#                 slice(which.max(rho)) %>%
+#                 ungroup() %>%
+#                 gt() %>%
+#                 tab_header(title = "GP data with reference to Swab data")
+# print("Every year, hosp peaks first, after k weeks, mortality peaks")
+# print(test)
 
-for(j in 1:3) {
-  for(i in 0:5) {
-    x <- mort_now %>% 
-          select(as.integer(j)) %>%
-          drop_na() %>%
-          tail(dim(.)[1]-i) %>%
-          pull(1) %>%
-          as_vector()
-    y <- hosp_now %>% 
-          select(as.integer(j)) %>%
-          drop_na() %>%
-          mutate(lag(., i)) %>%
-          drop_na() %>%
-          pull(1) %>%
-          as_vector()
-    c <- cor.test(x, y, method = 'spearman', exact = FALSE)
-    allcor %<>% rbind(tibble(year = years[j], lag = i, rho = c$estimate,  p = c$p.value))
-}}
-
-allcor %>%
-  group_by(year) %>%
-  slice(which.max(rho)) -> test
-print("Every year, hosp peaks first, after k weeks, mortality peaks")
-print(test)

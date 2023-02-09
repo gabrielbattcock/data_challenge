@@ -447,7 +447,9 @@ added_rows <- data.frame(
 age2223 <- rbind(age2223, added_rows)
 age2223$Week <- 1:33
 
-
+# Load scraped data for swabs stratified by strain for seasons 2017-19
+path_swabs <- here("allData","swab","swabs_strains_2017_2019.csv")
+strains17_19_swabs <- path_swabs %>% read_csv()
 
 
 #Table theme

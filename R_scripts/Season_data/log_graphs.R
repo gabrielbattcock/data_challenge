@@ -288,6 +288,17 @@ log_hosp_plot2223 <- ggplot(log_season) +
   scale_color_manual('Season', values= palette_flu)
 
 log_hosp_plot2223
+
+# Create a combined log-graph
+combined_log_plot <- ggarrange(log_hosp_plot1718, log_hosp_plot1819,
+                               log_hosp_plot1920, log_hosp_plot2223,
+                                  ncol = 2, nrow = 2, 
+                                  common.legend = TRUE, legend="bottom")
+
+combined_log_plot
+
+
+
 # 
 # #--------------------------------------------------------------------------------
 log_table_tibble <- tibble(
