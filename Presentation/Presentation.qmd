@@ -194,25 +194,24 @@ effective_r_values
 
 ## Strengths and limitations
 
-::: panel-tabset
-### Strengths
+
+## Strengths
 
 -   Availability of multiple data sources
 -   Statistical methodology
 -   Stratification along age groups
 
-### Limitations
+## Limitations
 
 -   Limited to publicly available data
 -   Limited scope for statistical analysis
 -   Lack of granularity of data
-:::
+
 
 ## Our hypothesis revisited
 
-::: panel-tabset
 
-### Main
+## Main
 
 No observable:
 
@@ -222,14 +221,14 @@ No observable:
 
 -   Changes in reporting patterns post-COVID
 
-### Secondary questions
+## Secondary questions
 
 When stratifying by age group:
 
 -   Lag between 65+ and other age groups in post 2017-18 seasons
 
 -   Case rate amongst \<15s can be used to infer rate amongst 65+s
-:::
+
 
 ## Recommendations
 
@@ -238,7 +237,6 @@ When stratifying by age group:
 -  Study influenza epidemics in a global context
 
 ## Conclusion
-
 
 Due to differing strains, antigenic shifting and variability in population immunity, its difficult to make inferences on the pattern of influenza epidemics.
 
