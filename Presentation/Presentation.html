@@ -7,7 +7,7 @@
 <link href="Presentation_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="Presentation_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="Presentation_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.269">
+  <meta name="generator" content="quarto-1.1.251">
 
   <title>Mid Module Presentation - UK Health Security Agency</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -341,13 +341,10 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" class="center">
   <h1 class="title">Mid Module Presentation - UK Health Security Agency</h1>
-
-<div class="quarto-title-authors">
-</div>
-
 </section>
+
 <section>
 <section id="introduction" class="title-slide slide level1 center">
 <h1>Introduction</h1>
@@ -402,8 +399,9 @@
 <p>What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/3 compared to the pre-pandemic years 2016-2019?</p>
 <h3 id="hypothesis">Hypothesis</h3>
 <ul>
-<li class="fragment">We expect there to be a time delay between reporting of different data sources.</li>
-<li class="fragment">We expect a difference between of reporting between prior to COVID-19 pandemic and after.</li>
+<li class="fragment">There is a temporal relationship between one source of surveillance and another.</li>
+<li class="fragment">There is also a relationship between the scale of the peaks between sources of influenza data.</li>
+<li class="fragment">There are changes in reporting patterns for Influenza-Like-Illnesses (ILI) post COVID</li>
 </ul>
 <aside class="notes">
 <p>We defined our Qs to address these issues. \Szymon Hypothesis - There could be a time delay betw one source of surveillance and another. And the scale of the one that peaks earlier might be predictive of the later ones. \Jack There are changes in reporting procedures for resp infections post-covid.</p>
@@ -495,7 +493,6 @@
 </section>
 <section id="per-flu-seasons" class="slide level2">
 <h2>Per flu seasons</h2>
-
 <!-- ```{r} -->
 <!-- source("../R_scripts/Season_data/season_201718.R") -->
 <!-- source("../R_scripts/Season_data/season_201819.R") -->
@@ -507,20 +504,30 @@
 <!--                                common.legend = T, legend="bottom") -->
 <!-- combined_season_plot -->
 <!-- ``` -->
-<img data-src="images/seasonal.png" class="r-stretch"></section>
+</section>
 <section id="rate-of-infection" class="slide level2">
 <h2>Rate of infection</h2>
-<p><img data-src="images/log.png" alt="h"> <!-- # ```{r echo= FALSE, warning = FALSE} --> <!-- # source("../R_scripts/Season_data/log_graphs.R")  --> <!-- # combined_log_plot <- ggarrange(log_hosp_plot1718 , log_hosp_plot1819, --> <!-- #                                log_hosp_plot1920, log_hosp_plot2223, --> <!-- #                                ncol = 2, nrow = 2,  --> <!-- #                                heights = c(2, 2,2,2),  --> <!-- #                                binwidth = 1, --> <!-- #                                common.legend = T, legend="bottom") --> <!-- # combined_log_plot --> <!-- # ``` --> # ##</p>
-<div class="cell">
+
+<!-- # ```{r echo= FALSE, warning = FALSE} -->
+<!-- # source("../R_scripts/Season_data/log_graphs.R")  -->
+<!-- # combined_log_plot <- ggarrange(log_hosp_plot1718 , log_hosp_plot1819, -->
+<!-- #                                log_hosp_plot1920, log_hosp_plot2223, -->
+<!-- #                                ncol = 2, nrow = 2,  -->
+<!-- #                                heights = c(2, 2,2,2),  -->
+<!-- #                                binwidth = 1, -->
+<!-- #                                common.legend = T, legend="bottom") -->
+<!-- # combined_log_plot -->
+<!-- # ``` -->
+<img data-src="images/log.png" class="r-stretch"><div class="cell">
 <div class="cell-output-display">
 
-<div id="inyyonqabw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ngilcyhxul" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html {
   font-family: Chivo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#inyyonqabw) .gt_table {
+:where(#ngilcyhxul) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -545,7 +552,7 @@ html {
   border-left-color: #D3D3D3;
 }
 
-:where(#inyyonqabw) .gt_heading {
+:where(#ngilcyhxul) .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -557,12 +564,12 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#inyyonqabw) .gt_caption {
+:where(#ngilcyhxul) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#inyyonqabw) .gt_title {
+:where(#ngilcyhxul) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -574,7 +581,7 @@ html {
   border-bottom-width: 0;
 }
 
-:where(#inyyonqabw) .gt_subtitle {
+:where(#ngilcyhxul) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -586,13 +593,13 @@ html {
   border-top-width: 0;
 }
 
-:where(#inyyonqabw) .gt_bottom_border {
+:where(#ngilcyhxul) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#inyyonqabw) .gt_col_headings {
+:where(#ngilcyhxul) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: rgba(0, 0, 0, 0);
@@ -607,7 +614,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#inyyonqabw) .gt_col_heading {
+:where(#ngilcyhxul) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -627,7 +634,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#inyyonqabw) .gt_column_spanner_outer {
+:where(#ngilcyhxul) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -639,15 +646,15 @@ html {
   padding-right: 4px;
 }
 
-:where(#inyyonqabw) .gt_column_spanner_outer:first-child {
+:where(#ngilcyhxul) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#inyyonqabw) .gt_column_spanner_outer:last-child {
+:where(#ngilcyhxul) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#inyyonqabw) .gt_column_spanner {
+:where(#ngilcyhxul) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 3px;
   border-bottom-color: #000000;
@@ -659,7 +666,7 @@ html {
   width: 100%;
 }
 
-:where(#inyyonqabw) .gt_group_heading {
+:where(#ngilcyhxul) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -685,7 +692,7 @@ html {
   text-align: left;
 }
 
-:where(#inyyonqabw) .gt_empty_group_heading {
+:where(#ngilcyhxul) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -700,15 +707,15 @@ html {
   vertical-align: middle;
 }
 
-:where(#inyyonqabw) .gt_from_md > :first-child {
+:where(#ngilcyhxul) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#inyyonqabw) .gt_from_md > :last-child {
+:where(#ngilcyhxul) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#inyyonqabw) .gt_row {
+:where(#ngilcyhxul) .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -727,7 +734,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#inyyonqabw) .gt_stub {
+:where(#ngilcyhxul) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -740,7 +747,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#inyyonqabw) .gt_stub_row_group {
+:where(#ngilcyhxul) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -754,11 +761,11 @@ html {
   vertical-align: top;
 }
 
-:where(#inyyonqabw) .gt_row_group_first td {
+:where(#ngilcyhxul) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#inyyonqabw) .gt_summary_row {
+:where(#ngilcyhxul) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -768,16 +775,16 @@ html {
   padding-right: 5px;
 }
 
-:where(#inyyonqabw) .gt_first_summary_row {
+:where(#ngilcyhxul) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#inyyonqabw) .gt_first_summary_row.thick {
+:where(#ngilcyhxul) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#inyyonqabw) .gt_last_summary_row {
+:where(#ngilcyhxul) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -787,7 +794,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#inyyonqabw) .gt_grand_summary_row {
+:where(#ngilcyhxul) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -797,7 +804,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#inyyonqabw) .gt_first_grand_summary_row {
+:where(#ngilcyhxul) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -807,11 +814,11 @@ html {
   border-top-color: #D3D3D3;
 }
 
-:where(#inyyonqabw) .gt_striped {
+:where(#ngilcyhxul) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#inyyonqabw) .gt_table_body {
+:where(#ngilcyhxul) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -820,7 +827,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#inyyonqabw) .gt_footnotes {
+:where(#ngilcyhxul) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -834,7 +841,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#inyyonqabw) .gt_footnote {
+:where(#ngilcyhxul) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -843,7 +850,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#inyyonqabw) .gt_sourcenotes {
+:where(#ngilcyhxul) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -857,7 +864,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#inyyonqabw) .gt_sourcenote {
+:where(#ngilcyhxul) .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -865,64 +872,64 @@ html {
   padding-right: 5px;
 }
 
-:where(#inyyonqabw) .gt_left {
+:where(#ngilcyhxul) .gt_left {
   text-align: left;
 }
 
-:where(#inyyonqabw) .gt_center {
+:where(#ngilcyhxul) .gt_center {
   text-align: center;
 }
 
-:where(#inyyonqabw) .gt_right {
+:where(#ngilcyhxul) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#inyyonqabw) .gt_font_normal {
+:where(#ngilcyhxul) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#inyyonqabw) .gt_font_bold {
+:where(#ngilcyhxul) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#inyyonqabw) .gt_font_italic {
+:where(#ngilcyhxul) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#inyyonqabw) .gt_super {
+:where(#ngilcyhxul) .gt_super {
   font-size: 65%;
 }
 
-:where(#inyyonqabw) .gt_footnote_marks {
+:where(#ngilcyhxul) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#inyyonqabw) .gt_asterisk {
+:where(#ngilcyhxul) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#inyyonqabw) .gt_indent_1 {
+:where(#ngilcyhxul) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#inyyonqabw) .gt_indent_2 {
+:where(#ngilcyhxul) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#inyyonqabw) .gt_indent_3 {
+:where(#ngilcyhxul) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#inyyonqabw) .gt_indent_4 {
+:where(#ngilcyhxul) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#inyyonqabw) .gt_indent_5 {
+:where(#ngilcyhxul) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -977,7 +984,7 @@ html {
 </div>
 </div>
 </section>
-<section id="age-stratification" class="slide level2">
+<section id="age-stratification" class="slide level2 smaller">
 <h2>Age stratification</h2>
 
 <img data-src="images/age.png" class="r-stretch"></section>
@@ -1014,19 +1021,40 @@ html {
 </section>
 <section id="our-hypothesis-revisited" class="slide level2">
 <h2>Our hypothesis revisited</h2>
-<p>No observable: - temporal relationship between data sources - relationship between scale of peaks - changes in reporting patterns post-COVID</p>
-</section>
-<section id="next-steps-future-work" class="slide level2">
-<h2>Next steps/ Future work</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Main</a></li><li><a href="#tabset-2-2">Secondary questions</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<p>No observable:</p>
 <ul>
-<li class="fragment">Calculating <span class="math inline">\(R_0\)</span> values</li>
-<li class="fragment">Calculating time of peaks</li>
-<li class="fragment">Calculating delay between onset of season and peaks</li>
-<li class="fragment">Stratifying results by age</li>
+<li class="fragment"><p>Temporal relationship between data sources</p></li>
+<li class="fragment"><p>Relationship between scale of peaks</p></li>
+<li class="fragment"><p>Changes in reporting patterns post-COVID</p></li>
+</ul>
+</div>
+<div id="tabset-2-2">
+<p>When stratifying by age group:</p>
+<ul>
+<li class="fragment"><p>Lag between 65+ and other age groups in post 2017-18 seasons</p></li>
+<li class="fragment"><p>Case rate amongst &lt;15s can be used to infer rate amongst 65+s</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="recommendations" class="slide level2">
+<h2>Recommendations</h2>
+<ul>
+<li class="fragment">Flu reports should be straitified by strain and age</li>
+<li class="fragment">Study the relationship between COVID-19 and influenza</li>
+<li class="fragment">Study influenza epidemics in a global context</li>
 </ul>
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
+<div class="r-fit-text">
+<p>Due to differing strains, antigenic shifting and variability in population immunity, its difficult to make inferences on the pattern of influenza epidemics.</p>
+</div>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
@@ -1262,15 +1290,12 @@ html {
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
       (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
 
           // dispatch for shiny
           if (window.jQuery) {
@@ -1281,6 +1306,13 @@ html {
               window.jQuery(currentSlide).trigger("shown");
             }
           }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
         }
 
         // hookup for slidy
@@ -1332,24 +1364,7 @@ html {
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
         setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
-          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -1387,42 +1402,24 @@ html {
           return note.innerHTML;
         });
       }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
-          }
-        } else {
-          return undefined;
-        }
-      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
           });
-        }
+          return popup.innerHTML;
+        });
       }
     });
     </script>
