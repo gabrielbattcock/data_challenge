@@ -357,8 +357,19 @@
 </section>
 <section id="background" class="slide level2 scrollable">
 <h2>Background</h2>
-
-<img data-src="images/fig-intro.png" class="r-stretch quarto-figure-center"><p class="caption">infographic for intro slide</p><aside class="notes">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/fig-intro.png"></p>
+<p></p><figcaption>infographic for intro slide</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/fig-intro.png"></p>
+<p></p><figcaption>infographic for intro slide</figcaption><p></p>
+</figure>
+</div>
+<aside class="notes">
 <ul>
 <li>\Aizaz Highly infectious and rapidly evolving respiratory virus circulating seasonally around the world <span class="citation" data-cites="cope2018">[<a href="#/references" role="doc-biblioref" onclick="">1</a>]</span></li>
 <li>\Aizaz Antigenic shifts may result in uncontrolled extensive spread causing an epidemic (e.g.&nbsp;1918-2009) <span class="citation" data-cites="cope2018">[<a href="#/references" role="doc-biblioref" onclick="">1</a>]</span></li>
@@ -407,11 +418,27 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section></section>
+<section>
+<section id="methods" class="title-slide slide level1 center">
+<h1>Methods</h1>
+
 </section>
 <section id="data-sources" class="slide level2">
 <h2>Data Sources</h2>
-
-<img data-src="images/fig-data-source.png" class="r-stretch quarto-figure-center"><p class="caption">infographic for data sources</p><aside class="notes">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/fig-data-source.png"></p>
+<p></p><figcaption>infographic for data sources</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/fig-data-source.png"></p>
+<p></p><figcaption>infographic for data sources</figcaption><p></p>
+</figure>
+</div>
+<aside class="notes">
 <ul>
 <li><strong>Primary care</strong>: Royal College of GP appointments for Influence Like Illnesses</li>
 <li><strong>Secondary care</strong>: Hospitalisation data as reported by th UKHSA Severe Acute Respiratory Infection (SARI) Watch system and the UK Severe Influenza Surveillance Schemes (USISS) prior to that.</li>
@@ -428,124 +455,578 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
-<section>
-<section id="methods" class="title-slide slide level1 center">
-<h1>Methods</h1>
-
-</section>
-<section id="data-aquisition" class="slide level2">
-<h2>Data aquisition</h2>
-<ul>
-<li class="fragment">Various methods of converting data to a usable form have been used:
-<ul>
-<li class="fragment">UKHSA provided OpenDocument spreadsheets (.ODS) for all flu data (RCGP, USISS and SARI) from 2018-23</li>
-<li class="fragment">PDF scraping (use of R script provided to us) - swabs</li>
-<li class="fragment">2017-18 data for hospitalisation and GP consultations was manually entered from weekly published reports.</li>
-</ul></li>
-</ul>
 </section>
 <section id="analysis" class="slide level2">
 <h2>Analysis</h2>
 <ul>
 <li class="fragment">Time series plots</li>
-<li class="fragment"><span class="math inline">\(R_0\)</span> value for early spread</li>
-<li class="fragment">Calculate delay of peak/initial spread of flu between different data sources</li>
+<li class="fragment"><span class="math inline">\(R_0\)</span> value for early spread
+<ul>
+<li class="fragment"><span class="math inline">\(R = 1 +\dfrac{r}{b}\)</span></li>
+</ul></li>
+<li class="fragment">Cross-correlation with Spearman’s <span class="math inline">\(\rho\)</span></li>
 </ul>
 </section></section>
 <section>
 <section id="results" class="title-slide slide level1 center">
 <h1>Results</h1>
-
-</section>
-<section id="exploring-our-main-data-sources" class="slide level2">
-<h2>Exploring our main data sources</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Primary care</a></li><li><a href="#tabset-1-2">Secondary Care</a></li><li><a href="#tabset-1-3">Lab confirmed cases</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="Presentation_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
-</div>
-</div>
-</div>
-<div id="tabset-1-2">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="Presentation_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
-</div>
-</div>
-</div>
-<div id="tabset-1-3">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="Presentation_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- ## Lab confirmed influenza cases -->
+<!-- ## Exploring our main data sources -->
 <!-- ::: panel-tabset -->
-<!-- ### Influenza A subtype -->
+<!-- ### Primary care -->
 <!-- ```{r} -->
-<!-- plotA -->
+<!-- source("../R_scripts/source/primary_care_vis.R") -->
+<!-- gp_cases -->
 <!-- ``` -->
-<!-- ### Influenza B subtype -->
+<!-- ### Secondary Care -->
 <!-- ```{r} -->
-<!-- plotB -->
+<!-- source("../R_scripts/source/hospitalisation_plots.R") -->
+<!-- hospital_plot -->
+<!-- ``` -->
+<!-- ### Lab confirmed cases -->
+<!-- ```{r} -->
+<!-- source("../R_scripts/source/swabs.R") -->
+<!-- combined_plot -->
 <!-- ``` -->
 <!-- ::: -->
+<!-- ## Vaccine data -->
+<!-- ```{r} -->
+<!-- vacc_plot -->
+<!-- ``` -->
 </section>
-<section id="vaccine-data" class="slide level2">
-<h2>Vaccine data</h2>
-
-<img data-src="Presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
 <section id="per-flu-seasons" class="slide level2">
 <h2>Per flu seasons</h2>
-<div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">2017-18</a></li><li><a href="#tabset-2-2">2018-19</a></li><li><a href="#tabset-2-3">2019-20</a></li><li><a href="#tabset-2-4">2022-23</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1">
+
+<!-- ```{r} -->
+<!-- source("../R_scripts/Season_data/season_201718.R") -->
+<!-- source("../R_scripts/Season_data/season_201819.R") -->
+<!-- source("../R_scripts/Season_data/season_201920.R") -->
+<!-- source("../R_scripts/Season_data/season_202223.R") -->
+<!-- combined_season_plot <- ggarrange(plot_201718, plot_201819, -->
+<!--                                plot_201920, plot_202223, -->
+<!--                                ncol = 2, nrow = 2,  -->
+<!--                                common.legend = T, legend="bottom") -->
+<!-- combined_season_plot -->
+<!-- ``` -->
+<img data-src="images/seasonal.png" class="r-stretch"></section>
+<section id="rate-of-infection" class="slide level2">
+<h2>Rate of infection</h2>
+<p><img data-src="images/log.png" alt="h"> <!-- # ```{r echo= FALSE, warning = FALSE} --> <!-- # source("../R_scripts/Season_data/log_graphs.R")  --> <!-- # combined_log_plot <- ggarrange(log_hosp_plot1718 , log_hosp_plot1819, --> <!-- #                                log_hosp_plot1920, log_hosp_plot2223, --> <!-- #                                ncol = 2, nrow = 2,  --> <!-- #                                heights = c(2, 2,2,2),  --> <!-- #                                binwidth = 1, --> <!-- #                                common.legend = T, legend="bottom") --> <!-- # combined_log_plot --> <!-- # ``` --> # ##</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="Presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
-</div>
-</div>
-</div>
-<div id="tabset-2-2">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="Presentation_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
-</div>
-</div>
-</div>
-<div id="tabset-2-3">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="Presentation_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
-</div>
-</div>
-</div>
-<div id="tabset-2-4">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="Presentation_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
-</div>
-</div>
+
+<div id="inyyonqabw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html {
+  font-family: Chivo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#inyyonqabw) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: rgba(0, 0, 0, 0);
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: rgba(0, 0, 0, 0);
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#inyyonqabw) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#inyyonqabw) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#inyyonqabw) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#inyyonqabw) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#inyyonqabw) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#inyyonqabw) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: rgba(0, 0, 0, 0);
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#inyyonqabw) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#inyyonqabw) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#inyyonqabw) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#inyyonqabw) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#inyyonqabw) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#inyyonqabw) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+:where(#inyyonqabw) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#inyyonqabw) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#inyyonqabw) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#inyyonqabw) .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#inyyonqabw) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#inyyonqabw) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#inyyonqabw) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#inyyonqabw) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#inyyonqabw) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#inyyonqabw) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#inyyonqabw) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#inyyonqabw) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#inyyonqabw) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#inyyonqabw) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#inyyonqabw) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#inyyonqabw) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#inyyonqabw) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#inyyonqabw) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#inyyonqabw) .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#inyyonqabw) .gt_left {
+  text-align: left;
+}
+
+:where(#inyyonqabw) .gt_center {
+  text-align: center;
+}
+
+:where(#inyyonqabw) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#inyyonqabw) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#inyyonqabw) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#inyyonqabw) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#inyyonqabw) .gt_super {
+  font-size: 65%;
+}
+
+:where(#inyyonqabw) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#inyyonqabw) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#inyyonqabw) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#inyyonqabw) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#inyyonqabw) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#inyyonqabw) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#inyyonqabw) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <td colspan="4" class="gt_heading gt_title gt_font_normal" style="">Effective R values</td>
+    </tr>
+    <tr>
+      <td colspan="4" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Across flu seasons between 2017-18 and 2022-23</td>
+    </tr>
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col" id="<strong>Flu season</strong>"><strong>Flu season</strong></th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="3" scope="colgroup" id="<strong>Sources of flu data</strong>">
+        <span class="gt_column_spanner"><strong>Sources of flu data</strong></span>
+      </th>
+    </tr>
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="<strong>Primary care</strong>"><strong>Primary care</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="<strong>Secondary care</strong>"><strong>Secondary care</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="<strong>Lab confirmed cases</strong>"><strong>Lab confirmed cases</strong></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="index_log_dat" class="gt_row gt_right">2017-18</td>
+<td headers="gp_log_dat" class="gt_row gt_right">1.3</td>
+<td headers="hosp_log_dat" class="gt_row gt_right">1.5</td>
+<td headers="swabs_log_dat" class="gt_row gt_right">1.5</td></tr>
+    <tr><td headers="index_log_dat" class="gt_row gt_right">2018-19</td>
+<td headers="gp_log_dat" class="gt_row gt_right">1.1</td>
+<td headers="hosp_log_dat" class="gt_row gt_right">1.4</td>
+<td headers="swabs_log_dat" class="gt_row gt_right">1.4</td></tr>
+    <tr><td headers="index_log_dat" class="gt_row gt_right">2019-20</td>
+<td headers="gp_log_dat" class="gt_row gt_right">1.2</td>
+<td headers="hosp_log_dat" class="gt_row gt_right">1.4</td>
+<td headers="swabs_log_dat" class="gt_row gt_right">1.4</td></tr>
+    <tr><td headers="index_log_dat" class="gt_row gt_right" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #00000000;">2022-23</td>
+<td headers="gp_log_dat" class="gt_row gt_right" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #00000000;">1.3</td>
+<td headers="hosp_log_dat" class="gt_row gt_right" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #00000000;">1.4</td>
+<td headers="swabs_log_dat" class="gt_row gt_right" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: #00000000;">1.3</td></tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="4">Note: Data removed for 2021-22 flu season due to effect of Covid-19 pandemic on flu cases</td>
+    </tr>
+  </tfoot>
+  
+</table>
 </div>
 </div>
 </div>
 </section>
-<section id="next-steps" class="slide level2">
-<h2>Next steps</h2>
+<section id="age-stratification" class="slide level2">
+<h2>Age stratification</h2>
+
+<img data-src="images/age.png" class="r-stretch"></section>
+<section id="subtype-stratification" class="slide level2">
+<h2>Subtype stratification</h2>
+
+<img data-src="images/strain.png" class="r-stretch"></section></section>
+<section>
+<section id="discussion" class="title-slide slide level1 center">
+<h1>Discussion</h1>
+
+</section>
+<section id="strengths-and-limitations" class="slide level2">
+<h2>Strengths and limitations</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Strengths</a></li><li><a href="#tabset-1-2">Limitations</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<ul>
+<li class="fragment">Availability of multiple data sources</li>
+<li class="fragment">Statistical methodology</li>
+<li class="fragment">Stratification along age groups</li>
+</ul>
+</div>
+<div id="tabset-1-2">
+<ul>
+<li class="fragment">Limited to publicly available data</li>
+<li class="fragment">Limited scope for statistical analysis</li>
+<li class="fragment">Lack of granularity of data</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="our-hypothesis-revisited" class="slide level2">
+<h2>Our hypothesis revisited</h2>
+<p>No observable: - temporal relationship between data sources - relationship between scale of peaks - changes in reporting patterns post-COVID</p>
+</section>
+<section id="next-steps-future-work" class="slide level2">
+<h2>Next steps/ Future work</h2>
 <ul>
 <li class="fragment">Calculating <span class="math inline">\(R_0\)</span> values</li>
 <li class="fragment">Calculating time of peaks</li>
 <li class="fragment">Calculating delay between onset of season and peaks</li>
 <li class="fragment">Stratifying results by age</li>
 </ul>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
