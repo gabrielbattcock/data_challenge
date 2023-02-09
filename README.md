@@ -1,15 +1,31 @@
 ---
-version: 0.3.0
+version: 1.0
 author: GB, AC, SJ, HL
 ---
 
-[TOC]
+# Data Challenge
 
-# Data_Challenge
+![con](https://img.shields.io/github/contributors/gabrielbattcock/data_challenge) ![badge](https://img.shields.io/github/last-commit/gabrielbattcock/data_challenge) ![stars](https://img.shields.io/github/stars/gabrielbattcock/data_challenge?style=social)
+
+Coursework submitted for module #2491 Data Challenge
+
+MSc Health Data Science, London School of Hygiene and Tropical Medicine
+
+**Contributors:**
+
+GB [@gabrielbattcock](https://github.com/gabrielbattcock)
+
+AC [@Syn4pt1c](https://github.com/Syn4pt1c)
+
+SJ [@rizlasilver210](https://github.com/rizlasilver210)
+
+HL [@malaporpism](https://github.com/malaporpism)
+
+**Supervisor:** Dr Rosalind "Roz" Eggo
+
+**Client:** UK Health Security Agency (UKHSA)
 
 ## Project Overview
-
-[copy-paste from the report]
 
 Influenza is a highly infectious disease caused by a family of virus under the same name. Up to 650,000 deaths yearly can be directly attributed to seasonal outbreaks of influenza worldwide. The virus has multiple species, with type A and type B being predominant in spreading among human. Progression of flu is usually self-limiting. For most, symptoms last for 2~7 days. Severe cases might require hospitalisation, or even deaths, particularly for at-risk groups (children <2 yo, pregnant, elderly >65yo, and people with underlying conditions). 
 
@@ -25,17 +41,9 @@ All data used in this project were publicly available on various governmental we
 
 Primary care data was reported by the RCGP Research and Surveillance Centre in the communicable and respiratory disease reports, published weekly. Swabs data is reported weekly by PHE. Secondary care data is extracted from the UKHSA Severe Acute Respiratory Infection Watch (SARI Watch) system, updated weekly during the flu season (week 40 - week 20 next year). Mortality data is reported weekly by the ONS. 
 
-All cleaning and processing are done using the R language and the RStudio IDE. 
-
-
+All cleaning and processing are done using the R language (v4.2.2) and the RStudio IDE. 
 
 ## How to use this script
-
-### 0. Shiny App
-
-You can play with the web application, powered by R-Shiny, without the need to download any part of the project. 
-
-Really?
 
 ### 1. Download
 
@@ -87,7 +95,7 @@ This project cannot be built without the numerous packages from the R community.
   - [wesanderson](https://cran.r-project.org/web/packages/wesanderson/index.html) for Wes Anderson inspired palettes and themes
 ### 3. Running the code
 
-**You don't need to run `source_data_entry.R` by itself. **
+**You don't need to run `source_data_entry.R` by itself.**
 
 **Load the `.Rproj`, then just open the script. It will `source()` the data that's needed.**
 
@@ -117,7 +125,7 @@ data_challenge/
 │  ├─ images/
 │  ├─ Presentation_files/
 │  ├─ Presentation.html
-│  └─ Presentation.qmd
+│  └─ Presentation.qmd                   * the presentation, with editable and executable code
 ├─ Presentation_files
 │  └─ ...
 ├─ R_scripts
