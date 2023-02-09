@@ -61,7 +61,7 @@ plotB <- ggplot(typeB, aes(id, value)) +
 
 
 combined_plot <- ggarrange(plotA, plotB,
-                           ncol = 2, nrow = 1,
+                           ncol = 1, nrow = 2,
                            common.legend = TRUE,
                            legend = "bottom")
 

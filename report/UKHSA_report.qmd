@@ -1,11 +1,13 @@
 ---
-title: "UKHSA report"
-format: html
-bibliography: ../bibliography/UKHSA_bibliography.bib
-csl: ../bibliography/bmj.csl
+title: "UKHSA report" 
+subtitle: "What is the temporal relationship between different influenza data sources (lab-confirmed infections, GP consultations, hospitalisations) in the UK, and have these changed in 2022/23 compared to the pre-pandemic years 2017-2020?"
+
+format: html 
+bibliography: ../bibliography/UKHSA_bibliography.bib 
+csl: ../bibliography/bmj.csl 
 editor: 
   markdown: 
-    wrap: 72
+    wrap: 72 
 ---
 
 ```{r setup, include=FALSE}
@@ -13,74 +15,66 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
 ```{r, echo = FALSE}
-#Loading the presentation stuff
+#Loading the presentation stuff 
 
-source("../R_scripts/source_data_entry.R")
-source("../R_scripts/source/swabs.R")
-source("../R_scripts/source/primary_care_vis.R")
-source("../R_scripts/source/hospitalisation_plots.R")
+source("../R_scripts/source_data_entry.R") 
+source("../R_scripts/source/swabs.R") 
+source("../R_scripts/source/primary_care_vis.R") 
+source("../R_scripts/source/hospitalisation_plots.R") 
 
-#For the vaccine plot
-source("../R_scripts/source/vacc_plot.R")
+#For the vaccine plot 
+source("../R_scripts/source/vacc_plot.R") 
 ```
 
 ## Abstract
 
-Influenza is a highly infectious disease caused by a virus of the
-*Orthomyxoviridae* family. The virus ( has multiple species, with type A
-and type B being predominant in humans. Up to 650,000 deaths yearly can
-be directly attributed to seasonal outbreaks of influenza worldwide
-(*reference needed*)
+#### Background
 
+Influenza is a highly infectious disease caused by a virus of the
+*Orthomyxoviridae* family. The virus has multiple species, with type A
+and type B being predominant in humans. Up to 650,000 deaths yearly can
+be directly attributed to seasonal outbreaks worldwide.
 Progression of influenza is usually self-limiting. For most, symptoms
 last for 2\~7 days. Severe cases might require hospitalisation, or can
 progress to death. This is a particular concern for at-risk groups,
 which include children \<2 years of age; pregnant women; the elderly
 \>65yo; and patients with comorbidities.
 
-The UK's influenza surveillance system is multi-faceted. It includes
-sources like weekly % of GP consultations presenting with influenza-like
-illnesses (ILI), or death registrations where the leading cause is
-influenza. Our topic of interest has been defined with this diversity as
-a componenet:
+#### Our client and task
 
-> What is the temporal relationship between different influenza data
-> sources (lab-confirmed infections, GP consultations, hospitalisations)
-> in the UK, and have these changed in 2022/23 compared to the
-> pre-pandemic years 2016-2019?
+Our task for the UK Health Security Agency (UKHSA) is to investigate the
+temporal relationship between influenza surveillance data sources. The
+UK has three main influenza surveillance systems: rate of primary care cases presenting with
+influenza-like illnesses (ILI); secondary care cases of influenza; and
+laboratory confirmed cases. The temporal relationship of these data
+sources has been studied for the 2017-18, 2018-19, 2019-20 and
+2022-23 seasons. We investigated whether there has been a change in
+reporting of influenza in the post-pandemic season. Additionally,
+different age groups and strains of influenza have been analysed to look for a difference in the temporal nature of any groups.
 
-We hypothesise that there exists a temporal relationship between sources
-of surveillance. Statistical tools can then be applied to predict the
-timing and scale of a 'later' data source using an 'earlier' source.
-Additionally, different age groups can manifest at different time and
-scale, and one might be predictive of another. Additionally, we suspect
-changes in reporting procedures of respiratory infections post-covid may
-cause differences with pre-pandemic data
+#### Analysis and results
 
-#### Data Processing
+Through the use of publicly available data published on government
+websites, including the UK Health Security Agency, cases rates for each
+surveillance source was plotted by influenza season and peaks in the data were analysed. For surveillance sources that
+stratified data into constituent groups (age and strain), this data was
+also plotted. Peaks were analysed for
+any temporal difference. The rate of growth in cases was
+investigated for each data source through the calculation of
+reproduction numbers.
 
-The data used in this project is publicly available on various
-governmental websites. Primary care data is published weekly by the RCGP
-Research and Surveillance Centre in the communicable and respiratory
-disease reports. Laboratory confirmed cases are reported weekly by
-UKHSA. Secondary care data is extracted from the UKHSA Severe Acute
-Respiratory Infection Watch (SARI Watch) system, updated weekly during
-the influenza season (week 40 - week 20 next year). Mortality data is
-reported weekly by the ONS. All cleaning and processing are done using
-the R language.
-
-#### Analysis
-
-At first glimpse, the peak for each data source does not differ much
-from each other in a given year.
-
-Cross-correlation between two data sources can be measured using
-Spearman's $ρ$, a non-parametric test of correlation. To ascertain the
-pairwise time lag (if any), Spearman's test is run repeatedly with a
-gradually increasing lag. The lag value associated with the best $ρ$ is
-reported as the lag between given sources for a given year.
-
-*--page break--*
+Through the analysis of surveillance data, there was no apparent temporal
+relationship between the data sources as the peak in cases occurred on
+the same week for each of the seasons studied with the exception of the current
+season. According to the reproduction numbers calculated for each surveillance
+source, the case growth is larger for secondary
+care and laboratory confirmed cases than for primary care cases for each season.
+A temporal difference of peak in cases for different age groups existed, with
+65+ year olds having a delayed peak in all seasons except
+2017-18. When analysing by strain, there is a
+difference in timing and scale of the peak, which appears dependant on the dominant strain.
+UK strain dominance also appears to be inconsistent with the rest of
+northern Europe.
 
 ::: {style="page-break-after: always"}
 :::
@@ -92,11 +86,11 @@ Influenza is a highly infectious disease caused by a virus of the
 and type B being predominant in humans. The World Health Organisation
 (WHO) estimates that between 290,000-650,000 deaths occur due to the
 respiratory virus. This does not include deaths due to secondary
-infections caused by influenza [@WHO2022]. Like most viruses, influenza
-is highly mutable. It can undergo small mutations (antigenic drift), or
-more drastic changes in sub-type (antigenic shift) [@CDC2022]. This can
-lead to uncontrolled extensive spreads resulting in an epidemic, such as
-the 2009 H1N1 pandemic [@cope2018].
+infections caused by influenza [@whowebsite]. Like most viruses,
+influenza is highly mutable. It can undergo small mutations (antigenic
+drift), or more drastic changes in sub-type (antigenic shift)
+[@CDC2022]. This can lead to uncontrolled extensive spreads resulting in
+an epidemic, such as the 2009 H1N1 pandemic [@cope2018].
 
 Progression of influenza is often self-limiting. For most, symptoms last
 for 2\~7 days. Severe cases might require hospitalisation, or can
@@ -105,9 +99,7 @@ which include children \<2 years of age; pregnant women; the elderly
 \>65yo; and patients with comorbidities. [@cope2018, @zarocostas2009].
 
 After an incubation period, usually 1\~3 days, the progression of the
-disease is self-limiting and symptoms might last 2\~7 days \[cite::green
-book\]. In the UK, seasonal influenza circulation is a burden to the NHS
-by increasing demand of hospital beds and GP services [@cope2018].
+disease is self-limiting and symptoms might last 2\~7 days. In the UK, seasonal influenza circulation is a burden to the NHS by increasing demand of hospital beds and GP services [@cope2018].
 Analysis of previous influenza seasons can help with the planning of
 service provision for the future. For example, it would help the
 provision of influenza vaccination programmes and temporary bed
@@ -201,8 +193,7 @@ Mortality data was extracted from the UK Office for National Statistics
 by deaths due to or involving influenza as coded by the J09-J18 ICD-10
 codes.
 
-Vaccine uptake data is reported monthly by PHE/UKHSA on
-[@govukreference]. This data is reported as coverage percentage,
+Vaccine uptake data is reported monthly by PHE/UKHSA.This data is reported as coverage percentage,
 stratified by at risk groups, for the entire season.
 
 ### Data Processing
@@ -284,14 +275,14 @@ where appropriate.
 ::: grid
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
-gp_cases
+gp_cases 
 
 ```
 :::
 
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE,}
-hospital_plot
+hospital_plot 
 
 ```
 :::
@@ -303,9 +294,22 @@ seasons from 2017-2018 to 2022-23 with 2020-2021 and 2021-2022 removed.
 Figure 4 show influenza cases reported by SARI watch and USISS Sentinel
 data for hospitalisations of patients with influenza per 100,000 people.
 
+::: grid
+
+::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
-combined_plot
+plotA
 ```
+:::
+
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+plotB 
+```
+:::
+
+:::
+
 
 **Figure 5 and 6**: Lab-confirmed cases of influenza, stratified by
 influenza strain (A and B). Data reported from PHE/UKHSA lab confirmed
@@ -354,23 +358,26 @@ not hold should the characteristic of 2022-23 season change.
 ### Season
 
 ```{r echo= FALSE, warning = FALSE}
-source("../R_scripts/Season_data/season_201718.R")
-source("../R_scripts/Season_data/season_201819.R")
-source("../R_scripts/Season_data/season_201920.R")
-source("../R_scripts/Season_data/season_202223.R")
+source("../R_scripts/Season_data/season_201718.R") 
+source("../R_scripts/Season_data/season_201819.R") 
+source("../R_scripts/Season_data/season_201920.R") 
+source("../R_scripts/Season_data/season_202223.R") 
+
 
 ```
 
 ::: grid
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
-plot_201718
+plot_201718 
+
 ```
 :::
 
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
-plot_201819
+plot_201819 
+
 ```
 :::
 :::
@@ -378,13 +385,15 @@ plot_201819
 ::: grid
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
-plot_201920
+plot_201920 
+
 ```
 :::
 
 ::: g-col-6
 ```{r echo= FALSE, warning = FALSE}
-plot_202223
+plot_202223 
+
 ```
 :::
 :::
@@ -394,7 +403,7 @@ surveillance sources and presented for separate seasons. Data is
 combined from RCGP, Datamart scheme and SARI.
 
 ```{r echo=FALSE, warning=FALSE}
-source("../R_scripts/Season_data/peak_table.R")
+source("../R_scripts/Season_data/peak_table.R") 
 max_table
 
 ```
@@ -429,49 +438,6 @@ patterns .
 
 ### Log graphs and $R_0$ value
 
-```{r echo= FALSE, warning = FALSE}
-source("../R_scripts/Season_data/log_graphs.R")
-
-```
-
-::: grid
-::: g-col-6
-```{r echo= FALSE, warning = FALSE}
-log_hosp_plot1718
-
-```
-:::
-
-::: g-col-6
-```{r echo= FALSE, warning = FALSE}
-
-log_hosp_plot1819
-
-```
-:::
-:::
-
-::: grid
-::: g-col-6
-```{r echo= FALSE, warning = FALSE}
-
-log_hosp_plot1920
-
-```
-:::
-
-::: g-col-6
-```{r echo= FALSE, warning = FALSE}
-log_hosp_plot2223
-```
-:::
-:::
-
-**Figure 8** Log-transformed influenza rates stratified by different
-data sources. Results reported for consecutive years.
-
-**Figure 8:** Log-transformed influenza rates stratified by different
-data sources. Results reported for consecutive years.
 
 The reproduction number has been estimated for each of the seasons and
 each of the data sources. The case rate per 100,000 was transformed
@@ -484,23 +450,100 @@ and coefficients of gradients for each of the lines were calculated. The
 $R$ value was obtained from the formula $R = 1 + \frac{r}{b}$ as
 detailed above.
 
+
+```{r echo= FALSE, warning = FALSE}
+source("../R_scripts/Season_data/log_graphs.R") 
+
+
+```
+
+::: grid
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+log_hosp_plot1718 
+
+
+```
+:::
+
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+
+log_hosp_plot1819 
+
+
+```
+:::
+:::
+
+::: grid
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+
+log_hosp_plot1920 
+
+
+```
+:::
+
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+log_hosp_plot2223 
+
+```
+:::
+:::
+
+**Figure 8** Log-transformed influenza rates stratified by different
+data sources. Results reported for consecutive years.
+
+
 The estimated $R$ for each year and data source is detailed below. As
 expected at the beginning of a flu season, the R numbers are all
 above 1. It is noted R value derived from the hospitalisation data is
 higher than that of primary care data.
 
 ```{r echo=FALSE}
-# source("../R_scripts/Season_data/log_graphs.R")
-effective_r_values
+source("../R_scripts/Season_data/log_graphs.R") 
+effective_r_values 
+
 ```
 
 ### Stratifying by age group
 
-```{r echo = FALSE}
+::: grid
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+source("../R_scripts/Season_data/age_strat.R") 
+plot_age1718
 
-source("../R_scripts/Season_data/age_strat.R")
-combined_age_plot
 ```
+:::
+
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+
+plot_age1819
+
+```
+:::
+:::
+
+::: grid
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+
+plot_age1920
+
+```
+:::
+
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+plot_age2223 
+```
+:::
+:::
 
 **Figure 9** Influenza rates per 100.000, stratified by different age
 groups.
@@ -513,34 +556,61 @@ and 65+ years.
 For 2017-18, there is a lag between the peaks of adults over 15 years
 and children. The rapid growth period of this season begins at week 50
 and peaks at week 3 for all ages except \<15 years which peaks later, at
-week 5. **This may be due to the timing of the epidemic overlapping with
-UK school holidays, leading to children having less social interaction,
-therefore delaying the peak for this group by two weeks.**
+week 5.
 
 For 2018-19 there appears to be a minor peak followed by a larger peak a
 few weeks later. This year, the second peak among the 65+ age group lags
-behind all other age groups by a week. **This may be due to less
-socialising among the older age group.**
+behind all other age groups by a week.
+
 
 The season 2019-20 shows multiple peaks with the expected dip over the
 holiday period (between weeks 51 and 1). As with the 2018-19 season, the
 major peak for 65+ age group lags two weeks behind the other age groups.
-There is also an evident spike at week 12 for this year. **As this data
-is recording "Influenza like illness", it can be assumed that this peak
-is due to the COVID-19 pandemic.**
+There is also an evident spike at week 12 for this year.
+
 
 The current influenza season also shows a lag in growth among the 65+
 group. Full season results cannot be presented at the time of reporting,
 due to data still being recorded. From the available data we can infer
 that the under 15 years have a lower gradient after week 51 around when
-the winter holidays begin.
+the winter holidays begins.
 
 ### Stratified by influenza strain type
 
-```{r echo=FALSE}
-source("../R_scripts/strain_stratification.R")
-combined_strain_plot
+::: grid
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+source("../R_scripts/strain_stratification.R") 
+strains17_18_swabs_plot
+
 ```
+:::
+
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+
+strains18_19_swabs_plot
+
+```
+:::
+:::
+
+::: grid
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+strains19_20_swabs_plot
+
+```
+:::
+
+::: g-col-6
+```{r echo= FALSE, warning = FALSE}
+strains22_23_swabs_plot
+```
+:::
+:::
+
+
 
 **Figure 10** Total weekly recorded influenza cases, stratified the
 strain as recorded by the Datamart scheme. Presented for consecutive
@@ -608,89 +678,91 @@ different influenza data sources. While we see no visible lag between
 peaks in the population as a whole, the data was probed further to try
 to discover any other causal inference.
 
-### **Interpretation of the corr**
+From the results calculated for the reproduction number, it is clear
+that the estimate is larger for both hospitalisation data and swab data
+than for the GP data. The calculation here is a simplistic approximation
+for the reproduction number but does show that the growth of cases is
+lower for GP consultations. This is more indicative of the general
+population as not everyone who goes to a GP for ILI symptoms will be
+referred to hospital. This suggests some evidence towards a temporal
+relationship between primary and secondary care data, as knowing when
+there is a rise in the cases in GPs infers a subsequent large rise in
+hospitalisations. The calculation is not a complex method of estimating
+the reproduction number for influenza but does give a operationalised
+approximation. Estimating the reproduction number for a virus such as
+influenza can be difficult due to uncertainty in the level of immunity
+among the population.
 
-From the results calculated, it is clear that the estimate is larger for
-both hospitalisation data and swab data than for the GP data. The
-calculation here is a simplistic approximation for the reproduction
-number but does show that the growth of cases is lower for GP
-consultations. This is more indicative of the general population as not
-everyone who goes to a GP for ILI symptoms will be referred to hospital.
-This suggests some evidence towards a temporal relationship between
-primary and secondary care data, as knowing when there is a rise in the
-cases in GPs infers a subsequent large rise in hospitalisations. The
-calculation is not a complex method of estimating the reproduction
-number for influenza but does give a operationalised approximation.
-Estimating the reproduction number for a virus such as influenza can be
-difficult due to uncertainty in the level of immunity among the
-population.
 
 ### Strain stratified data discussion
 
 Stratification of the results by different strains has brought some
 interesting insights into our study. The 2017-18 season was dominated by
 type B influenza. This finding is particularly interesting as according
-to the WHO \[7\], the northern hemisphere has recorded an increased
-incidence of A (H1N1), which in the UK was only a secondary strain.
-Another interesting point is that the peak incidence of type B influenza
-was delayed in the other countries of the northern hemisphere during the
-2017 season. Within the UK, we have noted an earlier peak of A (H1N1)
-compared to type B. During the season 2018-19, data was only stratified
-by type and not subtype. According to the WHO, this season have been
-dominated by A (H1N1) in the northern hemisphere. Compared to the data
-from northern Europe, we can see similarities in the shape distribution
-of lab-confirmed cases. Other strains of influenza were not noticeably
-present. In the 2019-20 season, we observed dominance of A (H1N1).
-Contrast this with the rest of northern Europe, where the most prevalent
-strains were type A and B of unknown lineages. The peak in the UK for A
-(H1N1) was delayed in comparison to the cumulative peak for northern
-Europe. It should be noted that the UK peak lined up with the peak for
-the A (H3) and type B for northern Europe. Incidence of A (H3) and type
-B in the UK was delayed compared to A (H1N1). However, the general
-incidence of A (H3) and B was minimal throughout the whole season.
-Season 2022-23 started early, with the incidence of A (unknown) leading
-the rising trend. Results correspond with data for northern Europe,
-sharing the shape of the distribution and dominating strain. It is noted
-that this is the first season in our observed timeframe where UK data is
-consistent with data for northern Europe. In comparison with data for
-the countries of the whole northern hemisphere, the incidence in the UK
-seems to plummet with a slight delay.
+to the WHO [@whoupdate], the northern hemisphere has recorded an
+increased incidence of A (H1N1), which in the UK was only a secondary
+strain. Another interesting point is that the peak incidence of type B
+influenza was delayed in the other countries of the northern hemisphere
+during the 2017 season. Within the UK, we have noted an earlier peak of
+A (H1N1) compared to type B. During the season 2018-19, data was only
+stratified by type and not subtype. According to the WHO, this season
+have been dominated by A (H1N1) in the northern hemisphere. Compared to
+the data from northern Europe, we can see similarities in the shape
+distribution of lab-confirmed cases. Other strains of influenza were not
+noticeably present. In the 2019-20 season, we observed dominance of A
+(H1N1). Contrast this with the rest of northern Europe, where the most
+prevalent strains were type A and B of unknown lineages. The peak in the
+UK for A (H1N1) was delayed in comparison to the cumulative peak for
+northern Europe. It should be noted that the UK peak lined up with the
+peak for the A (H3) and type B for northern Europe. Incidence of A (H3)
+and type B in the UK was delayed compared to A (H1N1). However, the
+general incidence of A (H3) and B was minimal throughout the whole
+season. Season 2022-23 started early, with the incidence of A (unknown)
+leading the rising trend. Results correspond with data for northern
+Europe, sharing the shape of the distribution and dominating strain. It
+is noted that this is the first season in our observed timeframe where
+UK data is consistent with data for northern Europe. In comparison with
+data for the countries of the whole northern hemisphere, the incidence
+in the UK seems to plummet with a slight delay.
+
 
 ### Comparison and contrast to previous studies
 
 Few studies have been done on this topic, and none on UK data. However,
 there are several sources which try to understand the relationship of
 influenza before and after the COVID-19 pandemic. One of the most
-interesting comparisons would be with the work by [@groves2022] studying the
-effect of the COVID-19 pandemic on ILI-related hospitalization and
-mortality in children [@groves2022]. The main findings conclude there was a
-statistically significant drop in the number of cases in pediatric
+interesting comparisons would be with the work by [@groves2022] studying
+the effect of the COVID-19 pandemic on ILI-related hospitalization and
+mortality in children [@groves2022]. The main findings conclude there
+was a statistically significant drop in the number of cases in pediatric
 influenza hospitalisations post pandemic. The report highlights the lack
 of ILI-related data for the COVID-19 pandemic period, in line with our
 findings. A similar phenomenon is seen in Italy, China and the USA
-[@young2020]. It is suspected that during that period, ILI was under-reported
-due to the main focus being COVID testing. This hypothesis however does
-not explain observations in China where incidence was low, even though
-type A and B influenza tests were conducted for patients with suspicion
-of COVID-19 [@huang2020]. Another possible explanation is the change in contact
-patterns which caused immunity perturbations that happened throughout
-2019-20.
+[@young2020]. It is suspected that during that period, ILI was
+under-reported due to the main focus being COVID testing. This
+hypothesis however does not explain observations in China where
+incidence was low, even though type A and B influenza tests were
+conducted for patients with suspicion of COVID-19 [@huang2020]. Another
+possible explanation is the change in contact patterns which caused
+immunity perturbations that happened throughout 2019-20.
 
 Seasonality is a result of a complex interplay between previously
 mentioned contact patterns, host immunity and survival of the virus
-[@tamerius2021]. In terms of the post-pandemic period, sources indicate that the
-coming season carries multiple unpredictable factors such as the lasting
-effect of the COVID-19 pandemic, decreasing population immunity and a
-higher genetic homogeneity amongst influenza lineages [@dhan2022].
-Inconsistent COVID vaccination patterns i.e. varied coverage depending
-on a country, group age and time window, disrupted the roll-out of other
-vaccines [@maltzou2022]. This shows some similarities with our findings, as seen
-in the appendix (Fig. Vacc). Uptake rate in most risk groups dropped in
-2020 compared to 2019. Pregnant women were the only risk group with
-similar uptake rate. These disruptive patterns were observed in South
-Africa when the 2021-22 season peaked unusually late during the winter
-[@whoupdate]. However, regular seasonality was restored in the following
-season, both dominated by A (H1N1).
+[@tamerius2011]. In terms of the post-pandemic period, sources indicate
+that the coming season carries multiple unpredictable factors such as
+the lasting effect of the COVID-19 pandemic, decreasing population
+immunity and a higher genetic homogeneity amongst influenza lineages
+[@dhan2022]. Inconsistent COVID vaccination patterns i.e. varied
+coverage depending on a country, group age and time window, disrupted
+the roll-out of other vaccines [@msltzou2022]. This shows some
+similarities with our findings, as seen in the appendix C. Uptake rate
+in most risk groups dropped in 2020 compared to 2019. Pregnant women
+were the only risk group with similar uptake rate. These disruptive
+patterns were observed in South Africa when the 2021-22 season peaked
+unusually late during the winter [@whoupdate]. However, regular
+seasonality was restored in the following season, both dominated by A
+(H1N1).
+
 
 ### Strengths
 
@@ -712,7 +784,9 @@ data. Our data did not have the quantity and quality needed for more
 in-depth statistical analysis. For example, Pearson Correlation test
 would require the data to be normally distributed, and Granger Causality
 needs prerequisite tests to prove stationarity. We resorted to use
-Spearman Correlation with manual lag ([\#](#Cross-correlation)), which
+
+Spearman Correlation with manual lag, which
+
 would result in `NA`s in the first few or last few observations. The
 test has to be run on two series of equal length, meaning that a
 considerable amount is trimmed off to match them. Lack of more granular
@@ -799,6 +873,11 @@ sources, there is a lag in primary care cases among different age
 groups. There is also a noticeable difference in the rate of spread
 reported between primary and secondary care cases.
 
+
+::: {style="page-break-after: always"}
+
+:::
+
 ## Appendix A - Team Statement
 
 -   Data extraction and cleaning: GB, AC, SJ, HL
@@ -812,6 +891,7 @@ reported between primary and secondary care cases.
 -   Writing-Up: GB, AC, SJ, HL
 
 
+
 I hereby declare and confirm with my signature that this report, along
 with the code and graphics in this project, is the combined effort of
 our group. Everyone has made significant contributions in their own
@@ -823,11 +903,19 @@ other people's works are cited.
 
 Team Member: GB, AC, SJ, HL
 
-## **Appendix B - Variables and Data Sources**
+## Appendix B - Variables and Data Sources
+
 
 All data sources and scripts can be found in our shared github :
 <https://github.com/gabrielbattcock/data_challenge>.
 
-## Appendix C - Summary of Missing Data
+## Appendix C - Vaccination plot
+
+```{r, echo = FALSE}
+source("../R_scripts/source/vacc_plot.R")
+
+vacc_plot
+```
+
 
 ## References
