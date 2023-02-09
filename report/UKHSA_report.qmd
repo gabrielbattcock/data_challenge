@@ -661,35 +661,35 @@ seems to plummet with a slight delay.
 Few studies have been done on this topic, and none on UK data. However,
 there are several sources which try to understand the relationship of
 influenza before and after the COVID-19 pandemic. One of the most
-interesting comparisons would be with the work by \[1\] studying the
+interesting comparisons would be with the work by [@groves2022] studying the
 effect of the COVID-19 pandemic on ILI-related hospitalization and
-mortality in children \[1\]. The main findings conclude there was a
+mortality in children [@groves2022]. The main findings conclude there was a
 statistically significant drop in the number of cases in pediatric
 influenza hospitalisations post pandemic. The report highlights the lack
 of ILI-related data for the COVID-19 pandemic period, in line with our
 findings. A similar phenomenon is seen in Italy, China and the USA
-\[2\]. It is suspected that during that period, ILI was under-reported
+[@young2020]. It is suspected that during that period, ILI was under-reported
 due to the main focus being COVID testing. This hypothesis however does
 not explain observations in China where incidence was low, even though
 type A and B influenza tests were conducted for patients with suspicion
-of COVID-19 \[3\]. Another possible explanation is the change in contact
+of COVID-19 [@huang2020]. Another possible explanation is the change in contact
 patterns which caused immunity perturbations that happened throughout
 2019-20.
 
 Seasonality is a result of a complex interplay between previously
 mentioned contact patterns, host immunity and survival of the virus
-\[4\]. In terms of the post-pandemic period, sources indicate that the
+[@tamerius2021]. In terms of the post-pandemic period, sources indicate that the
 coming season carries multiple unpredictable factors such as the lasting
 effect of the COVID-19 pandemic, decreasing population immunity and a
-higher genetic homogeneity amongst influenza lineages \[5\].
+higher genetic homogeneity amongst influenza lineages [@dhan2022].
 Inconsistent COVID vaccination patterns i.e. varied coverage depending
 on a country, group age and time window, disrupted the roll-out of other
-vaccines \[6\]. This shows some similarities with our findings, as seen
+vaccines [@maltzou2022]. This shows some similarities with our findings, as seen
 in the appendix (Fig. Vacc). Uptake rate in most risk groups dropped in
 2020 compared to 2019. Pregnant women were the only risk group with
 similar uptake rate. These disruptive patterns were observed in South
 Africa when the 2021-22 season peaked unusually late during the winter
-\[7\]. However, regular seasonality was restored in the following
+[@whoupdate]. However, regular seasonality was restored in the following
 season, both dominated by A (H1N1).
 
 ### Strengths
